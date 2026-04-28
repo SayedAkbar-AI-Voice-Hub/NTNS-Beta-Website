@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html class="light scroll-smooth" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>NTNS | Never Miss a Lead Again | AI Voice Receptionist</title>
+    <meta name="description" content="NTNS provides a 24/7 AI Voice Receptionist and automated growth system that captures every lead, follows up instantly, and turns more inquiries into paying customers." />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-surface-variant": "#464554",
+                        "on-secondary": "#ffffff",
+                        "on-primary-container": "#fffbff",
+                        "primary-container": "#6063ee",
+                        "secondary-container": "#fd56a7",
+                        "error-container": "#ffdad6",
+                        "secondary": "#b4136d",
+                        "surface-variant": "#dae2fd",
+                        "background": "#faf8ff",
+                        "tertiary-container": "#008096",
+                        "surface-container": "#eaedff",
+                        "surface-container-high": "#e2e7ff",
+                        "surface-container-low": "#f2f3ff",
+                        "on-error-container": "#93000a",
+                        "inverse-on-surface": "#eef0ff",
+                        "primary": "#4648d4",
+                        "on-surface": "#131b2e",
+                        "on-tertiary-container": "#f9fdff",
+                        "error": "#ba1a1a",
+                        "outline-variant": "#c7c4d7",
+                        "on-primary": "#ffffff",
+                        "surface": "#faf8ff",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-highest": "#dae2fd",
+                        "inverse-surface": "#283044",
+                        "surface-dim": "#d2d9f4",
+                        "outline": "#767586",
+                        "on-background": "#131b2e",
+                        "tertiary": "#006577",
+                        "surface-bright": "#faf8ff",
+                        "surface-tint": "#494bd6"
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.25rem",
+                        lg: "0.5rem",
+                        xl: "0.75rem",
+                        full: "9999px"
+                    },
+                    spacing: {
+                        gutter: "32px",
+                        "section-gap": "120px",
+                        unit: "8px",
+                        "container-max": "1280px",
+                        "margin-safe": "40px"
+                    },
+                    fontFamily: {
+                        "label-bold": ["Lexend"],
+                        "headline-2xl": ["Archivo"],
+                        "headline-lg": ["Archivo"],
+                        "body-md": ["Lexend"],
+                        "headline-xl": ["Archivo"],
+                        "body-lg": ["Lexend"]
+                    },
+                    fontSize: {
+                        "label-bold": ["14px", { lineHeight: "1", letterSpacing: "0.05em", fontWeight: "600" }],
+                        "headline-2xl": ["72px", { lineHeight: "1.1", letterSpacing: "-0.04em", fontWeight: "700" }],
+                        "headline-lg": ["32px", { lineHeight: "1.3", fontWeight: "600" }],
+                        "body-md": ["16px", { lineHeight: "1.5", fontWeight: "400" }],
+                        "headline-xl": ["48px", { lineHeight: "1.2", letterSpacing: "-0.02em", fontWeight: "600" }],
+                        "body-lg": ["20px", { lineHeight: "1.6", fontWeight: "400" }]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .aura-glow {
+            filter: blur(120px);
+            opacity: 0.15;
+            z-index: -1;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .animate-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .animate-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .pulse-ring {
+            animation: pulse-ring 2.5s ease-out infinite;
+        }
+        @keyframes pulse-ring {
+            0% { transform: scale(1); opacity: 0.5; }
+            100% { transform: scale(2); opacity: 0; }
+        }
+
+        @keyframes spin-slow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .animate-spin-slow {
+            animation: spin-slow 12s linear infinite;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .animate-in { opacity: 1; transform: none; transition: none; }
+            .pulse-ring { animation: none; }
+            .animate-spin-slow { animation: none; }
+        }
+
+        @media (max-width: 768px) {
+            .text-headline-2xl {
+                font-size: 40px !important;
+            }
+            .text-headline-xl {
+                font-size: 32px !important;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-background font-body-md text-on-background selection:bg-primary-container selection:text-on-primary-container">
+
+    <!-- Background Aura Elements -->
+    <div class="fixed top-[-10%] left-[-10%] w-[50%] h-[50%] bg-primary aura-glow rounded-full"></div>
+    <div class="fixed bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-secondary aura-glow rounded-full"></div>
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 flex items-center justify-between px-6 md:px-8 py-3 w-full bg-white/40 backdrop-blur-2xl rounded-full mt-4 md:mt-6 mx-auto max-w-5xl border border-white/20 shadow-[0_8px_32px_0_rgba(99,102,241,0.1)]">
+        <a href="#" class="flex items-center gap-2">
+            <div class="w-9 h-9 rounded-lg bg-inverse-surface flex items-center justify-center overflow-hidden">
+                <img src="NTNS Logo.png" alt="NTNS" class="h-6 w-auto" />
+            </div>
+            <span class="text-xl font-bold tracking-tighter text-on-surface font-['Archivo']">NTNS</span>
+        </a>
+        <div class="hidden md:flex gap-8 items-center">
+            <a class="font-['Archivo'] text-on-surface-variant hover:text-primary transition-all duration-300 tracking-tight font-medium text-sm" href="#problem">Problem</a>
+            <a class="font-['Archivo'] text-on-surface-variant hover:text-primary transition-all duration-300 tracking-tight font-medium text-sm" href="#solution">Solution</a>
+            <a class="font-['Archivo'] text-on-surface-variant hover:text-primary transition-all duration-300 tracking-tight font-medium text-sm" href="#industries">Industries</a>
+            <a class="font-['Archivo'] text-on-surface-variant hover:text-primary transition-all duration-300 tracking-tight font-medium text-sm" href="#demo">Live Demo</a>
+        </div>
+        <div class="flex gap-3 items-center">
+            <a href="tel:+15106347901" class="bg-primary text-on-primary px-5 py-2.5 rounded-full font-['Archivo'] font-bold text-sm transition-all duration-500 ease-out shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 hover:scale-105 cursor-pointer flex items-center gap-2">
+                <span class="material-symbols-outlined text-lg">call</span>
+                <span class="hidden sm:inline">Call Demo</span>
+            </a>
+            <button id="mobile-menu-btn" class="md:hidden p-2 text-on-surface-variant hover:text-primary cursor-pointer" aria-label="Open menu">
+                <span class="material-symbols-outlined">menu</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden fixed inset-x-0 top-[72px] z-40 mx-4">
+        <div class="glass-card rounded-3xl p-6 shadow-2xl space-y-4">
+            <a class="block font-['Archivo'] text-on-surface-variant hover:text-primary py-2 font-medium" href="#problem">Problem</a>
+            <a class="block font-['Archivo'] text-on-surface-variant hover:text-primary py-2 font-medium" href="#solution">Solution</a>
+            <a class="block font-['Archivo'] text-on-surface-variant hover:text-primary py-2 font-medium" href="#industries">Industries</a>
+            <a class="block font-['Archivo'] text-on-surface-variant hover:text-primary py-2 font-medium" href="#demo">Live Demo</a>
+            <a href="tel:+15106347901" class="flex items-center justify-center gap-2 bg-primary text-on-primary px-6 py-3 rounded-full font-['Archivo'] font-bold text-sm cursor-pointer mt-2">
+                <span class="material-symbols-outlined text-lg">call</span>
+                Call Demo Now
+            </a>
+        </div>
+    </div>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="relative pt-24 md:pt-32 pb-section-gap px-gutter overflow-hidden">
+            <div class="max-w-container-max mx-auto text-center relative z-10">
+                <div class="animate-in inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card mb-8">
+                    <span class="flex h-2 w-2 rounded-full bg-primary animate-pulse"></span>
+                    <span class="text-label-bold font-label-bold text-primary">24/7 AI VOICE RECEPTIONIST</span>
+                </div>
+                <h1 class="animate-in font-headline-2xl text-headline-2xl text-on-surface mb-8 max-w-4xl mx-auto" style="transition-delay:80ms">
+                    Never Miss a <span class="text-primary">Lead Again</span>
+                </h1>
+                <p class="animate-in font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto mb-12" style="transition-delay:160ms">
+                    NTNS captures every lead, follows up instantly, and turns more inquiries into paying customers. Nothing slips through the cracks.
+                </p>
+                <div class="animate-in flex flex-col sm:flex-row justify-center gap-4 sm:gap-6" style="transition-delay:240ms">
+                    <a href="tel:+15106347901" class="bg-primary text-on-primary px-10 py-5 rounded-full font-headline-lg text-body-md hover:shadow-xl hover:shadow-primary/30 transition-all duration-500 cursor-pointer inline-flex items-center justify-center gap-3 hover:scale-105 active:scale-95">
+                        <span class="material-symbols-outlined">call</span>
+                        Try the AI Live
+                    </a>
+                    <a href="#solution" class="glass-card px-10 py-5 rounded-full font-headline-lg text-body-md hover:bg-white/60 transition-all duration-500 flex items-center justify-center gap-2 cursor-pointer">
+                        <span class="material-symbols-outlined">play_circle</span>
+                        See How It Works
+                    </a>
+                </div>
+                <p class="animate-in text-sm text-on-surface-variant/60 mt-6 font-['Archivo']" style="transition-delay:320ms">
+                    Call <span class="text-on-surface font-semibold">+1 (510) 634-7901</span> to experience it yourself
+                </p>
+            </div>
+
+            <!-- Floating Glass Elements -->
+            <div class="hidden lg:block absolute top-[18%] left-[3%] w-64 h-80 bg-white rounded-[32px] p-6 -rotate-6 shadow-2xl border border-outline-variant/20 animate-in" style="transition-delay:400ms">
+                <div class="flex justify-between items-center mb-6">
+                    <div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
+                        <span class="material-symbols-outlined text-primary">call</span>
+                    </div>
+                    <span class="text-xs font-label-bold text-on-surface-variant">Active Now</span>
+                </div>
+                <div class="space-y-4">
+                    <div class="h-3 w-3/4 bg-surface-container rounded-full"></div>
+                    <div class="h-3 w-1/2 bg-surface-container rounded-full"></div>
+                    <div class="mt-6 flex justify-center">
+                        <div class="w-20 h-20 rounded-full border-2 border-primary border-dashed flex items-center justify-center animate-spin-slow">
+                            <span class="material-symbols-outlined text-primary text-3xl" style="animation:none">mic</span>
+                        </div>
+                    </div>
+                    <p class="text-xs text-center text-on-surface-variant mt-2">AI Receptionist Listening...</p>
+                </div>
+            </div>
+
+            <div class="hidden lg:block absolute bottom-[8%] right-[3%] w-72 h-auto bg-white rounded-[32px] p-6 rotate-3 shadow-2xl border border-outline-variant/20 animate-in" style="transition-delay:500ms">
+                <div class="flex items-center gap-3 mb-5 border-b border-surface-variant pb-4">
+                    <div class="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-white text-sm font-bold">JM</div>
+                    <div>
+                        <p class="text-sm font-label-bold">James Mitchell</p>
+                        <p class="text-xs text-on-surface-variant">Qualified Lead &bull; Roofing</p>
+                    </div>
+                </div>
+                <div class="space-y-3">
+                    <div class="flex justify-between items-center bg-surface-container-low p-2.5 rounded-lg">
+                        <span class="text-xs text-on-surface-variant">Interest Level</span>
+                        <span class="text-xs font-bold text-secondary">96% High</span>
+                    </div>
+                    <div class="flex justify-between items-center bg-surface-container-low p-2.5 rounded-lg">
+                        <span class="text-xs text-on-surface-variant">Next Step</span>
+                        <span class="text-xs font-bold text-primary">Auto-Scheduled</span>
+                    </div>
+                    <div class="flex justify-between items-center bg-surface-container-low p-2.5 rounded-lg">
+                        <span class="text-xs text-on-surface-variant">Follow-up</span>
+                        <span class="text-xs font-bold text-tertiary">SMS Sent</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Problem Section -->
+        <section id="problem" class="py-section-gap px-gutter bg-surface-container-lowest">
+            <div class="max-w-container-max mx-auto">
+                <div class="grid lg:grid-cols-2 gap-16 lg:gap-20 items-center">
+                    <div class="animate-in">
+                        <h2 class="font-headline-xl text-headline-xl text-on-surface mb-8">
+                            Your Business is <span class="text-error">Bleeding Revenue</span> Every Day.
+                        </h2>
+                        <p class="font-body-lg text-body-lg text-on-surface-variant mb-12">
+                            Local businesses lose money daily because of broken systems. Not just inefficiency: lost revenue and lost trust.
+                        </p>
+                        <ul class="space-y-6">
+                            <li class="flex gap-4 items-start">
+                                <span class="material-symbols-outlined text-error p-2 bg-error/10 rounded-lg shrink-0">phone_missed</span>
+                                <div>
+                                    <h4 class="font-headline-lg text-body-md font-bold">Calls Go Unanswered</h4>
+                                    <p class="text-on-surface-variant">Every missed call is a missed customer. Your competitors are just one ring away.</p>
+                                </div>
+                            </li>
+                            <li class="flex gap-4 items-start">
+                                <span class="material-symbols-outlined text-error p-2 bg-error/10 rounded-lg shrink-0">timer_off</span>
+                                <div>
+                                    <h4 class="font-headline-lg text-body-md font-bold">Slow Follow-Up</h4>
+                                    <p class="text-on-surface-variant">Leads go cold in minutes. If you don't respond instantly, someone else will.</p>
+                                </div>
+                            </li>
+                            <li class="flex gap-4 items-start">
+                                <span class="material-symbols-outlined text-error p-2 bg-error/10 rounded-lg shrink-0">visibility_off</span>
+                                <div>
+                                    <h4 class="font-headline-lg text-body-md font-bold">No Tracking System</h4>
+                                    <p class="text-on-surface-variant">Without a clear system, opportunities slip through the cracks unnoticed.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Stat Cards -->
+                    <div class="relative grid grid-cols-2 gap-5 animate-in" style="transition-delay:150ms">
+                        <div class="bg-error/5 border border-error/10 p-7 rounded-2xl transform translate-y-10">
+                            <span class="material-symbols-outlined text-error mb-3 block">trending_down</span>
+                            <p class="text-headline-xl font-headline-xl text-error mb-1">78%</p>
+                            <p class="text-label-bold uppercase text-on-surface-variant text-[11px]">Buy From First Responder</p>
+                            <div class="mt-5 h-2 w-full bg-surface-container-high rounded-full overflow-hidden">
+                                <div class="bg-error h-full w-4/5 rounded-full"></div>
+                            </div>
+                        </div>
+                        <div class="bg-inverse-surface text-inverse-on-surface p-7 rounded-2xl shadow-2xl">
+                            <span class="material-symbols-outlined text-inverse-on-surface/60 mb-3 block">person_off</span>
+                            <p class="text-headline-xl font-headline-xl mb-1">64%</p>
+                            <p class="text-label-bold uppercase opacity-70 text-[11px]">Lead Drop-off Rate</p>
+                            <div class="mt-5 flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-white/10 rounded-full text-[10px]">No Answer</span>
+                                <span class="px-3 py-1 bg-white/10 rounded-full text-[10px]">Slow Response</span>
+                            </div>
+                        </div>
+                        <div class="bg-secondary/5 border border-secondary/10 p-7 rounded-2xl">
+                            <span class="material-symbols-outlined text-secondary mb-3 block">inventory_2</span>
+                            <p class="text-headline-xl font-headline-xl text-secondary mb-1">0</p>
+                            <p class="text-label-bold uppercase text-on-surface-variant text-[11px]">Reviews From Happy Customers</p>
+                        </div>
+                        <div class="bg-surface-container-low p-7 rounded-2xl relative overflow-hidden group">
+                            <span class="material-symbols-outlined text-on-surface-variant mb-3 block">delete_sweep</span>
+                            <p class="text-headline-xl font-headline-xl text-on-surface mb-1">100s</p>
+                            <p class="text-label-bold uppercase text-on-surface-variant text-[11px]">Old Leads Forgotten</p>
+                            <div class="absolute -right-3 -bottom-3 opacity-5 group-hover:opacity-10 transition-opacity">
+                                <span class="material-symbols-outlined text-[120px]">warning</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Solution Section -->
+        <section id="solution" class="py-section-gap px-gutter relative">
+            <div class="max-w-container-max mx-auto text-center mb-20 animate-in">
+                <h2 class="font-headline-xl text-headline-xl text-on-surface mb-6">One System. <span class="text-primary">Every Lead Handled.</span></h2>
+                <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">
+                    We install a complete AI-powered system that handles your entire lead flow, from first contact to final review.
+                </p>
+            </div>
+
+            <div class="max-w-5xl mx-auto glass-card rounded-[48px] p-8 md:p-14 shadow-2xl relative">
+                <!-- AI Hub -->
+                <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                    <div class="w-28 h-28 rounded-full bg-white flex items-center justify-center p-2 shadow-2xl">
+                        <div class="w-full h-full rounded-full bg-gradient-to-br from-primary via-secondary to-primary-container p-1 flex items-center justify-center animate-spin-slow">
+                            <div class="w-full h-full rounded-full bg-white flex items-center justify-center">
+                                <span class="material-symbols-outlined text-primary text-3xl">hub</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Top Features Row -->
+                <div class="grid md:grid-cols-3 gap-10 mt-8 animate-in">
+                    <div class="text-center space-y-5">
+                        <div class="w-14 h-14 mx-auto rounded-2xl bg-surface-container flex items-center justify-center shadow-inner">
+                            <span class="material-symbols-outlined text-primary text-2xl">record_voice_over</span>
+                        </div>
+                        <h3 class="font-headline-lg text-body-lg font-bold">Answers Every Call 24/7</h3>
+                        <p class="text-body-md text-on-surface-variant">Your AI receptionist responds instantly, handles inquiries, and speaks naturally with customers.</p>
+                    </div>
+                    <div class="text-center space-y-5 relative">
+                        <div class="hidden md:block absolute top-7 -left-10 -right-10 h-px bg-gradient-to-r from-transparent via-outline-variant to-transparent"></div>
+                        <div class="w-14 h-14 mx-auto rounded-2xl bg-surface-container flex items-center justify-center shadow-inner relative z-10">
+                            <span class="material-symbols-outlined text-secondary text-2xl">verified_user</span>
+                        </div>
+                        <h3 class="font-headline-lg text-body-lg font-bold">Qualifies &amp; Captures</h3>
+                        <p class="text-body-md text-on-surface-variant">Asks smart questions, filters serious prospects, and stores everything in your CRM.</p>
+                    </div>
+                    <div class="text-center space-y-5">
+                        <div class="w-14 h-14 mx-auto rounded-2xl bg-surface-container flex items-center justify-center shadow-inner">
+                            <span class="material-symbols-outlined text-tertiary text-2xl">event_available</span>
+                        </div>
+                        <h3 class="font-headline-lg text-body-lg font-bold">Books Appointments</h3>
+                        <p class="text-body-md text-on-surface-variant">Syncs with your calendar and schedules jobs without any manual effort.</p>
+                    </div>
+                </div>
+
+                <!-- Dashboard Snippet -->
+                <div class="mt-16 rounded-3xl overflow-hidden bg-inverse-surface shadow-2xl border border-white/10 animate-in" style="transition-delay:150ms">
+                    <div class="bg-white/5 px-6 py-3 flex items-center gap-2">
+                        <div class="flex gap-1.5">
+                            <div class="w-2.5 h-2.5 rounded-full bg-error/40"></div>
+                            <div class="w-2.5 h-2.5 rounded-full bg-secondary/40"></div>
+                            <div class="w-2.5 h-2.5 rounded-full bg-primary/40"></div>
+                        </div>
+                        <span class="ml-4 text-[10px] text-white/40 font-mono tracking-widest">NTNS_AI_SYSTEM_V2.0</span>
+                    </div>
+                    <div class="p-6 md:p-8 grid md:grid-cols-2 gap-8">
+                        <div class="space-y-5">
+                            <div class="space-y-2">
+                                <p class="text-xs text-white/40 uppercase tracking-wider">Live Conversation</p>
+                                <div class="bg-white/5 border border-white/10 p-4 rounded-xl">
+                                    <p class="text-xs text-primary mb-1">AI Receptionist:</p>
+                                    <p class="text-sm text-white/80 italic">"I've found an opening for tomorrow at 2 PM. Would you like me to reserve that for your roof inspection?"</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-3">
+                                <div class="flex-1 bg-white/5 border border-white/10 p-4 rounded-xl">
+                                    <p class="text-[10px] text-white/40 mb-1">Confidence</p>
+                                    <p class="text-lg text-white font-headline-lg">99.2%</p>
+                                </div>
+                                <div class="flex-1 bg-white/5 border border-white/10 p-4 rounded-xl">
+                                    <p class="text-[10px] text-white/40 mb-1">Booking Intent</p>
+                                    <p class="text-lg text-secondary font-headline-lg">Ultra-High</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="space-y-4">
+                            <p class="text-xs text-white/40 uppercase tracking-wider">System Pipeline</p>
+                            <div class="space-y-3">
+                                <div class="flex items-center gap-3 bg-white/5 border border-white/10 p-3 rounded-xl">
+                                    <span class="material-symbols-outlined text-primary text-lg">call</span>
+                                    <div class="flex-1">
+                                        <p class="text-xs text-white/80">Incoming Call Answered</p>
+                                        <p class="text-[10px] text-white/40">0.3s response time</p>
+                                    </div>
+                                    <span class="material-symbols-outlined text-primary/60 text-sm">check_circle</span>
+                                </div>
+                                <div class="flex items-center gap-3 bg-white/5 border border-white/10 p-3 rounded-xl">
+                                    <span class="material-symbols-outlined text-secondary text-lg">sms</span>
+                                    <div class="flex-1">
+                                        <p class="text-xs text-white/80">Follow-up SMS Sent</p>
+                                        <p class="text-[10px] text-white/40">Automatic within 30s</p>
+                                    </div>
+                                    <span class="material-symbols-outlined text-secondary/60 text-sm">check_circle</span>
+                                </div>
+                                <div class="flex items-center gap-3 bg-white/5 border border-white/10 p-3 rounded-xl">
+                                    <span class="material-symbols-outlined text-tertiary text-lg">calendar_month</span>
+                                    <div class="flex-1">
+                                        <p class="text-xs text-white/80">Appointment Booked</p>
+                                        <p class="text-[10px] text-white/40">Synced to calendar</p>
+                                    </div>
+                                    <span class="material-symbols-outlined text-tertiary/60 text-sm">check_circle</span>
+                                </div>
+                                <div class="flex items-center gap-3 bg-white/5 border border-white/10 p-3 rounded-xl">
+                                    <span class="material-symbols-outlined text-primary text-lg">person_add</span>
+                                    <div class="flex-1">
+                                        <p class="text-xs text-white/80">Lead Added to CRM</p>
+                                        <p class="text-[10px] text-white/40">Full profile created</p>
+                                    </div>
+                                    <span class="material-symbols-outlined text-primary/60 text-sm">check_circle</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- More Features Below -->
+            <div class="max-w-5xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-5 mt-10">
+                <div class="bg-surface-container-low p-7 rounded-2xl group hover:bg-surface-container transition-all duration-300 animate-in cursor-default">
+                    <span class="material-symbols-outlined text-primary text-2xl mb-4 block">sms</span>
+                    <h4 class="font-bold text-sm mb-2 font-['Archivo']">Instant Follow-Up</h4>
+                    <p class="text-xs text-on-surface-variant">Every lead gets immediate SMS and email follow-up automatically.</p>
+                </div>
+                <div class="bg-surface-container-low p-7 rounded-2xl group hover:bg-surface-container transition-all duration-300 animate-in cursor-default" style="transition-delay:60ms">
+                    <span class="material-symbols-outlined text-secondary text-2xl mb-4 block">replay</span>
+                    <h4 class="font-bold text-sm mb-2 font-['Archivo']">Reactivates Old Leads</h4>
+                    <p class="text-xs text-on-surface-variant">Brings past prospects back into your pipeline for new revenue.</p>
+                </div>
+                <div class="bg-surface-container-low p-7 rounded-2xl group hover:bg-surface-container transition-all duration-300 animate-in cursor-default" style="transition-delay:120ms">
+                    <span class="material-symbols-outlined text-tertiary text-2xl mb-4 block">monitoring</span>
+                    <h4 class="font-bold text-sm mb-2 font-['Archivo']">Full CRM Tracking</h4>
+                    <p class="text-xs text-on-surface-variant">Complete visibility on leads, conversations, and conversions.</p>
+                </div>
+                <div class="bg-surface-container-low p-7 rounded-2xl group hover:bg-surface-container transition-all duration-300 animate-in cursor-default" style="transition-delay:180ms">
+                    <span class="material-symbols-outlined text-on-surface text-2xl mb-4 block">star</span>
+                    <h4 class="font-bold text-sm mb-2 font-['Archivo']">Automated Reviews</h4>
+                    <p class="text-xs text-on-surface-variant">Turns happy customers into public testimonials automatically.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Industries Section -->
+        <section id="industries" class="py-section-gap px-gutter">
+            <div class="max-w-container-max mx-auto">
+                <div class="text-center mb-14 animate-in">
+                    <h2 class="font-headline-xl text-headline-xl text-on-surface mb-4">Built for <span class="text-secondary">Your Industry</span></h2>
+                    <p class="text-on-surface-variant text-body-lg max-w-2xl mx-auto">Each system is configured for how your business actually operates. Call the demo to hear it handle your industry's real conversations.</p>
+                </div>
+                <div class="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto animate-in">
+                    <a href="tel:+15106347901" class="inline-flex items-center gap-2.5 px-5 py-3.5 rounded-full bg-surface-container-low hover:bg-primary hover:text-on-primary transition-all duration-300 cursor-pointer group">
+                        <span class="material-symbols-outlined text-secondary text-lg group-hover:text-on-primary">directions_car</span>
+                        <span class="font-['Archivo'] font-semibold text-sm">Driving Schools</span>
+                    </a>
+                    <a href="tel:+15106347901" class="inline-flex items-center gap-2.5 px-5 py-3.5 rounded-full bg-surface-container-low hover:bg-primary hover:text-on-primary transition-all duration-300 cursor-pointer group">
+                        <span class="material-symbols-outlined text-primary text-lg group-hover:text-on-primary">dentistry</span>
+                        <span class="font-['Archivo'] font-semibold text-sm">Dental Clinics</span>
+                    </a>
+                    <a href="tel:+15106347901" class="inline-flex items-center gap-2.5 px-5 py-3.5 rounded-full bg-surface-container-low hover:bg-primary hover:text-on-primary transition-all duration-300 cursor-pointer group">
+                        <span class="material-symbols-outlined text-tertiary text-lg group-hover:text-on-primary">content_cut</span>
+                        <span class="font-['Archivo'] font-semibold text-sm">Barbershops</span>
+                    </a>
+                    <a href="tel:+15106347901" class="inline-flex items-center gap-2.5 px-5 py-3.5 rounded-full bg-surface-container-low hover:bg-primary hover:text-on-primary transition-all duration-300 cursor-pointer group">
+                        <span class="material-symbols-outlined text-primary text-lg group-hover:text-on-primary">plumbing</span>
+                        <span class="font-['Archivo'] font-semibold text-sm">Plumbing</span>
+                    </a>
+                    <a href="tel:+15106347901" class="inline-flex items-center gap-2.5 px-5 py-3.5 rounded-full bg-surface-container-low hover:bg-primary hover:text-on-primary transition-all duration-300 cursor-pointer group">
+                        <span class="material-symbols-outlined text-error text-lg group-hover:text-on-primary">roofing</span>
+                        <span class="font-['Archivo'] font-semibold text-sm">Roofing</span>
+                    </a>
+                    <a href="tel:+15106347901" class="inline-flex items-center gap-2.5 px-5 py-3.5 rounded-full bg-surface-container-low hover:bg-primary hover:text-on-primary transition-all duration-300 cursor-pointer group">
+                        <span class="material-symbols-outlined text-error text-lg group-hover:text-on-primary">local_fire_department</span>
+                        <span class="font-['Archivo'] font-semibold text-sm">HVAC</span>
+                    </a>
+                    <a href="tel:+15106347901" class="inline-flex items-center gap-2.5 px-5 py-3.5 rounded-full bg-surface-container-low hover:bg-primary hover:text-on-primary transition-all duration-300 cursor-pointer group">
+                        <span class="material-symbols-outlined text-tertiary text-lg group-hover:text-on-primary">cleaning_services</span>
+                        <span class="font-['Archivo'] font-semibold text-sm">Cleaning</span>
+                    </a>
+                    <a href="tel:+15106347901" class="inline-flex items-center gap-2.5 px-5 py-3.5 rounded-full bg-surface-container-low hover:bg-primary hover:text-on-primary transition-all duration-300 cursor-pointer group">
+                        <span class="material-symbols-outlined text-primary text-lg group-hover:text-on-primary">yard</span>
+                        <span class="font-['Archivo'] font-semibold text-sm">Landscaping</span>
+                    </a>
+                    <a href="tel:+15106347901" class="inline-flex items-center gap-2.5 px-5 py-3.5 rounded-full bg-surface-container-low hover:bg-primary hover:text-on-primary transition-all duration-300 cursor-pointer group">
+                        <span class="material-symbols-outlined text-secondary text-lg group-hover:text-on-primary">bolt</span>
+                        <span class="font-['Archivo'] font-semibold text-sm">Electrical</span>
+                    </a>
+                    <a href="tel:+15106347901" class="inline-flex items-center gap-2.5 px-5 py-3.5 rounded-full bg-surface-container-low hover:bg-primary hover:text-on-primary transition-all duration-300 cursor-pointer group">
+                        <span class="material-symbols-outlined text-on-surface text-lg group-hover:text-on-primary">local_shipping</span>
+                        <span class="font-['Archivo'] font-semibold text-sm">Transportation</span>
+                    </a>
+                    <a href="tel:+15106347901" class="inline-flex items-center gap-2.5 px-5 py-3.5 rounded-full bg-surface-container-low hover:bg-primary hover:text-on-primary transition-all duration-300 cursor-pointer group">
+                        <span class="material-symbols-outlined text-primary text-lg group-hover:text-on-primary">shield</span>
+                        <span class="font-['Archivo'] font-semibold text-sm">Insurance</span>
+                    </a>
+                    <a href="tel:+15106347901" class="inline-flex items-center gap-2.5 px-5 py-3.5 rounded-full bg-surface-container-low hover:bg-primary hover:text-on-primary transition-all duration-300 cursor-pointer group">
+                        <span class="material-symbols-outlined text-error text-lg group-hover:text-on-primary">local_hospital</span>
+                        <span class="font-['Archivo'] font-semibold text-sm">Medical</span>
+                    </a>
+                    <a href="tel:+15106347901" class="inline-flex items-center gap-2.5 px-5 py-3.5 rounded-full bg-surface-container-low hover:bg-primary hover:text-on-primary transition-all duration-300 cursor-pointer group">
+                        <span class="material-symbols-outlined text-tertiary text-lg group-hover:text-on-primary">home_work</span>
+                        <span class="font-['Archivo'] font-semibold text-sm">Real Estate</span>
+                    </a>
+                    <a href="tel:+15106347901" class="inline-flex items-center gap-2.5 px-5 py-3.5 rounded-full bg-surface-container-low hover:bg-primary hover:text-on-primary transition-all duration-300 cursor-pointer group">
+                        <span class="material-symbols-outlined text-on-surface text-lg group-hover:text-on-primary">storefront</span>
+                        <span class="font-['Archivo'] font-semibold text-sm">Your Industry</span>
+                    </a>
+                </div>
+                <p class="text-center text-sm text-on-surface-variant mt-8 animate-in font-['Archivo']">Tap any industry to call the AI demo configured for that vertical</p>
+            </div>
+        </section>
+
+        <!-- Live Demo CTA Section -->
+        <section id="demo" class="py-section-gap px-gutter relative overflow-hidden">
+            <div class="max-w-4xl mx-auto glass-card rounded-[48px] p-10 md:p-20 text-center relative z-10 border-primary/20 animate-in">
+                <div class="bg-gradient-to-r from-primary/5 via-secondary/5 to-primary/5 absolute inset-0 rounded-[48px] -z-10"></div>
+                <h2 class="font-headline-xl text-headline-xl mb-6">Talk to Your New <span class="text-primary">AI Receptionist</span></h2>
+                <p class="text-body-lg text-on-surface-variant mb-10 max-w-xl mx-auto">
+                    Call now. Tell it your industry, ask real questions, and experience how it handles actual customer conversations.
+                </p>
+                <div class="relative inline-block group">
+                    <div class="absolute -inset-4 bg-primary/20 rounded-full blur-2xl group-hover:bg-primary/40 transition-all"></div>
+                    <a href="tel:+15106347901" class="relative bg-inverse-surface text-white px-12 py-6 rounded-full font-headline-lg flex items-center gap-4 hover:scale-105 transition-transform cursor-pointer text-body-md shadow-2xl">
+                        <div class="relative">
+                            <span class="material-symbols-outlined animate-pulse text-primary">mic</span>
+                            <div class="absolute inset-0 rounded-full border-2 border-primary/30 pulse-ring"></div>
+                        </div>
+                        +1 (510) 634-7901
+                    </a>
+                </div>
+                <div class="mt-10 flex flex-wrap justify-center items-center gap-x-8 gap-y-3 text-on-surface-variant/50">
+                    <span class="text-xs font-label-bold flex items-center gap-1.5">
+                        <span class="material-symbols-outlined text-sm text-primary">check_circle</span>
+                        Tell it your industry
+                    </span>
+                    <span class="text-xs font-label-bold flex items-center gap-1.5">
+                        <span class="material-symbols-outlined text-sm text-primary">check_circle</span>
+                        Ask real questions
+                    </span>
+                    <span class="text-xs font-label-bold flex items-center gap-1.5">
+                        <span class="material-symbols-outlined text-sm text-primary">check_circle</span>
+                        Experience it firsthand
+                    </span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bottom Line Section -->
+        <section class="py-section-gap px-gutter">
+            <div class="max-w-container-max mx-auto text-center">
+                <div class="animate-in">
+                    <h2 class="font-headline-xl text-headline-xl text-on-surface mb-4">Most Businesses Don't Have a Lead Problem.</h2>
+                    <p class="font-headline-xl text-headline-lg text-primary mb-16">They Have a System Problem.</p>
+                </div>
+
+                <div class="flex flex-wrap justify-center gap-x-12 gap-y-8 max-w-3xl mx-auto mb-16 animate-in">
+                    <div class="flex items-center gap-3">
+                        <span class="material-symbols-outlined text-primary text-2xl">call</span>
+                        <p class="text-on-surface font-bold text-sm font-['Archivo']">Every call answered</p>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="material-symbols-outlined text-secondary text-2xl">quickreply</span>
+                        <p class="text-on-surface font-bold text-sm font-['Archivo']">Every lead followed up</p>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="material-symbols-outlined text-tertiary text-2xl">track_changes</span>
+                        <p class="text-on-surface font-bold text-sm font-['Archivo']">Every opportunity tracked</p>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="material-symbols-outlined text-on-surface text-2xl">star</span>
+                        <p class="text-on-surface font-bold text-sm font-['Archivo']">Every customer becomes a review</p>
+                    </div>
+                </div>
+
+                <div class="animate-in" style="transition-delay:320ms">
+                    <a href="tel:+15106347901" class="inline-flex items-center gap-3 bg-primary text-on-primary px-12 py-5 rounded-full font-headline-lg text-body-md hover:shadow-xl hover:shadow-primary/30 transition-all duration-500 cursor-pointer hover:scale-105 active:scale-95 shadow-lg shadow-primary/20">
+                        <span class="material-symbols-outlined">call</span>
+                        Get Started, Call Now
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-16 border-t border-outline-variant/30">
+        <div class="max-w-7xl mx-auto px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-lg bg-inverse-surface flex items-center justify-center overflow-hidden">
+                    <img src="NTNS Logo.png" alt="NTNS" class="h-5 w-auto" />
+                </div>
+                <span class="text-lg font-bold text-on-surface font-['Archivo'] tracking-tight">NTNS</span>
+            </div>
+            <p class="font-['Archivo'] text-sm tracking-wide text-on-surface-variant">
+                &copy; 2025 NTNS. Never Miss a Lead Again.
+            </p>
+            <div class="flex gap-6">
+                <a class="font-['Archivo'] text-sm tracking-wide text-on-surface-variant hover:text-primary underline decoration-primary/30 underline-offset-4 transition-opacity opacity-80 hover:opacity-100 cursor-pointer" href="#">Privacy</a>
+                <a class="font-['Archivo'] text-sm tracking-wide text-on-surface-variant hover:text-primary underline decoration-primary/30 underline-offset-4 transition-opacity opacity-80 hover:opacity-100 cursor-pointer" href="#">Terms</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+        document.querySelectorAll('.animate-in').forEach(el => observer.observe(el));
+
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+
+</html>
