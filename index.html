@@ -82,10 +82,35 @@
     </script>
     <style>
         .glass-card {
-            background: rgba(255, 255, 255, 0.72);
-            backdrop-filter: blur(24px);
-            -webkit-backdrop-filter: blur(24px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            background: rgba(18, 16, 42, 0.55);
+            backdrop-filter: blur(24px) saturate(1.4);
+            -webkit-backdrop-filter: blur(24px) saturate(1.4);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .glass-feature {
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .glass-feature:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(96, 99, 238, 0.3);
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 30px rgba(96, 99, 238, 0.1);
+        }
+
+        .glass-icon {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .glass-feature:hover .glass-icon {
+            background: rgba(96, 99, 238, 0.15);
+            border-color: rgba(96, 99, 238, 0.3);
+            transform: scale(1.1);
         }
 
         .glass-nav {
@@ -204,8 +229,8 @@
         <section class="relative pt-24 md:pt-32 pb-section-gap px-gutter overflow-hidden">
             <div class="max-w-container-max mx-auto text-center relative z-10">
                 <div class="animate-in inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card mb-8">
-                    <span class="flex h-2 w-2 rounded-full bg-primary animate-pulse"></span>
-                    <span class="text-label-bold font-label-bold text-primary">24/7 AI VOICE RECEPTIONIST</span>
+                    <span class="flex h-2 w-2 rounded-full bg-primary-container animate-pulse"></span>
+                    <span class="text-label-bold font-label-bold text-primary-container">24/7 AI VOICE RECEPTIONIST</span>
                 </div>
                 <h1 class="animate-in font-headline-2xl text-headline-2xl text-white mb-8 max-w-4xl mx-auto" style="transition-delay:80ms">
                     Never Miss a <span class="text-primary-container">Lead Again</span>
@@ -229,81 +254,81 @@
             </div>
 
             <!-- Floating Glass Elements -->
-            <div class="hidden lg:block absolute top-[18%] left-[3%] w-64 h-80 bg-white rounded-[32px] p-6 -rotate-6 shadow-2xl border border-outline-variant/20 animate-in" style="transition-delay:400ms">
+            <div class="hidden lg:block absolute top-[18%] left-[3%] w-64 h-80 glass-card rounded-[32px] p-6 -rotate-6 shadow-[0_8px_40px_rgba(0,0,0,0.4)] animate-in" style="transition-delay:400ms">
                 <div class="flex justify-between items-center mb-6">
-                    <div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
-                        <span class="material-symbols-outlined text-primary">call</span>
+                    <div class="w-10 h-10 rounded-full bg-primary-container/20 flex items-center justify-center">
+                        <span class="material-symbols-outlined text-primary-container">call</span>
                     </div>
-                    <span class="text-xs font-label-bold text-on-surface-variant">Active Now</span>
+                    <span class="text-xs font-label-bold text-white/50">Active Now</span>
                 </div>
                 <div class="space-y-4">
-                    <div class="h-3 w-3/4 bg-surface-container rounded-full"></div>
-                    <div class="h-3 w-1/2 bg-surface-container rounded-full"></div>
+                    <div class="h-3 w-3/4 bg-white/10 rounded-full"></div>
+                    <div class="h-3 w-1/2 bg-white/10 rounded-full"></div>
                     <div class="mt-6 flex justify-center">
-                        <div class="w-20 h-20 rounded-full border-2 border-primary border-dashed flex items-center justify-center animate-spin-slow">
-                            <span class="material-symbols-outlined text-primary text-3xl" style="animation:none">mic</span>
+                        <div class="w-20 h-20 rounded-full border-2 border-primary-container/40 border-dashed flex items-center justify-center animate-spin-slow">
+                            <span class="material-symbols-outlined text-primary-container text-3xl" style="animation:none">mic</span>
                         </div>
                     </div>
-                    <p class="text-xs text-center text-on-surface-variant mt-2">AI Receptionist Listening...</p>
+                    <p class="text-xs text-center text-white/40 mt-2">AI Receptionist Listening...</p>
                 </div>
             </div>
 
-            <div class="hidden lg:block absolute bottom-[8%] right-[3%] w-72 h-auto bg-white rounded-[32px] p-6 rotate-3 shadow-2xl border border-outline-variant/20 animate-in" style="transition-delay:500ms">
-                <div class="flex items-center gap-3 mb-5 border-b border-surface-variant pb-4">
-                    <div class="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-white text-sm font-bold">JM</div>
+            <div class="hidden lg:block absolute bottom-[8%] right-[3%] w-72 h-auto glass-card rounded-[32px] p-6 rotate-3 shadow-[0_8px_40px_rgba(0,0,0,0.4)] animate-in" style="transition-delay:500ms">
+                <div class="flex items-center gap-3 mb-5 border-b border-white/10 pb-4">
+                    <div class="w-10 h-10 rounded-full bg-gradient-to-br from-primary-container to-secondary-container flex items-center justify-center text-white text-sm font-bold">JM</div>
                     <div>
-                        <p class="text-sm font-label-bold">James Mitchell</p>
-                        <p class="text-xs text-on-surface-variant">Qualified Lead &bull; Roofing</p>
+                        <p class="text-sm font-label-bold text-white">James Mitchell</p>
+                        <p class="text-xs text-white/50">Qualified Lead &bull; Roofing</p>
                     </div>
                 </div>
                 <div class="space-y-3">
-                    <div class="flex justify-between items-center bg-surface-container-low p-2.5 rounded-lg">
-                        <span class="text-xs text-on-surface-variant">Interest Level</span>
-                        <span class="text-xs font-bold text-secondary">96% High</span>
+                    <div class="flex justify-between items-center bg-white/5 p-2.5 rounded-lg border border-white/5">
+                        <span class="text-xs text-white/50">Interest Level</span>
+                        <span class="text-xs font-bold text-secondary-container">96% High</span>
                     </div>
-                    <div class="flex justify-between items-center bg-surface-container-low p-2.5 rounded-lg">
-                        <span class="text-xs text-on-surface-variant">Next Step</span>
-                        <span class="text-xs font-bold text-primary">Auto-Scheduled</span>
+                    <div class="flex justify-between items-center bg-white/5 p-2.5 rounded-lg border border-white/5">
+                        <span class="text-xs text-white/50">Next Step</span>
+                        <span class="text-xs font-bold text-primary-container">Auto-Scheduled</span>
                     </div>
-                    <div class="flex justify-between items-center bg-surface-container-low p-2.5 rounded-lg">
-                        <span class="text-xs text-on-surface-variant">Follow-up</span>
-                        <span class="text-xs font-bold text-tertiary">SMS Sent</span>
+                    <div class="flex justify-between items-center bg-white/5 p-2.5 rounded-lg border border-white/5">
+                        <span class="text-xs text-white/50">Follow-up</span>
+                        <span class="text-xs font-bold text-tertiary-container">SMS Sent</span>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Problem Section -->
-        <section id="problem" class="py-section-gap px-gutter bg-surface-container-lowest">
+        <section id="problem" class="py-section-gap px-gutter relative">
             <div class="max-w-container-max mx-auto">
                 <div class="grid lg:grid-cols-2 gap-16 lg:gap-20 items-center">
                     <div class="animate-in">
-                        <h2 class="font-headline-xl text-headline-xl text-on-surface mb-8">
-                            Your Business is <span class="text-error">Bleeding Revenue</span> Every Day.
+                        <h2 class="font-headline-xl text-headline-xl text-white mb-8">
+                            Your Business is <span class="text-secondary-container">Bleeding Revenue</span> Every Day.
                         </h2>
-                        <p class="font-body-lg text-body-lg text-on-surface-variant mb-12">
+                        <p class="font-body-lg text-body-lg text-white/60 mb-12">
                             Local businesses lose money daily because of broken systems. Not just inefficiency: lost revenue and lost trust.
                         </p>
                         <ul class="space-y-6">
-                            <li class="flex gap-4 items-start">
-                                <span class="material-symbols-outlined text-error p-2 bg-error/10 rounded-lg shrink-0">phone_missed</span>
+                            <li class="flex gap-4 items-start glass-feature p-4 rounded-2xl">
+                                <span class="material-symbols-outlined text-secondary-container p-2 bg-secondary-container/10 rounded-lg shrink-0">phone_missed</span>
                                 <div>
-                                    <h4 class="font-headline-lg text-body-md font-bold">Calls Go Unanswered</h4>
-                                    <p class="text-on-surface-variant">Every missed call is a missed customer. Your competitors are just one ring away.</p>
+                                    <h4 class="font-headline-lg text-body-md font-bold text-white">Calls Go Unanswered</h4>
+                                    <p class="text-white/50">Every missed call is a missed customer. Your competitors are just one ring away.</p>
                                 </div>
                             </li>
-                            <li class="flex gap-4 items-start">
-                                <span class="material-symbols-outlined text-error p-2 bg-error/10 rounded-lg shrink-0">timer_off</span>
+                            <li class="flex gap-4 items-start glass-feature p-4 rounded-2xl">
+                                <span class="material-symbols-outlined text-secondary-container p-2 bg-secondary-container/10 rounded-lg shrink-0">timer_off</span>
                                 <div>
-                                    <h4 class="font-headline-lg text-body-md font-bold">Slow Follow-Up</h4>
-                                    <p class="text-on-surface-variant">Leads go cold in minutes. If you don't respond instantly, someone else will.</p>
+                                    <h4 class="font-headline-lg text-body-md font-bold text-white">Slow Follow-Up</h4>
+                                    <p class="text-white/50">Leads go cold in minutes. If you don't respond instantly, someone else will.</p>
                                 </div>
                             </li>
-                            <li class="flex gap-4 items-start">
-                                <span class="material-symbols-outlined text-error p-2 bg-error/10 rounded-lg shrink-0">visibility_off</span>
+                            <li class="flex gap-4 items-start glass-feature p-4 rounded-2xl">
+                                <span class="material-symbols-outlined text-secondary-container p-2 bg-secondary-container/10 rounded-lg shrink-0">visibility_off</span>
                                 <div>
-                                    <h4 class="font-headline-lg text-body-md font-bold">No Tracking System</h4>
-                                    <p class="text-on-surface-variant">Without a clear system, opportunities slip through the cracks unnoticed.</p>
+                                    <h4 class="font-headline-lg text-body-md font-bold text-white">No Tracking System</h4>
+                                    <p class="text-white/50">Without a clear system, opportunities slip through the cracks unnoticed.</p>
                                 </div>
                             </li>
                         </ul>
@@ -311,34 +336,34 @@
 
                     <!-- Stat Cards -->
                     <div class="relative grid grid-cols-2 gap-5 animate-in" style="transition-delay:150ms">
-                        <div class="bg-error/5 border border-error/10 p-7 rounded-2xl transform translate-y-10">
-                            <span class="material-symbols-outlined text-error mb-3 block">trending_down</span>
-                            <p class="text-headline-xl font-headline-xl text-error mb-1">78%</p>
-                            <p class="text-label-bold uppercase text-on-surface-variant text-[11px]">Buy From First Responder</p>
-                            <div class="mt-5 h-2 w-full bg-surface-container-high rounded-full overflow-hidden">
-                                <div class="bg-error h-full w-4/5 rounded-full"></div>
+                        <div class="glass-feature border-secondary-container/15 p-7 rounded-2xl transform translate-y-10">
+                            <span class="material-symbols-outlined text-secondary-container mb-3 block">trending_down</span>
+                            <p class="text-headline-xl font-headline-xl text-secondary-container mb-1">78%</p>
+                            <p class="text-label-bold uppercase text-white/50 text-[11px]">Buy From First Responder</p>
+                            <div class="mt-5 h-2 w-full bg-white/10 rounded-full overflow-hidden">
+                                <div class="bg-secondary-container h-full w-4/5 rounded-full"></div>
                             </div>
                         </div>
-                        <div class="bg-inverse-surface text-inverse-on-surface p-7 rounded-2xl shadow-2xl">
-                            <span class="material-symbols-outlined text-inverse-on-surface/60 mb-3 block">person_off</span>
-                            <p class="text-headline-xl font-headline-xl mb-1">64%</p>
-                            <p class="text-label-bold uppercase opacity-70 text-[11px]">Lead Drop-off Rate</p>
+                        <div class="glass-card p-7 rounded-2xl shadow-2xl">
+                            <span class="material-symbols-outlined text-white/60 mb-3 block">person_off</span>
+                            <p class="text-headline-xl font-headline-xl text-white mb-1">64%</p>
+                            <p class="text-label-bold uppercase text-white/50 text-[11px]">Lead Drop-off Rate</p>
                             <div class="mt-5 flex flex-wrap gap-2">
-                                <span class="px-3 py-1 bg-white/10 rounded-full text-[10px]">No Answer</span>
-                                <span class="px-3 py-1 bg-white/10 rounded-full text-[10px]">Slow Response</span>
+                                <span class="px-3 py-1 bg-white/10 rounded-full text-[10px] text-white/60">No Answer</span>
+                                <span class="px-3 py-1 bg-white/10 rounded-full text-[10px] text-white/60">Slow Response</span>
                             </div>
                         </div>
-                        <div class="bg-secondary/5 border border-secondary/10 p-7 rounded-2xl">
-                            <span class="material-symbols-outlined text-secondary mb-3 block">inventory_2</span>
-                            <p class="text-headline-xl font-headline-xl text-secondary mb-1">0</p>
-                            <p class="text-label-bold uppercase text-on-surface-variant text-[11px]">Reviews From Happy Customers</p>
+                        <div class="glass-feature border-secondary-container/15 p-7 rounded-2xl">
+                            <span class="material-symbols-outlined text-secondary-container mb-3 block">inventory_2</span>
+                            <p class="text-headline-xl font-headline-xl text-secondary-container mb-1">0</p>
+                            <p class="text-label-bold uppercase text-white/50 text-[11px]">Reviews From Happy Customers</p>
                         </div>
-                        <div class="bg-surface-container-low p-7 rounded-2xl relative overflow-hidden group">
-                            <span class="material-symbols-outlined text-on-surface-variant mb-3 block">delete_sweep</span>
-                            <p class="text-headline-xl font-headline-xl text-on-surface mb-1">100s</p>
-                            <p class="text-label-bold uppercase text-on-surface-variant text-[11px]">Old Leads Forgotten</p>
-                            <div class="absolute -right-3 -bottom-3 opacity-5 group-hover:opacity-10 transition-opacity">
-                                <span class="material-symbols-outlined text-[120px]">warning</span>
+                        <div class="glass-feature p-7 rounded-2xl relative overflow-hidden group">
+                            <span class="material-symbols-outlined text-white/50 mb-3 block">delete_sweep</span>
+                            <p class="text-headline-xl font-headline-xl text-white mb-1">100s</p>
+                            <p class="text-label-bold uppercase text-white/50 text-[11px]">Old Leads Forgotten</p>
+                            <div class="absolute -right-3 -bottom-3 opacity-5 group-hover:opacity-15 transition-opacity">
+                                <span class="material-symbols-outlined text-[120px] text-white">warning</span>
                             </div>
                         </div>
                     </div>
@@ -355,41 +380,42 @@
                 </p>
             </div>
 
-            <div class="max-w-5xl mx-auto glass-card rounded-[48px] p-8 md:p-14 shadow-2xl relative">
+            <div class="max-w-5xl mx-auto glass-card rounded-[48px] p-8 md:p-14 shadow-[0_8px_60px_rgba(0,0,0,0.4)] relative">
                 <!-- AI Hub -->
                 <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                    <div class="w-28 h-28 rounded-full bg-white flex items-center justify-center p-2 shadow-2xl">
+                    <div class="w-28 h-28 rounded-full bg-[#1a1a3e] flex items-center justify-center p-2 shadow-2xl border border-white/10">
                         <div class="w-full h-full rounded-full bg-gradient-to-br from-primary via-secondary to-primary-container p-1 flex items-center justify-center animate-spin-slow">
-                            <div class="w-full h-full rounded-full bg-white flex items-center justify-center">
-                                <span class="material-symbols-outlined text-primary text-3xl">hub</span>
+                            <div class="w-full h-full rounded-full bg-[#1a1a3e] flex items-center justify-center">
+                                <span class="material-symbols-outlined text-primary-container text-3xl">hub</span>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Top Features Row -->
-                <div class="grid md:grid-cols-3 gap-10 mt-8 animate-in">
-                    <div class="text-center space-y-5">
-                        <div class="w-14 h-14 mx-auto rounded-2xl bg-surface-container flex items-center justify-center shadow-inner">
-                            <span class="material-symbols-outlined text-primary text-2xl">record_voice_over</span>
+                <div class="grid md:grid-cols-3 gap-6 mt-8 animate-in">
+                    <div class="glass-feature text-center space-y-5 p-6 rounded-3xl cursor-default">
+                        <div class="w-14 h-14 mx-auto rounded-2xl glass-icon flex items-center justify-center">
+                            <span class="material-symbols-outlined text-primary-container text-2xl">record_voice_over</span>
                         </div>
-                        <h3 class="font-headline-lg text-body-lg font-bold">Answers Every Call 24/7</h3>
-                        <p class="text-body-md text-on-surface-variant">Your AI receptionist responds instantly, handles inquiries, and speaks naturally with customers.</p>
+                        <h3 class="font-headline-lg text-body-lg font-bold text-white">Answers Every Call 24/7</h3>
+                        <p class="text-body-md text-white/50">Your AI receptionist responds instantly, handles inquiries, and speaks naturally with customers.</p>
                     </div>
-                    <div class="text-center space-y-5 relative">
-                        <div class="hidden md:block absolute top-7 -left-10 -right-10 h-px bg-gradient-to-r from-transparent via-outline-variant to-transparent"></div>
-                        <div class="w-14 h-14 mx-auto rounded-2xl bg-surface-container flex items-center justify-center shadow-inner relative z-10">
-                            <span class="material-symbols-outlined text-secondary text-2xl">verified_user</span>
+                    <div class="glass-feature text-center space-y-5 p-6 rounded-3xl cursor-default relative">
+                        <div class="hidden md:block absolute top-1/2 -left-3 w-6 h-px bg-gradient-to-r from-transparent to-white/10"></div>
+                        <div class="hidden md:block absolute top-1/2 -right-3 w-6 h-px bg-gradient-to-l from-transparent to-white/10"></div>
+                        <div class="w-14 h-14 mx-auto rounded-2xl glass-icon flex items-center justify-center relative z-10">
+                            <span class="material-symbols-outlined text-secondary-container text-2xl">verified_user</span>
                         </div>
-                        <h3 class="font-headline-lg text-body-lg font-bold">Qualifies &amp; Captures</h3>
-                        <p class="text-body-md text-on-surface-variant">Asks smart questions, filters serious prospects, and stores everything in your CRM.</p>
+                        <h3 class="font-headline-lg text-body-lg font-bold text-white">Qualifies &amp; Captures</h3>
+                        <p class="text-body-md text-white/50">Asks smart questions, filters serious prospects, and stores everything in your CRM.</p>
                     </div>
-                    <div class="text-center space-y-5">
-                        <div class="w-14 h-14 mx-auto rounded-2xl bg-surface-container flex items-center justify-center shadow-inner">
-                            <span class="material-symbols-outlined text-tertiary text-2xl">event_available</span>
+                    <div class="glass-feature text-center space-y-5 p-6 rounded-3xl cursor-default">
+                        <div class="w-14 h-14 mx-auto rounded-2xl glass-icon flex items-center justify-center">
+                            <span class="material-symbols-outlined text-tertiary-container text-2xl">event_available</span>
                         </div>
-                        <h3 class="font-headline-lg text-body-lg font-bold">Books Appointments</h3>
-                        <p class="text-body-md text-on-surface-variant">Syncs with your calendar and schedules jobs without any manual effort.</p>
+                        <h3 class="font-headline-lg text-body-lg font-bold text-white">Books Appointments</h3>
+                        <p class="text-body-md text-white/50">Syncs with your calendar and schedules jobs without any manual effort.</p>
                     </div>
                 </div>
 
@@ -466,25 +492,25 @@
 
             <!-- More Features Below -->
             <div class="max-w-5xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-5 mt-10">
-                <div class="bg-surface-container-low p-7 rounded-2xl group hover:bg-surface-container transition-all duration-300 animate-in cursor-default">
-                    <span class="material-symbols-outlined text-primary text-2xl mb-4 block">sms</span>
-                    <h4 class="font-bold text-sm mb-2 font-['Archivo']">Instant Follow-Up</h4>
-                    <p class="text-xs text-on-surface-variant">Every lead gets immediate SMS and email follow-up automatically.</p>
+                <div class="glass-feature p-7 rounded-2xl animate-in cursor-default">
+                    <span class="material-symbols-outlined text-primary-container text-2xl mb-4 block">sms</span>
+                    <h4 class="font-bold text-sm mb-2 font-['Archivo'] text-white">Instant Follow-Up</h4>
+                    <p class="text-xs text-white/50">Every lead gets immediate SMS and email follow-up automatically.</p>
                 </div>
-                <div class="bg-surface-container-low p-7 rounded-2xl group hover:bg-surface-container transition-all duration-300 animate-in cursor-default" style="transition-delay:60ms">
-                    <span class="material-symbols-outlined text-secondary text-2xl mb-4 block">replay</span>
-                    <h4 class="font-bold text-sm mb-2 font-['Archivo']">Reactivates Old Leads</h4>
-                    <p class="text-xs text-on-surface-variant">Brings past prospects back into your pipeline for new revenue.</p>
+                <div class="glass-feature p-7 rounded-2xl animate-in cursor-default" style="transition-delay:60ms">
+                    <span class="material-symbols-outlined text-secondary-container text-2xl mb-4 block">replay</span>
+                    <h4 class="font-bold text-sm mb-2 font-['Archivo'] text-white">Reactivates Old Leads</h4>
+                    <p class="text-xs text-white/50">Brings past prospects back into your pipeline for new revenue.</p>
                 </div>
-                <div class="bg-surface-container-low p-7 rounded-2xl group hover:bg-surface-container transition-all duration-300 animate-in cursor-default" style="transition-delay:120ms">
-                    <span class="material-symbols-outlined text-tertiary text-2xl mb-4 block">monitoring</span>
-                    <h4 class="font-bold text-sm mb-2 font-['Archivo']">Full CRM Tracking</h4>
-                    <p class="text-xs text-on-surface-variant">Complete visibility on leads, conversations, and conversions.</p>
+                <div class="glass-feature p-7 rounded-2xl animate-in cursor-default" style="transition-delay:120ms">
+                    <span class="material-symbols-outlined text-tertiary-container text-2xl mb-4 block">monitoring</span>
+                    <h4 class="font-bold text-sm mb-2 font-['Archivo'] text-white">Full CRM Tracking</h4>
+                    <p class="text-xs text-white/50">Complete visibility on leads, conversations, and conversions.</p>
                 </div>
-                <div class="bg-surface-container-low p-7 rounded-2xl group hover:bg-surface-container transition-all duration-300 animate-in cursor-default" style="transition-delay:180ms">
-                    <span class="material-symbols-outlined text-on-surface text-2xl mb-4 block">star</span>
-                    <h4 class="font-bold text-sm mb-2 font-['Archivo']">Automated Reviews</h4>
-                    <p class="text-xs text-on-surface-variant">Turns happy customers into public testimonials automatically.</p>
+                <div class="glass-feature p-7 rounded-2xl animate-in cursor-default" style="transition-delay:180ms">
+                    <span class="material-symbols-outlined text-white/60 text-2xl mb-4 block">star</span>
+                    <h4 class="font-bold text-sm mb-2 font-['Archivo'] text-white">Automated Reviews</h4>
+                    <p class="text-xs text-white/50">Turns happy customers into public testimonials automatically.</p>
                 </div>
             </div>
         </section>
@@ -497,60 +523,60 @@
                     <p class="text-white/70 text-body-lg max-w-2xl mx-auto">Each system is configured for how your business actually operates. Call the demo to hear it handle your industry's real conversations.</p>
                 </div>
                 <div class="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto animate-in">
-                    <a href="tel:+15106347901" class="inline-flex items-center gap-2.5 px-5 py-3.5 rounded-full bg-surface-container-low hover:bg-primary hover:text-on-primary transition-all duration-300 cursor-pointer group">
-                        <span class="material-symbols-outlined text-secondary text-lg group-hover:text-on-primary">directions_car</span>
+                    <a href="tel:+15106347901" class="inline-flex items-center gap-2.5 px-5 py-3.5 rounded-full glass-feature text-white/70 hover:text-white hover:!bg-primary-container/20 hover:!border-primary-container/30 transition-all duration-300 cursor-pointer group">
+                        <span class="material-symbols-outlined text-secondary-container text-lg group-hover:text-white">directions_car</span>
                         <span class="font-['Archivo'] font-semibold text-sm">Driving Schools</span>
                     </a>
-                    <a href="tel:+15106347901" class="inline-flex items-center gap-2.5 px-5 py-3.5 rounded-full bg-surface-container-low hover:bg-primary hover:text-on-primary transition-all duration-300 cursor-pointer group">
-                        <span class="material-symbols-outlined text-primary text-lg group-hover:text-on-primary">dentistry</span>
+                    <a href="tel:+15106347901" class="inline-flex items-center gap-2.5 px-5 py-3.5 rounded-full glass-feature text-white/70 hover:text-white hover:!bg-primary-container/20 hover:!border-primary-container/30 transition-all duration-300 cursor-pointer group">
+                        <span class="material-symbols-outlined text-primary-container text-lg group-hover:text-white">dentistry</span>
                         <span class="font-['Archivo'] font-semibold text-sm">Dental Clinics</span>
                     </a>
-                    <a href="tel:+15106347901" class="inline-flex items-center gap-2.5 px-5 py-3.5 rounded-full bg-surface-container-low hover:bg-primary hover:text-on-primary transition-all duration-300 cursor-pointer group">
-                        <span class="material-symbols-outlined text-tertiary text-lg group-hover:text-on-primary">content_cut</span>
+                    <a href="tel:+15106347901" class="inline-flex items-center gap-2.5 px-5 py-3.5 rounded-full glass-feature text-white/70 hover:text-white hover:!bg-primary-container/20 hover:!border-primary-container/30 transition-all duration-300 cursor-pointer group">
+                        <span class="material-symbols-outlined text-tertiary-container text-lg group-hover:text-white">content_cut</span>
                         <span class="font-['Archivo'] font-semibold text-sm">Barbershops</span>
                     </a>
-                    <a href="tel:+15106347901" class="inline-flex items-center gap-2.5 px-5 py-3.5 rounded-full bg-surface-container-low hover:bg-primary hover:text-on-primary transition-all duration-300 cursor-pointer group">
-                        <span class="material-symbols-outlined text-primary text-lg group-hover:text-on-primary">plumbing</span>
+                    <a href="tel:+15106347901" class="inline-flex items-center gap-2.5 px-5 py-3.5 rounded-full glass-feature text-white/70 hover:text-white hover:!bg-primary-container/20 hover:!border-primary-container/30 transition-all duration-300 cursor-pointer group">
+                        <span class="material-symbols-outlined text-primary-container text-lg group-hover:text-white">plumbing</span>
                         <span class="font-['Archivo'] font-semibold text-sm">Plumbing</span>
                     </a>
-                    <a href="tel:+15106347901" class="inline-flex items-center gap-2.5 px-5 py-3.5 rounded-full bg-surface-container-low hover:bg-primary hover:text-on-primary transition-all duration-300 cursor-pointer group">
-                        <span class="material-symbols-outlined text-error text-lg group-hover:text-on-primary">roofing</span>
+                    <a href="tel:+15106347901" class="inline-flex items-center gap-2.5 px-5 py-3.5 rounded-full glass-feature text-white/70 hover:text-white hover:!bg-primary-container/20 hover:!border-primary-container/30 transition-all duration-300 cursor-pointer group">
+                        <span class="material-symbols-outlined text-secondary-container text-lg group-hover:text-white">roofing</span>
                         <span class="font-['Archivo'] font-semibold text-sm">Roofing</span>
                     </a>
-                    <a href="tel:+15106347901" class="inline-flex items-center gap-2.5 px-5 py-3.5 rounded-full bg-surface-container-low hover:bg-primary hover:text-on-primary transition-all duration-300 cursor-pointer group">
-                        <span class="material-symbols-outlined text-error text-lg group-hover:text-on-primary">local_fire_department</span>
+                    <a href="tel:+15106347901" class="inline-flex items-center gap-2.5 px-5 py-3.5 rounded-full glass-feature text-white/70 hover:text-white hover:!bg-primary-container/20 hover:!border-primary-container/30 transition-all duration-300 cursor-pointer group">
+                        <span class="material-symbols-outlined text-secondary-container text-lg group-hover:text-white">local_fire_department</span>
                         <span class="font-['Archivo'] font-semibold text-sm">HVAC</span>
                     </a>
-                    <a href="tel:+15106347901" class="inline-flex items-center gap-2.5 px-5 py-3.5 rounded-full bg-surface-container-low hover:bg-primary hover:text-on-primary transition-all duration-300 cursor-pointer group">
-                        <span class="material-symbols-outlined text-tertiary text-lg group-hover:text-on-primary">cleaning_services</span>
+                    <a href="tel:+15106347901" class="inline-flex items-center gap-2.5 px-5 py-3.5 rounded-full glass-feature text-white/70 hover:text-white hover:!bg-primary-container/20 hover:!border-primary-container/30 transition-all duration-300 cursor-pointer group">
+                        <span class="material-symbols-outlined text-tertiary-container text-lg group-hover:text-white">cleaning_services</span>
                         <span class="font-['Archivo'] font-semibold text-sm">Cleaning</span>
                     </a>
-                    <a href="tel:+15106347901" class="inline-flex items-center gap-2.5 px-5 py-3.5 rounded-full bg-surface-container-low hover:bg-primary hover:text-on-primary transition-all duration-300 cursor-pointer group">
-                        <span class="material-symbols-outlined text-primary text-lg group-hover:text-on-primary">yard</span>
+                    <a href="tel:+15106347901" class="inline-flex items-center gap-2.5 px-5 py-3.5 rounded-full glass-feature text-white/70 hover:text-white hover:!bg-primary-container/20 hover:!border-primary-container/30 transition-all duration-300 cursor-pointer group">
+                        <span class="material-symbols-outlined text-primary-container text-lg group-hover:text-white">yard</span>
                         <span class="font-['Archivo'] font-semibold text-sm">Landscaping</span>
                     </a>
-                    <a href="tel:+15106347901" class="inline-flex items-center gap-2.5 px-5 py-3.5 rounded-full bg-surface-container-low hover:bg-primary hover:text-on-primary transition-all duration-300 cursor-pointer group">
-                        <span class="material-symbols-outlined text-secondary text-lg group-hover:text-on-primary">bolt</span>
+                    <a href="tel:+15106347901" class="inline-flex items-center gap-2.5 px-5 py-3.5 rounded-full glass-feature text-white/70 hover:text-white hover:!bg-primary-container/20 hover:!border-primary-container/30 transition-all duration-300 cursor-pointer group">
+                        <span class="material-symbols-outlined text-secondary-container text-lg group-hover:text-white">bolt</span>
                         <span class="font-['Archivo'] font-semibold text-sm">Electrical</span>
                     </a>
-                    <a href="tel:+15106347901" class="inline-flex items-center gap-2.5 px-5 py-3.5 rounded-full bg-surface-container-low hover:bg-primary hover:text-on-primary transition-all duration-300 cursor-pointer group">
-                        <span class="material-symbols-outlined text-on-surface text-lg group-hover:text-on-primary">local_shipping</span>
+                    <a href="tel:+15106347901" class="inline-flex items-center gap-2.5 px-5 py-3.5 rounded-full glass-feature text-white/70 hover:text-white hover:!bg-primary-container/20 hover:!border-primary-container/30 transition-all duration-300 cursor-pointer group">
+                        <span class="material-symbols-outlined text-white/60 text-lg group-hover:text-white">local_shipping</span>
                         <span class="font-['Archivo'] font-semibold text-sm">Transportation</span>
                     </a>
-                    <a href="tel:+15106347901" class="inline-flex items-center gap-2.5 px-5 py-3.5 rounded-full bg-surface-container-low hover:bg-primary hover:text-on-primary transition-all duration-300 cursor-pointer group">
-                        <span class="material-symbols-outlined text-primary text-lg group-hover:text-on-primary">shield</span>
+                    <a href="tel:+15106347901" class="inline-flex items-center gap-2.5 px-5 py-3.5 rounded-full glass-feature text-white/70 hover:text-white hover:!bg-primary-container/20 hover:!border-primary-container/30 transition-all duration-300 cursor-pointer group">
+                        <span class="material-symbols-outlined text-primary-container text-lg group-hover:text-white">shield</span>
                         <span class="font-['Archivo'] font-semibold text-sm">Insurance</span>
                     </a>
-                    <a href="tel:+15106347901" class="inline-flex items-center gap-2.5 px-5 py-3.5 rounded-full bg-surface-container-low hover:bg-primary hover:text-on-primary transition-all duration-300 cursor-pointer group">
-                        <span class="material-symbols-outlined text-error text-lg group-hover:text-on-primary">local_hospital</span>
+                    <a href="tel:+15106347901" class="inline-flex items-center gap-2.5 px-5 py-3.5 rounded-full glass-feature text-white/70 hover:text-white hover:!bg-primary-container/20 hover:!border-primary-container/30 transition-all duration-300 cursor-pointer group">
+                        <span class="material-symbols-outlined text-secondary-container text-lg group-hover:text-white">local_hospital</span>
                         <span class="font-['Archivo'] font-semibold text-sm">Medical</span>
                     </a>
-                    <a href="tel:+15106347901" class="inline-flex items-center gap-2.5 px-5 py-3.5 rounded-full bg-surface-container-low hover:bg-primary hover:text-on-primary transition-all duration-300 cursor-pointer group">
-                        <span class="material-symbols-outlined text-tertiary text-lg group-hover:text-on-primary">home_work</span>
+                    <a href="tel:+15106347901" class="inline-flex items-center gap-2.5 px-5 py-3.5 rounded-full glass-feature text-white/70 hover:text-white hover:!bg-primary-container/20 hover:!border-primary-container/30 transition-all duration-300 cursor-pointer group">
+                        <span class="material-symbols-outlined text-tertiary-container text-lg group-hover:text-white">home_work</span>
                         <span class="font-['Archivo'] font-semibold text-sm">Real Estate</span>
                     </a>
-                    <a href="tel:+15106347901" class="inline-flex items-center gap-2.5 px-5 py-3.5 rounded-full bg-surface-container-low hover:bg-primary hover:text-on-primary transition-all duration-300 cursor-pointer group">
-                        <span class="material-symbols-outlined text-on-surface text-lg group-hover:text-on-primary">storefront</span>
+                    <a href="tel:+15106347901" class="inline-flex items-center gap-2.5 px-5 py-3.5 rounded-full glass-feature text-white/70 hover:text-white hover:!bg-primary-container/20 hover:!border-primary-container/30 transition-all duration-300 cursor-pointer group">
+                        <span class="material-symbols-outlined text-white/60 text-lg group-hover:text-white">storefront</span>
                         <span class="font-['Archivo'] font-semibold text-sm">Your Industry</span>
                     </a>
                 </div>
@@ -560,10 +586,10 @@
 
         <!-- Live Demo CTA Section -->
         <section id="demo" class="py-section-gap px-gutter relative overflow-hidden">
-            <div class="max-w-4xl mx-auto glass-card rounded-[48px] p-10 md:p-20 text-center relative z-10 border-primary/20 animate-in">
+            <div class="max-w-4xl mx-auto glass-card rounded-[48px] p-10 md:p-20 text-center relative z-10 border-primary/20 shadow-[0_8px_60px_rgba(0,0,0,0.4)] animate-in">
                 <div class="bg-gradient-to-r from-primary/5 via-secondary/5 to-primary/5 absolute inset-0 rounded-[48px] -z-10"></div>
-                <h2 class="font-headline-xl text-headline-xl mb-6">Talk to Your New <span class="text-primary">AI Receptionist</span></h2>
-                <p class="text-body-lg text-on-surface-variant mb-10 max-w-xl mx-auto">
+                <h2 class="font-headline-xl text-headline-xl text-white mb-6">Talk to Your New <span class="text-primary-container">AI Receptionist</span></h2>
+                <p class="text-body-lg text-white/60 mb-10 max-w-xl mx-auto">
                     Call now. Tell it your industry, ask real questions, and experience how it handles actual customer conversations.
                 </p>
                 <div class="relative inline-block group">
@@ -576,17 +602,17 @@
                         +1 (510) 634-7901
                     </a>
                 </div>
-                <div class="mt-10 flex flex-wrap justify-center items-center gap-x-8 gap-y-3 text-on-surface-variant/50">
+                <div class="mt-10 flex flex-wrap justify-center items-center gap-x-8 gap-y-3 text-white/40">
                     <span class="text-xs font-label-bold flex items-center gap-1.5">
-                        <span class="material-symbols-outlined text-sm text-primary">check_circle</span>
+                        <span class="material-symbols-outlined text-sm text-primary-container">check_circle</span>
                         Tell it your industry
                     </span>
                     <span class="text-xs font-label-bold flex items-center gap-1.5">
-                        <span class="material-symbols-outlined text-sm text-primary">check_circle</span>
+                        <span class="material-symbols-outlined text-sm text-primary-container">check_circle</span>
                         Ask real questions
                     </span>
                     <span class="text-xs font-label-bold flex items-center gap-1.5">
-                        <span class="material-symbols-outlined text-sm text-primary">check_circle</span>
+                        <span class="material-symbols-outlined text-sm text-primary-container">check_circle</span>
                         Experience it firsthand
                     </span>
                 </div>
