@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html class="light scroll-smooth" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Privacy Policy | NTNS — AI Voice Receptionist</title>
+    <meta name="description" content="NTNS Privacy Policy. Learn how we collect, use, and protect your personal information." />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary-container": "#6063ee",
+                        "secondary-container": "#fd56a7",
+                        "primary": "#4648d4",
+                        "on-primary": "#ffffff",
+                        "on-primary-container": "#fffbff",
+                        "on-surface": "#131b2e",
+                        "inverse-surface": "#283044",
+                        "tertiary-container": "#008096",
+                        "secondary": "#b4136d",
+                        "outline": "#767586"
+                    },
+                    fontFamily: {
+                        "label-bold": ["Lexend"],
+                        "headline-2xl": ["Archivo"],
+                        "headline-lg": ["Archivo"],
+                        "body-md": ["Lexend"],
+                        "headline-xl": ["Archivo"],
+                        "body-lg": ["Lexend"]
+                    },
+                    fontSize: {
+                        "headline-2xl": ["72px", { lineHeight: "1.1", letterSpacing: "-0.04em", fontWeight: "700" }],
+                        "headline-xl": ["48px", { lineHeight: "1.2", letterSpacing: "-0.02em", fontWeight: "600" }],
+                        "headline-lg": ["32px", { lineHeight: "1.3", fontWeight: "600" }],
+                        "body-lg": ["20px", { lineHeight: "1.6", fontWeight: "400" }],
+                        "body-md": ["16px", { lineHeight: "1.5", fontWeight: "400" }],
+                        "label-bold": ["14px", { lineHeight: "1", letterSpacing: "0.05em", fontWeight: "600" }]
+                    },
+                    spacing: {
+                        gutter: "32px",
+                        "section-gap": "120px",
+                        "container-max": "1280px"
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass-card {
+            background: rgba(18, 16, 42, 0.55);
+            backdrop-filter: blur(24px) saturate(1.4);
+            -webkit-backdrop-filter: blur(24px) saturate(1.4);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .glass-nav {
+            background: rgba(16, 14, 40, 0.55);
+            backdrop-filter: blur(24px) saturate(1.4);
+            -webkit-backdrop-filter: blur(24px) saturate(1.4);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .glass-mobile-menu {
+            background: rgba(16, 14, 40, 0.85);
+            backdrop-filter: blur(32px) saturate(1.4);
+            -webkit-backdrop-filter: blur(32px) saturate(1.4);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .animate-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .animate-in.visible { opacity: 1; transform: translateY(0); }
+        .legal-content h3 { color: white; font-family: 'Archivo'; font-weight: 700; font-size: 1.25rem; margin-top: 2rem; margin-bottom: 0.75rem; }
+        .legal-content p { color: rgba(255,255,255,0.6); font-size: 0.9375rem; line-height: 1.7; margin-bottom: 1rem; }
+        .legal-content ul { color: rgba(255,255,255,0.6); font-size: 0.9375rem; line-height: 1.7; margin-bottom: 1rem; padding-left: 1.5rem; list-style: disc; }
+        .legal-content li { margin-bottom: 0.35rem; }
+        @media (prefers-reduced-motion: reduce) {
+            .animate-in { opacity: 1; transform: none; transition: none; }
+        }
+        @media (max-width: 768px) {
+            .text-headline-xl { font-size: 32px !important; }
+        }
+    </style>
+</head>
+
+<body class="font-body-md text-on-surface bg-[#1a1a3e]">
+
+    <canvas id="shader-bg" class="fixed top-0 left-0 w-full h-full -z-10"></canvas>
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 flex items-center justify-between px-6 md:px-8 py-3 w-full glass-nav rounded-full mt-4 md:mt-6 mx-auto max-w-5xl shadow-[0_8px_32px_0_rgba(0,0,0,0.3)]">
+        <a href="index.html" class="flex items-center gap-2">
+            <div class="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center overflow-hidden">
+                <img src="NTNS Logo.png" alt="NTNS" class="h-6 w-auto" />
+            </div>
+            <span class="text-xl font-bold tracking-tighter text-white font-['Archivo']">NTNS</span>
+        </a>
+        <div class="hidden md:flex gap-8 items-center">
+            <a class="font-['Archivo'] text-white/60 hover:text-primary-container transition-all duration-300 tracking-tight font-medium text-sm" href="index.html">Home</a>
+            <a class="font-['Archivo'] text-white/60 hover:text-primary-container transition-all duration-300 tracking-tight font-medium text-sm" href="about.html">About</a>
+            <a class="font-['Archivo'] text-white/60 hover:text-primary-container transition-all duration-300 tracking-tight font-medium text-sm" href="contact.html">Contact</a>
+            <a class="font-['Archivo'] text-white/60 hover:text-primary-container transition-all duration-300 tracking-tight font-medium text-sm" href="index.html#demo">Live Demo</a>
+        </div>
+        <div class="flex gap-3 items-center">
+            <a href="index.html#demo" class="bg-primary-container text-on-primary-container px-5 py-2.5 rounded-full font-['Archivo'] font-bold text-sm transition-all duration-500 ease-out shadow-lg shadow-primary-container/20 hover:shadow-xl hover:shadow-primary-container/30 hover:scale-105 cursor-pointer flex items-center gap-2">
+                <span class="material-symbols-outlined text-lg">call</span>
+                <span class="hidden sm:inline">Call Demo</span>
+            </a>
+            <button id="mobile-menu-btn" class="md:hidden p-2 text-white/60 hover:text-primary-container cursor-pointer" aria-label="Open menu">
+                <span class="material-symbols-outlined">menu</span>
+            </button>
+        </div>
+    </nav>
+
+    <div id="mobile-menu" class="hidden fixed inset-x-0 top-[72px] z-40 mx-4">
+        <div class="glass-mobile-menu rounded-3xl p-6 shadow-2xl space-y-4">
+            <a class="block font-['Archivo'] text-white/60 hover:text-primary-container py-2 font-medium" href="index.html">Home</a>
+            <a class="block font-['Archivo'] text-white/60 hover:text-primary-container py-2 font-medium" href="about.html">About</a>
+            <a class="block font-['Archivo'] text-white/60 hover:text-primary-container py-2 font-medium" href="contact.html">Contact</a>
+            <a class="block font-['Archivo'] text-white/60 hover:text-primary-container py-2 font-medium" href="index.html#demo">Live Demo</a>
+        </div>
+    </div>
+
+    <main>
+        <section class="pt-24 md:pt-32 pb-20 px-gutter">
+            <div class="max-w-4xl mx-auto text-center animate-in">
+                <h1 class="font-headline-xl text-headline-xl text-white mb-4">Privacy Policy</h1>
+                <p class="text-white/50 text-sm font-['Archivo']">Last updated: May 1, 2025</p>
+            </div>
+        </section>
+
+        <section class="pb-section-gap px-gutter">
+            <div class="max-w-3xl mx-auto glass-card rounded-[32px] p-8 md:p-12 animate-in legal-content" style="transition-delay:100ms">
+
+                <h3>1. Introduction</h3>
+                <p>NTNS ("we," "us," or "our") operates the website at ntns.ai and provides AI-powered voice receptionist and lead management services for local businesses. This Privacy Policy describes how we collect, use, disclose, and protect your personal information when you visit our website, use our services, or interact with our AI systems.</p>
+                <p>By using our website or services, you agree to the collection and use of information in accordance with this policy.</p>
+
+                <h3>2. Information We Collect</h3>
+                <p>We may collect the following types of information:</p>
+                <p><strong class="text-white/80">Personal Information You Provide:</strong></p>
+                <ul>
+                    <li>Name, email address, and phone number when you fill out a contact form</li>
+                    <li>Business name, industry, and other details you share with us</li>
+                    <li>Information you provide during phone calls with our AI receptionist, including voice recordings and call transcripts</li>
+                    <li>Payment and billing information when you subscribe to our services</li>
+                </ul>
+                <p><strong class="text-white/80">Information Collected Automatically:</strong></p>
+                <ul>
+                    <li>Device information (browser type, operating system, device type)</li>
+                    <li>IP address and approximate geographic location</li>
+                    <li>Website usage data (pages visited, time spent, referral source)</li>
+                    <li>Cookies and similar tracking technologies</li>
+                </ul>
+                <p><strong class="text-white/80">Information From Third Parties:</strong></p>
+                <ul>
+                    <li>CRM and business tool integrations that you authorize</li>
+                    <li>Analytics providers and advertising partners</li>
+                </ul>
+
+                <h3>3. How We Use Your Information</h3>
+                <p>We use the information we collect to:</p>
+                <ul>
+                    <li>Provide, operate, and maintain our AI receptionist and lead management services</li>
+                    <li>Process and manage your account and subscriptions</li>
+                    <li>Respond to your inquiries and provide customer support</li>
+                    <li>Improve and optimize our AI systems and service quality</li>
+                    <li>Send you service-related communications, updates, and notifications</li>
+                    <li>Comply with legal obligations and enforce our terms of service</li>
+                    <li>Detect, prevent, and address technical issues or fraudulent activity</li>
+                </ul>
+
+                <h3>4. AI Voice Receptionist & Call Data</h3>
+                <p>When callers interact with our AI voice receptionist, we may record and transcribe calls for the purpose of providing our services. This data is used to:</p>
+                <ul>
+                    <li>Capture and qualify leads on behalf of our business clients</li>
+                    <li>Schedule appointments and send follow-up communications</li>
+                    <li>Improve the accuracy and performance of our AI system</li>
+                    <li>Provide call logs and analytics to our subscribing business clients</li>
+                </ul>
+                <p>Call recordings and transcripts are stored securely and access is limited to authorized personnel and the subscribing business on whose behalf the call was handled.</p>
+
+                <h3>5. How We Share Your Information</h3>
+                <p>We do not sell your personal information. We may share information in the following circumstances:</p>
+                <ul>
+                    <li><strong class="text-white/80">With Our Business Clients:</strong> If you call a business that uses our AI receptionist, your call data and lead information are shared with that business as part of our service.</li>
+                    <li><strong class="text-white/80">Service Providers:</strong> We may share information with third-party vendors who assist in operating our services (e.g., cloud hosting, CRM platforms, payment processors).</li>
+                    <li><strong class="text-white/80">Legal Requirements:</strong> We may disclose information if required by law, regulation, legal process, or governmental request.</li>
+                    <li><strong class="text-white/80">Business Transfers:</strong> In the event of a merger, acquisition, or sale of assets, your information may be transferred as part of that transaction.</li>
+                </ul>
+
+                <h3>6. Data Retention</h3>
+                <p>We retain your personal information for as long as necessary to fulfill the purposes described in this policy, unless a longer retention period is required by law. Call recordings and transcripts are retained for the duration of the business client's subscription, plus a reasonable period thereafter for compliance and dispute resolution purposes.</p>
+
+                <h3>7. Data Security</h3>
+                <p>We implement appropriate technical and organizational security measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction. These measures include encryption, access controls, and secure data storage practices. However, no method of transmission over the internet or electronic storage is 100% secure.</p>
+
+                <h3>8. Your Rights</h3>
+                <p>Depending on your jurisdiction, you may have the following rights regarding your personal information:</p>
+                <ul>
+                    <li>Access and receive a copy of your personal data</li>
+                    <li>Request correction of inaccurate or incomplete data</li>
+                    <li>Request deletion of your personal data</li>
+                    <li>Object to or restrict certain processing of your data</li>
+                    <li>Data portability (receive your data in a structured, machine-readable format)</li>
+                    <li>Withdraw consent at any time where processing is based on consent</li>
+                </ul>
+                <p>To exercise any of these rights, please contact us at <a href="mailto:Admin@ntns.ai" class="text-primary-container hover:underline">Admin@ntns.ai</a>.</p>
+
+                <h3>9. Cookies</h3>
+                <p>Our website uses cookies and similar technologies to enhance your browsing experience, analyze website traffic, and understand where our visitors come from. You can control cookie settings through your browser preferences. Disabling cookies may affect certain features of our website.</p>
+
+                <h3>10. Third-Party Links</h3>
+                <p>Our website may contain links to third-party websites or services that are not operated by us. We are not responsible for the privacy practices of these third parties. We encourage you to review their privacy policies before providing any personal information.</p>
+
+                <h3>11. Children's Privacy</h3>
+                <p>Our services are not directed to individuals under the age of 18. We do not knowingly collect personal information from children. If we become aware that we have collected personal data from a child, we will take steps to delete that information promptly.</p>
+
+                <h3>12. Changes to This Policy</h3>
+                <p>We may update this Privacy Policy from time to time. Any changes will be posted on this page with an updated "Last updated" date. We encourage you to review this policy periodically for any changes. Your continued use of our website and services after changes are posted constitutes your acceptance of the updated policy.</p>
+
+                <h3>13. Contact Us</h3>
+                <p>If you have any questions or concerns about this Privacy Policy or our data practices, please contact us:</p>
+                <ul>
+                    <li>Email: <a href="mailto:Admin@ntns.ai" class="text-primary-container hover:underline">Admin@ntns.ai</a></li>
+                    <li>Phone (Support): +1 (206) 786-2235</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-16 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-8">
+            <div class="grid md:grid-cols-4 gap-10 mb-12">
+                <div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center overflow-hidden">
+                            <img src="NTNS Logo.png" alt="NTNS" class="h-5 w-auto" />
+                        </div>
+                        <span class="text-lg font-bold text-white font-['Archivo'] tracking-tight">NTNS</span>
+                    </div>
+                    <p class="text-sm text-white/40">Never Miss a Lead Again.</p>
+                </div>
+                <div>
+                    <h4 class="font-['Archivo'] font-bold text-white text-sm mb-4">Pages</h4>
+                    <div class="space-y-2">
+                        <a href="index.html" class="block text-sm text-white/50 hover:text-white transition-colors">Home</a>
+                        <a href="about.html" class="block text-sm text-white/50 hover:text-white transition-colors">About Us</a>
+                        <a href="contact.html" class="block text-sm text-white/50 hover:text-white transition-colors">Contact</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-['Archivo'] font-bold text-white text-sm mb-4">Legal</h4>
+                    <div class="space-y-2">
+                        <a href="privacy.html" class="block text-sm text-white/50 hover:text-white transition-colors">Privacy Policy</a>
+                        <a href="terms.html" class="block text-sm text-white/50 hover:text-white transition-colors">Terms & Conditions</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-['Archivo'] font-bold text-white text-sm mb-4">Contact</h4>
+                    <div class="space-y-2">
+                        <a href="mailto:Admin@ntns.ai" class="block text-sm text-white/50 hover:text-white transition-colors">Admin@ntns.ai</a>
+                        <p class="text-sm text-white/50">+1 (206) 786-2235 <span class="text-white/30">(Support)</span></p>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="font-['Archivo'] text-sm text-white/40">&copy; 2026 NTNS. All rights reserved.</p>
+                <div class="flex gap-6">
+                    <a class="font-['Archivo'] text-sm text-white/50 hover:text-white transition-colors" href="privacy.html">Privacy</a>
+                    <a class="font-['Archivo'] text-sm text-white/50 hover:text-white transition-colors" href="terms.html">Terms</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WebGL Shader Script -->
+    <script>
+    (function() {
+        const canvas = document.getElementById('shader-bg');
+        if (!canvas) return;
+        const gl = canvas.getContext('webgl');
+        if (!gl) return;
+        const vsSource = `attribute vec4 aVertexPosition; void main() { gl_Position = aVertexPosition; }`;
+        const fsSource = `
+            precision highp float;
+            uniform vec2 iResolution;
+            uniform float iTime;
+            const float overallSpeed = 0.2;
+            const float gridSmoothWidth = 0.015;
+            const float minLineWidth = 0.01;
+            const float maxLineWidth = 0.2;
+            const float lineSpeed = 1.0 * overallSpeed;
+            const float lineAmplitude = 1.0;
+            const float lineFrequency = 0.2;
+            const float warpSpeed = 0.2 * overallSpeed;
+            const float warpFrequency = 0.5;
+            const float warpAmplitude = 1.0;
+            const float offsetFrequency = 0.5;
+            const float offsetSpeed = 1.33 * overallSpeed;
+            const float minOffsetSpread = 0.6;
+            const float maxOffsetSpread = 2.0;
+            const int linesPerGroup = 16;
+            const float scale = 5.0;
+            const vec4 lineColor = vec4(0.4, 0.2, 0.8, 1.0);
+            #define drawSmoothLine(pos, halfWidth, t) smoothstep(halfWidth, 0.0, abs(pos - (t)))
+            #define drawCrispLine(pos, halfWidth, t) smoothstep(halfWidth + gridSmoothWidth, halfWidth, abs(pos - (t)))
+            #define drawCircle(pos, radius, coord) smoothstep(radius + gridSmoothWidth, radius, length(coord - (pos)))
+            float random(float t) { return (cos(t) + cos(t * 1.3 + 1.3) + cos(t * 1.4 + 1.4)) / 3.0; }
+            float getPlasmaY(float x, float horizontalFade, float offset) { return random(x * lineFrequency + iTime * lineSpeed) * horizontalFade * lineAmplitude + offset; }
+            void main() {
+                vec2 uv = gl_FragCoord.xy / iResolution.xy;
+                vec2 space = (gl_FragCoord.xy - iResolution.xy / 2.0) / iResolution.x * 2.0 * scale;
+                float horizontalFade = 1.0 - (cos(uv.x * 6.28) * 0.5 + 0.5);
+                float verticalFade = 1.0 - (cos(uv.y * 6.28) * 0.5 + 0.5);
+                space.y += random(space.x * warpFrequency + iTime * warpSpeed) * warpAmplitude * (0.5 + horizontalFade);
+                space.x += random(space.y * warpFrequency + iTime * warpSpeed + 2.0) * warpAmplitude * horizontalFade;
+                vec4 lines = vec4(0.0);
+                vec4 bgColor1 = vec4(0.08, 0.06, 0.22, 1.0);
+                vec4 bgColor2 = vec4(0.22, 0.08, 0.38, 1.0);
+                for(int l = 0; l < linesPerGroup; l++) {
+                    float normalizedLineIndex = float(l) / float(linesPerGroup);
+                    float offsetTime = iTime * offsetSpeed;
+                    float offsetPosition = float(l) + space.x * offsetFrequency;
+                    float rand = random(offsetPosition + offsetTime) * 0.5 + 0.5;
+                    float halfWidth = mix(minLineWidth, maxLineWidth, rand * horizontalFade) / 2.0;
+                    float offset = random(offsetPosition + offsetTime * (1.0 + normalizedLineIndex)) * mix(minOffsetSpread, maxOffsetSpread, horizontalFade);
+                    float linePosition = getPlasmaY(space.x, horizontalFade, offset);
+                    float line = drawSmoothLine(linePosition, halfWidth, space.y) / 2.0 + drawCrispLine(linePosition, halfWidth * 0.15, space.y);
+                    float circleX = mod(float(l) + iTime * lineSpeed, 25.0) - 12.0;
+                    vec2 circlePosition = vec2(circleX, getPlasmaY(circleX, horizontalFade, offset));
+                    float circle = drawCircle(circlePosition, 0.01, space) * 4.0;
+                    line = line + circle;
+                    lines += line * lineColor * rand;
+                }
+                vec4 fragColor = mix(bgColor1, bgColor2, uv.x);
+                fragColor *= verticalFade;
+                fragColor.a = 1.0;
+                fragColor += lines;
+                gl_FragColor = fragColor;
+            }
+        `;
+        function loadShader(gl, type, source) {
+            var s = gl.createShader(type); gl.shaderSource(s, source); gl.compileShader(s);
+            if (!gl.getShaderParameter(s, gl.COMPILE_STATUS)) { gl.deleteShader(s); return null; } return s;
+        }
+        var vs = loadShader(gl, gl.VERTEX_SHADER, vsSource);
+        var fs = loadShader(gl, gl.FRAGMENT_SHADER, fsSource);
+        var prog = gl.createProgram(); gl.attachShader(prog, vs); gl.attachShader(prog, fs); gl.linkProgram(prog);
+        if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) return;
+        var buf = gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+        gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 1,-1, -1,1, 1,1]), gl.STATIC_DRAW);
+        var aPos = gl.getAttribLocation(prog, 'aVertexPosition');
+        var uRes = gl.getUniformLocation(prog, 'iResolution');
+        var uTime = gl.getUniformLocation(prog, 'iTime');
+        function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; gl.viewport(0, 0, canvas.width, canvas.height); }
+        window.addEventListener('resize', resize); resize();
+        var t0 = Date.now();
+        (function render() {
+            gl.clearColor(0,0,0,1); gl.clear(gl.COLOR_BUFFER_BIT); gl.useProgram(prog);
+            gl.uniform2f(uRes, canvas.width, canvas.height); gl.uniform1f(uTime, (Date.now() - t0) / 1000);
+            gl.bindBuffer(gl.ARRAY_BUFFER, buf); gl.vertexAttribPointer(aPos, 2, gl.FLOAT, false, 0, 0);
+            gl.enableVertexAttribArray(aPos); gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4); requestAnimationFrame(render);
+        })();
+    })();
+    </script>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+        document.querySelectorAll('.animate-in').forEach(el => observer.observe(el));
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+        mobileMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => mobileMenu.classList.add('hidden')));
+    </script>
+</body>
+</html>

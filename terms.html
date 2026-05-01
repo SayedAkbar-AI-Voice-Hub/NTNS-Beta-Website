@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html class="light scroll-smooth" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Terms & Conditions | NTNS — AI Voice Receptionist</title>
+    <meta name="description" content="NTNS Terms and Conditions. Read the terms governing the use of our website and AI-powered services." />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary-container": "#6063ee",
+                        "secondary-container": "#fd56a7",
+                        "primary": "#4648d4",
+                        "on-primary": "#ffffff",
+                        "on-primary-container": "#fffbff",
+                        "on-surface": "#131b2e",
+                        "inverse-surface": "#283044",
+                        "tertiary-container": "#008096",
+                        "secondary": "#b4136d",
+                        "outline": "#767586"
+                    },
+                    fontFamily: {
+                        "label-bold": ["Lexend"],
+                        "headline-2xl": ["Archivo"],
+                        "headline-lg": ["Archivo"],
+                        "body-md": ["Lexend"],
+                        "headline-xl": ["Archivo"],
+                        "body-lg": ["Lexend"]
+                    },
+                    fontSize: {
+                        "headline-2xl": ["72px", { lineHeight: "1.1", letterSpacing: "-0.04em", fontWeight: "700" }],
+                        "headline-xl": ["48px", { lineHeight: "1.2", letterSpacing: "-0.02em", fontWeight: "600" }],
+                        "headline-lg": ["32px", { lineHeight: "1.3", fontWeight: "600" }],
+                        "body-lg": ["20px", { lineHeight: "1.6", fontWeight: "400" }],
+                        "body-md": ["16px", { lineHeight: "1.5", fontWeight: "400" }],
+                        "label-bold": ["14px", { lineHeight: "1", letterSpacing: "0.05em", fontWeight: "600" }]
+                    },
+                    spacing: {
+                        gutter: "32px",
+                        "section-gap": "120px",
+                        "container-max": "1280px"
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass-card {
+            background: rgba(18, 16, 42, 0.55);
+            backdrop-filter: blur(24px) saturate(1.4);
+            -webkit-backdrop-filter: blur(24px) saturate(1.4);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .glass-nav {
+            background: rgba(16, 14, 40, 0.55);
+            backdrop-filter: blur(24px) saturate(1.4);
+            -webkit-backdrop-filter: blur(24px) saturate(1.4);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .glass-mobile-menu {
+            background: rgba(16, 14, 40, 0.85);
+            backdrop-filter: blur(32px) saturate(1.4);
+            -webkit-backdrop-filter: blur(32px) saturate(1.4);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .animate-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .animate-in.visible { opacity: 1; transform: translateY(0); }
+        .legal-content h3 { color: white; font-family: 'Archivo'; font-weight: 700; font-size: 1.25rem; margin-top: 2rem; margin-bottom: 0.75rem; }
+        .legal-content p { color: rgba(255,255,255,0.6); font-size: 0.9375rem; line-height: 1.7; margin-bottom: 1rem; }
+        .legal-content ul { color: rgba(255,255,255,0.6); font-size: 0.9375rem; line-height: 1.7; margin-bottom: 1rem; padding-left: 1.5rem; list-style: disc; }
+        .legal-content li { margin-bottom: 0.35rem; }
+        @media (prefers-reduced-motion: reduce) {
+            .animate-in { opacity: 1; transform: none; transition: none; }
+        }
+        @media (max-width: 768px) {
+            .text-headline-xl { font-size: 32px !important; }
+        }
+    </style>
+</head>
+
+<body class="font-body-md text-on-surface bg-[#1a1a3e]">
+
+    <canvas id="shader-bg" class="fixed top-0 left-0 w-full h-full -z-10"></canvas>
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 flex items-center justify-between px-6 md:px-8 py-3 w-full glass-nav rounded-full mt-4 md:mt-6 mx-auto max-w-5xl shadow-[0_8px_32px_0_rgba(0,0,0,0.3)]">
+        <a href="index.html" class="flex items-center gap-2">
+            <div class="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center overflow-hidden">
+                <img src="NTNS Logo.png" alt="NTNS" class="h-6 w-auto" />
+            </div>
+            <span class="text-xl font-bold tracking-tighter text-white font-['Archivo']">NTNS</span>
+        </a>
+        <div class="hidden md:flex gap-8 items-center">
+            <a class="font-['Archivo'] text-white/60 hover:text-primary-container transition-all duration-300 tracking-tight font-medium text-sm" href="index.html">Home</a>
+            <a class="font-['Archivo'] text-white/60 hover:text-primary-container transition-all duration-300 tracking-tight font-medium text-sm" href="about.html">About</a>
+            <a class="font-['Archivo'] text-white/60 hover:text-primary-container transition-all duration-300 tracking-tight font-medium text-sm" href="contact.html">Contact</a>
+            <a class="font-['Archivo'] text-white/60 hover:text-primary-container transition-all duration-300 tracking-tight font-medium text-sm" href="index.html#demo">Live Demo</a>
+        </div>
+        <div class="flex gap-3 items-center">
+            <a href="index.html#demo" class="bg-primary-container text-on-primary-container px-5 py-2.5 rounded-full font-['Archivo'] font-bold text-sm transition-all duration-500 ease-out shadow-lg shadow-primary-container/20 hover:shadow-xl hover:shadow-primary-container/30 hover:scale-105 cursor-pointer flex items-center gap-2">
+                <span class="material-symbols-outlined text-lg">call</span>
+                <span class="hidden sm:inline">Call Demo</span>
+            </a>
+            <button id="mobile-menu-btn" class="md:hidden p-2 text-white/60 hover:text-primary-container cursor-pointer" aria-label="Open menu">
+                <span class="material-symbols-outlined">menu</span>
+            </button>
+        </div>
+    </nav>
+
+    <div id="mobile-menu" class="hidden fixed inset-x-0 top-[72px] z-40 mx-4">
+        <div class="glass-mobile-menu rounded-3xl p-6 shadow-2xl space-y-4">
+            <a class="block font-['Archivo'] text-white/60 hover:text-primary-container py-2 font-medium" href="index.html">Home</a>
+            <a class="block font-['Archivo'] text-white/60 hover:text-primary-container py-2 font-medium" href="about.html">About</a>
+            <a class="block font-['Archivo'] text-white/60 hover:text-primary-container py-2 font-medium" href="contact.html">Contact</a>
+            <a class="block font-['Archivo'] text-white/60 hover:text-primary-container py-2 font-medium" href="index.html#demo">Live Demo</a>
+        </div>
+    </div>
+
+    <main>
+        <section class="pt-24 md:pt-32 pb-20 px-gutter">
+            <div class="max-w-4xl mx-auto text-center animate-in">
+                <h1 class="font-headline-xl text-headline-xl text-white mb-4">Terms & Conditions</h1>
+                <p class="text-white/50 text-sm font-['Archivo']">Last updated: May 1, 2025</p>
+            </div>
+        </section>
+
+        <section class="pb-section-gap px-gutter">
+            <div class="max-w-3xl mx-auto glass-card rounded-[32px] p-8 md:p-12 animate-in legal-content" style="transition-delay:100ms">
+
+                <h3>1. Agreement to Terms</h3>
+                <p>By accessing or using the NTNS website (ntns.ai) and services, you agree to be bound by these Terms and Conditions ("Terms"). If you do not agree with any part of these Terms, you must not use our website or services. These Terms constitute a legally binding agreement between you ("you" or "user") and NTNS ("we," "us," or "our").</p>
+
+                <h3>2. Description of Services</h3>
+                <p>NTNS provides AI-powered voice receptionist and lead management services for local businesses. Our services include, but are not limited to:</p>
+                <ul>
+                    <li>24/7 AI voice receptionist that answers and handles inbound calls</li>
+                    <li>Automated lead capture, qualification, and follow-up</li>
+                    <li>Appointment scheduling and calendar integration</li>
+                    <li>Lead reactivation campaigns</li>
+                    <li>Automated review collection and reputation management</li>
+                    <li>CRM setup and management</li>
+                </ul>
+                <p>We reserve the right to modify, suspend, or discontinue any part of our services at any time with reasonable notice.</p>
+
+                <h3>3. Eligibility</h3>
+                <p>You must be at least 18 years old and have the legal capacity to enter into binding agreements to use our services. If you are using our services on behalf of a business entity, you represent that you have the authority to bind that entity to these Terms.</p>
+
+                <h3>4. Account Registration & Responsibilities</h3>
+                <p>To access certain features of our services, you may be required to create an account. You agree to:</p>
+                <ul>
+                    <li>Provide accurate, current, and complete information during registration</li>
+                    <li>Maintain the security and confidentiality of your account credentials</li>
+                    <li>Promptly update your account information if it changes</li>
+                    <li>Accept responsibility for all activity that occurs under your account</li>
+                    <li>Notify us immediately of any unauthorized access to your account</li>
+                </ul>
+
+                <h3>5. Acceptable Use</h3>
+                <p>You agree not to use our services to:</p>
+                <ul>
+                    <li>Violate any applicable laws, regulations, or third-party rights</li>
+                    <li>Transmit spam, unsolicited messages, or fraudulent content</li>
+                    <li>Interfere with or disrupt our services, servers, or networks</li>
+                    <li>Attempt to gain unauthorized access to our systems or other users' accounts</li>
+                    <li>Use the AI receptionist for any illegal, deceptive, or harmful purpose</li>
+                    <li>Reverse engineer, decompile, or disassemble any part of our technology</li>
+                    <li>Resell, sublicense, or redistribute our services without written consent</li>
+                </ul>
+
+                <h3>6. AI Voice Services & Call Recording</h3>
+                <p>Our AI receptionist answers calls on behalf of subscribing businesses. By using our services, you acknowledge and agree that:</p>
+                <ul>
+                    <li>Calls handled by our AI may be recorded and transcribed for service delivery, quality assurance, and improvement purposes</li>
+                    <li>You are responsible for complying with all applicable call recording laws in your jurisdiction, including obtaining necessary consents from callers</li>
+                    <li>The AI receptionist communicates on your behalf and you are responsible for the accuracy of the information and instructions you provide to configure it</li>
+                    <li>While we strive for high accuracy, AI-generated responses may occasionally contain errors, and we are not liable for any inaccuracies in AI communications</li>
+                </ul>
+
+                <h3>7. Payment & Billing</h3>
+                <p>Certain services require paid subscriptions. By subscribing, you agree to:</p>
+                <ul>
+                    <li>Pay all applicable fees as described at the time of purchase</li>
+                    <li>Provide valid and current payment information</li>
+                    <li>Authorize us to charge your payment method on a recurring basis unless you cancel</li>
+                </ul>
+                <p>All fees are non-refundable unless otherwise stated in writing. We reserve the right to change our pricing with 30 days' advance notice. Continued use after a price change constitutes acceptance of the new pricing.</p>
+
+                <h3>8. Intellectual Property</h3>
+                <p>All content, technology, trademarks, and materials on our website and within our services — including the NTNS name, logo, AI models, software, and design — are the exclusive property of NTNS or its licensors. You may not copy, modify, distribute, or create derivative works based on our intellectual property without prior written consent.</p>
+
+                <h3>9. Data & Privacy</h3>
+                <p>Your use of our services is also governed by our <a href="privacy.html" class="text-primary-container hover:underline">Privacy Policy</a>, which describes how we collect, use, and protect your information. By using our services, you consent to our data practices as described in the Privacy Policy.</p>
+
+                <h3>10. Third-Party Integrations</h3>
+                <p>Our services may integrate with third-party platforms (e.g., CRM systems, calendar tools, communication services). We are not responsible for the availability, accuracy, or practices of third-party services. Your use of third-party integrations is subject to those providers' own terms and policies.</p>
+
+                <h3>11. Limitation of Liability</h3>
+                <p>To the maximum extent permitted by law:</p>
+                <ul>
+                    <li>NTNS shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of our services</li>
+                    <li>Our total liability for any claim arising from these Terms or our services shall not exceed the total fees you paid to us in the 12 months preceding the claim</li>
+                    <li>We are not liable for any loss of revenue, data, business opportunities, or profits resulting from the use or inability to use our services</li>
+                </ul>
+
+                <h3>12. Disclaimer of Warranties</h3>
+                <p>Our services are provided "as is" and "as available" without warranties of any kind, either express or implied. We do not guarantee that our services will be uninterrupted, error-free, or secure. We disclaim all warranties, including implied warranties of merchantability, fitness for a particular purpose, and non-infringement.</p>
+
+                <h3>13. Indemnification</h3>
+                <p>You agree to indemnify, defend, and hold harmless NTNS, its officers, directors, employees, and agents from any claims, losses, damages, liabilities, and expenses (including legal fees) arising from your use of our services, violation of these Terms, or infringement of any third-party rights.</p>
+
+                <h3>14. Termination</h3>
+                <p>We may suspend or terminate your access to our services at any time, with or without cause, and with or without notice. Upon termination:</p>
+                <ul>
+                    <li>Your right to use our services will immediately cease</li>
+                    <li>We may delete your account data after a reasonable retention period</li>
+                    <li>All provisions of these Terms that should survive termination will remain in effect (including liability limitations, indemnification, and dispute resolution)</li>
+                </ul>
+                <p>You may cancel your subscription at any time by contacting us at <a href="mailto:Admin@ntns.ai" class="text-primary-container hover:underline">Admin@ntns.ai</a>.</p>
+
+                <h3>15. Governing Law</h3>
+                <p>These Terms shall be governed by and construed in accordance with the laws of the United States and the State of Washington, without regard to its conflict of law provisions. Any disputes arising from these Terms or your use of our services shall be resolved in the courts located in the State of Washington.</p>
+
+                <h3>16. Changes to Terms</h3>
+                <p>We reserve the right to modify these Terms at any time. Changes will be posted on this page with an updated "Last updated" date. Your continued use of our services after changes are posted constitutes acceptance of the revised Terms. We encourage you to review these Terms periodically.</p>
+
+                <h3>17. Severability</h3>
+                <p>If any provision of these Terms is found to be unenforceable or invalid, that provision will be limited or eliminated to the minimum extent necessary, and the remaining provisions will remain in full force and effect.</p>
+
+                <h3>18. Contact Us</h3>
+                <p>If you have any questions about these Terms, please contact us:</p>
+                <ul>
+                    <li>Email: <a href="mailto:Admin@ntns.ai" class="text-primary-container hover:underline">Admin@ntns.ai</a></li>
+                    <li>Phone (Support): +1 (206) 786-2235</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-16 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-8">
+            <div class="grid md:grid-cols-4 gap-10 mb-12">
+                <div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center overflow-hidden">
+                            <img src="NTNS Logo.png" alt="NTNS" class="h-5 w-auto" />
+                        </div>
+                        <span class="text-lg font-bold text-white font-['Archivo'] tracking-tight">NTNS</span>
+                    </div>
+                    <p class="text-sm text-white/40">Never Miss a Lead Again.</p>
+                </div>
+                <div>
+                    <h4 class="font-['Archivo'] font-bold text-white text-sm mb-4">Pages</h4>
+                    <div class="space-y-2">
+                        <a href="index.html" class="block text-sm text-white/50 hover:text-white transition-colors">Home</a>
+                        <a href="about.html" class="block text-sm text-white/50 hover:text-white transition-colors">About Us</a>
+                        <a href="contact.html" class="block text-sm text-white/50 hover:text-white transition-colors">Contact</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-['Archivo'] font-bold text-white text-sm mb-4">Legal</h4>
+                    <div class="space-y-2">
+                        <a href="privacy.html" class="block text-sm text-white/50 hover:text-white transition-colors">Privacy Policy</a>
+                        <a href="terms.html" class="block text-sm text-white/50 hover:text-white transition-colors">Terms & Conditions</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-['Archivo'] font-bold text-white text-sm mb-4">Contact</h4>
+                    <div class="space-y-2">
+                        <a href="mailto:Admin@ntns.ai" class="block text-sm text-white/50 hover:text-white transition-colors">Admin@ntns.ai</a>
+                        <p class="text-sm text-white/50">+1 (206) 786-2235 <span class="text-white/30">(Support)</span></p>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="font-['Archivo'] text-sm text-white/40">&copy; 2026 NTNS. All rights reserved.</p>
+                <div class="flex gap-6">
+                    <a class="font-['Archivo'] text-sm text-white/50 hover:text-white transition-colors" href="privacy.html">Privacy</a>
+                    <a class="font-['Archivo'] text-sm text-white/50 hover:text-white transition-colors" href="terms.html">Terms</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WebGL Shader Script -->
+    <script>
+    (function() {
+        const canvas = document.getElementById('shader-bg');
+        if (!canvas) return;
+        const gl = canvas.getContext('webgl');
+        if (!gl) return;
+        const vsSource = `attribute vec4 aVertexPosition; void main() { gl_Position = aVertexPosition; }`;
+        const fsSource = `
+            precision highp float;
+            uniform vec2 iResolution;
+            uniform float iTime;
+            const float overallSpeed = 0.2;
+            const float gridSmoothWidth = 0.015;
+            const float minLineWidth = 0.01;
+            const float maxLineWidth = 0.2;
+            const float lineSpeed = 1.0 * overallSpeed;
+            const float lineAmplitude = 1.0;
+            const float lineFrequency = 0.2;
+            const float warpSpeed = 0.2 * overallSpeed;
+            const float warpFrequency = 0.5;
+            const float warpAmplitude = 1.0;
+            const float offsetFrequency = 0.5;
+            const float offsetSpeed = 1.33 * overallSpeed;
+            const float minOffsetSpread = 0.6;
+            const float maxOffsetSpread = 2.0;
+            const int linesPerGroup = 16;
+            const float scale = 5.0;
+            const vec4 lineColor = vec4(0.4, 0.2, 0.8, 1.0);
+            #define drawSmoothLine(pos, halfWidth, t) smoothstep(halfWidth, 0.0, abs(pos - (t)))
+            #define drawCrispLine(pos, halfWidth, t) smoothstep(halfWidth + gridSmoothWidth, halfWidth, abs(pos - (t)))
+            #define drawCircle(pos, radius, coord) smoothstep(radius + gridSmoothWidth, radius, length(coord - (pos)))
+            float random(float t) { return (cos(t) + cos(t * 1.3 + 1.3) + cos(t * 1.4 + 1.4)) / 3.0; }
+            float getPlasmaY(float x, float horizontalFade, float offset) { return random(x * lineFrequency + iTime * lineSpeed) * horizontalFade * lineAmplitude + offset; }
+            void main() {
+                vec2 uv = gl_FragCoord.xy / iResolution.xy;
+                vec2 space = (gl_FragCoord.xy - iResolution.xy / 2.0) / iResolution.x * 2.0 * scale;
+                float horizontalFade = 1.0 - (cos(uv.x * 6.28) * 0.5 + 0.5);
+                float verticalFade = 1.0 - (cos(uv.y * 6.28) * 0.5 + 0.5);
+                space.y += random(space.x * warpFrequency + iTime * warpSpeed) * warpAmplitude * (0.5 + horizontalFade);
+                space.x += random(space.y * warpFrequency + iTime * warpSpeed + 2.0) * warpAmplitude * horizontalFade;
+                vec4 lines = vec4(0.0);
+                vec4 bgColor1 = vec4(0.08, 0.06, 0.22, 1.0);
+                vec4 bgColor2 = vec4(0.22, 0.08, 0.38, 1.0);
+                for(int l = 0; l < linesPerGroup; l++) {
+                    float normalizedLineIndex = float(l) / float(linesPerGroup);
+                    float offsetTime = iTime * offsetSpeed;
+                    float offsetPosition = float(l) + space.x * offsetFrequency;
+                    float rand = random(offsetPosition + offsetTime) * 0.5 + 0.5;
+                    float halfWidth = mix(minLineWidth, maxLineWidth, rand * horizontalFade) / 2.0;
+                    float offset = random(offsetPosition + offsetTime * (1.0 + normalizedLineIndex)) * mix(minOffsetSpread, maxOffsetSpread, horizontalFade);
+                    float linePosition = getPlasmaY(space.x, horizontalFade, offset);
+                    float line = drawSmoothLine(linePosition, halfWidth, space.y) / 2.0 + drawCrispLine(linePosition, halfWidth * 0.15, space.y);
+                    float circleX = mod(float(l) + iTime * lineSpeed, 25.0) - 12.0;
+                    vec2 circlePosition = vec2(circleX, getPlasmaY(circleX, horizontalFade, offset));
+                    float circle = drawCircle(circlePosition, 0.01, space) * 4.0;
+                    line = line + circle;
+                    lines += line * lineColor * rand;
+                }
+                vec4 fragColor = mix(bgColor1, bgColor2, uv.x);
+                fragColor *= verticalFade;
+                fragColor.a = 1.0;
+                fragColor += lines;
+                gl_FragColor = fragColor;
+            }
+        `;
+        function loadShader(gl, type, source) {
+            var s = gl.createShader(type); gl.shaderSource(s, source); gl.compileShader(s);
+            if (!gl.getShaderParameter(s, gl.COMPILE_STATUS)) { gl.deleteShader(s); return null; } return s;
+        }
+        var vs = loadShader(gl, gl.VERTEX_SHADER, vsSource);
+        var fs = loadShader(gl, gl.FRAGMENT_SHADER, fsSource);
+        var prog = gl.createProgram(); gl.attachShader(prog, vs); gl.attachShader(prog, fs); gl.linkProgram(prog);
+        if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) return;
+        var buf = gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+        gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 1,-1, -1,1, 1,1]), gl.STATIC_DRAW);
+        var aPos = gl.getAttribLocation(prog, 'aVertexPosition');
+        var uRes = gl.getUniformLocation(prog, 'iResolution');
+        var uTime = gl.getUniformLocation(prog, 'iTime');
+        function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; gl.viewport(0, 0, canvas.width, canvas.height); }
+        window.addEventListener('resize', resize); resize();
+        var t0 = Date.now();
+        (function render() {
+            gl.clearColor(0,0,0,1); gl.clear(gl.COLOR_BUFFER_BIT); gl.useProgram(prog);
+            gl.uniform2f(uRes, canvas.width, canvas.height); gl.uniform1f(uTime, (Date.now() - t0) / 1000);
+            gl.bindBuffer(gl.ARRAY_BUFFER, buf); gl.vertexAttribPointer(aPos, 2, gl.FLOAT, false, 0, 0);
+            gl.enableVertexAttribArray(aPos); gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4); requestAnimationFrame(render);
+        })();
+    })();
+    </script>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+        document.querySelectorAll('.animate-in').forEach(el => observer.observe(el));
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+        mobileMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => mobileMenu.classList.add('hidden')));
+    </script>
+</body>
+</html>

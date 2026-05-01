@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html class="light scroll-smooth" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>About Us | NTNS — AI Voice Receptionist</title>
+    <meta name="description" content="Learn about NTNS, our mission to help local businesses never miss a lead again, and our founder Saboor Ahmad Yousufi." />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary-container": "#6063ee",
+                        "secondary-container": "#fd56a7",
+                        "primary": "#4648d4",
+                        "on-primary": "#ffffff",
+                        "on-primary-container": "#fffbff",
+                        "on-surface": "#131b2e",
+                        "inverse-surface": "#283044",
+                        "tertiary-container": "#008096",
+                        "secondary": "#b4136d",
+                        "outline": "#767586"
+                    },
+                    fontFamily: {
+                        "label-bold": ["Lexend"],
+                        "headline-2xl": ["Archivo"],
+                        "headline-lg": ["Archivo"],
+                        "body-md": ["Lexend"],
+                        "headline-xl": ["Archivo"],
+                        "body-lg": ["Lexend"]
+                    },
+                    fontSize: {
+                        "headline-2xl": ["72px", { lineHeight: "1.1", letterSpacing: "-0.04em", fontWeight: "700" }],
+                        "headline-xl": ["48px", { lineHeight: "1.2", letterSpacing: "-0.02em", fontWeight: "600" }],
+                        "headline-lg": ["32px", { lineHeight: "1.3", fontWeight: "600" }],
+                        "body-lg": ["20px", { lineHeight: "1.6", fontWeight: "400" }],
+                        "body-md": ["16px", { lineHeight: "1.5", fontWeight: "400" }],
+                        "label-bold": ["14px", { lineHeight: "1", letterSpacing: "0.05em", fontWeight: "600" }]
+                    },
+                    spacing: {
+                        gutter: "32px",
+                        "section-gap": "120px",
+                        "container-max": "1280px"
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass-card {
+            background: rgba(18, 16, 42, 0.55);
+            backdrop-filter: blur(24px) saturate(1.4);
+            -webkit-backdrop-filter: blur(24px) saturate(1.4);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .glass-feature {
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .glass-feature:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(96, 99, 238, 0.3);
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 30px rgba(96, 99, 238, 0.1);
+        }
+        .glass-nav {
+            background: rgba(16, 14, 40, 0.55);
+            backdrop-filter: blur(24px) saturate(1.4);
+            -webkit-backdrop-filter: blur(24px) saturate(1.4);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .glass-mobile-menu {
+            background: rgba(16, 14, 40, 0.85);
+            backdrop-filter: blur(32px) saturate(1.4);
+            -webkit-backdrop-filter: blur(32px) saturate(1.4);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .animate-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .animate-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .animate-in { opacity: 1; transform: none; transition: none; }
+        }
+        @media (max-width: 768px) {
+            .text-headline-2xl { font-size: 40px !important; }
+            .text-headline-xl { font-size: 32px !important; }
+        }
+    </style>
+</head>
+
+<body class="font-body-md text-on-surface bg-[#1a1a3e]">
+
+    <canvas id="shader-bg" class="fixed top-0 left-0 w-full h-full -z-10"></canvas>
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 flex items-center justify-between px-6 md:px-8 py-3 w-full glass-nav rounded-full mt-4 md:mt-6 mx-auto max-w-5xl shadow-[0_8px_32px_0_rgba(0,0,0,0.3)]">
+        <a href="index.html" class="flex items-center gap-2">
+            <div class="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center overflow-hidden">
+                <img src="NTNS Logo.png" alt="NTNS" class="h-6 w-auto" />
+            </div>
+            <span class="text-xl font-bold tracking-tighter text-white font-['Archivo']">NTNS</span>
+        </a>
+        <div class="hidden md:flex gap-8 items-center">
+            <a class="font-['Archivo'] text-white/60 hover:text-primary-container transition-all duration-300 tracking-tight font-medium text-sm" href="index.html">Home</a>
+            <a class="font-['Archivo'] text-primary-container transition-all duration-300 tracking-tight font-medium text-sm" href="about.html">About</a>
+            <a class="font-['Archivo'] text-white/60 hover:text-primary-container transition-all duration-300 tracking-tight font-medium text-sm" href="contact.html">Contact</a>
+            <a class="font-['Archivo'] text-white/60 hover:text-primary-container transition-all duration-300 tracking-tight font-medium text-sm" href="index.html#demo">Live Demo</a>
+        </div>
+        <div class="flex gap-3 items-center">
+            <a href="index.html#demo" class="bg-primary-container text-on-primary-container px-5 py-2.5 rounded-full font-['Archivo'] font-bold text-sm transition-all duration-500 ease-out shadow-lg shadow-primary-container/20 hover:shadow-xl hover:shadow-primary-container/30 hover:scale-105 cursor-pointer flex items-center gap-2">
+                <span class="material-symbols-outlined text-lg">call</span>
+                <span class="hidden sm:inline">Call Demo</span>
+            </a>
+            <button id="mobile-menu-btn" class="md:hidden p-2 text-white/60 hover:text-primary-container cursor-pointer" aria-label="Open menu">
+                <span class="material-symbols-outlined">menu</span>
+            </button>
+        </div>
+    </nav>
+
+    <div id="mobile-menu" class="hidden fixed inset-x-0 top-[72px] z-40 mx-4">
+        <div class="glass-mobile-menu rounded-3xl p-6 shadow-2xl space-y-4">
+            <a class="block font-['Archivo'] text-white/60 hover:text-primary-container py-2 font-medium" href="index.html">Home</a>
+            <a class="block font-['Archivo'] text-primary-container py-2 font-medium" href="about.html">About</a>
+            <a class="block font-['Archivo'] text-white/60 hover:text-primary-container py-2 font-medium" href="contact.html">Contact</a>
+            <a class="block font-['Archivo'] text-white/60 hover:text-primary-container py-2 font-medium" href="index.html#demo">Live Demo</a>
+            <a href="index.html#demo" class="flex items-center justify-center gap-2 bg-primary-container text-on-primary-container px-6 py-3 rounded-full font-['Archivo'] font-bold text-sm cursor-pointer mt-2">
+                <span class="material-symbols-outlined text-lg">call</span>
+                Call Demo Now
+            </a>
+        </div>
+    </div>
+
+    <main>
+        <!-- Hero -->
+        <section class="pt-24 md:pt-32 pb-20 px-gutter">
+            <div class="max-w-4xl mx-auto text-center">
+                <div class="animate-in inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card mb-8">
+                    <span class="material-symbols-outlined text-primary-container text-sm">groups</span>
+                    <span class="text-label-bold font-label-bold text-primary-container">ABOUT NTNS</span>
+                </div>
+                <h1 class="animate-in font-headline-2xl text-headline-xl text-white mb-6" style="transition-delay:80ms">
+                    We Build the System So You <span class="text-primary-container">Never Miss a Lead Again</span>
+                </h1>
+                <p class="animate-in font-body-lg text-body-lg text-white/70 max-w-2xl mx-auto" style="transition-delay:160ms">
+                    NTNS was built for one reason: local businesses deserve a growth system that works around the clock, not just during business hours.
+                </p>
+            </div>
+        </section>
+
+        <!-- Mission -->
+        <section class="py-20 px-gutter">
+            <div class="max-w-5xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+                <div class="animate-in">
+                    <h2 class="font-headline-xl text-headline-lg text-white mb-6">Our Mission</h2>
+                    <p class="text-body-lg text-white/70 mb-6">
+                        Every day, local service businesses lose revenue because they can't answer every call, follow up fast enough, or track which leads slipped through the cracks.
+                    </p>
+                    <p class="text-body-md text-white/60 mb-6">
+                        NTNS exists to solve that. We install a complete AI-powered growth system — a 24/7 AI voice receptionist, instant follow-up automation, lead reactivation, automated review collection, and a full CRM — all working together as one system.
+                    </p>
+                    <p class="text-body-md text-white/60">
+                        We don't sell software. We install a system that captures every lead, follows up instantly, and turns more inquiries into paying customers. The result: nothing slips through the cracks.
+                    </p>
+                </div>
+                <div class="animate-in grid grid-cols-2 gap-5" style="transition-delay:150ms">
+                    <div class="glass-feature p-7 rounded-2xl text-center">
+                        <span class="material-symbols-outlined text-primary-container text-3xl mb-3 block">call</span>
+                        <p class="text-headline-lg font-headline-lg text-white mb-1">24/7</p>
+                        <p class="text-xs text-white/50 uppercase tracking-wider">AI Receptionist</p>
+                    </div>
+                    <div class="glass-feature p-7 rounded-2xl text-center">
+                        <span class="material-symbols-outlined text-secondary-container text-3xl mb-3 block">quickreply</span>
+                        <p class="text-headline-lg font-headline-lg text-white mb-1">Instant</p>
+                        <p class="text-xs text-white/50 uppercase tracking-wider">Follow-Up</p>
+                    </div>
+                    <div class="glass-feature p-7 rounded-2xl text-center">
+                        <span class="material-symbols-outlined text-tertiary-container text-3xl mb-3 block">replay</span>
+                        <p class="text-headline-lg font-headline-lg text-white mb-1">Old Leads</p>
+                        <p class="text-xs text-white/50 uppercase tracking-wider">Reactivated</p>
+                    </div>
+                    <div class="glass-feature p-7 rounded-2xl text-center">
+                        <span class="material-symbols-outlined text-white/60 text-3xl mb-3 block">star</span>
+                        <p class="text-headline-lg font-headline-lg text-white mb-1">5-Star</p>
+                        <p class="text-xs text-white/50 uppercase tracking-wider">Reviews on Auto</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Founder -->
+        <section class="py-20 px-gutter">
+            <div class="max-w-4xl mx-auto">
+                <div class="glass-card rounded-[48px] p-10 md:p-16 animate-in">
+                    <div class="text-center mb-10">
+                        <div class="w-24 h-24 rounded-full bg-gradient-to-br from-primary via-secondary to-primary-container mx-auto mb-6 flex items-center justify-center">
+                            <span class="text-3xl font-bold text-white font-['Archivo']">SA</span>
+                        </div>
+                        <h2 class="font-headline-xl text-headline-lg text-white mb-2">Saboor Ahmad Yousufi</h2>
+                        <p class="text-primary-container font-['Archivo'] font-semibold">Founder & Owner</p>
+                    </div>
+                    <div class="max-w-2xl mx-auto space-y-5">
+                        <p class="text-body-md text-white/70 text-center">
+                            Saboor Ahmad Yousufi founded NTNS with a clear vision: local businesses shouldn't lose customers just because they can't pick up the phone at the right time. After seeing countless service businesses struggle with missed calls, slow follow-ups, and leads that quietly disappeared, he built NTNS to fix the problem at its root.
+                        </p>
+                        <p class="text-body-md text-white/60 text-center">
+                            As the founder and owner, Saboor oversees the direction and growth of NTNS, ensuring the company stays focused on what matters — delivering real results for the businesses it serves. The day-to-day operations are driven by a dedicated team, but the mission stays the same: help every local business capture every opportunity.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- What We Believe -->
+        <section class="py-20 px-gutter">
+            <div class="max-w-5xl mx-auto">
+                <h2 class="font-headline-xl text-headline-lg text-white mb-10 text-center animate-in">What We Believe</h2>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="glass-feature p-8 rounded-3xl animate-in">
+                        <span class="material-symbols-outlined text-primary-container text-2xl mb-4 block">visibility</span>
+                        <h3 class="font-bold text-white font-['Archivo'] mb-3">Proof Over Promises</h3>
+                        <p class="text-sm text-white/50">We don't pitch slides. We let you call the AI yourself and hear it handle real conversations in your industry.</p>
+                    </div>
+                    <div class="glass-feature p-8 rounded-3xl animate-in" style="transition-delay:80ms">
+                        <span class="material-symbols-outlined text-secondary-container text-2xl mb-4 block">handshake</span>
+                        <h3 class="font-bold text-white font-['Archivo'] mb-3">Built for Business Owners</h3>
+                        <p class="text-sm text-white/50">We talk peer-to-peer. No jargon, no fluff. You're a business owner with a real problem, and we have a real solution.</p>
+                    </div>
+                    <div class="glass-feature p-8 rounded-3xl animate-in" style="transition-delay:160ms">
+                        <span class="material-symbols-outlined text-tertiary-container text-2xl mb-4 block">precision_manufacturing</span>
+                        <h3 class="font-bold text-white font-['Archivo'] mb-3">Systems, Not Band-Aids</h3>
+                        <p class="text-sm text-white/50">One tool won't fix a broken lead flow. We install a complete system — AI receptionist, follow-up, CRM, reviews — all working together.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="py-section-gap px-gutter">
+            <div class="max-w-3xl mx-auto text-center animate-in">
+                <h2 class="font-headline-xl text-headline-lg text-white mb-6">Ready to See It in Action?</h2>
+                <p class="text-body-md text-white/60 mb-10">Call the live demo and hear how the AI handles real conversations for your industry.</p>
+                <a href="index.html#demo" class="inline-flex items-center gap-3 bg-primary text-on-primary px-12 py-5 rounded-full font-headline-lg text-body-md hover:shadow-xl hover:shadow-primary/30 transition-all duration-500 cursor-pointer hover:scale-105 active:scale-95 shadow-lg shadow-primary/20">
+                    <span class="material-symbols-outlined">call</span>
+                    Try the Live Demo
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-16 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-8">
+            <div class="grid md:grid-cols-4 gap-10 mb-12">
+                <div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center overflow-hidden">
+                            <img src="NTNS Logo.png" alt="NTNS" class="h-5 w-auto" />
+                        </div>
+                        <span class="text-lg font-bold text-white font-['Archivo'] tracking-tight">NTNS</span>
+                    </div>
+                    <p class="text-sm text-white/40">Never Miss a Lead Again.</p>
+                </div>
+                <div>
+                    <h4 class="font-['Archivo'] font-bold text-white text-sm mb-4">Pages</h4>
+                    <div class="space-y-2">
+                        <a href="index.html" class="block text-sm text-white/50 hover:text-white transition-colors">Home</a>
+                        <a href="about.html" class="block text-sm text-white/50 hover:text-white transition-colors">About Us</a>
+                        <a href="contact.html" class="block text-sm text-white/50 hover:text-white transition-colors">Contact</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-['Archivo'] font-bold text-white text-sm mb-4">Legal</h4>
+                    <div class="space-y-2">
+                        <a href="privacy.html" class="block text-sm text-white/50 hover:text-white transition-colors">Privacy Policy</a>
+                        <a href="terms.html" class="block text-sm text-white/50 hover:text-white transition-colors">Terms & Conditions</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-['Archivo'] font-bold text-white text-sm mb-4">Contact</h4>
+                    <div class="space-y-2">
+                        <a href="mailto:Admin@ntns.ai" class="block text-sm text-white/50 hover:text-white transition-colors">Admin@ntns.ai</a>
+                        <p class="text-sm text-white/50">+1 (206) 786-2235 <span class="text-white/30">(Support)</span></p>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="font-['Archivo'] text-sm text-white/40">&copy; 2026 NTNS. All rights reserved.</p>
+                <div class="flex gap-6">
+                    <a class="font-['Archivo'] text-sm text-white/50 hover:text-white transition-colors" href="privacy.html">Privacy</a>
+                    <a class="font-['Archivo'] text-sm text-white/50 hover:text-white transition-colors" href="terms.html">Terms</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WebGL Shader Script -->
+    <script>
+    (function() {
+        const canvas = document.getElementById('shader-bg');
+        if (!canvas) return;
+        const gl = canvas.getContext('webgl');
+        if (!gl) return;
+        const vsSource = `attribute vec4 aVertexPosition; void main() { gl_Position = aVertexPosition; }`;
+        const fsSource = `
+            precision highp float;
+            uniform vec2 iResolution;
+            uniform float iTime;
+            const float overallSpeed = 0.2;
+            const float gridSmoothWidth = 0.015;
+            const float minLineWidth = 0.01;
+            const float maxLineWidth = 0.2;
+            const float lineSpeed = 1.0 * overallSpeed;
+            const float lineAmplitude = 1.0;
+            const float lineFrequency = 0.2;
+            const float warpSpeed = 0.2 * overallSpeed;
+            const float warpFrequency = 0.5;
+            const float warpAmplitude = 1.0;
+            const float offsetFrequency = 0.5;
+            const float offsetSpeed = 1.33 * overallSpeed;
+            const float minOffsetSpread = 0.6;
+            const float maxOffsetSpread = 2.0;
+            const int linesPerGroup = 16;
+            const float scale = 5.0;
+            const vec4 lineColor = vec4(0.4, 0.2, 0.8, 1.0);
+            #define drawSmoothLine(pos, halfWidth, t) smoothstep(halfWidth, 0.0, abs(pos - (t)))
+            #define drawCrispLine(pos, halfWidth, t) smoothstep(halfWidth + gridSmoothWidth, halfWidth, abs(pos - (t)))
+            #define drawCircle(pos, radius, coord) smoothstep(radius + gridSmoothWidth, radius, length(coord - (pos)))
+            float random(float t) { return (cos(t) + cos(t * 1.3 + 1.3) + cos(t * 1.4 + 1.4)) / 3.0; }
+            float getPlasmaY(float x, float horizontalFade, float offset) { return random(x * lineFrequency + iTime * lineSpeed) * horizontalFade * lineAmplitude + offset; }
+            void main() {
+                vec2 uv = gl_FragCoord.xy / iResolution.xy;
+                vec2 space = (gl_FragCoord.xy - iResolution.xy / 2.0) / iResolution.x * 2.0 * scale;
+                float horizontalFade = 1.0 - (cos(uv.x * 6.28) * 0.5 + 0.5);
+                float verticalFade = 1.0 - (cos(uv.y * 6.28) * 0.5 + 0.5);
+                space.y += random(space.x * warpFrequency + iTime * warpSpeed) * warpAmplitude * (0.5 + horizontalFade);
+                space.x += random(space.y * warpFrequency + iTime * warpSpeed + 2.0) * warpAmplitude * horizontalFade;
+                vec4 lines = vec4(0.0);
+                vec4 bgColor1 = vec4(0.08, 0.06, 0.22, 1.0);
+                vec4 bgColor2 = vec4(0.22, 0.08, 0.38, 1.0);
+                for(int l = 0; l < linesPerGroup; l++) {
+                    float normalizedLineIndex = float(l) / float(linesPerGroup);
+                    float offsetTime = iTime * offsetSpeed;
+                    float offsetPosition = float(l) + space.x * offsetFrequency;
+                    float rand = random(offsetPosition + offsetTime) * 0.5 + 0.5;
+                    float halfWidth = mix(minLineWidth, maxLineWidth, rand * horizontalFade) / 2.0;
+                    float offset = random(offsetPosition + offsetTime * (1.0 + normalizedLineIndex)) * mix(minOffsetSpread, maxOffsetSpread, horizontalFade);
+                    float linePosition = getPlasmaY(space.x, horizontalFade, offset);
+                    float line = drawSmoothLine(linePosition, halfWidth, space.y) / 2.0 + drawCrispLine(linePosition, halfWidth * 0.15, space.y);
+                    float circleX = mod(float(l) + iTime * lineSpeed, 25.0) - 12.0;
+                    vec2 circlePosition = vec2(circleX, getPlasmaY(circleX, horizontalFade, offset));
+                    float circle = drawCircle(circlePosition, 0.01, space) * 4.0;
+                    line = line + circle;
+                    lines += line * lineColor * rand;
+                }
+                vec4 fragColor = mix(bgColor1, bgColor2, uv.x);
+                fragColor *= verticalFade;
+                fragColor.a = 1.0;
+                fragColor += lines;
+                gl_FragColor = fragColor;
+            }
+        `;
+        function loadShader(gl, type, source) {
+            var s = gl.createShader(type); gl.shaderSource(s, source); gl.compileShader(s);
+            if (!gl.getShaderParameter(s, gl.COMPILE_STATUS)) { gl.deleteShader(s); return null; } return s;
+        }
+        var vs = loadShader(gl, gl.VERTEX_SHADER, vsSource);
+        var fs = loadShader(gl, gl.FRAGMENT_SHADER, fsSource);
+        var prog = gl.createProgram(); gl.attachShader(prog, vs); gl.attachShader(prog, fs); gl.linkProgram(prog);
+        if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) return;
+        var buf = gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+        gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 1,-1, -1,1, 1,1]), gl.STATIC_DRAW);
+        var aPos = gl.getAttribLocation(prog, 'aVertexPosition');
+        var uRes = gl.getUniformLocation(prog, 'iResolution');
+        var uTime = gl.getUniformLocation(prog, 'iTime');
+        function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; gl.viewport(0, 0, canvas.width, canvas.height); }
+        window.addEventListener('resize', resize); resize();
+        var t0 = Date.now();
+        (function render() {
+            gl.clearColor(0,0,0,1); gl.clear(gl.COLOR_BUFFER_BIT); gl.useProgram(prog);
+            gl.uniform2f(uRes, canvas.width, canvas.height); gl.uniform1f(uTime, (Date.now() - t0) / 1000);
+            gl.bindBuffer(gl.ARRAY_BUFFER, buf); gl.vertexAttribPointer(aPos, 2, gl.FLOAT, false, 0, 0);
+            gl.enableVertexAttribArray(aPos); gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4); requestAnimationFrame(render);
+        })();
+    })();
+    </script>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+        document.querySelectorAll('.animate-in').forEach(el => observer.observe(el));
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+        mobileMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => mobileMenu.classList.add('hidden')));
+    </script>
+</body>
+</html>
