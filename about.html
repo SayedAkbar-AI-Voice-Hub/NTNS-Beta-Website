@@ -115,15 +115,23 @@
             <span class="text-xl font-bold tracking-tighter text-white font-['Archivo']">NTNS</span>
         </a>
         <div class="hidden md:flex gap-8 items-center">
-            <a class="font-['Archivo'] text-white/60 hover:text-primary-container transition-all duration-300 tracking-tight font-medium text-sm" href="index.html">Home</a>
-            <a class="font-['Archivo'] text-primary-container transition-all duration-300 tracking-tight font-medium text-sm" href="about.html">About</a>
-            <a class="font-['Archivo'] text-white/60 hover:text-primary-container transition-all duration-300 tracking-tight font-medium text-sm" href="contact.html">Contact</a>
-            <a class="font-['Archivo'] text-white/60 hover:text-primary-container transition-all duration-300 tracking-tight font-medium text-sm" href="index.html#demo">Live Demo</a>
+            <a class="font-['Archivo'] text-white/60 hover:text-primary-container transition-all duration-300 tracking-tight font-medium text-sm" href="index.html" data-i18n="nav.home">Home</a>
+            <a class="font-['Archivo'] text-primary-container transition-all duration-300 tracking-tight font-medium text-sm" href="about.html" data-i18n="nav.about">About</a>
+            <a class="font-['Archivo'] text-white/60 hover:text-primary-container transition-all duration-300 tracking-tight font-medium text-sm" href="contact.html" data-i18n="nav.contact">Contact</a>
+            <a class="font-['Archivo'] text-white/60 hover:text-primary-container transition-all duration-300 tracking-tight font-medium text-sm" href="index.html#demo" data-i18n="nav.demo">Live Demo</a>
         </div>
         <div class="flex gap-3 items-center">
+            <button id="lang-toggle" class="border border-white/20 bg-white/5 text-white px-3 py-2.5 rounded-full font-['Archivo'] font-bold text-sm transition-all duration-500 ease-out hover:bg-white/15 hover:border-white/40 hover:scale-105 cursor-pointer flex items-center gap-1.5" aria-label="Toggle language">
+                <span class="material-symbols-outlined text-sm">translate</span>
+                <span id="lang-label">EN</span>
+            </button>
+            <a href="https://app.ntns.ai" target="_blank" rel="noopener noreferrer" class="border border-white/20 bg-white/5 text-white px-5 py-2.5 rounded-full font-['Archivo'] font-bold text-sm transition-all duration-500 ease-out hover:bg-white/15 hover:border-white/40 hover:scale-105 cursor-pointer flex items-center gap-2">
+                <span class="material-symbols-outlined text-lg">login</span>
+                <span class="hidden sm:inline" data-i18n="nav.login">Login</span>
+            </a>
             <a href="index.html#demo" class="bg-primary-container text-on-primary-container px-5 py-2.5 rounded-full font-['Archivo'] font-bold text-sm transition-all duration-500 ease-out shadow-lg shadow-primary-container/20 hover:shadow-xl hover:shadow-primary-container/30 hover:scale-105 cursor-pointer flex items-center gap-2">
                 <span class="material-symbols-outlined text-lg">call</span>
-                <span class="hidden sm:inline">Call Demo</span>
+                <span class="hidden sm:inline" data-i18n="nav.callDemo">Call Demo</span>
             </a>
             <button id="mobile-menu-btn" class="md:hidden p-2 text-white/60 hover:text-primary-container cursor-pointer" aria-label="Open menu">
                 <span class="material-symbols-outlined">menu</span>
@@ -133,13 +141,17 @@
 
     <div id="mobile-menu" class="hidden fixed inset-x-0 top-[72px] z-40 mx-4">
         <div class="glass-mobile-menu rounded-3xl p-6 shadow-2xl space-y-4">
-            <a class="block font-['Archivo'] text-white/60 hover:text-primary-container py-2 font-medium" href="index.html">Home</a>
-            <a class="block font-['Archivo'] text-primary-container py-2 font-medium" href="about.html">About</a>
-            <a class="block font-['Archivo'] text-white/60 hover:text-primary-container py-2 font-medium" href="contact.html">Contact</a>
-            <a class="block font-['Archivo'] text-white/60 hover:text-primary-container py-2 font-medium" href="index.html#demo">Live Demo</a>
+            <a class="block font-['Archivo'] text-white/60 hover:text-primary-container py-2 font-medium" href="index.html" data-i18n="nav.home">Home</a>
+            <a class="block font-['Archivo'] text-primary-container py-2 font-medium" href="about.html" data-i18n="nav.about">About</a>
+            <a class="block font-['Archivo'] text-white/60 hover:text-primary-container py-2 font-medium" href="contact.html" data-i18n="nav.contact">Contact</a>
+            <a class="block font-['Archivo'] text-white/60 hover:text-primary-container py-2 font-medium" href="index.html#demo" data-i18n="nav.demo">Live Demo</a>
+            <a href="https://app.ntns.ai" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 border border-white/20 bg-white/5 text-white px-6 py-3 rounded-full font-['Archivo'] font-bold text-sm cursor-pointer mt-2 hover:bg-white/15 hover:border-white/40 transition-all duration-300">
+                <span class="material-symbols-outlined text-lg">login</span>
+                <span data-i18n="nav.loginDashboard">Login to Dashboard</span>
+            </a>
             <a href="index.html#demo" class="flex items-center justify-center gap-2 bg-primary-container text-on-primary-container px-6 py-3 rounded-full font-['Archivo'] font-bold text-sm cursor-pointer mt-2">
                 <span class="material-symbols-outlined text-lg">call</span>
-                Call Demo Now
+                <span data-i18n="nav.callDemoNow">Call Demo Now</span>
             </a>
         </div>
     </div>
@@ -150,12 +162,12 @@
             <div class="max-w-4xl mx-auto text-center">
                 <div class="animate-in inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card mb-8">
                     <span class="material-symbols-outlined text-primary-container text-sm">groups</span>
-                    <span class="text-label-bold font-label-bold text-primary-container">ABOUT NTNS</span>
+                    <span class="text-label-bold font-label-bold text-primary-container" data-i18n="about.badge">ABOUT NTNS</span>
                 </div>
-                <h1 class="animate-in font-headline-2xl text-headline-xl text-white mb-6" style="transition-delay:80ms">
+                <h1 class="animate-in font-headline-2xl text-headline-xl text-white mb-6" style="transition-delay:80ms" data-i18n-html="about.title">
                     We Build the System So You <span class="text-primary-container">Never Miss a Lead Again</span>
                 </h1>
-                <p class="animate-in font-body-lg text-body-lg text-white/70 max-w-2xl mx-auto" style="transition-delay:160ms">
+                <p class="animate-in font-body-lg text-body-lg text-white/70 max-w-2xl mx-auto" style="transition-delay:160ms" data-i18n="about.subtitle">
                     NTNS was built for one reason: local businesses deserve a growth system that works around the clock, not just during business hours.
                 </p>
             </div>
@@ -165,37 +177,37 @@
         <section class="py-20 px-gutter">
             <div class="max-w-5xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
                 <div class="animate-in">
-                    <h2 class="font-headline-xl text-headline-lg text-white mb-6">Our Mission</h2>
-                    <p class="text-body-lg text-white/70 mb-6">
+                    <h2 class="font-headline-xl text-headline-lg text-white mb-6" data-i18n="about.mission.title">Our Mission</h2>
+                    <p class="text-body-lg text-white/70 mb-6" data-i18n="about.mission.p1">
                         Every day, local service businesses lose revenue because they can't answer every call, follow up fast enough, or track which leads slipped through the cracks.
                     </p>
-                    <p class="text-body-md text-white/60 mb-6">
+                    <p class="text-body-md text-white/60 mb-6" data-i18n="about.mission.p2">
                         NTNS exists to solve that. We install a complete AI-powered growth system — a 24/7 AI voice receptionist, instant follow-up automation, lead reactivation, automated review collection, and a full CRM — all working together as one system.
                     </p>
-                    <p class="text-body-md text-white/60">
+                    <p class="text-body-md text-white/60" data-i18n="about.mission.p3">
                         We don't sell software. We install a system that captures every lead, follows up instantly, and turns more inquiries into paying customers. The result: nothing slips through the cracks.
                     </p>
                 </div>
                 <div class="animate-in grid grid-cols-2 gap-5" style="transition-delay:150ms">
                     <div class="glass-feature p-7 rounded-2xl text-center">
                         <span class="material-symbols-outlined text-primary-container text-3xl mb-3 block">call</span>
-                        <p class="text-headline-lg font-headline-lg text-white mb-1">24/7</p>
-                        <p class="text-xs text-white/50 uppercase tracking-wider">AI Receptionist</p>
+                        <p class="text-headline-lg font-headline-lg text-white mb-1" data-i18n="about.stat1.value">24/7</p>
+                        <p class="text-xs text-white/50 uppercase tracking-wider" data-i18n="about.stat1.label">AI Receptionist</p>
                     </div>
                     <div class="glass-feature p-7 rounded-2xl text-center">
                         <span class="material-symbols-outlined text-secondary-container text-3xl mb-3 block">quickreply</span>
-                        <p class="text-headline-lg font-headline-lg text-white mb-1">Instant</p>
-                        <p class="text-xs text-white/50 uppercase tracking-wider">Follow-Up</p>
+                        <p class="text-headline-lg font-headline-lg text-white mb-1" data-i18n="about.stat2.value">Instant</p>
+                        <p class="text-xs text-white/50 uppercase tracking-wider" data-i18n="about.stat2.label">Follow-Up</p>
                     </div>
                     <div class="glass-feature p-7 rounded-2xl text-center">
                         <span class="material-symbols-outlined text-tertiary-container text-3xl mb-3 block">replay</span>
-                        <p class="text-headline-lg font-headline-lg text-white mb-1">Old Leads</p>
-                        <p class="text-xs text-white/50 uppercase tracking-wider">Reactivated</p>
+                        <p class="text-headline-lg font-headline-lg text-white mb-1" data-i18n="about.stat3.value">Old Leads</p>
+                        <p class="text-xs text-white/50 uppercase tracking-wider" data-i18n="about.stat3.label">Reactivated</p>
                     </div>
                     <div class="glass-feature p-7 rounded-2xl text-center">
                         <span class="material-symbols-outlined text-white/60 text-3xl mb-3 block">star</span>
-                        <p class="text-headline-lg font-headline-lg text-white mb-1">5-Star</p>
-                        <p class="text-xs text-white/50 uppercase tracking-wider">Reviews on Auto</p>
+                        <p class="text-headline-lg font-headline-lg text-white mb-1" data-i18n="about.stat4.value">5-Star</p>
+                        <p class="text-xs text-white/50 uppercase tracking-wider" data-i18n="about.stat4.label">Reviews on Auto</p>
                     </div>
                 </div>
             </div>
@@ -209,14 +221,14 @@
                         <div class="w-24 h-24 rounded-full bg-gradient-to-br from-primary via-secondary to-primary-container mx-auto mb-6 flex items-center justify-center">
                             <span class="text-3xl font-bold text-white font-['Archivo']">SA</span>
                         </div>
-                        <h2 class="font-headline-xl text-headline-lg text-white mb-2">Saboor Ahmad Yousufi</h2>
-                        <p class="text-primary-container font-['Archivo'] font-semibold">Founder & Owner</p>
+                        <h2 class="font-headline-xl text-headline-lg text-white mb-2" data-i18n="about.founder.name">Saboor Ahmad Yousufi</h2>
+                        <p class="text-primary-container font-['Archivo'] font-semibold" data-i18n="about.founder.role">Founder & Owner</p>
                     </div>
                     <div class="max-w-2xl mx-auto space-y-5">
-                        <p class="text-body-md text-white/70 text-center">
+                        <p class="text-body-md text-white/70 text-center" data-i18n="about.founder.p1">
                             Saboor Ahmad Yousufi founded NTNS with a clear vision: local businesses shouldn't lose customers just because they can't pick up the phone at the right time. After seeing countless service businesses struggle with missed calls, slow follow-ups, and leads that quietly disappeared, he built NTNS to fix the problem at its root.
                         </p>
-                        <p class="text-body-md text-white/60 text-center">
+                        <p class="text-body-md text-white/60 text-center" data-i18n="about.founder.p2">
                             As the founder and owner, Saboor oversees the direction and growth of NTNS, ensuring the company stays focused on what matters — delivering real results for the businesses it serves. The day-to-day operations are driven by a dedicated team, but the mission stays the same: help every local business capture every opportunity.
                         </p>
                     </div>
@@ -227,22 +239,22 @@
         <!-- What We Believe -->
         <section class="py-20 px-gutter">
             <div class="max-w-5xl mx-auto">
-                <h2 class="font-headline-xl text-headline-lg text-white mb-10 text-center animate-in">What We Believe</h2>
+                <h2 class="font-headline-xl text-headline-lg text-white mb-10 text-center animate-in" data-i18n="about.believe.title">What We Believe</h2>
                 <div class="grid md:grid-cols-3 gap-6">
                     <div class="glass-feature p-8 rounded-3xl animate-in">
                         <span class="material-symbols-outlined text-primary-container text-2xl mb-4 block">visibility</span>
-                        <h3 class="font-bold text-white font-['Archivo'] mb-3">Proof Over Promises</h3>
-                        <p class="text-sm text-white/50">We don't pitch slides. We let you call the AI yourself and hear it handle real conversations in your industry.</p>
+                        <h3 class="font-bold text-white font-['Archivo'] mb-3" data-i18n="about.believe1.title">Proof Over Promises</h3>
+                        <p class="text-sm text-white/50" data-i18n="about.believe1.desc">We don't pitch slides. We let you call the AI yourself and hear it handle real conversations in your industry.</p>
                     </div>
                     <div class="glass-feature p-8 rounded-3xl animate-in" style="transition-delay:80ms">
                         <span class="material-symbols-outlined text-secondary-container text-2xl mb-4 block">handshake</span>
-                        <h3 class="font-bold text-white font-['Archivo'] mb-3">Built for Business Owners</h3>
-                        <p class="text-sm text-white/50">We talk peer-to-peer. No jargon, no fluff. You're a business owner with a real problem, and we have a real solution.</p>
+                        <h3 class="font-bold text-white font-['Archivo'] mb-3" data-i18n="about.believe2.title">Built for Business Owners</h3>
+                        <p class="text-sm text-white/50" data-i18n="about.believe2.desc">We talk peer-to-peer. No jargon, no fluff. You're a business owner with a real problem, and we have a real solution.</p>
                     </div>
                     <div class="glass-feature p-8 rounded-3xl animate-in" style="transition-delay:160ms">
                         <span class="material-symbols-outlined text-tertiary-container text-2xl mb-4 block">precision_manufacturing</span>
-                        <h3 class="font-bold text-white font-['Archivo'] mb-3">Systems, Not Band-Aids</h3>
-                        <p class="text-sm text-white/50">One tool won't fix a broken lead flow. We install a complete system — AI receptionist, follow-up, CRM, reviews — all working together.</p>
+                        <h3 class="font-bold text-white font-['Archivo'] mb-3" data-i18n="about.believe3.title">Systems, Not Band-Aids</h3>
+                        <p class="text-sm text-white/50" data-i18n="about.believe3.desc">One tool won't fix a broken lead flow. We install a complete system — AI receptionist, follow-up, CRM, reviews — all working together.</p>
                     </div>
                 </div>
             </div>
@@ -251,11 +263,11 @@
         <!-- CTA -->
         <section class="py-section-gap px-gutter">
             <div class="max-w-3xl mx-auto text-center animate-in">
-                <h2 class="font-headline-xl text-headline-lg text-white mb-6">Ready to See It in Action?</h2>
-                <p class="text-body-md text-white/60 mb-10">Call the live demo and hear how the AI handles real conversations for your industry.</p>
+                <h2 class="font-headline-xl text-headline-lg text-white mb-6" data-i18n="about.cta.title">Ready to See It in Action?</h2>
+                <p class="text-body-md text-white/60 mb-10" data-i18n="about.cta.subtitle">Call the live demo and hear how the AI handles real conversations for your industry.</p>
                 <a href="index.html#demo" class="inline-flex items-center gap-3 bg-primary text-on-primary px-12 py-5 rounded-full font-headline-lg text-body-md hover:shadow-xl hover:shadow-primary/30 transition-all duration-500 cursor-pointer hover:scale-105 active:scale-95 shadow-lg shadow-primary/20">
                     <span class="material-symbols-outlined">call</span>
-                    Try the Live Demo
+                    <span data-i18n="about.cta.button">Try the Live Demo</span>
                 </a>
             </div>
         </section>
@@ -272,40 +284,42 @@
                         </div>
                         <span class="text-lg font-bold text-white font-['Archivo'] tracking-tight">NTNS</span>
                     </div>
-                    <p class="text-sm text-white/40">Never Miss a Lead Again.</p>
+                    <p class="text-sm text-white/40" data-i18n="footer.tagline">Never Miss a Lead Again.</p>
                 </div>
                 <div>
-                    <h4 class="font-['Archivo'] font-bold text-white text-sm mb-4">Pages</h4>
+                    <h4 class="font-['Archivo'] font-bold text-white text-sm mb-4" data-i18n="footer.pages">Pages</h4>
                     <div class="space-y-2">
-                        <a href="index.html" class="block text-sm text-white/50 hover:text-white transition-colors">Home</a>
-                        <a href="about.html" class="block text-sm text-white/50 hover:text-white transition-colors">About Us</a>
-                        <a href="contact.html" class="block text-sm text-white/50 hover:text-white transition-colors">Contact</a>
+                        <a href="index.html" class="block text-sm text-white/50 hover:text-white transition-colors" data-i18n="footer.home">Home</a>
+                        <a href="about.html" class="block text-sm text-white/50 hover:text-white transition-colors" data-i18n="footer.aboutUs">About Us</a>
+                        <a href="contact.html" class="block text-sm text-white/50 hover:text-white transition-colors" data-i18n="footer.contact">Contact</a>
                     </div>
                 </div>
                 <div>
-                    <h4 class="font-['Archivo'] font-bold text-white text-sm mb-4">Legal</h4>
+                    <h4 class="font-['Archivo'] font-bold text-white text-sm mb-4" data-i18n="footer.legal">Legal</h4>
                     <div class="space-y-2">
-                        <a href="privacy.html" class="block text-sm text-white/50 hover:text-white transition-colors">Privacy Policy</a>
-                        <a href="terms.html" class="block text-sm text-white/50 hover:text-white transition-colors">Terms & Conditions</a>
+                        <a href="privacy.html" class="block text-sm text-white/50 hover:text-white transition-colors" data-i18n="footer.privacy">Privacy Policy</a>
+                        <a href="terms.html" class="block text-sm text-white/50 hover:text-white transition-colors" data-i18n="footer.terms">Terms & Conditions</a>
                     </div>
                 </div>
                 <div>
-                    <h4 class="font-['Archivo'] font-bold text-white text-sm mb-4">Contact</h4>
+                    <h4 class="font-['Archivo'] font-bold text-white text-sm mb-4" data-i18n="footer.contactTitle">Contact</h4>
                     <div class="space-y-2">
                         <a href="mailto:Admin@ntns.ai" class="block text-sm text-white/50 hover:text-white transition-colors">Admin@ntns.ai</a>
-                        <p class="text-sm text-white/50">+1 (206) 786-2235 <span class="text-white/30">(Support)</span></p>
+                        <p class="text-sm text-white/50">+1 (206) 786-2235 <span class="text-white/30" data-i18n="footer.supportLabel">(Support)</span></p>
                     </div>
                 </div>
             </div>
             <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-                <p class="font-['Archivo'] text-sm text-white/40">&copy; 2026 NTNS. All rights reserved.</p>
+                <p class="font-['Archivo'] text-sm text-white/40" data-i18n="footer.copyright">&copy; 2026 NTNS. All rights reserved.</p>
                 <div class="flex gap-6">
-                    <a class="font-['Archivo'] text-sm text-white/50 hover:text-white transition-colors" href="privacy.html">Privacy</a>
-                    <a class="font-['Archivo'] text-sm text-white/50 hover:text-white transition-colors" href="terms.html">Terms</a>
+                    <a class="font-['Archivo'] text-sm text-white/50 hover:text-white transition-colors" href="privacy.html" data-i18n="footer.privacyShort">Privacy</a>
+                    <a class="font-['Archivo'] text-sm text-white/50 hover:text-white transition-colors" href="terms.html" data-i18n="footer.termsShort">Terms</a>
                 </div>
             </div>
         </div>
     </footer>
+
+    <script src="i18n.js"></script>
 
     <!-- WebGL Shader Script -->
     <script>

@@ -194,16 +194,24 @@
             <span class="text-xl font-bold tracking-tighter text-white font-['Archivo']">NTNS</span>
         </a>
         <div class="hidden md:flex gap-8 items-center">
-            <a class="font-['Archivo'] text-white/60 hover:text-primary-container transition-all duration-300 tracking-tight font-medium text-sm" href="#solution">Solution</a>
-            <a class="font-['Archivo'] text-white/60 hover:text-primary-container transition-all duration-300 tracking-tight font-medium text-sm" href="#industries">Industries</a>
-            <a class="font-['Archivo'] text-white/60 hover:text-primary-container transition-all duration-300 tracking-tight font-medium text-sm" href="about.html">About</a>
-            <a class="font-['Archivo'] text-white/60 hover:text-primary-container transition-all duration-300 tracking-tight font-medium text-sm" href="contact.html">Contact</a>
-            <a class="font-['Archivo'] text-white/60 hover:text-primary-container transition-all duration-300 tracking-tight font-medium text-sm" href="#demo">Live Demo</a>
+            <a class="font-['Archivo'] text-white/60 hover:text-primary-container transition-all duration-300 tracking-tight font-medium text-sm" href="#solution" data-i18n="nav.solution">Solution</a>
+            <a class="font-['Archivo'] text-white/60 hover:text-primary-container transition-all duration-300 tracking-tight font-medium text-sm" href="#industries" data-i18n="nav.industries">Industries</a>
+            <a class="font-['Archivo'] text-white/60 hover:text-primary-container transition-all duration-300 tracking-tight font-medium text-sm" href="about.html" data-i18n="nav.about">About</a>
+            <a class="font-['Archivo'] text-white/60 hover:text-primary-container transition-all duration-300 tracking-tight font-medium text-sm" href="contact.html" data-i18n="nav.contact">Contact</a>
+            <a class="font-['Archivo'] text-white/60 hover:text-primary-container transition-all duration-300 tracking-tight font-medium text-sm" href="#demo" data-i18n="nav.demo">Live Demo</a>
         </div>
         <div class="flex gap-3 items-center">
+            <button id="lang-toggle" class="border border-white/20 bg-white/5 text-white px-3 py-2.5 rounded-full font-['Archivo'] font-bold text-sm transition-all duration-500 ease-out hover:bg-white/15 hover:border-white/40 hover:scale-105 cursor-pointer flex items-center gap-1.5" aria-label="Toggle language">
+                <span class="material-symbols-outlined text-sm">translate</span>
+                <span id="lang-label">EN</span>
+            </button>
+            <a href="https://app.ntns.ai" target="_blank" rel="noopener noreferrer" class="border border-white/20 bg-white/5 text-white px-5 py-2.5 rounded-full font-['Archivo'] font-bold text-sm transition-all duration-500 ease-out hover:bg-white/15 hover:border-white/40 hover:scale-105 cursor-pointer flex items-center gap-2">
+                <span class="material-symbols-outlined text-lg">login</span>
+                <span class="hidden sm:inline" data-i18n="nav.login">Login</span>
+            </a>
             <a href="tel:+15106347901" class="bg-primary-container text-on-primary-container px-5 py-2.5 rounded-full font-['Archivo'] font-bold text-sm transition-all duration-500 ease-out shadow-lg shadow-primary-container/20 hover:shadow-xl hover:shadow-primary-container/30 hover:scale-105 cursor-pointer flex items-center gap-2">
                 <span class="material-symbols-outlined text-lg">call</span>
-                <span class="hidden sm:inline">Call Demo</span>
+                <span class="hidden sm:inline" data-i18n="nav.callDemo">Call Demo</span>
             </a>
             <button id="mobile-menu-btn" class="md:hidden p-2 text-white/60 hover:text-primary-container cursor-pointer" aria-label="Open menu">
                 <span class="material-symbols-outlined">menu</span>
@@ -214,14 +222,18 @@
     <!-- Mobile Menu -->
     <div id="mobile-menu" class="hidden fixed inset-x-0 top-[72px] z-40 mx-4">
         <div class="glass-mobile-menu rounded-3xl p-6 shadow-2xl space-y-4">
-            <a class="block font-['Archivo'] text-white/60 hover:text-primary-container py-2 font-medium" href="#solution">Solution</a>
-            <a class="block font-['Archivo'] text-white/60 hover:text-primary-container py-2 font-medium" href="#industries">Industries</a>
-            <a class="block font-['Archivo'] text-white/60 hover:text-primary-container py-2 font-medium" href="about.html">About</a>
-            <a class="block font-['Archivo'] text-white/60 hover:text-primary-container py-2 font-medium" href="contact.html">Contact</a>
-            <a class="block font-['Archivo'] text-white/60 hover:text-primary-container py-2 font-medium" href="#demo">Live Demo</a>
+            <a class="block font-['Archivo'] text-white/60 hover:text-primary-container py-2 font-medium" href="#solution" data-i18n="nav.solution">Solution</a>
+            <a class="block font-['Archivo'] text-white/60 hover:text-primary-container py-2 font-medium" href="#industries" data-i18n="nav.industries">Industries</a>
+            <a class="block font-['Archivo'] text-white/60 hover:text-primary-container py-2 font-medium" href="about.html" data-i18n="nav.about">About</a>
+            <a class="block font-['Archivo'] text-white/60 hover:text-primary-container py-2 font-medium" href="contact.html" data-i18n="nav.contact">Contact</a>
+            <a class="block font-['Archivo'] text-white/60 hover:text-primary-container py-2 font-medium" href="#demo" data-i18n="nav.demo">Live Demo</a>
+            <a href="https://app.ntns.ai" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 border border-white/20 bg-white/5 text-white px-6 py-3 rounded-full font-['Archivo'] font-bold text-sm cursor-pointer mt-2 hover:bg-white/15 hover:border-white/40 transition-all duration-300">
+                <span class="material-symbols-outlined text-lg">login</span>
+                <span data-i18n="nav.loginDashboard">Login to Dashboard</span>
+            </a>
             <a href="tel:+15106347901" class="flex items-center justify-center gap-2 bg-primary-container text-on-primary-container px-6 py-3 rounded-full font-['Archivo'] font-bold text-sm cursor-pointer mt-2">
                 <span class="material-symbols-outlined text-lg">call</span>
-                Call Demo Now
+                <span data-i18n="nav.callDemoNow">Call Demo Now</span>
             </a>
         </div>
     </div>
@@ -232,25 +244,25 @@
             <div class="max-w-container-max mx-auto text-center relative z-10">
                 <div class="animate-in inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card mb-8">
                     <span class="flex h-2 w-2 rounded-full bg-primary-container animate-pulse"></span>
-                    <span class="text-label-bold font-label-bold text-primary-container">24/7 AI VOICE RECEPTIONIST</span>
+                    <span class="text-label-bold font-label-bold text-primary-container" data-i18n="hero.badge">24/7 AI VOICE RECEPTIONIST</span>
                 </div>
-                <h1 class="animate-in font-headline-2xl text-headline-2xl text-white mb-8 max-w-4xl mx-auto" style="transition-delay:80ms">
+                <h1 class="animate-in font-headline-2xl text-headline-2xl text-white mb-8 max-w-4xl mx-auto" style="transition-delay:80ms" data-i18n-html="hero.title">
                     Never Miss a <span class="text-primary-container">Lead Again</span>
                 </h1>
-                <p class="animate-in font-body-lg text-body-lg text-white/70 max-w-2xl mx-auto mb-12" style="transition-delay:160ms">
+                <p class="animate-in font-body-lg text-body-lg text-white/70 max-w-2xl mx-auto mb-12" style="transition-delay:160ms" data-i18n="hero.subtitle">
                     Our AI receptionist captures every lead, follows up instantly, and turns more inquiries into paying customers. Nothing slips through the cracks.
                 </p>
                 <div class="animate-in flex flex-col sm:flex-row justify-center gap-4 sm:gap-6" style="transition-delay:240ms">
                     <a href="tel:+15106347901" class="bg-primary text-on-primary px-10 py-5 rounded-full font-headline-lg text-body-md hover:shadow-xl hover:shadow-primary/30 transition-all duration-500 cursor-pointer inline-flex items-center justify-center gap-3 hover:scale-105 active:scale-95">
                         <span class="material-symbols-outlined">call</span>
-                        Try the AI Live
+                        <span data-i18n="hero.cta1">Try the AI Live</span>
                     </a>
                     <a href="#solution" class="border border-white/30 bg-white/10 px-10 py-5 rounded-full font-headline-lg text-body-md text-white hover:bg-white/20 transition-all duration-500 flex items-center justify-center gap-2 cursor-pointer">
                         <span class="material-symbols-outlined">play_circle</span>
-                        See How It Works
+                        <span data-i18n="hero.cta2">See How It Works</span>
                     </a>
                 </div>
-                <p class="animate-in text-sm text-white/40 mt-6 font-['Archivo']" style="transition-delay:320ms">
+                <p class="animate-in text-sm text-white/40 mt-6 font-['Archivo']" style="transition-delay:320ms" data-i18n-html="hero.callText">
                     Call <span class="text-white/80 font-semibold">+1 (510) 634-7901</span> to experience it yourself
                 </p>
             </div>
@@ -261,7 +273,7 @@
                     <div class="w-10 h-10 rounded-full bg-primary-container/20 flex items-center justify-center">
                         <span class="material-symbols-outlined text-primary-container">call</span>
                     </div>
-                    <span class="text-xs font-label-bold text-white/50">Active Now</span>
+                    <span class="text-xs font-label-bold text-white/50" data-i18n="hero.card.activeNow">Active Now</span>
                 </div>
                 <div class="space-y-4">
                     <div class="h-3 w-3/4 bg-white/10 rounded-full"></div>
@@ -271,7 +283,7 @@
                             <span class="material-symbols-outlined text-primary-container text-3xl" style="animation:none">mic</span>
                         </div>
                     </div>
-                    <p class="text-xs text-center text-white/40 mt-2">AI Receptionist Listening...</p>
+                    <p class="text-xs text-center text-white/40 mt-2" data-i18n="hero.card.listening">AI Receptionist Listening...</p>
                 </div>
             </div>
 
@@ -279,22 +291,22 @@
                 <div class="flex items-center gap-3 mb-5 border-b border-white/10 pb-4">
                     <div class="w-10 h-10 rounded-full bg-gradient-to-br from-primary-container to-secondary-container flex items-center justify-center text-white text-sm font-bold">JM</div>
                     <div>
-                        <p class="text-sm font-label-bold text-white">James Mitchell</p>
-                        <p class="text-xs text-white/50">Qualified Lead &bull; Roofing</p>
+                        <p class="text-sm font-label-bold text-white" data-i18n="hero.card.name">James Mitchell</p>
+                        <p class="text-xs text-white/50" data-i18n="hero.card.qualified">Qualified Lead &bull; Roofing</p>
                     </div>
                 </div>
                 <div class="space-y-3">
                     <div class="flex justify-between items-center bg-white/5 p-2.5 rounded-lg border border-white/5">
-                        <span class="text-xs text-white/50">Interest Level</span>
-                        <span class="text-xs font-bold text-secondary-container">96% High</span>
+                        <span class="text-xs text-white/50" data-i18n="hero.card.interestLevel">Interest Level</span>
+                        <span class="text-xs font-bold text-secondary-container" data-i18n="hero.card.interestValue">96% High</span>
                     </div>
                     <div class="flex justify-between items-center bg-white/5 p-2.5 rounded-lg border border-white/5">
-                        <span class="text-xs text-white/50">Next Step</span>
-                        <span class="text-xs font-bold text-primary-container">Auto-Scheduled</span>
+                        <span class="text-xs text-white/50" data-i18n="hero.card.nextStep">Next Step</span>
+                        <span class="text-xs font-bold text-primary-container" data-i18n="hero.card.nextStepValue">Auto-Scheduled</span>
                     </div>
                     <div class="flex justify-between items-center bg-white/5 p-2.5 rounded-lg border border-white/5">
-                        <span class="text-xs text-white/50">Follow-up</span>
-                        <span class="text-xs font-bold text-tertiary-container">SMS Sent</span>
+                        <span class="text-xs text-white/50" data-i18n="hero.card.followUp">Follow-up</span>
+                        <span class="text-xs font-bold text-tertiary-container" data-i18n="hero.card.followUpValue">SMS Sent</span>
                     </div>
                 </div>
             </div>
@@ -305,32 +317,32 @@
             <div class="max-w-container-max mx-auto">
                 <div class="grid lg:grid-cols-2 gap-16 lg:gap-20 items-center">
                     <div class="animate-in">
-                        <h2 class="font-headline-xl text-headline-xl text-white mb-8">
+                        <h2 class="font-headline-xl text-headline-xl text-white mb-8" data-i18n-html="problem.title">
                             Your Business is <span class="text-secondary-container">Bleeding Revenue</span> Every Day.
                         </h2>
-                        <p class="font-body-lg text-body-lg text-white/60 mb-12">
+                        <p class="font-body-lg text-body-lg text-white/60 mb-12" data-i18n="problem.subtitle">
                             Local businesses lose money daily because of broken systems. Not just inefficiency: lost revenue and lost trust.
                         </p>
                         <ul class="space-y-6">
                             <li class="flex gap-4 items-start glass-feature p-4 rounded-2xl">
                                 <span class="material-symbols-outlined text-secondary-container p-2 bg-secondary-container/10 rounded-lg shrink-0">phone_missed</span>
                                 <div>
-                                    <h4 class="font-headline-lg text-body-md font-bold text-white">Calls Go Unanswered</h4>
-                                    <p class="text-white/50">Every missed call is a missed customer. Your competitors are just one ring away.</p>
+                                    <h4 class="font-headline-lg text-body-md font-bold text-white" data-i18n="problem.item1.title">Calls Go Unanswered</h4>
+                                    <p class="text-white/50" data-i18n="problem.item1.desc">Every missed call is a missed customer. Your competitors are just one ring away.</p>
                                 </div>
                             </li>
                             <li class="flex gap-4 items-start glass-feature p-4 rounded-2xl">
                                 <span class="material-symbols-outlined text-secondary-container p-2 bg-secondary-container/10 rounded-lg shrink-0">timer_off</span>
                                 <div>
-                                    <h4 class="font-headline-lg text-body-md font-bold text-white">Slow Follow-Up</h4>
-                                    <p class="text-white/50">Leads go cold in minutes. If you don't respond instantly, someone else will.</p>
+                                    <h4 class="font-headline-lg text-body-md font-bold text-white" data-i18n="problem.item2.title">Slow Follow-Up</h4>
+                                    <p class="text-white/50" data-i18n="problem.item2.desc">Leads go cold in minutes. If you don't respond instantly, someone else will.</p>
                                 </div>
                             </li>
                             <li class="flex gap-4 items-start glass-feature p-4 rounded-2xl">
                                 <span class="material-symbols-outlined text-secondary-container p-2 bg-secondary-container/10 rounded-lg shrink-0">visibility_off</span>
                                 <div>
-                                    <h4 class="font-headline-lg text-body-md font-bold text-white">No Tracking System</h4>
-                                    <p class="text-white/50">Without a clear system, opportunities slip through the cracks unnoticed.</p>
+                                    <h4 class="font-headline-lg text-body-md font-bold text-white" data-i18n="problem.item3.title">No Tracking System</h4>
+                                    <p class="text-white/50" data-i18n="problem.item3.desc">Without a clear system, opportunities slip through the cracks unnoticed.</p>
                                 </div>
                             </li>
                         </ul>
@@ -340,30 +352,30 @@
                     <div class="relative grid grid-cols-2 gap-5 animate-in" style="transition-delay:150ms">
                         <div class="glass-feature border-secondary-container/15 p-7 rounded-2xl">
                             <span class="material-symbols-outlined text-secondary-container mb-3 block">trending_down</span>
-                            <p class="text-headline-xl font-headline-xl text-secondary-container mb-1">78%</p>
-                            <p class="text-label-bold uppercase text-white/50 text-[11px]">Buy From First Responder</p>
+                            <p class="text-headline-xl font-headline-xl text-secondary-container mb-1" data-i18n="problem.stat1.value">78%</p>
+                            <p class="text-label-bold uppercase text-white/50 text-[11px]" data-i18n="problem.stat1.label">Buy From First Responder</p>
                             <div class="mt-5 h-2 w-full bg-white/10 rounded-full overflow-hidden">
                                 <div class="bg-secondary-container h-full w-4/5 rounded-full"></div>
                             </div>
                         </div>
                         <div class="glass-card p-7 rounded-2xl shadow-2xl">
                             <span class="material-symbols-outlined text-white/60 mb-3 block">person_off</span>
-                            <p class="text-headline-xl font-headline-xl text-white mb-1">64%</p>
-                            <p class="text-label-bold uppercase text-white/50 text-[11px]">Lead Drop-off Rate</p>
+                            <p class="text-headline-xl font-headline-xl text-white mb-1" data-i18n="problem.stat2.value">64%</p>
+                            <p class="text-label-bold uppercase text-white/50 text-[11px]" data-i18n="problem.stat2.label">Lead Drop-off Rate</p>
                             <div class="mt-5 flex flex-wrap gap-2">
-                                <span class="px-3 py-1 bg-white/10 rounded-full text-[10px] text-white/60">No Answer</span>
-                                <span class="px-3 py-1 bg-white/10 rounded-full text-[10px] text-white/60">Slow Response</span>
+                                <span class="px-3 py-1 bg-white/10 rounded-full text-[10px] text-white/60" data-i18n="problem.stat2.tag1">No Answer</span>
+                                <span class="px-3 py-1 bg-white/10 rounded-full text-[10px] text-white/60" data-i18n="problem.stat2.tag2">Slow Response</span>
                             </div>
                         </div>
                         <div class="glass-feature border-secondary-container/15 p-7 rounded-2xl">
                             <span class="material-symbols-outlined text-secondary-container mb-3 block">inventory_2</span>
-                            <p class="text-headline-xl font-headline-xl text-secondary-container mb-1">0</p>
-                            <p class="text-label-bold uppercase text-white/50 text-[11px]">Reviews From Happy Customers</p>
+                            <p class="text-headline-xl font-headline-xl text-secondary-container mb-1" data-i18n="problem.stat3.value">0</p>
+                            <p class="text-label-bold uppercase text-white/50 text-[11px]" data-i18n="problem.stat3.label">Reviews From Happy Customers</p>
                         </div>
                         <div class="glass-feature p-7 rounded-2xl relative overflow-hidden group">
                             <span class="material-symbols-outlined text-white/50 mb-3 block">delete_sweep</span>
-                            <p class="text-headline-xl font-headline-xl text-white mb-1">100s</p>
-                            <p class="text-label-bold uppercase text-white/50 text-[11px]">Old Leads Forgotten</p>
+                            <p class="text-headline-xl font-headline-xl text-white mb-1" data-i18n="problem.stat4.value">100s</p>
+                            <p class="text-label-bold uppercase text-white/50 text-[11px]" data-i18n="problem.stat4.label">Old Leads Forgotten</p>
                             <div class="absolute -right-3 -bottom-3 opacity-5 group-hover:opacity-15 transition-opacity">
                                 <span class="material-symbols-outlined text-[120px] text-white">warning</span>
                             </div>
@@ -376,8 +388,8 @@
         <!-- Solution Section -->
         <section id="solution" class="py-section-gap px-gutter relative">
             <div class="max-w-container-max mx-auto text-center mb-20 animate-in">
-                <h2 class="font-headline-xl text-headline-xl text-white mb-6">One System. <span class="text-primary-container">Every Lead Handled.</span></h2>
-                <p class="font-body-lg text-body-lg text-white/70 max-w-2xl mx-auto">
+                <h2 class="font-headline-xl text-headline-xl text-white mb-6" data-i18n-html="solution.title">One System. <span class="text-primary-container">Every Lead Handled.</span></h2>
+                <p class="font-body-lg text-body-lg text-white/70 max-w-2xl mx-auto" data-i18n="solution.subtitle">
                     We install a complete AI-powered system that handles your entire lead flow, from first contact to final review.
                 </p>
             </div>
@@ -400,8 +412,8 @@
                         <div class="w-14 h-14 mx-auto rounded-2xl glass-icon flex items-center justify-center">
                             <span class="material-symbols-outlined text-primary-container text-2xl">record_voice_over</span>
                         </div>
-                        <h3 class="font-headline-lg text-body-lg font-bold text-white">Answers Every Call 24/7</h3>
-                        <p class="text-body-md text-white/50">Your AI receptionist responds instantly, handles inquiries, and speaks naturally with customers.</p>
+                        <h3 class="font-headline-lg text-body-lg font-bold text-white" data-i18n="solution.feat1.title">Answers Every Call 24/7</h3>
+                        <p class="text-body-md text-white/50" data-i18n="solution.feat1.desc">Your AI receptionist responds instantly, handles inquiries, and speaks naturally with customers.</p>
                     </div>
                     <div class="glass-feature text-center space-y-5 p-6 rounded-3xl cursor-default relative">
                         <div class="hidden md:block absolute top-1/2 -left-3 w-6 h-px bg-gradient-to-r from-transparent to-white/10"></div>
@@ -409,15 +421,15 @@
                         <div class="w-14 h-14 mx-auto rounded-2xl glass-icon flex items-center justify-center relative z-10">
                             <span class="material-symbols-outlined text-secondary-container text-2xl">verified_user</span>
                         </div>
-                        <h3 class="font-headline-lg text-body-lg font-bold text-white">Qualifies &amp; Captures</h3>
-                        <p class="text-body-md text-white/50">Asks smart questions, filters serious prospects, and stores everything in your CRM.</p>
+                        <h3 class="font-headline-lg text-body-lg font-bold text-white" data-i18n="solution.feat2.title">Qualifies &amp; Captures</h3>
+                        <p class="text-body-md text-white/50" data-i18n="solution.feat2.desc">Asks smart questions, filters serious prospects, and stores everything in your CRM.</p>
                     </div>
                     <div class="glass-feature text-center space-y-5 p-6 rounded-3xl cursor-default">
                         <div class="w-14 h-14 mx-auto rounded-2xl glass-icon flex items-center justify-center">
                             <span class="material-symbols-outlined text-tertiary-container text-2xl">event_available</span>
                         </div>
-                        <h3 class="font-headline-lg text-body-lg font-bold text-white">Books Appointments</h3>
-                        <p class="text-body-md text-white/50">Syncs with your calendar and schedules jobs without any manual effort.</p>
+                        <h3 class="font-headline-lg text-body-lg font-bold text-white" data-i18n="solution.feat3.title">Books Appointments</h3>
+                        <p class="text-body-md text-white/50" data-i18n="solution.feat3.desc">Syncs with your calendar and schedules jobs without any manual effort.</p>
                     </div>
                 </div>
 
@@ -434,55 +446,55 @@
                     <div class="p-6 md:p-8 grid md:grid-cols-2 gap-8">
                         <div class="space-y-5">
                             <div class="space-y-2">
-                                <p class="text-xs text-white/40 uppercase tracking-wider">Live Conversation</p>
+                                <p class="text-xs text-white/40 uppercase tracking-wider" data-i18n="solution.dash.liveConvo">Live Conversation</p>
                                 <div class="bg-white/5 border border-white/10 p-4 rounded-xl">
-                                    <p class="text-xs text-primary mb-1">AI Receptionist:</p>
-                                    <p class="text-sm text-white/80 italic">"I've found an opening for tomorrow at 2 PM. Would you like me to reserve that for your roof inspection?"</p>
+                                    <p class="text-xs text-primary mb-1" data-i18n="solution.dash.aiLabel">AI Receptionist:</p>
+                                    <p class="text-sm text-white/80 italic" data-i18n="solution.dash.aiQuote">"I've found an opening for tomorrow at 2 PM. Would you like me to reserve that for your roof inspection?"</p>
                                 </div>
                             </div>
                             <div class="flex gap-3">
                                 <div class="flex-1 bg-white/5 border border-white/10 p-4 rounded-xl">
-                                    <p class="text-[10px] text-white/40 mb-1">Confidence</p>
-                                    <p class="text-lg text-white font-headline-lg">99.2%</p>
+                                    <p class="text-[10px] text-white/40 mb-1" data-i18n="solution.dash.confidence">Confidence</p>
+                                    <p class="text-lg text-white font-headline-lg" data-i18n="solution.dash.confidenceVal">99.2%</p>
                                 </div>
                                 <div class="flex-1 bg-white/5 border border-white/10 p-4 rounded-xl">
-                                    <p class="text-[10px] text-white/40 mb-1">Booking Intent</p>
-                                    <p class="text-lg text-secondary font-headline-lg">Ultra-High</p>
+                                    <p class="text-[10px] text-white/40 mb-1" data-i18n="solution.dash.bookingIntent">Booking Intent</p>
+                                    <p class="text-lg text-secondary font-headline-lg" data-i18n="solution.dash.bookingVal">Ultra-High</p>
                                 </div>
                             </div>
                         </div>
                         <div class="space-y-4">
-                            <p class="text-xs text-white/40 uppercase tracking-wider">System Pipeline</p>
+                            <p class="text-xs text-white/40 uppercase tracking-wider" data-i18n="solution.dash.pipeline">System Pipeline</p>
                             <div class="space-y-3">
                                 <div class="flex items-center gap-3 bg-white/5 border border-white/10 p-3 rounded-xl">
                                     <span class="material-symbols-outlined text-primary text-lg">call</span>
                                     <div class="flex-1">
-                                        <p class="text-xs text-white/80">Incoming Call Answered</p>
-                                        <p class="text-[10px] text-white/40">0.3s response time</p>
+                                        <p class="text-xs text-white/80" data-i18n="solution.dash.step1">Incoming Call Answered</p>
+                                        <p class="text-[10px] text-white/40" data-i18n="solution.dash.step1sub">0.3s response time</p>
                                     </div>
                                     <span class="material-symbols-outlined text-primary/60 text-sm">check_circle</span>
                                 </div>
                                 <div class="flex items-center gap-3 bg-white/5 border border-white/10 p-3 rounded-xl">
                                     <span class="material-symbols-outlined text-secondary text-lg">sms</span>
                                     <div class="flex-1">
-                                        <p class="text-xs text-white/80">Follow-up SMS Sent</p>
-                                        <p class="text-[10px] text-white/40">Automatic within 30s</p>
+                                        <p class="text-xs text-white/80" data-i18n="solution.dash.step2">Follow-up SMS Sent</p>
+                                        <p class="text-[10px] text-white/40" data-i18n="solution.dash.step2sub">Automatic within 30s</p>
                                     </div>
                                     <span class="material-symbols-outlined text-secondary/60 text-sm">check_circle</span>
                                 </div>
                                 <div class="flex items-center gap-3 bg-white/5 border border-white/10 p-3 rounded-xl">
                                     <span class="material-symbols-outlined text-tertiary text-lg">calendar_month</span>
                                     <div class="flex-1">
-                                        <p class="text-xs text-white/80">Appointment Booked</p>
-                                        <p class="text-[10px] text-white/40">Synced to calendar</p>
+                                        <p class="text-xs text-white/80" data-i18n="solution.dash.step3">Appointment Booked</p>
+                                        <p class="text-[10px] text-white/40" data-i18n="solution.dash.step3sub">Synced to calendar</p>
                                     </div>
                                     <span class="material-symbols-outlined text-tertiary/60 text-sm">check_circle</span>
                                 </div>
                                 <div class="flex items-center gap-3 bg-white/5 border border-white/10 p-3 rounded-xl">
                                     <span class="material-symbols-outlined text-primary text-lg">person_add</span>
                                     <div class="flex-1">
-                                        <p class="text-xs text-white/80">Lead Added to CRM</p>
-                                        <p class="text-[10px] text-white/40">Full profile created</p>
+                                        <p class="text-xs text-white/80" data-i18n="solution.dash.step4">Lead Added to CRM</p>
+                                        <p class="text-[10px] text-white/40" data-i18n="solution.dash.step4sub">Full profile created</p>
                                     </div>
                                     <span class="material-symbols-outlined text-primary/60 text-sm">check_circle</span>
                                 </div>
@@ -496,23 +508,23 @@
             <div class="max-w-5xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-5 mt-10">
                 <div class="glass-feature p-7 rounded-2xl animate-in cursor-default">
                     <span class="material-symbols-outlined text-primary-container text-2xl mb-4 block">sms</span>
-                    <h4 class="font-bold text-sm mb-2 font-['Archivo'] text-white">Instant Follow-Up</h4>
-                    <p class="text-xs text-white/50">Every lead gets immediate SMS and email follow-up automatically.</p>
+                    <h4 class="font-bold text-sm mb-2 font-['Archivo'] text-white" data-i18n="solution.more1.title">Instant Follow-Up</h4>
+                    <p class="text-xs text-white/50" data-i18n="solution.more1.desc">Every lead gets immediate SMS and email follow-up automatically.</p>
                 </div>
                 <div class="glass-feature p-7 rounded-2xl animate-in cursor-default" style="transition-delay:60ms">
                     <span class="material-symbols-outlined text-secondary-container text-2xl mb-4 block">replay</span>
-                    <h4 class="font-bold text-sm mb-2 font-['Archivo'] text-white">Reactivates Old Leads</h4>
-                    <p class="text-xs text-white/50">Brings past prospects back into your pipeline for new revenue.</p>
+                    <h4 class="font-bold text-sm mb-2 font-['Archivo'] text-white" data-i18n="solution.more2.title">Reactivates Old Leads</h4>
+                    <p class="text-xs text-white/50" data-i18n="solution.more2.desc">Brings past prospects back into your pipeline for new revenue.</p>
                 </div>
                 <div class="glass-feature p-7 rounded-2xl animate-in cursor-default" style="transition-delay:120ms">
                     <span class="material-symbols-outlined text-tertiary-container text-2xl mb-4 block">monitoring</span>
-                    <h4 class="font-bold text-sm mb-2 font-['Archivo'] text-white">Full CRM Tracking</h4>
-                    <p class="text-xs text-white/50">Complete visibility on leads, conversations, and conversions.</p>
+                    <h4 class="font-bold text-sm mb-2 font-['Archivo'] text-white" data-i18n="solution.more3.title">Full CRM Tracking</h4>
+                    <p class="text-xs text-white/50" data-i18n="solution.more3.desc">Complete visibility on leads, conversations, and conversions.</p>
                 </div>
                 <div class="glass-feature p-7 rounded-2xl animate-in cursor-default" style="transition-delay:180ms">
                     <span class="material-symbols-outlined text-white/60 text-2xl mb-4 block">star</span>
-                    <h4 class="font-bold text-sm mb-2 font-['Archivo'] text-white">Automated Reviews</h4>
-                    <p class="text-xs text-white/50">Turns happy customers into public testimonials automatically.</p>
+                    <h4 class="font-bold text-sm mb-2 font-['Archivo'] text-white" data-i18n="solution.more4.title">Automated Reviews</h4>
+                    <p class="text-xs text-white/50" data-i18n="solution.more4.desc">Turns happy customers into public testimonials automatically.</p>
                 </div>
             </div>
         </section>
@@ -521,68 +533,68 @@
         <section id="industries" class="py-section-gap px-gutter">
             <div class="max-w-container-max mx-auto">
                 <div class="text-center mb-14 animate-in">
-                    <h2 class="font-headline-xl text-headline-xl text-white mb-4">Built for <span class="text-secondary-container">Your Industry</span></h2>
-                    <p class="text-white/70 text-body-lg max-w-2xl mx-auto">Each system is configured for how your business actually operates. Call the demo to hear it handle your industry's real conversations.</p>
+                    <h2 class="font-headline-xl text-headline-xl text-white mb-4" data-i18n-html="industries.title">Built for <span class="text-secondary-container">Your Industry</span></h2>
+                    <p class="text-white/70 text-body-lg max-w-2xl mx-auto" data-i18n="industries.subtitle">Each system is configured for how your business actually operates. Call the demo to hear it handle your industry's real conversations.</p>
                 </div>
                 <div class="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto animate-in">
                     <a href="#demo" class="inline-flex items-center gap-2.5 px-5 py-3.5 rounded-full glass-feature text-white/70 hover:text-white hover:!bg-primary-container/20 hover:!border-primary-container/30 transition-all duration-300 cursor-pointer group">
                         <span class="material-symbols-outlined text-secondary-container text-lg group-hover:text-white">directions_car</span>
-                        <span class="font-['Archivo'] font-semibold text-sm">Driving Schools</span>
+                        <span class="font-['Archivo'] font-semibold text-sm" data-i18n="industries.drivingSchools">Driving Schools</span>
                     </a>
                     <a href="#demo" class="inline-flex items-center gap-2.5 px-5 py-3.5 rounded-full glass-feature text-white/70 hover:text-white hover:!bg-primary-container/20 hover:!border-primary-container/30 transition-all duration-300 cursor-pointer group">
                         <span class="material-symbols-outlined text-primary-container text-lg group-hover:text-white">dentistry</span>
-                        <span class="font-['Archivo'] font-semibold text-sm">Dental Clinics</span>
+                        <span class="font-['Archivo'] font-semibold text-sm" data-i18n="industries.dental">Dental Clinics</span>
                     </a>
                     <a href="#demo" class="inline-flex items-center gap-2.5 px-5 py-3.5 rounded-full glass-feature text-white/70 hover:text-white hover:!bg-primary-container/20 hover:!border-primary-container/30 transition-all duration-300 cursor-pointer group">
                         <span class="material-symbols-outlined text-tertiary-container text-lg group-hover:text-white">content_cut</span>
-                        <span class="font-['Archivo'] font-semibold text-sm">Barbershops</span>
+                        <span class="font-['Archivo'] font-semibold text-sm" data-i18n="industries.barbershops">Barbershops</span>
                     </a>
                     <a href="#demo" class="inline-flex items-center gap-2.5 px-5 py-3.5 rounded-full glass-feature text-white/70 hover:text-white hover:!bg-primary-container/20 hover:!border-primary-container/30 transition-all duration-300 cursor-pointer group">
                         <span class="material-symbols-outlined text-primary-container text-lg group-hover:text-white">plumbing</span>
-                        <span class="font-['Archivo'] font-semibold text-sm">Plumbing</span>
+                        <span class="font-['Archivo'] font-semibold text-sm" data-i18n="industries.plumbing">Plumbing</span>
                     </a>
                     <a href="#demo" class="inline-flex items-center gap-2.5 px-5 py-3.5 rounded-full glass-feature text-white/70 hover:text-white hover:!bg-primary-container/20 hover:!border-primary-container/30 transition-all duration-300 cursor-pointer group">
                         <span class="material-symbols-outlined text-secondary-container text-lg group-hover:text-white">roofing</span>
-                        <span class="font-['Archivo'] font-semibold text-sm">Roofing</span>
+                        <span class="font-['Archivo'] font-semibold text-sm" data-i18n="industries.roofing">Roofing</span>
                     </a>
                     <a href="#demo" class="inline-flex items-center gap-2.5 px-5 py-3.5 rounded-full glass-feature text-white/70 hover:text-white hover:!bg-primary-container/20 hover:!border-primary-container/30 transition-all duration-300 cursor-pointer group">
                         <span class="material-symbols-outlined text-secondary-container text-lg group-hover:text-white">local_fire_department</span>
-                        <span class="font-['Archivo'] font-semibold text-sm">HVAC</span>
+                        <span class="font-['Archivo'] font-semibold text-sm" data-i18n="industries.hvac">HVAC</span>
                     </a>
                     <a href="#demo" class="inline-flex items-center gap-2.5 px-5 py-3.5 rounded-full glass-feature text-white/70 hover:text-white hover:!bg-primary-container/20 hover:!border-primary-container/30 transition-all duration-300 cursor-pointer group">
                         <span class="material-symbols-outlined text-tertiary-container text-lg group-hover:text-white">cleaning_services</span>
-                        <span class="font-['Archivo'] font-semibold text-sm">Cleaning</span>
+                        <span class="font-['Archivo'] font-semibold text-sm" data-i18n="industries.cleaning">Cleaning</span>
                     </a>
                     <a href="#demo" class="inline-flex items-center gap-2.5 px-5 py-3.5 rounded-full glass-feature text-white/70 hover:text-white hover:!bg-primary-container/20 hover:!border-primary-container/30 transition-all duration-300 cursor-pointer group">
                         <span class="material-symbols-outlined text-primary-container text-lg group-hover:text-white">yard</span>
-                        <span class="font-['Archivo'] font-semibold text-sm">Landscaping</span>
+                        <span class="font-['Archivo'] font-semibold text-sm" data-i18n="industries.landscaping">Landscaping</span>
                     </a>
                     <a href="#demo" class="inline-flex items-center gap-2.5 px-5 py-3.5 rounded-full glass-feature text-white/70 hover:text-white hover:!bg-primary-container/20 hover:!border-primary-container/30 transition-all duration-300 cursor-pointer group">
                         <span class="material-symbols-outlined text-secondary-container text-lg group-hover:text-white">bolt</span>
-                        <span class="font-['Archivo'] font-semibold text-sm">Electrical</span>
+                        <span class="font-['Archivo'] font-semibold text-sm" data-i18n="industries.electrical">Electrical</span>
                     </a>
                     <a href="#demo" class="inline-flex items-center gap-2.5 px-5 py-3.5 rounded-full glass-feature text-white/70 hover:text-white hover:!bg-primary-container/20 hover:!border-primary-container/30 transition-all duration-300 cursor-pointer group">
                         <span class="material-symbols-outlined text-white/60 text-lg group-hover:text-white">local_shipping</span>
-                        <span class="font-['Archivo'] font-semibold text-sm">Transportation</span>
+                        <span class="font-['Archivo'] font-semibold text-sm" data-i18n="industries.transportation">Transportation</span>
                     </a>
                     <a href="#demo" class="inline-flex items-center gap-2.5 px-5 py-3.5 rounded-full glass-feature text-white/70 hover:text-white hover:!bg-primary-container/20 hover:!border-primary-container/30 transition-all duration-300 cursor-pointer group">
                         <span class="material-symbols-outlined text-primary-container text-lg group-hover:text-white">shield</span>
-                        <span class="font-['Archivo'] font-semibold text-sm">Insurance</span>
+                        <span class="font-['Archivo'] font-semibold text-sm" data-i18n="industries.insurance">Insurance</span>
                     </a>
                     <a href="#demo" class="inline-flex items-center gap-2.5 px-5 py-3.5 rounded-full glass-feature text-white/70 hover:text-white hover:!bg-primary-container/20 hover:!border-primary-container/30 transition-all duration-300 cursor-pointer group">
                         <span class="material-symbols-outlined text-secondary-container text-lg group-hover:text-white">local_hospital</span>
-                        <span class="font-['Archivo'] font-semibold text-sm">Medical</span>
+                        <span class="font-['Archivo'] font-semibold text-sm" data-i18n="industries.medical">Medical</span>
                     </a>
                     <a href="#demo" class="inline-flex items-center gap-2.5 px-5 py-3.5 rounded-full glass-feature text-white/70 hover:text-white hover:!bg-primary-container/20 hover:!border-primary-container/30 transition-all duration-300 cursor-pointer group">
                         <span class="material-symbols-outlined text-tertiary-container text-lg group-hover:text-white">home_work</span>
-                        <span class="font-['Archivo'] font-semibold text-sm">Real Estate</span>
+                        <span class="font-['Archivo'] font-semibold text-sm" data-i18n="industries.realEstate">Real Estate</span>
                     </a>
                     <a href="#demo" class="inline-flex items-center gap-2.5 px-5 py-3.5 rounded-full glass-feature text-white/70 hover:text-white hover:!bg-primary-container/20 hover:!border-primary-container/30 transition-all duration-300 cursor-pointer group">
                         <span class="material-symbols-outlined text-white/60 text-lg group-hover:text-white">storefront</span>
-                        <span class="font-['Archivo'] font-semibold text-sm">Your Industry</span>
+                        <span class="font-['Archivo'] font-semibold text-sm" data-i18n="industries.yourIndustry">Your Industry</span>
                     </a>
                 </div>
-                <p class="text-center text-sm text-white/50 mt-8 animate-in font-['Archivo']">Tap any industry to try the live AI demo</p>
+                <p class="text-center text-sm text-white/50 mt-8 animate-in font-['Archivo']" data-i18n="industries.tapAny">Tap any industry to try the live AI demo</p>
             </div>
         </section>
 
@@ -590,8 +602,8 @@
         <section id="demo" class="py-section-gap px-gutter relative overflow-hidden">
             <div class="max-w-4xl mx-auto glass-card rounded-[48px] p-10 md:p-20 text-center relative z-10 border-primary/20 shadow-[0_8px_60px_rgba(0,0,0,0.4)] animate-in">
                 <div class="bg-gradient-to-r from-primary/5 via-secondary/5 to-primary/5 absolute inset-0 rounded-[48px] -z-10"></div>
-                <h2 class="font-headline-xl text-headline-xl text-white mb-6">Talk to Your New <span class="text-primary-container">AI Receptionist</span></h2>
-                <p class="text-body-lg text-white/60 mb-10 max-w-xl mx-auto">
+                <h2 class="font-headline-xl text-headline-xl text-white mb-6" data-i18n-html="demo.title">Talk to Your New <span class="text-primary-container">AI Receptionist</span></h2>
+                <p class="text-body-lg text-white/60 mb-10 max-w-xl mx-auto" data-i18n="demo.subtitle">
                     Call now. Tell it your industry, ask real questions, and experience how it handles actual customer conversations.
                 </p>
                 <div class="relative inline-block group">
@@ -607,15 +619,15 @@
                 <div class="mt-10 flex flex-wrap justify-center items-center gap-x-8 gap-y-3 text-white/40">
                     <span class="text-xs font-label-bold flex items-center gap-1.5">
                         <span class="material-symbols-outlined text-sm text-primary-container">check_circle</span>
-                        Tell it your industry
+                        <span data-i18n="demo.check1">Tell it your industry</span>
                     </span>
                     <span class="text-xs font-label-bold flex items-center gap-1.5">
                         <span class="material-symbols-outlined text-sm text-primary-container">check_circle</span>
-                        Ask real questions
+                        <span data-i18n="demo.check2">Ask real questions</span>
                     </span>
                     <span class="text-xs font-label-bold flex items-center gap-1.5">
                         <span class="material-symbols-outlined text-sm text-primary-container">check_circle</span>
-                        Experience it firsthand
+                        <span data-i18n="demo.check3">Experience it firsthand</span>
                     </span>
                 </div>
             </div>
@@ -625,33 +637,33 @@
         <section class="py-section-gap px-gutter">
             <div class="max-w-container-max mx-auto text-center">
                 <div class="animate-in">
-                    <h2 class="font-headline-xl text-headline-xl text-white mb-4">Most Businesses Don't Have a Lead Problem.</h2>
-                    <p class="font-headline-xl text-headline-lg text-primary-container mb-16">They Have a System Problem.</p>
+                    <h2 class="font-headline-xl text-headline-xl text-white mb-4" data-i18n="bottom.title">Most Businesses Don't Have a Lead Problem.</h2>
+                    <p class="font-headline-xl text-headline-lg text-primary-container mb-16" data-i18n="bottom.subtitle">They Have a System Problem.</p>
                 </div>
 
                 <div class="flex flex-wrap justify-center gap-x-12 gap-y-8 max-w-3xl mx-auto mb-16 animate-in">
                     <div class="flex items-center gap-3">
                         <span class="material-symbols-outlined text-primary-container text-2xl">call</span>
-                        <p class="text-white font-bold text-sm font-['Archivo']">Every call answered</p>
+                        <p class="text-white font-bold text-sm font-['Archivo']" data-i18n="bottom.point1">Every call answered</p>
                     </div>
                     <div class="flex items-center gap-3">
                         <span class="material-symbols-outlined text-secondary-container text-2xl">quickreply</span>
-                        <p class="text-white font-bold text-sm font-['Archivo']">Every lead followed up</p>
+                        <p class="text-white font-bold text-sm font-['Archivo']" data-i18n="bottom.point2">Every lead followed up</p>
                     </div>
                     <div class="flex items-center gap-3">
                         <span class="material-symbols-outlined text-tertiary-container text-2xl">track_changes</span>
-                        <p class="text-white font-bold text-sm font-['Archivo']">Every opportunity tracked</p>
+                        <p class="text-white font-bold text-sm font-['Archivo']" data-i18n="bottom.point3">Every opportunity tracked</p>
                     </div>
                     <div class="flex items-center gap-3">
                         <span class="material-symbols-outlined text-white/60 text-2xl">star</span>
-                        <p class="text-white font-bold text-sm font-['Archivo']">Every customer becomes a review</p>
+                        <p class="text-white font-bold text-sm font-['Archivo']" data-i18n="bottom.point4">Every customer becomes a review</p>
                     </div>
                 </div>
 
                 <div class="animate-in" style="transition-delay:320ms">
                     <a href="tel:+15106347901" class="inline-flex items-center gap-3 bg-primary text-on-primary px-12 py-5 rounded-full font-headline-lg text-body-md hover:shadow-xl hover:shadow-primary/30 transition-all duration-500 cursor-pointer hover:scale-105 active:scale-95 shadow-lg shadow-primary/20">
                         <span class="material-symbols-outlined">call</span>
-                        Get Started, Call Now
+                        <span data-i18n="bottom.cta">Get Started, Call Now</span>
                     </a>
                 </div>
             </div>
@@ -669,40 +681,42 @@
                         </div>
                         <span class="text-lg font-bold text-white font-['Archivo'] tracking-tight">NTNS</span>
                     </div>
-                    <p class="text-sm text-white/40">Never Miss a Lead Again.</p>
+                    <p class="text-sm text-white/40" data-i18n="footer.tagline">Never Miss a Lead Again.</p>
                 </div>
                 <div>
-                    <h4 class="font-['Archivo'] font-bold text-white text-sm mb-4">Pages</h4>
+                    <h4 class="font-['Archivo'] font-bold text-white text-sm mb-4" data-i18n="footer.pages">Pages</h4>
                     <div class="space-y-2">
-                        <a href="index.html" class="block text-sm text-white/50 hover:text-white transition-colors">Home</a>
-                        <a href="about.html" class="block text-sm text-white/50 hover:text-white transition-colors">About Us</a>
-                        <a href="contact.html" class="block text-sm text-white/50 hover:text-white transition-colors">Contact</a>
+                        <a href="index.html" class="block text-sm text-white/50 hover:text-white transition-colors" data-i18n="footer.home">Home</a>
+                        <a href="about.html" class="block text-sm text-white/50 hover:text-white transition-colors" data-i18n="footer.aboutUs">About Us</a>
+                        <a href="contact.html" class="block text-sm text-white/50 hover:text-white transition-colors" data-i18n="footer.contact">Contact</a>
                     </div>
                 </div>
                 <div>
-                    <h4 class="font-['Archivo'] font-bold text-white text-sm mb-4">Legal</h4>
+                    <h4 class="font-['Archivo'] font-bold text-white text-sm mb-4" data-i18n="footer.legal">Legal</h4>
                     <div class="space-y-2">
-                        <a href="privacy.html" class="block text-sm text-white/50 hover:text-white transition-colors">Privacy Policy</a>
-                        <a href="terms.html" class="block text-sm text-white/50 hover:text-white transition-colors">Terms & Conditions</a>
+                        <a href="privacy.html" class="block text-sm text-white/50 hover:text-white transition-colors" data-i18n="footer.privacy">Privacy Policy</a>
+                        <a href="terms.html" class="block text-sm text-white/50 hover:text-white transition-colors" data-i18n="footer.terms">Terms & Conditions</a>
                     </div>
                 </div>
                 <div>
-                    <h4 class="font-['Archivo'] font-bold text-white text-sm mb-4">Contact</h4>
+                    <h4 class="font-['Archivo'] font-bold text-white text-sm mb-4" data-i18n="footer.contactTitle">Contact</h4>
                     <div class="space-y-2">
                         <a href="mailto:Admin@ntns.ai" class="block text-sm text-white/50 hover:text-white transition-colors">Admin@ntns.ai</a>
-                        <p class="text-sm text-white/50">+1 (206) 786-2235 <span class="text-white/30">(Support)</span></p>
+                        <p class="text-sm text-white/50">+1 (206) 786-2235 <span class="text-white/30" data-i18n="footer.supportLabel">(Support)</span></p>
                     </div>
                 </div>
             </div>
             <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-                <p class="font-['Archivo'] text-sm text-white/40">&copy; 2026 NTNS. All rights reserved.</p>
+                <p class="font-['Archivo'] text-sm text-white/40" data-i18n="footer.copyright">&copy; 2026 NTNS. All rights reserved.</p>
                 <div class="flex gap-6">
-                    <a class="font-['Archivo'] text-sm text-white/50 hover:text-white transition-colors" href="privacy.html">Privacy</a>
-                    <a class="font-['Archivo'] text-sm text-white/50 hover:text-white transition-colors" href="terms.html">Terms</a>
+                    <a class="font-['Archivo'] text-sm text-white/50 hover:text-white transition-colors" href="privacy.html" data-i18n="footer.privacyShort">Privacy</a>
+                    <a class="font-['Archivo'] text-sm text-white/50 hover:text-white transition-colors" href="terms.html" data-i18n="footer.termsShort">Terms</a>
                 </div>
             </div>
         </div>
     </footer>
+
+    <script src="i18n.js"></script>
 
     <!-- WebGL Shader Script -->
     <script>
