@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Terms & Conditions | NTNS — AI Voice Receptionist</title>
+    <title>Terms &amp; Conditions | NTNS — AI Voice Receptionist</title>
     <meta name="description" content="NTNS Terms and Conditions. Read the terms governing the use of our website and AI-powered services." />
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
@@ -102,19 +102,23 @@
             <span class="text-xl font-bold tracking-tighter text-white font-['Archivo']">NTNS</span>
         </a>
         <div class="hidden md:flex gap-8 items-center">
-            <a class="font-['Archivo'] text-white/60 hover:text-primary-container transition-all duration-300 tracking-tight font-medium text-sm" href="index.html">Home</a>
-            <a class="font-['Archivo'] text-white/60 hover:text-primary-container transition-all duration-300 tracking-tight font-medium text-sm" href="about.html">About</a>
-            <a class="font-['Archivo'] text-white/60 hover:text-primary-container transition-all duration-300 tracking-tight font-medium text-sm" href="contact.html">Contact</a>
-            <a class="font-['Archivo'] text-white/60 hover:text-primary-container transition-all duration-300 tracking-tight font-medium text-sm" href="index.html#demo">Live Demo</a>
+            <a class="font-['Archivo'] text-white/60 hover:text-primary-container transition-all duration-300 tracking-tight font-medium text-sm" href="index.html" data-i18n="nav.home">Home</a>
+            <a class="font-['Archivo'] text-white/60 hover:text-primary-container transition-all duration-300 tracking-tight font-medium text-sm" href="about.html" data-i18n="nav.about">About</a>
+            <a class="font-['Archivo'] text-white/60 hover:text-primary-container transition-all duration-300 tracking-tight font-medium text-sm" href="contact.html" data-i18n="nav.contact">Contact</a>
+            <a class="font-['Archivo'] text-white/60 hover:text-primary-container transition-all duration-300 tracking-tight font-medium text-sm" href="index.html#demo" data-i18n="nav.demo">Live Demo</a>
         </div>
         <div class="flex gap-3 items-center">
+            <button id="lang-toggle" class="border border-white/20 bg-white/5 text-white px-3 py-2.5 rounded-full font-['Archivo'] font-bold text-sm transition-all duration-500 ease-out hover:bg-white/15 hover:border-white/40 hover:scale-105 cursor-pointer flex items-center gap-1.5" aria-label="Toggle language">
+                <span class="material-symbols-outlined text-sm">translate</span>
+                <span id="lang-label">EN</span>
+            </button>
             <a href="https://app.ntns.ai" target="_blank" rel="noopener noreferrer" class="border border-white/20 bg-white/5 text-white px-5 py-2.5 rounded-full font-['Archivo'] font-bold text-sm transition-all duration-500 ease-out hover:bg-white/15 hover:border-white/40 hover:scale-105 cursor-pointer flex items-center gap-2">
                 <span class="material-symbols-outlined text-lg">login</span>
-                <span class="hidden sm:inline">Login</span>
+                <span class="hidden sm:inline" data-i18n="nav.login">Login</span>
             </a>
             <a href="index.html#demo" class="bg-primary-container text-on-primary-container px-5 py-2.5 rounded-full font-['Archivo'] font-bold text-sm transition-all duration-500 ease-out shadow-lg shadow-primary-container/20 hover:shadow-xl hover:shadow-primary-container/30 hover:scale-105 cursor-pointer flex items-center gap-2">
                 <span class="material-symbols-outlined text-lg">call</span>
-                <span class="hidden sm:inline">Call Demo</span>
+                <span class="hidden sm:inline" data-i18n="nav.callDemo">Call Demo</span>
             </a>
             <button id="mobile-menu-btn" class="md:hidden p-2 text-white/60 hover:text-primary-container cursor-pointer" aria-label="Open menu">
                 <span class="material-symbols-outlined">menu</span>
@@ -124,13 +128,17 @@
 
     <div id="mobile-menu" class="hidden fixed inset-x-0 top-[72px] z-40 mx-4">
         <div class="glass-mobile-menu rounded-3xl p-6 shadow-2xl space-y-4">
-            <a class="block font-['Archivo'] text-white/60 hover:text-primary-container py-2 font-medium" href="index.html">Home</a>
-            <a class="block font-['Archivo'] text-white/60 hover:text-primary-container py-2 font-medium" href="about.html">About</a>
-            <a class="block font-['Archivo'] text-white/60 hover:text-primary-container py-2 font-medium" href="contact.html">Contact</a>
-            <a class="block font-['Archivo'] text-white/60 hover:text-primary-container py-2 font-medium" href="index.html#demo">Live Demo</a>
+            <a class="block font-['Archivo'] text-white/60 hover:text-primary-container py-2 font-medium" href="index.html" data-i18n="nav.home">Home</a>
+            <a class="block font-['Archivo'] text-white/60 hover:text-primary-container py-2 font-medium" href="about.html" data-i18n="nav.about">About</a>
+            <a class="block font-['Archivo'] text-white/60 hover:text-primary-container py-2 font-medium" href="contact.html" data-i18n="nav.contact">Contact</a>
+            <a class="block font-['Archivo'] text-white/60 hover:text-primary-container py-2 font-medium" href="index.html#demo" data-i18n="nav.demo">Live Demo</a>
             <a href="https://app.ntns.ai" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 border border-white/20 bg-white/5 text-white px-6 py-3 rounded-full font-['Archivo'] font-bold text-sm cursor-pointer mt-2 hover:bg-white/15 hover:border-white/40 transition-all duration-300">
                 <span class="material-symbols-outlined text-lg">login</span>
-                Login to Dashboard
+                <span data-i18n="nav.loginDashboard">Login to Dashboard</span>
+            </a>
+            <a href="index.html#demo" class="flex items-center justify-center gap-2 bg-primary-container text-on-primary-container px-6 py-3 rounded-full font-['Archivo'] font-bold text-sm cursor-pointer mt-2">
+                <span class="material-symbols-outlined text-lg">call</span>
+                <span data-i18n="nav.callDemoNow">Call Demo Now</span>
             </a>
         </div>
     </div>
@@ -138,118 +146,118 @@
     <main>
         <section class="pt-24 md:pt-32 pb-20 px-gutter">
             <div class="max-w-4xl mx-auto text-center animate-in">
-                <h1 class="font-headline-xl text-headline-xl text-white mb-4">Terms & Conditions</h1>
-                <p class="text-white/50 text-sm font-['Archivo']">Last updated: May 1, 2025</p>
+                <h1 class="font-headline-xl text-headline-xl text-white mb-4" data-i18n="terms.title">Terms &amp; Conditions</h1>
+                <p class="text-white/50 text-sm font-['Archivo']" data-i18n="terms.updated">Last updated: May 1, 2025</p>
             </div>
         </section>
 
         <section class="pb-section-gap px-gutter">
             <div class="max-w-3xl mx-auto glass-card rounded-[32px] p-8 md:p-12 animate-in legal-content" style="transition-delay:100ms">
 
-                <h3>1. Agreement to Terms</h3>
-                <p>By accessing or using the NTNS website (ntns.ai) and services, you agree to be bound by these Terms and Conditions ("Terms"). If you do not agree with any part of these Terms, you must not use our website or services. These Terms constitute a legally binding agreement between you ("you" or "user") and NTNS ("we," "us," or "our").</p>
+                <h3 data-i18n="terms.h1">1. Agreement to Terms</h3>
+                <p data-i18n="terms.p1">By accessing or using the NTNS website (ntns.ai) and services, you agree to be bound by these Terms and Conditions ("Terms"). If you do not agree with any part of these Terms, you must not use our website or services. These Terms constitute a legally binding agreement between you ("you" or "user") and NTNS ("we," "us," or "our").</p>
 
-                <h3>2. Description of Services</h3>
-                <p>NTNS provides AI-powered voice receptionist and lead management services for local businesses. Our services include, but are not limited to:</p>
+                <h3 data-i18n="terms.h2">2. Description of Services</h3>
+                <p data-i18n="terms.p2">NTNS provides AI-powered voice receptionist and lead management services for local businesses. Our services include, but are not limited to:</p>
                 <ul>
-                    <li>24/7 AI voice receptionist that answers and handles inbound calls</li>
-                    <li>Automated lead capture, qualification, and follow-up</li>
-                    <li>Appointment scheduling and calendar integration</li>
-                    <li>Lead reactivation campaigns</li>
-                    <li>Automated review collection and reputation management</li>
-                    <li>CRM setup and management</li>
+                    <li data-i18n="terms.p2a">24/7 AI voice receptionist that answers and handles inbound calls</li>
+                    <li data-i18n="terms.p2b">Automated lead capture, qualification, and follow-up</li>
+                    <li data-i18n="terms.p2c">Appointment scheduling and calendar integration</li>
+                    <li data-i18n="terms.p2d">Lead reactivation campaigns</li>
+                    <li data-i18n="terms.p2e">Automated review collection and reputation management</li>
+                    <li data-i18n="terms.p2f">CRM setup and management</li>
                 </ul>
-                <p>We reserve the right to modify, suspend, or discontinue any part of our services at any time with reasonable notice.</p>
+                <p data-i18n="terms.p2g">We reserve the right to modify, suspend, or discontinue any part of our services at any time with reasonable notice.</p>
 
-                <h3>3. Eligibility</h3>
-                <p>You must be at least 18 years old and have the legal capacity to enter into binding agreements to use our services. If you are using our services on behalf of a business entity, you represent that you have the authority to bind that entity to these Terms.</p>
+                <h3 data-i18n="terms.h3">3. Eligibility</h3>
+                <p data-i18n="terms.p3">You must be at least 18 years old and have the legal capacity to enter into binding agreements to use our services. If you are using our services on behalf of a business entity, you represent that you have the authority to bind that entity to these Terms.</p>
 
-                <h3>4. Account Registration & Responsibilities</h3>
-                <p>To access certain features of our services, you may be required to create an account. You agree to:</p>
+                <h3 data-i18n="terms.h4">4. Account Registration &amp; Responsibilities</h3>
+                <p data-i18n="terms.p4">To access certain features of our services, you may be required to create an account. You agree to:</p>
                 <ul>
-                    <li>Provide accurate, current, and complete information during registration</li>
-                    <li>Maintain the security and confidentiality of your account credentials</li>
-                    <li>Promptly update your account information if it changes</li>
-                    <li>Accept responsibility for all activity that occurs under your account</li>
-                    <li>Notify us immediately of any unauthorized access to your account</li>
-                </ul>
-
-                <h3>5. Acceptable Use</h3>
-                <p>You agree not to use our services to:</p>
-                <ul>
-                    <li>Violate any applicable laws, regulations, or third-party rights</li>
-                    <li>Transmit spam, unsolicited messages, or fraudulent content</li>
-                    <li>Interfere with or disrupt our services, servers, or networks</li>
-                    <li>Attempt to gain unauthorized access to our systems or other users' accounts</li>
-                    <li>Use the AI receptionist for any illegal, deceptive, or harmful purpose</li>
-                    <li>Reverse engineer, decompile, or disassemble any part of our technology</li>
-                    <li>Resell, sublicense, or redistribute our services without written consent</li>
+                    <li data-i18n="terms.p4a">Provide accurate, current, and complete information during registration</li>
+                    <li data-i18n="terms.p4b">Maintain the security and confidentiality of your account credentials</li>
+                    <li data-i18n="terms.p4c">Promptly update your account information if it changes</li>
+                    <li data-i18n="terms.p4d">Accept responsibility for all activity that occurs under your account</li>
+                    <li data-i18n="terms.p4e">Notify us immediately of any unauthorized access to your account</li>
                 </ul>
 
-                <h3>6. AI Voice Services & Call Recording</h3>
-                <p>Our AI receptionist answers calls on behalf of subscribing businesses. By using our services, you acknowledge and agree that:</p>
+                <h3 data-i18n="terms.h5">5. Acceptable Use</h3>
+                <p data-i18n="terms.p5">You agree not to use our services to:</p>
                 <ul>
-                    <li>Calls handled by our AI may be recorded and transcribed for service delivery, quality assurance, and improvement purposes</li>
-                    <li>You are responsible for complying with all applicable call recording laws in your jurisdiction, including obtaining necessary consents from callers</li>
-                    <li>The AI receptionist communicates on your behalf and you are responsible for the accuracy of the information and instructions you provide to configure it</li>
-                    <li>While we strive for high accuracy, AI-generated responses may occasionally contain errors, and we are not liable for any inaccuracies in AI communications</li>
+                    <li data-i18n="terms.p5a">Violate any applicable laws, regulations, or third-party rights</li>
+                    <li data-i18n="terms.p5b">Transmit spam, unsolicited messages, or fraudulent content</li>
+                    <li data-i18n="terms.p5c">Interfere with or disrupt our services, servers, or networks</li>
+                    <li data-i18n="terms.p5d">Attempt to gain unauthorized access to our systems or other users' accounts</li>
+                    <li data-i18n="terms.p5e">Use the AI receptionist for any illegal, deceptive, or harmful purpose</li>
+                    <li data-i18n="terms.p5f">Reverse engineer, decompile, or disassemble any part of our technology</li>
+                    <li data-i18n="terms.p5g">Resell, sublicense, or redistribute our services without written consent</li>
                 </ul>
 
-                <h3>7. Payment & Billing</h3>
-                <p>Certain services require paid subscriptions. By subscribing, you agree to:</p>
+                <h3 data-i18n="terms.h6">6. AI Voice Services &amp; Call Recording</h3>
+                <p data-i18n="terms.p6">Our AI receptionist answers calls on behalf of subscribing businesses. By using our services, you acknowledge and agree that:</p>
                 <ul>
-                    <li>Pay all applicable fees as described at the time of purchase</li>
-                    <li>Provide valid and current payment information</li>
-                    <li>Authorize us to charge your payment method on a recurring basis unless you cancel</li>
-                </ul>
-                <p>All fees are non-refundable unless otherwise stated in writing. We reserve the right to change our pricing with 30 days' advance notice. Continued use after a price change constitutes acceptance of the new pricing.</p>
-
-                <h3>8. Intellectual Property</h3>
-                <p>All content, technology, trademarks, and materials on our website and within our services — including the NTNS name, logo, AI models, software, and design — are the exclusive property of NTNS or its licensors. You may not copy, modify, distribute, or create derivative works based on our intellectual property without prior written consent.</p>
-
-                <h3>9. Data & Privacy</h3>
-                <p>Your use of our services is also governed by our <a href="privacy.html" class="text-primary-container hover:underline">Privacy Policy</a>, which describes how we collect, use, and protect your information. By using our services, you consent to our data practices as described in the Privacy Policy.</p>
-
-                <h3>10. Third-Party Integrations</h3>
-                <p>Our services may integrate with third-party platforms (e.g., CRM systems, calendar tools, communication services). We are not responsible for the availability, accuracy, or practices of third-party services. Your use of third-party integrations is subject to those providers' own terms and policies.</p>
-
-                <h3>11. Limitation of Liability</h3>
-                <p>To the maximum extent permitted by law:</p>
-                <ul>
-                    <li>NTNS shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of our services</li>
-                    <li>Our total liability for any claim arising from these Terms or our services shall not exceed the total fees you paid to us in the 12 months preceding the claim</li>
-                    <li>We are not liable for any loss of revenue, data, business opportunities, or profits resulting from the use or inability to use our services</li>
+                    <li data-i18n="terms.p6a">Calls handled by our AI may be recorded and transcribed for service delivery, quality assurance, and improvement purposes</li>
+                    <li data-i18n="terms.p6b">You are responsible for complying with all applicable call recording laws in your jurisdiction, including obtaining necessary consents from callers</li>
+                    <li data-i18n="terms.p6c">The AI receptionist communicates on your behalf and you are responsible for the accuracy of the information and instructions you provide to configure it</li>
+                    <li data-i18n="terms.p6d">While we strive for high accuracy, AI-generated responses may occasionally contain errors, and we are not liable for any inaccuracies in AI communications</li>
                 </ul>
 
-                <h3>12. Disclaimer of Warranties</h3>
-                <p>Our services are provided "as is" and "as available" without warranties of any kind, either express or implied. We do not guarantee that our services will be uninterrupted, error-free, or secure. We disclaim all warranties, including implied warranties of merchantability, fitness for a particular purpose, and non-infringement.</p>
-
-                <h3>13. Indemnification</h3>
-                <p>You agree to indemnify, defend, and hold harmless NTNS, its officers, directors, employees, and agents from any claims, losses, damages, liabilities, and expenses (including legal fees) arising from your use of our services, violation of these Terms, or infringement of any third-party rights.</p>
-
-                <h3>14. Termination</h3>
-                <p>We may suspend or terminate your access to our services at any time, with or without cause, and with or without notice. Upon termination:</p>
+                <h3 data-i18n="terms.h7">7. Payment &amp; Billing</h3>
+                <p data-i18n="terms.p7">Certain services require paid subscriptions. By subscribing, you agree to:</p>
                 <ul>
-                    <li>Your right to use our services will immediately cease</li>
-                    <li>We may delete your account data after a reasonable retention period</li>
-                    <li>All provisions of these Terms that should survive termination will remain in effect (including liability limitations, indemnification, and dispute resolution)</li>
+                    <li data-i18n="terms.p7a">Pay all applicable fees as described at the time of purchase</li>
+                    <li data-i18n="terms.p7b">Provide valid and current payment information</li>
+                    <li data-i18n="terms.p7c">Authorize us to charge your payment method on a recurring basis unless you cancel</li>
                 </ul>
-                <p>You may cancel your subscription at any time by contacting us at <a href="mailto:Admin@ntns.ai" class="text-primary-container hover:underline">Admin@ntns.ai</a>.</p>
+                <p data-i18n="terms.p7d">All fees are non-refundable unless otherwise stated in writing. We reserve the right to change our pricing with 30 days' advance notice. Continued use after a price change constitutes acceptance of the new pricing.</p>
 
-                <h3>15. Governing Law</h3>
-                <p>These Terms shall be governed by and construed in accordance with the laws of the United States and the State of Washington, without regard to its conflict of law provisions. Any disputes arising from these Terms or your use of our services shall be resolved in the courts located in the State of Washington.</p>
+                <h3 data-i18n="terms.h8">8. Intellectual Property</h3>
+                <p data-i18n="terms.p8">All content, technology, trademarks, and materials on our website and within our services — including the NTNS name, logo, AI models, software, and design — are the exclusive property of NTNS or its licensors. You may not copy, modify, distribute, or create derivative works based on our intellectual property without prior written consent.</p>
 
-                <h3>16. Changes to Terms</h3>
-                <p>We reserve the right to modify these Terms at any time. Changes will be posted on this page with an updated "Last updated" date. Your continued use of our services after changes are posted constitutes acceptance of the revised Terms. We encourage you to review these Terms periodically.</p>
+                <h3 data-i18n="terms.h9">9. Data &amp; Privacy</h3>
+                <p data-i18n-html="terms.p9">Your use of our services is also governed by our <a href="privacy.html" class="text-primary-container hover:underline">Privacy Policy</a>, which describes how we collect, use, and protect your information. By using our services, you consent to our data practices as described in the Privacy Policy.</p>
 
-                <h3>17. Severability</h3>
-                <p>If any provision of these Terms is found to be unenforceable or invalid, that provision will be limited or eliminated to the minimum extent necessary, and the remaining provisions will remain in full force and effect.</p>
+                <h3 data-i18n="terms.h10">10. Third-Party Integrations</h3>
+                <p data-i18n="terms.p10">Our services may integrate with third-party platforms (e.g., CRM systems, calendar tools, communication services). We are not responsible for the availability, accuracy, or practices of third-party services. Your use of third-party integrations is subject to those providers' own terms and policies.</p>
 
-                <h3>18. Contact Us</h3>
-                <p>If you have any questions about these Terms, please contact us:</p>
+                <h3 data-i18n="terms.h11">11. Limitation of Liability</h3>
+                <p data-i18n="terms.p11">To the maximum extent permitted by law:</p>
                 <ul>
-                    <li>Email: <a href="mailto:Admin@ntns.ai" class="text-primary-container hover:underline">Admin@ntns.ai</a></li>
-                    <li>Phone (Support): +1 (206) 786-2235</li>
+                    <li data-i18n="terms.p11a">NTNS shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of our services</li>
+                    <li data-i18n="terms.p11b">Our total liability for any claim arising from these Terms or our services shall not exceed the total fees you paid to us in the 12 months preceding the claim</li>
+                    <li data-i18n="terms.p11c">We are not liable for any loss of revenue, data, business opportunities, or profits resulting from the use or inability to use our services</li>
+                </ul>
+
+                <h3 data-i18n="terms.h12">12. Disclaimer of Warranties</h3>
+                <p data-i18n="terms.p12">Our services are provided "as is" and "as available" without warranties of any kind, either express or implied. We do not guarantee that our services will be uninterrupted, error-free, or secure. We disclaim all warranties, including implied warranties of merchantability, fitness for a particular purpose, and non-infringement.</p>
+
+                <h3 data-i18n="terms.h13">13. Indemnification</h3>
+                <p data-i18n="terms.p13">You agree to indemnify, defend, and hold harmless NTNS, its officers, directors, employees, and agents from any claims, losses, damages, liabilities, and expenses (including legal fees) arising from your use of our services, violation of these Terms, or infringement of any third-party rights.</p>
+
+                <h3 data-i18n="terms.h14">14. Termination</h3>
+                <p data-i18n="terms.p14">We may suspend or terminate your access to our services at any time, with or without cause, and with or without notice. Upon termination:</p>
+                <ul>
+                    <li data-i18n="terms.p14a">Your right to use our services will immediately cease</li>
+                    <li data-i18n="terms.p14b">We may delete your account data after a reasonable retention period</li>
+                    <li data-i18n="terms.p14c">All provisions of these Terms that should survive termination will remain in effect (including liability limitations, indemnification, and dispute resolution)</li>
+                </ul>
+                <p data-i18n-html="terms.p14d">You may cancel your subscription at any time by contacting us at <a href="mailto:Admin@ntns.ai" class="text-primary-container hover:underline">Admin@ntns.ai</a>.</p>
+
+                <h3 data-i18n="terms.h15">15. Governing Law</h3>
+                <p data-i18n="terms.p15">These Terms shall be governed by and construed in accordance with the laws of the United States and the State of Washington, without regard to its conflict of law provisions. Any disputes arising from these Terms or your use of our services shall be resolved in the courts located in the State of Washington.</p>
+
+                <h3 data-i18n="terms.h16">16. Changes to Terms</h3>
+                <p data-i18n="terms.p16">We reserve the right to modify these Terms at any time. Changes will be posted on this page with an updated "Last updated" date. Your continued use of our services after changes are posted constitutes acceptance of the revised Terms. We encourage you to review these Terms periodically.</p>
+
+                <h3 data-i18n="terms.h17">17. Severability</h3>
+                <p data-i18n="terms.p17">If any provision of these Terms is found to be unenforceable or invalid, that provision will be limited or eliminated to the minimum extent necessary, and the remaining provisions will remain in full force and effect.</p>
+
+                <h3 data-i18n="terms.h18">18. Contact Us</h3>
+                <p data-i18n="terms.p18">If you have any questions about these Terms, please contact us:</p>
+                <ul>
+                    <li data-i18n-html="terms.p18a">Email: <a href="mailto:Admin@ntns.ai" class="text-primary-container hover:underline">Admin@ntns.ai</a></li>
+                    <li data-i18n="terms.p18b">Phone (Support): +1 (206) 786-2235</li>
                 </ul>
             </div>
         </section>
@@ -266,40 +274,42 @@
                         </div>
                         <span class="text-lg font-bold text-white font-['Archivo'] tracking-tight">NTNS</span>
                     </div>
-                    <p class="text-sm text-white/40">Never Miss a Lead Again.</p>
+                    <p class="text-sm text-white/40" data-i18n="footer.tagline">Never Miss a Lead Again.</p>
                 </div>
                 <div>
-                    <h4 class="font-['Archivo'] font-bold text-white text-sm mb-4">Pages</h4>
+                    <h4 class="font-['Archivo'] font-bold text-white text-sm mb-4" data-i18n="footer.pages">Pages</h4>
                     <div class="space-y-2">
-                        <a href="index.html" class="block text-sm text-white/50 hover:text-white transition-colors">Home</a>
-                        <a href="about.html" class="block text-sm text-white/50 hover:text-white transition-colors">About Us</a>
-                        <a href="contact.html" class="block text-sm text-white/50 hover:text-white transition-colors">Contact</a>
+                        <a href="index.html" class="block text-sm text-white/50 hover:text-white transition-colors" data-i18n="footer.home">Home</a>
+                        <a href="about.html" class="block text-sm text-white/50 hover:text-white transition-colors" data-i18n="footer.aboutUs">About Us</a>
+                        <a href="contact.html" class="block text-sm text-white/50 hover:text-white transition-colors" data-i18n="footer.contact">Contact</a>
                     </div>
                 </div>
                 <div>
-                    <h4 class="font-['Archivo'] font-bold text-white text-sm mb-4">Legal</h4>
+                    <h4 class="font-['Archivo'] font-bold text-white text-sm mb-4" data-i18n="footer.legal">Legal</h4>
                     <div class="space-y-2">
-                        <a href="privacy.html" class="block text-sm text-white/50 hover:text-white transition-colors">Privacy Policy</a>
-                        <a href="terms.html" class="block text-sm text-white/50 hover:text-white transition-colors">Terms & Conditions</a>
+                        <a href="privacy.html" class="block text-sm text-white/50 hover:text-white transition-colors" data-i18n="footer.privacy">Privacy Policy</a>
+                        <a href="terms.html" class="block text-sm text-white/50 hover:text-white transition-colors" data-i18n="footer.terms">Terms &amp; Conditions</a>
                     </div>
                 </div>
                 <div>
-                    <h4 class="font-['Archivo'] font-bold text-white text-sm mb-4">Contact</h4>
+                    <h4 class="font-['Archivo'] font-bold text-white text-sm mb-4" data-i18n="footer.contactTitle">Contact</h4>
                     <div class="space-y-2">
                         <a href="mailto:Admin@ntns.ai" class="block text-sm text-white/50 hover:text-white transition-colors">Admin@ntns.ai</a>
-                        <p class="text-sm text-white/50">+1 (206) 786-2235 <span class="text-white/30">(Support)</span></p>
+                        <p class="text-sm text-white/50">+1 (206) 786-2235 <span class="text-white/30" data-i18n="footer.supportLabel">(Support)</span></p>
                     </div>
                 </div>
             </div>
             <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-                <p class="font-['Archivo'] text-sm text-white/40">&copy; 2026 NTNS. All rights reserved.</p>
+                <p class="font-['Archivo'] text-sm text-white/40" data-i18n="footer.copyright">&copy; 2026 NTNS. All rights reserved.</p>
                 <div class="flex gap-6">
-                    <a class="font-['Archivo'] text-sm text-white/50 hover:text-white transition-colors" href="privacy.html">Privacy</a>
-                    <a class="font-['Archivo'] text-sm text-white/50 hover:text-white transition-colors" href="terms.html">Terms</a>
+                    <a class="font-['Archivo'] text-sm text-white/50 hover:text-white transition-colors" href="privacy.html" data-i18n="footer.privacyShort">Privacy</a>
+                    <a class="font-['Archivo'] text-sm text-white/50 hover:text-white transition-colors" href="terms.html" data-i18n="footer.termsShort">Terms</a>
                 </div>
             </div>
         </div>
     </footer>
+
+    <script src="i18n.js"></script>
 
     <!-- WebGL Shader Script -->
     <script>

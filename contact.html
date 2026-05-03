@@ -126,19 +126,23 @@
             <span class="text-xl font-bold tracking-tighter text-white font-['Archivo']">NTNS</span>
         </a>
         <div class="hidden md:flex gap-8 items-center">
-            <a class="font-['Archivo'] text-white/60 hover:text-primary-container transition-all duration-300 tracking-tight font-medium text-sm" href="index.html">Home</a>
-            <a class="font-['Archivo'] text-white/60 hover:text-primary-container transition-all duration-300 tracking-tight font-medium text-sm" href="about.html">About</a>
-            <a class="font-['Archivo'] text-primary-container transition-all duration-300 tracking-tight font-medium text-sm" href="contact.html">Contact</a>
-            <a class="font-['Archivo'] text-white/60 hover:text-primary-container transition-all duration-300 tracking-tight font-medium text-sm" href="index.html#demo">Live Demo</a>
+            <a class="font-['Archivo'] text-white/60 hover:text-primary-container transition-all duration-300 tracking-tight font-medium text-sm" href="index.html" data-i18n="nav.home">Home</a>
+            <a class="font-['Archivo'] text-white/60 hover:text-primary-container transition-all duration-300 tracking-tight font-medium text-sm" href="about.html" data-i18n="nav.about">About</a>
+            <a class="font-['Archivo'] text-primary-container transition-all duration-300 tracking-tight font-medium text-sm" href="contact.html" data-i18n="nav.contact">Contact</a>
+            <a class="font-['Archivo'] text-white/60 hover:text-primary-container transition-all duration-300 tracking-tight font-medium text-sm" href="index.html#demo" data-i18n="nav.demo">Live Demo</a>
         </div>
         <div class="flex gap-3 items-center">
+            <button id="lang-toggle" class="border border-white/20 bg-white/5 text-white px-3 py-2.5 rounded-full font-['Archivo'] font-bold text-sm transition-all duration-500 ease-out hover:bg-white/15 hover:border-white/40 hover:scale-105 cursor-pointer flex items-center gap-1.5" aria-label="Toggle language">
+                <span class="material-symbols-outlined text-sm">translate</span>
+                <span id="lang-label">EN</span>
+            </button>
             <a href="https://app.ntns.ai" target="_blank" rel="noopener noreferrer" class="border border-white/20 bg-white/5 text-white px-5 py-2.5 rounded-full font-['Archivo'] font-bold text-sm transition-all duration-500 ease-out hover:bg-white/15 hover:border-white/40 hover:scale-105 cursor-pointer flex items-center gap-2">
                 <span class="material-symbols-outlined text-lg">login</span>
-                <span class="hidden sm:inline">Login</span>
+                <span class="hidden sm:inline" data-i18n="nav.login">Login</span>
             </a>
             <a href="index.html#demo" class="bg-primary-container text-on-primary-container px-5 py-2.5 rounded-full font-['Archivo'] font-bold text-sm transition-all duration-500 ease-out shadow-lg shadow-primary-container/20 hover:shadow-xl hover:shadow-primary-container/30 hover:scale-105 cursor-pointer flex items-center gap-2">
                 <span class="material-symbols-outlined text-lg">call</span>
-                <span class="hidden sm:inline">Call Demo</span>
+                <span class="hidden sm:inline" data-i18n="nav.callDemo">Call Demo</span>
             </a>
             <button id="mobile-menu-btn" class="md:hidden p-2 text-white/60 hover:text-primary-container cursor-pointer" aria-label="Open menu">
                 <span class="material-symbols-outlined">menu</span>
@@ -148,17 +152,17 @@
 
     <div id="mobile-menu" class="hidden fixed inset-x-0 top-[72px] z-40 mx-4">
         <div class="glass-mobile-menu rounded-3xl p-6 shadow-2xl space-y-4">
-            <a class="block font-['Archivo'] text-white/60 hover:text-primary-container py-2 font-medium" href="index.html">Home</a>
-            <a class="block font-['Archivo'] text-white/60 hover:text-primary-container py-2 font-medium" href="about.html">About</a>
-            <a class="block font-['Archivo'] text-primary-container py-2 font-medium" href="contact.html">Contact</a>
-            <a class="block font-['Archivo'] text-white/60 hover:text-primary-container py-2 font-medium" href="index.html#demo">Live Demo</a>
+            <a class="block font-['Archivo'] text-white/60 hover:text-primary-container py-2 font-medium" href="index.html" data-i18n="nav.home">Home</a>
+            <a class="block font-['Archivo'] text-white/60 hover:text-primary-container py-2 font-medium" href="about.html" data-i18n="nav.about">About</a>
+            <a class="block font-['Archivo'] text-primary-container py-2 font-medium" href="contact.html" data-i18n="nav.contact">Contact</a>
+            <a class="block font-['Archivo'] text-white/60 hover:text-primary-container py-2 font-medium" href="index.html#demo" data-i18n="nav.demo">Live Demo</a>
             <a href="https://app.ntns.ai" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 border border-white/20 bg-white/5 text-white px-6 py-3 rounded-full font-['Archivo'] font-bold text-sm cursor-pointer mt-2 hover:bg-white/15 hover:border-white/40 transition-all duration-300">
                 <span class="material-symbols-outlined text-lg">login</span>
-                Login to Dashboard
+                <span data-i18n="nav.loginDashboard">Login to Dashboard</span>
             </a>
             <a href="index.html#demo" class="flex items-center justify-center gap-2 bg-primary-container text-on-primary-container px-6 py-3 rounded-full font-['Archivo'] font-bold text-sm cursor-pointer mt-2">
                 <span class="material-symbols-outlined text-lg">call</span>
-                Call Demo Now
+                <span data-i18n="nav.callDemoNow">Call Demo Now</span>
             </a>
         </div>
     </div>
@@ -169,12 +173,12 @@
             <div class="max-w-4xl mx-auto text-center">
                 <div class="animate-in inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card mb-8">
                     <span class="material-symbols-outlined text-primary-container text-sm">mail</span>
-                    <span class="text-label-bold font-label-bold text-primary-container">GET IN TOUCH</span>
+                    <span class="text-label-bold font-label-bold text-primary-container" data-i18n="contact.badge">GET IN TOUCH</span>
                 </div>
-                <h1 class="animate-in font-headline-2xl text-headline-xl text-white mb-6" style="transition-delay:80ms">
+                <h1 class="animate-in font-headline-2xl text-headline-xl text-white mb-6" style="transition-delay:80ms" data-i18n-html="contact.title">
                     Let's Talk About <span class="text-primary-container">Your Business</span>
                 </h1>
-                <p class="animate-in font-body-lg text-body-lg text-white/70 max-w-2xl mx-auto" style="transition-delay:160ms">
+                <p class="animate-in font-body-lg text-body-lg text-white/70 max-w-2xl mx-auto" style="transition-delay:160ms" data-i18n="contact.subtitle">
                     Have questions about NTNS? Want to learn how our AI system works for your industry? Reach out and we'll get back to you.
                 </p>
             </div>
@@ -187,25 +191,25 @@
                 <div class="lg:col-span-2 space-y-6 animate-in">
                     <div class="glass-feature p-8 rounded-3xl">
                         <span class="material-symbols-outlined text-primary-container text-2xl mb-4 block">mail</span>
-                        <h3 class="font-bold text-white font-['Archivo'] mb-2">Email Us</h3>
-                        <p class="text-sm text-white/50 mb-4">For general inquiries, partnerships, or questions about our services.</p>
+                        <h3 class="font-bold text-white font-['Archivo'] mb-2" data-i18n="contact.email.title">Email Us</h3>
+                        <p class="text-sm text-white/50 mb-4" data-i18n="contact.email.desc">For general inquiries, partnerships, or questions about our services.</p>
                         <a href="mailto:Admin@ntns.ai" class="text-primary-container font-['Archivo'] font-semibold text-sm hover:underline">Admin@ntns.ai</a>
                     </div>
 
                     <div class="glass-feature p-8 rounded-3xl">
                         <span class="material-symbols-outlined text-secondary-container text-2xl mb-4 block">support_agent</span>
-                        <h3 class="font-bold text-white font-['Archivo'] mb-2">Support Line</h3>
-                        <p class="text-sm text-white/50 mb-4">For existing customers who need technical support or assistance with their system.</p>
+                        <h3 class="font-bold text-white font-['Archivo'] mb-2" data-i18n="contact.support.title">Support Line</h3>
+                        <p class="text-sm text-white/50 mb-4" data-i18n="contact.support.desc">For existing customers who need technical support or assistance with their system.</p>
                         <a href="tel:+12067862235" class="text-secondary-container font-['Archivo'] font-semibold text-sm hover:underline">+1 (206) 786-2235</a>
-                        <p class="text-xs text-white/30 mt-1">Support inquiries only</p>
+                        <p class="text-xs text-white/30 mt-1" data-i18n="contact.support.note">Support inquiries only</p>
                     </div>
 
                     <div class="glass-feature p-8 rounded-3xl">
                         <span class="material-symbols-outlined text-tertiary-container text-2xl mb-4 block">mic</span>
-                        <h3 class="font-bold text-white font-['Archivo'] mb-2">Try the AI Demo</h3>
-                        <p class="text-sm text-white/50 mb-4">Want to hear the AI in action? Call our live demo line and experience it yourself.</p>
+                        <h3 class="font-bold text-white font-['Archivo'] mb-2" data-i18n="contact.demo.title">Try the AI Demo</h3>
+                        <p class="text-sm text-white/50 mb-4" data-i18n="contact.demo.desc">Want to hear the AI in action? Call our live demo line and experience it yourself.</p>
                         <a href="index.html#demo" class="inline-flex items-center gap-2 text-tertiary-container font-['Archivo'] font-semibold text-sm hover:underline">
-                            Go to Live Demo
+                            <span data-i18n="contact.demo.link">Go to Live Demo</span>
                             <span class="material-symbols-outlined text-sm">arrow_forward</span>
                         </a>
                     </div>
@@ -214,8 +218,8 @@
                 <!-- Contact Form -->
                 <div class="lg:col-span-3 animate-in" style="transition-delay:150ms">
                     <div class="glass-card rounded-[32px] p-8 md:p-10">
-                        <h2 class="font-headline-lg text-headline-lg text-white mb-2 text-xl">Send Us a Message</h2>
-                        <p class="text-sm text-white/50 mb-8">Fill out the form below and we'll get back to you within one business day.</p>
+                        <h2 class="font-headline-lg text-headline-lg text-white mb-2 text-xl" data-i18n="contact.form.title">Send Us a Message</h2>
+                        <p class="text-sm text-white/50 mb-8" data-i18n="contact.form.subtitle">Fill out the form below and we'll get back to you within one business day.</p>
 
                         <form action="https://formsubmit.co/Admin@ntns.ai" method="POST" class="space-y-5">
                             <input type="hidden" name="_subject" value="New Contact Form Submission — NTNS Website">
@@ -224,55 +228,59 @@
 
                             <div class="grid sm:grid-cols-2 gap-5">
                                 <div>
-                                    <label for="name" class="block text-xs text-white/50 mb-2 font-['Archivo'] font-semibold uppercase tracking-wider">Full Name</label>
+                                    <label for="name" class="block text-xs text-white/50 mb-2 font-['Archivo'] font-semibold uppercase tracking-wider" data-i18n="contact.form.name">Full Name</label>
                                     <input type="text" id="name" name="name" required placeholder="John Smith"
+                                        data-i18n-placeholder="contact.form.namePlaceholder"
                                         class="glass-input w-full px-4 py-3.5 rounded-xl text-white text-sm font-['Lexend'] placeholder:text-white/20" />
                                 </div>
                                 <div>
-                                    <label for="email" class="block text-xs text-white/50 mb-2 font-['Archivo'] font-semibold uppercase tracking-wider">Email</label>
+                                    <label for="email" class="block text-xs text-white/50 mb-2 font-['Archivo'] font-semibold uppercase tracking-wider" data-i18n="contact.form.email">Email</label>
                                     <input type="email" id="email" name="email" required placeholder="john@company.com"
+                                        data-i18n-placeholder="contact.form.emailPlaceholder"
                                         class="glass-input w-full px-4 py-3.5 rounded-xl text-white text-sm font-['Lexend'] placeholder:text-white/20" />
                                 </div>
                             </div>
 
                             <div>
-                                <label for="phone" class="block text-xs text-white/50 mb-2 font-['Archivo'] font-semibold uppercase tracking-wider">Phone Number</label>
+                                <label for="phone" class="block text-xs text-white/50 mb-2 font-['Archivo'] font-semibold uppercase tracking-wider" data-i18n="contact.form.phone">Phone Number</label>
                                 <input type="tel" id="phone" name="phone" placeholder="+1 (555) 123-4567"
+                                    data-i18n-placeholder="contact.form.phonePlaceholder"
                                     class="glass-input w-full px-4 py-3.5 rounded-xl text-white text-sm font-['Lexend'] placeholder:text-white/20" />
                             </div>
 
                             <div>
-                                <label for="industry" class="block text-xs text-white/50 mb-2 font-['Archivo'] font-semibold uppercase tracking-wider">Industry</label>
+                                <label for="industry" class="block text-xs text-white/50 mb-2 font-['Archivo'] font-semibold uppercase tracking-wider" data-i18n="contact.form.industry">Industry</label>
                                 <select id="industry" name="industry"
                                     class="glass-input w-full px-4 py-3.5 rounded-xl text-white text-sm font-['Lexend'] appearance-none cursor-pointer">
-                                    <option value="" class="bg-[#1a1a3e]">Select your industry</option>
-                                    <option value="Driving School" class="bg-[#1a1a3e]">Driving School</option>
-                                    <option value="Dental Clinic" class="bg-[#1a1a3e]">Dental Clinic</option>
-                                    <option value="Barbershop" class="bg-[#1a1a3e]">Barbershop</option>
-                                    <option value="Plumbing" class="bg-[#1a1a3e]">Plumbing</option>
-                                    <option value="Roofing" class="bg-[#1a1a3e]">Roofing</option>
-                                    <option value="HVAC" class="bg-[#1a1a3e]">HVAC</option>
-                                    <option value="Cleaning" class="bg-[#1a1a3e]">Cleaning</option>
-                                    <option value="Landscaping" class="bg-[#1a1a3e]">Landscaping</option>
-                                    <option value="Electrical" class="bg-[#1a1a3e]">Electrical</option>
-                                    <option value="Real Estate" class="bg-[#1a1a3e]">Real Estate</option>
-                                    <option value="Medical" class="bg-[#1a1a3e]">Medical</option>
-                                    <option value="Insurance" class="bg-[#1a1a3e]">Insurance</option>
-                                    <option value="Transportation" class="bg-[#1a1a3e]">Transportation</option>
-                                    <option value="Other" class="bg-[#1a1a3e]">Other</option>
+                                    <option value="" class="bg-[#1a1a3e]" data-i18n="contact.form.industryDefault">Select your industry</option>
+                                    <option value="Driving School" class="bg-[#1a1a3e]" data-i18n="contact.form.drivingSchool">Driving School</option>
+                                    <option value="Dental Clinic" class="bg-[#1a1a3e]" data-i18n="contact.form.dentalClinic">Dental Clinic</option>
+                                    <option value="Barbershop" class="bg-[#1a1a3e]" data-i18n="contact.form.barbershop">Barbershop</option>
+                                    <option value="Plumbing" class="bg-[#1a1a3e]" data-i18n="contact.form.plumbing">Plumbing</option>
+                                    <option value="Roofing" class="bg-[#1a1a3e]" data-i18n="contact.form.roofing">Roofing</option>
+                                    <option value="HVAC" class="bg-[#1a1a3e]" data-i18n="contact.form.hvac">HVAC</option>
+                                    <option value="Cleaning" class="bg-[#1a1a3e]" data-i18n="contact.form.cleaning">Cleaning</option>
+                                    <option value="Landscaping" class="bg-[#1a1a3e]" data-i18n="contact.form.landscaping">Landscaping</option>
+                                    <option value="Electrical" class="bg-[#1a1a3e]" data-i18n="contact.form.electrical">Electrical</option>
+                                    <option value="Real Estate" class="bg-[#1a1a3e]" data-i18n="contact.form.realEstate">Real Estate</option>
+                                    <option value="Medical" class="bg-[#1a1a3e]" data-i18n="contact.form.medical">Medical</option>
+                                    <option value="Insurance" class="bg-[#1a1a3e]" data-i18n="contact.form.insurance">Insurance</option>
+                                    <option value="Transportation" class="bg-[#1a1a3e]" data-i18n="contact.form.transportation">Transportation</option>
+                                    <option value="Other" class="bg-[#1a1a3e]" data-i18n="contact.form.other">Other</option>
                                 </select>
                             </div>
 
                             <div>
-                                <label for="message" class="block text-xs text-white/50 mb-2 font-['Archivo'] font-semibold uppercase tracking-wider">Message</label>
+                                <label for="message" class="block text-xs text-white/50 mb-2 font-['Archivo'] font-semibold uppercase tracking-wider" data-i18n="contact.form.message">Message</label>
                                 <textarea id="message" name="message" rows="4" required placeholder="Tell us about your business and what you're looking for..."
+                                    data-i18n-placeholder="contact.form.messagePlaceholder"
                                     class="glass-input w-full px-4 py-3.5 rounded-xl text-white text-sm font-['Lexend'] placeholder:text-white/20 resize-none"></textarea>
                             </div>
 
                             <button type="submit"
                                 class="w-full bg-primary text-on-primary px-8 py-4 rounded-full font-['Archivo'] font-bold text-sm transition-all duration-500 hover:shadow-xl hover:shadow-primary/30 hover:scale-[1.02] active:scale-95 cursor-pointer flex items-center justify-center gap-2">
                                 <span class="material-symbols-outlined text-lg">send</span>
-                                Send Message
+                                <span data-i18n="contact.form.submit">Send Message</span>
                             </button>
                         </form>
                     </div>
@@ -292,40 +300,42 @@
                         </div>
                         <span class="text-lg font-bold text-white font-['Archivo'] tracking-tight">NTNS</span>
                     </div>
-                    <p class="text-sm text-white/40">Never Miss a Lead Again.</p>
+                    <p class="text-sm text-white/40" data-i18n="footer.tagline">Never Miss a Lead Again.</p>
                 </div>
                 <div>
-                    <h4 class="font-['Archivo'] font-bold text-white text-sm mb-4">Pages</h4>
+                    <h4 class="font-['Archivo'] font-bold text-white text-sm mb-4" data-i18n="footer.pages">Pages</h4>
                     <div class="space-y-2">
-                        <a href="index.html" class="block text-sm text-white/50 hover:text-white transition-colors">Home</a>
-                        <a href="about.html" class="block text-sm text-white/50 hover:text-white transition-colors">About Us</a>
-                        <a href="contact.html" class="block text-sm text-white/50 hover:text-white transition-colors">Contact</a>
+                        <a href="index.html" class="block text-sm text-white/50 hover:text-white transition-colors" data-i18n="footer.home">Home</a>
+                        <a href="about.html" class="block text-sm text-white/50 hover:text-white transition-colors" data-i18n="footer.aboutUs">About Us</a>
+                        <a href="contact.html" class="block text-sm text-white/50 hover:text-white transition-colors" data-i18n="footer.contact">Contact</a>
                     </div>
                 </div>
                 <div>
-                    <h4 class="font-['Archivo'] font-bold text-white text-sm mb-4">Legal</h4>
+                    <h4 class="font-['Archivo'] font-bold text-white text-sm mb-4" data-i18n="footer.legal">Legal</h4>
                     <div class="space-y-2">
-                        <a href="privacy.html" class="block text-sm text-white/50 hover:text-white transition-colors">Privacy Policy</a>
-                        <a href="terms.html" class="block text-sm text-white/50 hover:text-white transition-colors">Terms & Conditions</a>
+                        <a href="privacy.html" class="block text-sm text-white/50 hover:text-white transition-colors" data-i18n="footer.privacy">Privacy Policy</a>
+                        <a href="terms.html" class="block text-sm text-white/50 hover:text-white transition-colors" data-i18n="footer.terms">Terms &amp; Conditions</a>
                     </div>
                 </div>
                 <div>
-                    <h4 class="font-['Archivo'] font-bold text-white text-sm mb-4">Contact</h4>
+                    <h4 class="font-['Archivo'] font-bold text-white text-sm mb-4" data-i18n="footer.contactTitle">Contact</h4>
                     <div class="space-y-2">
                         <a href="mailto:Admin@ntns.ai" class="block text-sm text-white/50 hover:text-white transition-colors">Admin@ntns.ai</a>
-                        <p class="text-sm text-white/50">+1 (206) 786-2235 <span class="text-white/30">(Support)</span></p>
+                        <p class="text-sm text-white/50">+1 (206) 786-2235 <span class="text-white/30" data-i18n="footer.supportLabel">(Support)</span></p>
                     </div>
                 </div>
             </div>
             <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-                <p class="font-['Archivo'] text-sm text-white/40">&copy; 2026 NTNS. All rights reserved.</p>
+                <p class="font-['Archivo'] text-sm text-white/40" data-i18n="footer.copyright">&copy; 2026 NTNS. All rights reserved.</p>
                 <div class="flex gap-6">
-                    <a class="font-['Archivo'] text-sm text-white/50 hover:text-white transition-colors" href="privacy.html">Privacy</a>
-                    <a class="font-['Archivo'] text-sm text-white/50 hover:text-white transition-colors" href="terms.html">Terms</a>
+                    <a class="font-['Archivo'] text-sm text-white/50 hover:text-white transition-colors" href="privacy.html" data-i18n="footer.privacyShort">Privacy</a>
+                    <a class="font-['Archivo'] text-sm text-white/50 hover:text-white transition-colors" href="terms.html" data-i18n="footer.termsShort">Terms</a>
                 </div>
             </div>
         </div>
     </footer>
+
+    <script src="i18n.js"></script>
 
     <!-- WebGL Shader Script -->
     <script>

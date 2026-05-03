@@ -102,19 +102,23 @@
             <span class="text-xl font-bold tracking-tighter text-white font-['Archivo']">NTNS</span>
         </a>
         <div class="hidden md:flex gap-8 items-center">
-            <a class="font-['Archivo'] text-white/60 hover:text-primary-container transition-all duration-300 tracking-tight font-medium text-sm" href="index.html">Home</a>
-            <a class="font-['Archivo'] text-white/60 hover:text-primary-container transition-all duration-300 tracking-tight font-medium text-sm" href="about.html">About</a>
-            <a class="font-['Archivo'] text-white/60 hover:text-primary-container transition-all duration-300 tracking-tight font-medium text-sm" href="contact.html">Contact</a>
-            <a class="font-['Archivo'] text-white/60 hover:text-primary-container transition-all duration-300 tracking-tight font-medium text-sm" href="index.html#demo">Live Demo</a>
+            <a class="font-['Archivo'] text-white/60 hover:text-primary-container transition-all duration-300 tracking-tight font-medium text-sm" href="index.html" data-i18n="nav.home">Home</a>
+            <a class="font-['Archivo'] text-white/60 hover:text-primary-container transition-all duration-300 tracking-tight font-medium text-sm" href="about.html" data-i18n="nav.about">About</a>
+            <a class="font-['Archivo'] text-white/60 hover:text-primary-container transition-all duration-300 tracking-tight font-medium text-sm" href="contact.html" data-i18n="nav.contact">Contact</a>
+            <a class="font-['Archivo'] text-white/60 hover:text-primary-container transition-all duration-300 tracking-tight font-medium text-sm" href="index.html#demo" data-i18n="nav.demo">Live Demo</a>
         </div>
         <div class="flex gap-3 items-center">
+            <button id="lang-toggle" class="border border-white/20 bg-white/5 text-white px-3 py-2.5 rounded-full font-['Archivo'] font-bold text-sm transition-all duration-500 ease-out hover:bg-white/15 hover:border-white/40 hover:scale-105 cursor-pointer flex items-center gap-1.5" aria-label="Toggle language">
+                <span class="material-symbols-outlined text-sm">translate</span>
+                <span id="lang-label">EN</span>
+            </button>
             <a href="https://app.ntns.ai" target="_blank" rel="noopener noreferrer" class="border border-white/20 bg-white/5 text-white px-5 py-2.5 rounded-full font-['Archivo'] font-bold text-sm transition-all duration-500 ease-out hover:bg-white/15 hover:border-white/40 hover:scale-105 cursor-pointer flex items-center gap-2">
                 <span class="material-symbols-outlined text-lg">login</span>
-                <span class="hidden sm:inline">Login</span>
+                <span class="hidden sm:inline" data-i18n="nav.login">Login</span>
             </a>
             <a href="index.html#demo" class="bg-primary-container text-on-primary-container px-5 py-2.5 rounded-full font-['Archivo'] font-bold text-sm transition-all duration-500 ease-out shadow-lg shadow-primary-container/20 hover:shadow-xl hover:shadow-primary-container/30 hover:scale-105 cursor-pointer flex items-center gap-2">
                 <span class="material-symbols-outlined text-lg">call</span>
-                <span class="hidden sm:inline">Call Demo</span>
+                <span class="hidden sm:inline" data-i18n="nav.callDemo">Call Demo</span>
             </a>
             <button id="mobile-menu-btn" class="md:hidden p-2 text-white/60 hover:text-primary-container cursor-pointer" aria-label="Open menu">
                 <span class="material-symbols-outlined">menu</span>
@@ -124,13 +128,17 @@
 
     <div id="mobile-menu" class="hidden fixed inset-x-0 top-[72px] z-40 mx-4">
         <div class="glass-mobile-menu rounded-3xl p-6 shadow-2xl space-y-4">
-            <a class="block font-['Archivo'] text-white/60 hover:text-primary-container py-2 font-medium" href="index.html">Home</a>
-            <a class="block font-['Archivo'] text-white/60 hover:text-primary-container py-2 font-medium" href="about.html">About</a>
-            <a class="block font-['Archivo'] text-white/60 hover:text-primary-container py-2 font-medium" href="contact.html">Contact</a>
-            <a class="block font-['Archivo'] text-white/60 hover:text-primary-container py-2 font-medium" href="index.html#demo">Live Demo</a>
+            <a class="block font-['Archivo'] text-white/60 hover:text-primary-container py-2 font-medium" href="index.html" data-i18n="nav.home">Home</a>
+            <a class="block font-['Archivo'] text-white/60 hover:text-primary-container py-2 font-medium" href="about.html" data-i18n="nav.about">About</a>
+            <a class="block font-['Archivo'] text-white/60 hover:text-primary-container py-2 font-medium" href="contact.html" data-i18n="nav.contact">Contact</a>
+            <a class="block font-['Archivo'] text-white/60 hover:text-primary-container py-2 font-medium" href="index.html#demo" data-i18n="nav.demo">Live Demo</a>
             <a href="https://app.ntns.ai" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 border border-white/20 bg-white/5 text-white px-6 py-3 rounded-full font-['Archivo'] font-bold text-sm cursor-pointer mt-2 hover:bg-white/15 hover:border-white/40 transition-all duration-300">
                 <span class="material-symbols-outlined text-lg">login</span>
-                Login to Dashboard
+                <span data-i18n="nav.loginDashboard">Login to Dashboard</span>
+            </a>
+            <a href="index.html#demo" class="flex items-center justify-center gap-2 bg-primary-container text-on-primary-container px-6 py-3 rounded-full font-['Archivo'] font-bold text-sm cursor-pointer mt-2">
+                <span class="material-symbols-outlined text-lg">call</span>
+                <span data-i18n="nav.callDemoNow">Call Demo Now</span>
             </a>
         </div>
     </div>
@@ -138,106 +146,106 @@
     <main>
         <section class="pt-24 md:pt-32 pb-20 px-gutter">
             <div class="max-w-4xl mx-auto text-center animate-in">
-                <h1 class="font-headline-xl text-headline-xl text-white mb-4">Privacy Policy</h1>
-                <p class="text-white/50 text-sm font-['Archivo']">Last updated: May 1, 2025</p>
+                <h1 class="font-headline-xl text-headline-xl text-white mb-4" data-i18n="privacy.title">Privacy Policy</h1>
+                <p class="text-white/50 text-sm font-['Archivo']" data-i18n="privacy.updated">Last updated: May 1, 2025</p>
             </div>
         </section>
 
         <section class="pb-section-gap px-gutter">
             <div class="max-w-3xl mx-auto glass-card rounded-[32px] p-8 md:p-12 animate-in legal-content" style="transition-delay:100ms">
 
-                <h3>1. Introduction</h3>
-                <p>NTNS ("we," "us," or "our") operates the website at ntns.ai and provides AI-powered voice receptionist and lead management services for local businesses. This Privacy Policy describes how we collect, use, disclose, and protect your personal information when you visit our website, use our services, or interact with our AI systems.</p>
-                <p>By using our website or services, you agree to the collection and use of information in accordance with this policy.</p>
+                <h3 data-i18n="privacy.h1">1. Introduction</h3>
+                <p data-i18n="privacy.p1">NTNS ("we," "us," or "our") operates the website at ntns.ai and provides AI-powered voice receptionist and lead management services for local businesses. This Privacy Policy describes how we collect, use, disclose, and protect your personal information when you visit our website, use our services, or interact with our AI systems.</p>
+                <p data-i18n="privacy.p1b">By using our website or services, you agree to the collection and use of information in accordance with this policy.</p>
 
-                <h3>2. Information We Collect</h3>
-                <p>We may collect the following types of information:</p>
-                <p><strong class="text-white/80">Personal Information You Provide:</strong></p>
+                <h3 data-i18n="privacy.h2">2. Information We Collect</h3>
+                <p data-i18n="privacy.p2">We may collect the following types of information:</p>
+                <p><strong class="text-white/80" data-i18n="privacy.p2a">Personal Information You Provide:</strong></p>
                 <ul>
-                    <li>Name, email address, and phone number when you fill out a contact form</li>
-                    <li>Business name, industry, and other details you share with us</li>
-                    <li>Information you provide during phone calls with our AI receptionist, including voice recordings and call transcripts</li>
-                    <li>Payment and billing information when you subscribe to our services</li>
+                    <li data-i18n="privacy.p2a1">Name, email address, and phone number when you fill out a contact form</li>
+                    <li data-i18n="privacy.p2a2">Business name, industry, and other details you share with us</li>
+                    <li data-i18n="privacy.p2a3">Information you provide during phone calls with our AI receptionist, including voice recordings and call transcripts</li>
+                    <li data-i18n="privacy.p2a4">Payment and billing information when you subscribe to our services</li>
                 </ul>
-                <p><strong class="text-white/80">Information Collected Automatically:</strong></p>
+                <p><strong class="text-white/80" data-i18n="privacy.p2b">Information Collected Automatically:</strong></p>
                 <ul>
-                    <li>Device information (browser type, operating system, device type)</li>
-                    <li>IP address and approximate geographic location</li>
-                    <li>Website usage data (pages visited, time spent, referral source)</li>
-                    <li>Cookies and similar tracking technologies</li>
+                    <li data-i18n="privacy.p2b1">Device information (browser type, operating system, device type)</li>
+                    <li data-i18n="privacy.p2b2">IP address and approximate geographic location</li>
+                    <li data-i18n="privacy.p2b3">Website usage data (pages visited, time spent, referral source)</li>
+                    <li data-i18n="privacy.p2b4">Cookies and similar tracking technologies</li>
                 </ul>
-                <p><strong class="text-white/80">Information From Third Parties:</strong></p>
+                <p><strong class="text-white/80" data-i18n="privacy.p2c">Information From Third Parties:</strong></p>
                 <ul>
-                    <li>CRM and business tool integrations that you authorize</li>
-                    <li>Analytics providers and advertising partners</li>
-                </ul>
-
-                <h3>3. How We Use Your Information</h3>
-                <p>We use the information we collect to:</p>
-                <ul>
-                    <li>Provide, operate, and maintain our AI receptionist and lead management services</li>
-                    <li>Process and manage your account and subscriptions</li>
-                    <li>Respond to your inquiries and provide customer support</li>
-                    <li>Improve and optimize our AI systems and service quality</li>
-                    <li>Send you service-related communications, updates, and notifications</li>
-                    <li>Comply with legal obligations and enforce our terms of service</li>
-                    <li>Detect, prevent, and address technical issues or fraudulent activity</li>
+                    <li data-i18n="privacy.p2c1">CRM and business tool integrations that you authorize</li>
+                    <li data-i18n="privacy.p2c2">Analytics providers and advertising partners</li>
                 </ul>
 
-                <h3>4. AI Voice Receptionist & Call Data</h3>
-                <p>When callers interact with our AI voice receptionist, we may record and transcribe calls for the purpose of providing our services. This data is used to:</p>
+                <h3 data-i18n="privacy.h3">3. How We Use Your Information</h3>
+                <p data-i18n="privacy.p3">We use the information we collect to:</p>
                 <ul>
-                    <li>Capture and qualify leads on behalf of our business clients</li>
-                    <li>Schedule appointments and send follow-up communications</li>
-                    <li>Improve the accuracy and performance of our AI system</li>
-                    <li>Provide call logs and analytics to our subscribing business clients</li>
-                </ul>
-                <p>Call recordings and transcripts are stored securely and access is limited to authorized personnel and the subscribing business on whose behalf the call was handled.</p>
-
-                <h3>5. How We Share Your Information</h3>
-                <p>We do not sell your personal information. We may share information in the following circumstances:</p>
-                <ul>
-                    <li><strong class="text-white/80">With Our Business Clients:</strong> If you call a business that uses our AI receptionist, your call data and lead information are shared with that business as part of our service.</li>
-                    <li><strong class="text-white/80">Service Providers:</strong> We may share information with third-party vendors who assist in operating our services (e.g., cloud hosting, CRM platforms, payment processors).</li>
-                    <li><strong class="text-white/80">Legal Requirements:</strong> We may disclose information if required by law, regulation, legal process, or governmental request.</li>
-                    <li><strong class="text-white/80">Business Transfers:</strong> In the event of a merger, acquisition, or sale of assets, your information may be transferred as part of that transaction.</li>
+                    <li data-i18n="privacy.p3a">Provide, operate, and maintain our AI receptionist and lead management services</li>
+                    <li data-i18n="privacy.p3b">Process and manage your account and subscriptions</li>
+                    <li data-i18n="privacy.p3c">Respond to your inquiries and provide customer support</li>
+                    <li data-i18n="privacy.p3d">Improve and optimize our AI systems and service quality</li>
+                    <li data-i18n="privacy.p3e">Send you service-related communications, updates, and notifications</li>
+                    <li data-i18n="privacy.p3f">Comply with legal obligations and enforce our terms of service</li>
+                    <li data-i18n="privacy.p3g">Detect, prevent, and address technical issues or fraudulent activity</li>
                 </ul>
 
-                <h3>6. Data Retention</h3>
-                <p>We retain your personal information for as long as necessary to fulfill the purposes described in this policy, unless a longer retention period is required by law. Call recordings and transcripts are retained for the duration of the business client's subscription, plus a reasonable period thereafter for compliance and dispute resolution purposes.</p>
-
-                <h3>7. Data Security</h3>
-                <p>We implement appropriate technical and organizational security measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction. These measures include encryption, access controls, and secure data storage practices. However, no method of transmission over the internet or electronic storage is 100% secure.</p>
-
-                <h3>8. Your Rights</h3>
-                <p>Depending on your jurisdiction, you may have the following rights regarding your personal information:</p>
+                <h3 data-i18n="privacy.h4">4. AI Voice Receptionist &amp; Call Data</h3>
+                <p data-i18n="privacy.p4">When callers interact with our AI voice receptionist, we may record and transcribe calls for the purpose of providing our services. This data is used to:</p>
                 <ul>
-                    <li>Access and receive a copy of your personal data</li>
-                    <li>Request correction of inaccurate or incomplete data</li>
-                    <li>Request deletion of your personal data</li>
-                    <li>Object to or restrict certain processing of your data</li>
-                    <li>Data portability (receive your data in a structured, machine-readable format)</li>
-                    <li>Withdraw consent at any time where processing is based on consent</li>
+                    <li data-i18n="privacy.p4a">Capture and qualify leads on behalf of our business clients</li>
+                    <li data-i18n="privacy.p4b">Schedule appointments and send follow-up communications</li>
+                    <li data-i18n="privacy.p4c">Improve the accuracy and performance of our AI system</li>
+                    <li data-i18n="privacy.p4d">Provide call logs and analytics to our subscribing business clients</li>
                 </ul>
-                <p>To exercise any of these rights, please contact us at <a href="mailto:Admin@ntns.ai" class="text-primary-container hover:underline">Admin@ntns.ai</a>.</p>
+                <p data-i18n="privacy.p4e">Call recordings and transcripts are stored securely and access is limited to authorized personnel and the subscribing business on whose behalf the call was handled.</p>
 
-                <h3>9. Cookies</h3>
-                <p>Our website uses cookies and similar technologies to enhance your browsing experience, analyze website traffic, and understand where our visitors come from. You can control cookie settings through your browser preferences. Disabling cookies may affect certain features of our website.</p>
-
-                <h3>10. Third-Party Links</h3>
-                <p>Our website may contain links to third-party websites or services that are not operated by us. We are not responsible for the privacy practices of these third parties. We encourage you to review their privacy policies before providing any personal information.</p>
-
-                <h3>11. Children's Privacy</h3>
-                <p>Our services are not directed to individuals under the age of 18. We do not knowingly collect personal information from children. If we become aware that we have collected personal data from a child, we will take steps to delete that information promptly.</p>
-
-                <h3>12. Changes to This Policy</h3>
-                <p>We may update this Privacy Policy from time to time. Any changes will be posted on this page with an updated "Last updated" date. We encourage you to review this policy periodically for any changes. Your continued use of our website and services after changes are posted constitutes your acceptance of the updated policy.</p>
-
-                <h3>13. Contact Us</h3>
-                <p>If you have any questions or concerns about this Privacy Policy or our data practices, please contact us:</p>
+                <h3 data-i18n="privacy.h5">5. How We Share Your Information</h3>
+                <p data-i18n="privacy.p5">We do not sell your personal information. We may share information in the following circumstances:</p>
                 <ul>
-                    <li>Email: <a href="mailto:Admin@ntns.ai" class="text-primary-container hover:underline">Admin@ntns.ai</a></li>
-                    <li>Phone (Support): +1 (206) 786-2235</li>
+                    <li><strong class="text-white/80" data-i18n="privacy.p5a">With Our Business Clients:</strong> <span data-i18n="privacy.p5a1">If you call a business that uses our AI receptionist, your call data and lead information are shared with that business as part of our service.</span></li>
+                    <li><strong class="text-white/80" data-i18n="privacy.p5b">Service Providers:</strong> <span data-i18n="privacy.p5b1">We may share information with third-party vendors who assist in operating our services (e.g., cloud hosting, CRM platforms, payment processors).</span></li>
+                    <li><strong class="text-white/80" data-i18n="privacy.p5c">Legal Requirements:</strong> <span data-i18n="privacy.p5c1">We may disclose information if required by law, regulation, legal process, or governmental request.</span></li>
+                    <li><strong class="text-white/80" data-i18n="privacy.p5d">Business Transfers:</strong> <span data-i18n="privacy.p5d1">In the event of a merger, acquisition, or sale of assets, your information may be transferred as part of that transaction.</span></li>
+                </ul>
+
+                <h3 data-i18n="privacy.h6">6. Data Retention</h3>
+                <p data-i18n="privacy.p6">We retain your personal information for as long as necessary to fulfill the purposes described in this policy, unless a longer retention period is required by law. Call recordings and transcripts are retained for the duration of the business client's subscription, plus a reasonable period thereafter for compliance and dispute resolution purposes.</p>
+
+                <h3 data-i18n="privacy.h7">7. Data Security</h3>
+                <p data-i18n="privacy.p7">We implement appropriate technical and organizational security measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction. These measures include encryption, access controls, and secure data storage practices. However, no method of transmission over the internet or electronic storage is 100% secure.</p>
+
+                <h3 data-i18n="privacy.h8">8. Your Rights</h3>
+                <p data-i18n="privacy.p8">Depending on your jurisdiction, you may have the following rights regarding your personal information:</p>
+                <ul>
+                    <li data-i18n="privacy.p8a">Access and receive a copy of your personal data</li>
+                    <li data-i18n="privacy.p8b">Request correction of inaccurate or incomplete data</li>
+                    <li data-i18n="privacy.p8c">Request deletion of your personal data</li>
+                    <li data-i18n="privacy.p8d">Object to or restrict certain processing of your data</li>
+                    <li data-i18n="privacy.p8e">Data portability (receive your data in a structured, machine-readable format)</li>
+                    <li data-i18n="privacy.p8f">Withdraw consent at any time where processing is based on consent</li>
+                </ul>
+                <p data-i18n-html="privacy.p8g">To exercise any of these rights, please contact us at <a href="mailto:Admin@ntns.ai" class="text-primary-container hover:underline">Admin@ntns.ai</a>.</p>
+
+                <h3 data-i18n="privacy.h9">9. Cookies</h3>
+                <p data-i18n="privacy.p9">Our website uses cookies and similar technologies to enhance your browsing experience, analyze website traffic, and understand where our visitors come from. You can control cookie settings through your browser preferences. Disabling cookies may affect certain features of our website.</p>
+
+                <h3 data-i18n="privacy.h10">10. Third-Party Links</h3>
+                <p data-i18n="privacy.p10">Our website may contain links to third-party websites or services that are not operated by us. We are not responsible for the privacy practices of these third parties. We encourage you to review their privacy policies before providing any personal information.</p>
+
+                <h3 data-i18n="privacy.h11">11. Children's Privacy</h3>
+                <p data-i18n="privacy.p11">Our services are not directed to individuals under the age of 18. We do not knowingly collect personal information from children. If we become aware that we have collected personal data from a child, we will take steps to delete that information promptly.</p>
+
+                <h3 data-i18n="privacy.h12">12. Changes to This Policy</h3>
+                <p data-i18n="privacy.p12">We may update this Privacy Policy from time to time. Any changes will be posted on this page with an updated "Last updated" date. We encourage you to review this policy periodically for any changes. Your continued use of our website and services after changes are posted constitutes your acceptance of the updated policy.</p>
+
+                <h3 data-i18n="privacy.h13">13. Contact Us</h3>
+                <p data-i18n="privacy.p13">If you have any questions or concerns about this Privacy Policy or our data practices, please contact us:</p>
+                <ul>
+                    <li data-i18n-html="privacy.p13a">Email: <a href="mailto:Admin@ntns.ai" class="text-primary-container hover:underline">Admin@ntns.ai</a></li>
+                    <li data-i18n="privacy.p13b">Phone (Support): +1 (206) 786-2235</li>
                 </ul>
             </div>
         </section>
@@ -254,40 +262,42 @@
                         </div>
                         <span class="text-lg font-bold text-white font-['Archivo'] tracking-tight">NTNS</span>
                     </div>
-                    <p class="text-sm text-white/40">Never Miss a Lead Again.</p>
+                    <p class="text-sm text-white/40" data-i18n="footer.tagline">Never Miss a Lead Again.</p>
                 </div>
                 <div>
-                    <h4 class="font-['Archivo'] font-bold text-white text-sm mb-4">Pages</h4>
+                    <h4 class="font-['Archivo'] font-bold text-white text-sm mb-4" data-i18n="footer.pages">Pages</h4>
                     <div class="space-y-2">
-                        <a href="index.html" class="block text-sm text-white/50 hover:text-white transition-colors">Home</a>
-                        <a href="about.html" class="block text-sm text-white/50 hover:text-white transition-colors">About Us</a>
-                        <a href="contact.html" class="block text-sm text-white/50 hover:text-white transition-colors">Contact</a>
+                        <a href="index.html" class="block text-sm text-white/50 hover:text-white transition-colors" data-i18n="footer.home">Home</a>
+                        <a href="about.html" class="block text-sm text-white/50 hover:text-white transition-colors" data-i18n="footer.aboutUs">About Us</a>
+                        <a href="contact.html" class="block text-sm text-white/50 hover:text-white transition-colors" data-i18n="footer.contact">Contact</a>
                     </div>
                 </div>
                 <div>
-                    <h4 class="font-['Archivo'] font-bold text-white text-sm mb-4">Legal</h4>
+                    <h4 class="font-['Archivo'] font-bold text-white text-sm mb-4" data-i18n="footer.legal">Legal</h4>
                     <div class="space-y-2">
-                        <a href="privacy.html" class="block text-sm text-white/50 hover:text-white transition-colors">Privacy Policy</a>
-                        <a href="terms.html" class="block text-sm text-white/50 hover:text-white transition-colors">Terms & Conditions</a>
+                        <a href="privacy.html" class="block text-sm text-white/50 hover:text-white transition-colors" data-i18n="footer.privacy">Privacy Policy</a>
+                        <a href="terms.html" class="block text-sm text-white/50 hover:text-white transition-colors" data-i18n="footer.terms">Terms &amp; Conditions</a>
                     </div>
                 </div>
                 <div>
-                    <h4 class="font-['Archivo'] font-bold text-white text-sm mb-4">Contact</h4>
+                    <h4 class="font-['Archivo'] font-bold text-white text-sm mb-4" data-i18n="footer.contactTitle">Contact</h4>
                     <div class="space-y-2">
                         <a href="mailto:Admin@ntns.ai" class="block text-sm text-white/50 hover:text-white transition-colors">Admin@ntns.ai</a>
-                        <p class="text-sm text-white/50">+1 (206) 786-2235 <span class="text-white/30">(Support)</span></p>
+                        <p class="text-sm text-white/50">+1 (206) 786-2235 <span class="text-white/30" data-i18n="footer.supportLabel">(Support)</span></p>
                     </div>
                 </div>
             </div>
             <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-                <p class="font-['Archivo'] text-sm text-white/40">&copy; 2026 NTNS. All rights reserved.</p>
+                <p class="font-['Archivo'] text-sm text-white/40" data-i18n="footer.copyright">&copy; 2026 NTNS. All rights reserved.</p>
                 <div class="flex gap-6">
-                    <a class="font-['Archivo'] text-sm text-white/50 hover:text-white transition-colors" href="privacy.html">Privacy</a>
-                    <a class="font-['Archivo'] text-sm text-white/50 hover:text-white transition-colors" href="terms.html">Terms</a>
+                    <a class="font-['Archivo'] text-sm text-white/50 hover:text-white transition-colors" href="privacy.html" data-i18n="footer.privacyShort">Privacy</a>
+                    <a class="font-['Archivo'] text-sm text-white/50 hover:text-white transition-colors" href="terms.html" data-i18n="footer.termsShort">Terms</a>
                 </div>
             </div>
         </div>
     </footer>
+
+    <script src="i18n.js"></script>
 
     <!-- WebGL Shader Script -->
     <script>
