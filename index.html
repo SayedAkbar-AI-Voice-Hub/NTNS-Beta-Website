@@ -446,10 +446,10 @@
             <div class="max-w-5xl mx-auto animate-in" style="transition-delay:100ms">
                 <div class="glass-card rounded-[48px] overflow-hidden shadow-[0_8px_60px_rgba(0,0,0,0.4)]" style="position:relative; padding-top:56.25%;">
                     <iframe
-                        src="demo%20Animation%20/NTNS%20Voice%20Agent.html"
+                        id="solution-anim-frame"
+                        data-src="demo%20Animation%20/NTNS%20Voice%20Agent.html"
                         style="position:absolute; top:0; left:0; width:100%; height:100%; border:none; display:block;"
                         title="NTNS Voice Agent Animation"
-                        loading="lazy"
                     ></iframe>
                 </div>
             </div>
@@ -1045,6 +1045,20 @@
         }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
         document.querySelectorAll('.animate-in').forEach(el => observer.observe(el));
+
+        // Load the solution animation iframe only when scrolled into view
+        const animFrame = document.getElementById('solution-anim-frame');
+        if (animFrame) {
+            const animObserver = new IntersectionObserver((entries) => {
+                if (entries[0].isIntersecting) {
+                    if (!animFrame.src) {
+                        animFrame.src = animFrame.dataset.src;
+                    }
+                    animObserver.disconnect();
+                }
+            }, { threshold: 0.15 });
+            animObserver.observe(animFrame);
+        }
 
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
