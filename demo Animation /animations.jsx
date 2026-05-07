@@ -370,24 +370,28 @@ function Stage({
     };
   }, [width, height]);
 
-  // Animation loop
+  // Animation loop — capped at 30fps to keep CPU/GPU load manageable
   React.useEffect(() => {
     if (!playing) {
       lastTsRef.current = null;
       return;
     }
+    const FRAME_MS = 1000 / 30;
     const step = (ts) => {
       if (lastTsRef.current == null) lastTsRef.current = ts;
-      const dt = (ts - lastTsRef.current) / 1000;
-      lastTsRef.current = ts;
-      setTime((t) => {
-        let next = t + dt;
-        if (next >= duration) {
-          if (loop) next = next % duration;
-          else { next = duration; setPlaying(false); }
-        }
-        return next;
-      });
+      const elapsed = ts - lastTsRef.current;
+      if (elapsed >= FRAME_MS) {
+        const dt = elapsed / 1000;
+        lastTsRef.current = ts;
+        setTime((t) => {
+          let next = t + dt;
+          if (next >= duration) {
+            if (loop) next = next % duration;
+            else { next = duration; setPlaying(false); }
+          }
+          return next;
+        });
+      }
       rafRef.current = requestAnimationFrame(step);
     };
     rafRef.current = requestAnimationFrame(step);

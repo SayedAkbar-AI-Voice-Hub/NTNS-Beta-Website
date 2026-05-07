@@ -39,35 +39,28 @@ const ease = {
 // Window helper: progress 0..1 across [a,b], else clamped, with optional easing
 const win = (t, a, b, e = Easing.linear) => e(clamp01((t - a) / (b - a)));
 
-// ── Background: aura glows that drift ─────────────────────────────────────
+// ── Background: static aura glows (no per-frame JS drift for performance) ──
 function Aura() {
-  const t = useTime();
-  const drift1 = Math.sin(t * 0.6) * 30;
-  const drift2 = Math.cos(t * 0.5) * 40;
   return (
     <div style={{ position: 'absolute', inset: 0, overflow: 'hidden' }}>
-      {/* base gradient */}
       <div style={{
         position: 'absolute', inset: 0,
         background: `radial-gradient(ellipse at 30% 20%, #1a0e3a 0%, ${C.bg} 55%, #06030f 100%)`,
       }} />
-      {/* aura 1 — primary indigo */}
+      {/* aura 1 — primary indigo (static, no blur — use gradient falloff instead) */}
       <div style={{
         position: 'absolute',
-        left: 100 + drift1, top: -150,
+        left: 80, top: -180,
         width: 700, height: 700,
-        background: 'radial-gradient(circle, rgba(96,99,238,0.55) 0%, rgba(96,99,238,0) 60%)',
-        filter: 'blur(60px)',
+        background: 'radial-gradient(circle, rgba(96,99,238,0.40) 0%, rgba(96,99,238,0.10) 40%, rgba(96,99,238,0) 70%)',
       }} />
       {/* aura 2 — secondary pink */}
       <div style={{
         position: 'absolute',
-        right: -100, bottom: -200 + drift2,
+        right: -120, bottom: -220,
         width: 800, height: 800,
-        background: 'radial-gradient(circle, rgba(253,86,167,0.35) 0%, rgba(253,86,167,0) 60%)',
-        filter: 'blur(80px)',
+        background: 'radial-gradient(circle, rgba(253,86,167,0.25) 0%, rgba(253,86,167,0.08) 40%, rgba(253,86,167,0) 70%)',
       }} />
-      {/* subtle noise via repeated gradients */}
       <div style={{
         position: 'absolute', inset: 0,
         background: 'radial-gradient(circle at 50% 50%, transparent 60%, rgba(0,0,0,0.4) 100%)',
@@ -115,11 +108,11 @@ function S1_IncomingCall() {
       position: 'absolute', left: '50%', top: '50%',
       transform: `translate(-50%, -50%) scale(${lerp(0.85, 1, cardT) * lerp(1, 1.05, exitT)})`,
       opacity: cardT * (1 - exitT),
+      willChange: 'transform, opacity',
     }}>
       <div style={{
         width: 560, padding: '40px 48px',
         background: 'rgba(255,255,255,0.06)',
-        backdropFilter: 'blur(20px)',
         border: '1px solid rgba(255,255,255,0.12)',
         borderRadius: 32,
         boxShadow: '0 32px 80px rgba(70,72,212,0.35)',
@@ -209,11 +202,11 @@ function S2_Conversation() {
       transform: `translate(-50%, -50%) scale(${lerp(0.95, 1, entryT)})`,
       opacity: entryT * (1 - exitT),
       width: 880,
+      willChange: 'transform, opacity',
     }}>
       {/* Window chrome */}
       <div style={{
         background: 'rgba(40,48,68,0.85)',
-        backdropFilter: 'blur(20px)',
         border: '1px solid rgba(255,255,255,0.08)',
         borderRadius: 24,
         overflow: 'hidden',
@@ -366,7 +359,6 @@ function S3_Qualifies() {
       <div style={{
         padding: 32,
         background: 'rgba(40,48,68,0.7)',
-        backdropFilter: 'blur(20px)',
         border: '1px solid rgba(255,255,255,0.08)',
         borderRadius: 24,
       }}>
@@ -448,7 +440,6 @@ function S3_Qualifies() {
       <div style={{
         padding: 32,
         background: 'rgba(40,48,68,0.7)',
-        backdropFilter: 'blur(20px)',
         border: '1px solid rgba(255,255,255,0.08)',
         borderRadius: 24,
       }}>
@@ -538,8 +529,7 @@ function S4_Pipeline() {
               transform: `translateY(${(1 - stepT) * 24}px)`,
               padding: '18px 24px',
               background: 'rgba(40,48,68,0.85)',
-              backdropFilter: 'blur(20px)',
-              border: `1px solid ${checkT > 0 ? `rgba(0,180,207,${checkT * 0.4})` : 'rgba(255,255,255,0.08)'}`,
+                    border: `1px solid ${checkT > 0 ? `rgba(0,180,207,${checkT * 0.4})` : 'rgba(255,255,255,0.08)'}`,
               borderRadius: 16,
               display: 'flex', alignItems: 'center', gap: 18,
               boxShadow: checkT > 0 ? `0 4px 24px rgba(0,180,207,${checkT * 0.2})` : 'none',
@@ -681,7 +671,6 @@ function ProgressBar() {
       background: 'rgba(0,0,0,0.35)',
       border: '1px solid rgba(255,255,255,0.08)',
       borderRadius: 999,
-      backdropFilter: 'blur(8px)',
     }}>
       {stages.slice(0, 4).map((s, i) => {
         const next = stages[i + 1];
