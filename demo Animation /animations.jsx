@@ -325,7 +325,6 @@ function Stage({
   height = 720,
   duration = 10,
   background = '#f6f4ef',
-  fps = 60,
   loop = true,
   autoplay = true,
   persistKey = 'animstage',
@@ -338,7 +337,6 @@ function Stage({
     } catch { return 0; }
   });
   const [playing, setPlaying] = React.useState(autoplay);
-  const [hoverTime, setHoverTime] = React.useState(null);
   const [scale, setScale] = React.useState(1);
 
   const stageRef = React.useRef(null);
@@ -356,10 +354,9 @@ function Stage({
     if (!stageRef.current) return;
     const el = stageRef.current;
     const measure = () => {
-      const barH = 44; // playback bar height
       const s = Math.min(
         el.clientWidth / width,
-        (el.clientHeight - barH) / height
+        el.clientHeight / height
       );
       setScale(Math.max(0.05, s));
     };
@@ -419,11 +416,9 @@ function Stage({
     return () => window.removeEventListener('keydown', onKey);
   }, [duration]);
 
-  const displayTime = hoverTime != null ? hoverTime : time;
-
   const ctxValue = React.useMemo(
-    () => ({ time: displayTime, duration, playing, setTime, setPlaying }),
-    [displayTime, duration, playing]
+    () => ({ time, duration, playing, setTime, setPlaying }),
+    [time, duration, playing]
   );
 
   return (
@@ -431,50 +426,28 @@ function Stage({
       ref={stageRef}
       style={{
         position: 'absolute', inset: 0,
-        display: 'flex', flexDirection: 'column',
-        alignItems: 'center',
-        background: '#0a0a0a',
-        fontFamily: 'Inter, system-ui, sans-serif',
+        display: 'flex',
+        alignItems: 'center', justifyContent: 'center',
+        background: 'transparent',
+        overflow: 'hidden',
       }}
     >
-      {/* Canvas area — vertically centered in remaining space */}
-      <div style={{
-        flex: 1,
-        width: '100%',
-        display: 'flex', alignItems: 'center', justifyContent: 'center',
-        overflow: 'hidden',
-        minHeight: 0,
-      }}>
-        <div
-          ref={canvasRef}
-          style={{
-            width, height,
-            background,
-            position: 'relative',
-            transform: `scale(${scale})`,
-            transformOrigin: 'center',
-            flexShrink: 0,
-            boxShadow: '0 20px 60px rgba(0,0,0,0.4)',
-            overflow: 'hidden',
-          }}
-        >
-          <TimelineContext.Provider value={ctxValue}>
-            {children}
-          </TimelineContext.Provider>
-        </div>
+      <div
+        ref={canvasRef}
+        style={{
+          width, height,
+          background,
+          position: 'relative',
+          transform: `scale(${scale})`,
+          transformOrigin: 'center',
+          flexShrink: 0,
+          overflow: 'hidden',
+        }}
+      >
+        <TimelineContext.Provider value={ctxValue}>
+          {children}
+        </TimelineContext.Provider>
       </div>
-
-      {/* Playback bar — stacked below canvas, never overlapping */}
-      <PlaybackBar
-        time={displayTime}
-        actualTime={time}
-        duration={duration}
-        playing={playing}
-        onPlayPause={() => setPlaying(p => !p)}
-        onReset={() => { setTime(0); }}
-        onSeek={(t) => setTime(t)}
-        onHover={(t) => setHoverTime(t)}
-      />
     </div>
   );
 }
