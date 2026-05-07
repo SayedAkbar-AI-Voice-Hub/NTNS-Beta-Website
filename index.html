@@ -543,7 +543,7 @@
                         </div>
 
                         <!-- Slider: Close rate -->
-                        <div>
+                        <div class="mb-8">
                             <div class="flex justify-between items-center mb-3">
                                 <label class="text-sm text-white/60 font-['Archivo']" data-i18n="calc.inputs.closeLabel">Lead close / conversion rate</label>
                                 <span id="close-display" class="text-sm font-bold text-tertiary-container font-['Archivo'] bg-tertiary-container/10 px-3 py-1 rounded-full min-w-[56px] text-center">25%</span>
@@ -639,6 +639,92 @@
                                 <span class="material-symbols-outlined text-lg">calendar_month</span>
                                 <span data-i18n="calc.roi.cta">Get Started</span>
                             </a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- System Cost Estimator -->
+        <section id="cost-estimator" class="pb-section-gap px-gutter relative">
+            <div class="max-w-container-max mx-auto">
+                <div class="max-w-5xl mx-auto">
+                    <div class="glass-card rounded-[40px] p-8 md:p-12 animate-in">
+
+                        <!-- Header -->
+                        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-10">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-2xl bg-tertiary-container/15 flex items-center justify-center shrink-0">
+                                    <span class="material-symbols-outlined text-tertiary-container text-2xl">payments</span>
+                                </div>
+                                <div>
+                                    <h3 class="font-['Archivo'] font-bold text-white text-xl" data-i18n="cost.title">NTNS System Cost Estimator</h3>
+                                    <p class="text-[13px] text-white/45 font-['Archivo'] mt-0.5" data-i18n="cost.subtitle">Drag the slider to estimate your monthly investment</p>
+                                </div>
+                            </div>
+                            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-tertiary-container/10 border border-tertiary-container/20 shrink-0">
+                                <span class="material-symbols-outlined text-tertiary-container text-sm">info</span>
+                                <span class="text-[12px] text-tertiary-container font-['Archivo'] font-semibold" data-i18n="cost.badge">Final price varies by company</span>
+                            </div>
+                        </div>
+
+                        <div class="grid lg:grid-cols-2 gap-10 items-center">
+
+                            <!-- Slider side -->
+                            <div>
+                                <div class="mb-2 flex justify-between items-center">
+                                    <label class="text-sm text-white/60 font-['Archivo'] font-medium" data-i18n="cost.sliderLabel">Monthly call minutes</label>
+                                    <span id="minutes-display" class="text-sm font-bold text-tertiary-container font-['Archivo'] bg-tertiary-container/10 px-3 py-1 rounded-full min-w-[90px] text-center">1,000 min</span>
+                                </div>
+                                <input type="range" id="slider-minutes" class="calc-slider calc-slider-teal w-full" min="100" max="5000" value="1000" step="50" />
+                                <div class="flex justify-between text-[11px] text-white/25 mt-2 font-['Archivo']">
+                                    <span data-i18n="cost.sliderMin">100 min / mo</span><span data-i18n="cost.sliderMax">5,000 min / mo</span>
+                                </div>
+
+                                <!-- Rate explanation -->
+                                <div class="mt-8 space-y-3">
+                                    <div class="flex items-center justify-between py-3 border-b border-white/6">
+                                        <span class="text-sm text-white/50 font-['Archivo']" data-i18n="cost.rateLabel">Rate per minute</span>
+                                        <span class="text-sm font-bold text-white font-['Archivo']">$0.50</span>
+                                    </div>
+                                    <div class="flex items-center justify-between py-3 border-b border-white/6">
+                                        <span class="text-sm text-white/50 font-['Archivo']" data-i18n="cost.minutesLabel">Minutes selected</span>
+                                        <span id="cost-minutes-label" class="text-sm font-bold text-white font-['Archivo']">1,000 min</span>
+                                    </div>
+                                    <div class="flex items-center justify-between py-3">
+                                        <span class="text-sm text-white/50 font-['Archivo']" data-i18n="cost.estLabel">Est. monthly cost</span>
+                                        <span id="out-system-cost-inline" class="text-sm font-bold text-tertiary-container font-['Archivo']">$500</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Results side -->
+                            <div class="space-y-4">
+                                <!-- Big number -->
+                                <div class="bg-tertiary-container/8 border border-tertiary-container/20 rounded-[28px] p-8 text-center relative overflow-hidden">
+                                    <div class="absolute inset-0 bg-gradient-to-br from-tertiary-container/5 to-transparent pointer-events-none rounded-[28px]"></div>
+                                    <p class="text-[11px] text-tertiary-container/60 font-['Archivo'] uppercase tracking-wider mb-3" data-i18n="cost.resultLabel">Estimated Monthly Cost</p>
+                                    <p id="out-system-cost" class="text-5xl font-bold text-tertiary-container font-['Archivo'] calc-number-animate">$500</p>
+                                    <p class="text-sm text-white/30 font-['Archivo'] mt-2">
+                                        <span id="out-system-cost-annual" class="calc-number-animate font-semibold text-white/50">$6,000</span><span data-i18n="cost.perYear"> / year</span>
+                                    </p>
+                                </div>
+
+                                <!-- Disclaimer -->
+                                <div class="bg-white/4 border border-white/8 rounded-2xl p-4 flex gap-3">
+                                    <span class="material-symbols-outlined text-white/30 text-lg shrink-0 mt-0.5">warning_amber</span>
+                                    <p class="text-[12px] text-white/40 font-['Archivo'] leading-relaxed">
+                                        <span data-i18n-html="cost.disclaimer">This is a <strong class="text-white/60">rough estimate</strong> based on $0.50/min. Your actual price depends on call volume, system complexity, integrations, and your industry — every build is custom-quoted. Book a call to get your exact number.</span>
+                                    </p>
+                                </div>
+
+                                <a href="book.html" class="w-full bg-tertiary-container text-on-tertiary-container px-6 py-4 rounded-full font-['Archivo'] font-bold text-sm flex items-center justify-center gap-2 hover:scale-[1.02] transition-transform shadow-lg shadow-tertiary-container/20 cursor-pointer">
+                                    <span class="material-symbols-outlined text-lg">calendar_month</span>
+                                    <span data-i18n="cost.cta">Get Your Custom Quote</span>
+                                </a>
+                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -816,7 +902,7 @@
                     <h4 class="font-['Archivo'] font-bold text-white text-sm mb-4" data-i18n="footer.contactTitle">Contact</h4>
                     <div class="space-y-2">
                         <a href="mailto:Admin@ntns.ai" class="block text-sm text-white/50 hover:text-white transition-colors">Admin@ntns.ai</a>
-                        <p class="text-sm text-white/50">+1 (206) 786-2235 <span class="text-white/30" data-i18n="footer.supportLabel">(Support)</span></p>
+                        <p class="text-sm text-white/50">+1 (510) 850-4966 <span class="text-white/30" data-i18n="footer.supportLabel">(Support)</span></p>
                     </div>
                 </div>
             </div>
@@ -830,7 +916,7 @@
         </div>
     </footer>
 
-    <script src="i18n.js"></script>
+    <script src="i18n.js?v=2"></script>
 
     <!-- WebGL Shader Script -->
     <script>
@@ -980,17 +1066,19 @@
             const jobValue = parseInt(document.getElementById('slider-value').value);
             const missRate = parseInt(document.getElementById('slider-miss').value) / 100;
             const closeRate= parseInt(document.getElementById('slider-close').value) / 100;
+            const minutes  = parseInt(document.getElementById('slider-minutes').value);
 
             // Update slider fill percentages
-            ['slider-leads','slider-value','slider-miss','slider-close'].forEach(id => {
+            ['slider-leads','slider-value','slider-miss','slider-close','slider-minutes'].forEach(id => {
                 setSliderPct(document.getElementById(id));
             });
 
             // Update display labels
-            document.getElementById('leads-display').textContent = leads;
-            document.getElementById('value-display').textContent = '$' + jobValue.toLocaleString();
-            document.getElementById('miss-display').textContent  = Math.round(missRate  * 100) + '%';
-            document.getElementById('close-display').textContent = Math.round(closeRate * 100) + '%';
+            document.getElementById('leads-display').textContent   = leads;
+            document.getElementById('value-display').textContent   = '$' + jobValue.toLocaleString();
+            document.getElementById('miss-display').textContent    = Math.round(missRate  * 100) + '%';
+            document.getElementById('close-display').textContent   = Math.round(closeRate * 100) + '%';
+            document.getElementById('minutes-display').textContent = minutes.toLocaleString() + ' min';
 
             // --- Without NTNS ---
             const missedLeads     = Math.round(leads * missRate);
@@ -1009,6 +1097,10 @@
             const ntnsCostYear = 5964;
             const roiMultiple  = annualGain > 0 ? Math.round(annualGain / ntnsCostYear) : 0;
 
+            // --- System cost estimate ($0.50/min) ---
+            const systemCostMonthly = minutes * 0.50;
+            const systemCostAnnual  = systemCostMonthly * 12;
+
             // --- Update DOM ---
             document.getElementById('out-missed').textContent         = fmtNum(missedLeads);
             document.getElementById('out-lost-customers').textContent  = fmtNum(lostCustomers);
@@ -1020,10 +1112,15 @@
             document.getElementById('out-monthly-gain').textContent   = fmtDollars(monthlyGain);
             document.getElementById('out-annual-gain').textContent    = fmtDollars(annualGain);
 
-            document.getElementById('out-roi').textContent = roiMultiple + 'x';
+            document.getElementById('out-roi').textContent            = roiMultiple + 'x';
+
+            document.getElementById('cost-minutes-label').textContent    = fmtNum(minutes) + ' min';
+            document.getElementById('out-system-cost-inline').textContent = fmtDollars(systemCostMonthly);
+            document.getElementById('out-system-cost').textContent        = fmtDollars(systemCostMonthly);
+            document.getElementById('out-system-cost-annual').textContent = fmtDollars(systemCostAnnual);
         }
 
-        ['slider-leads','slider-value','slider-miss','slider-close'].forEach(id => {
+        ['slider-leads','slider-value','slider-miss','slider-close','slider-minutes'].forEach(id => {
             const el = document.getElementById(id);
             el.addEventListener('input', updateCalc);
         });

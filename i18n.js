@@ -159,6 +159,21 @@ const translations = {
     "calc.roi.sub": "return on investment",
     "calc.roi.cta": "Get Started",
 
+    // System Cost Estimator
+    "cost.title": "NTNS System Cost Estimator",
+    "cost.subtitle": "Drag the slider to estimate your monthly investment",
+    "cost.badge": "Final price varies by company",
+    "cost.sliderLabel": "Monthly call minutes",
+    "cost.sliderMin": "100 min / mo",
+    "cost.sliderMax": "5,000 min / mo",
+    "cost.rateLabel": "Rate per minute",
+    "cost.minutesLabel": "Minutes selected",
+    "cost.estLabel": "Est. monthly cost",
+    "cost.resultLabel": "Estimated Monthly Cost",
+    "cost.perYear": " / year",
+    "cost.disclaimer": 'This is a <strong class="text-white/60">rough estimate</strong> based on $0.50/min. Your actual price depends on call volume, system complexity, integrations, and your industry — every build is custom-quoted. Book a call to get your exact number.',
+    "cost.cta": "Get Your Custom Quote",
+
     // Bottom Line
     "bottom.title": "Most Businesses Don’t Have a Lead Problem.",
     "bottom.subtitle": "They Have a System Problem.",
@@ -310,7 +325,7 @@ const translations = {
     "privacy.h13": "13. Contact Us",
     "privacy.p13": "If you have any questions or concerns about this Privacy Policy or our data practices, please contact us:",
     "privacy.p13a": 'Email: <a href="mailto:Admin@ntns.ai" class="text-primary-container hover:underline">Admin@ntns.ai</a>',
-    "privacy.p13b": "Phone (Support): +1 (206) 786-2235",
+    "privacy.p13b": "Phone (Support): +1 (510) 850-4966",
 
     // ===== TERMS PAGE =====
     "terms.title": "Terms & Conditions",
@@ -386,7 +401,7 @@ const translations = {
     "terms.h18": "18. Contact Us",
     "terms.p18": "If you have any questions about these Terms, please contact us:",
     "terms.p18a": 'Email: <a href="mailto:Admin@ntns.ai" class="text-primary-container hover:underline">Admin@ntns.ai</a>',
-    "terms.p18b": "Phone (Support): +1 (206) 786-2235"
+    "terms.p18b": "Phone (Support): +1 (510) 850-4966"
   },
 
   es: {
@@ -550,6 +565,21 @@ const translations = {
     "calc.roi.sub": "retorno sobre la inversión",
     "calc.roi.cta": "Comenzar",
 
+    // System Cost Estimator
+    "cost.title": "Estimador de Costo del Sistema NTNS",
+    "cost.subtitle": "Mueve el control para estimar tu inversión mensual",
+    "cost.badge": "El precio final varía según la empresa",
+    "cost.sliderLabel": "Minutos de llamada al mes",
+    "cost.sliderMin": "100 min / mes",
+    "cost.sliderMax": "5,000 min / mes",
+    "cost.rateLabel": "Tarifa por minuto",
+    "cost.minutesLabel": "Minutos seleccionados",
+    "cost.estLabel": "Costo mensual est.",
+    "cost.resultLabel": "Costo Mensual Estimado",
+    "cost.perYear": " / año",
+    "cost.disclaimer": 'Esta es una <strong class="text-white/60">estimación aproximada</strong> basada en $0.50/min. Tu precio real depende del volumen de llamadas, la complejidad del sistema, las integraciones y tu industria — cada sistema se cotiza de forma personalizada. Reserva una llamada para obtener tu número exacto.',
+    "cost.cta": "Obtén Tu Cotización Personalizada",
+
     // Bottom Line
     "bottom.title": "La Mayoría de los Negocios No Tienen un Problema de Prospectos.",
     "bottom.subtitle": "Tienen un Problema de Sistema.",
@@ -701,7 +731,7 @@ const translations = {
     "privacy.h13": "13. Contáctenos",
     "privacy.p13": "Si tiene alguna pregunta o inquietud sobre esta Política de Privacidad o nuestras prácticas de datos, contáctenos:",
     "privacy.p13a": 'Correo: <a href="mailto:Admin@ntns.ai" class="text-primary-container hover:underline">Admin@ntns.ai</a>',
-    "privacy.p13b": "Teléfono (Soporte): +1 (206) 786-2235",
+    "privacy.p13b": "Teléfono (Soporte): +1 (510) 850-4966",
 
     // ===== TERMS PAGE =====
     "terms.title": "Términos y Condiciones",
@@ -777,7 +807,7 @@ const translations = {
     "terms.h18": "18. Contáctenos",
     "terms.p18": "Si tiene alguna pregunta sobre estos Términos, contáctenos:",
     "terms.p18a": 'Correo: <a href="mailto:Admin@ntns.ai" class="text-primary-container hover:underline">Admin@ntns.ai</a>',
-    "terms.p18b": "Teléfono (Soporte): +1 (206) 786-2235"
+    "terms.p18b": "Teléfono (Soporte): +1 (510) 850-4966"
   }
 };
 
