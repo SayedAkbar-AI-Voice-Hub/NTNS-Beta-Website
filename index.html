@@ -177,6 +177,52 @@
                 font-size: 32px !important;
             }
         }
+
+        /* ROI Calculator slider styles */
+        .calc-slider {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 100%;
+            height: 6px;
+            border-radius: 9999px;
+            outline: none;
+            cursor: pointer;
+        }
+        .calc-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 0 0 4px rgba(96,99,238,0.15), 0 2px 8px rgba(0,0,0,0.4);
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
+        }
+        .calc-slider::-webkit-slider-thumb:hover {
+            transform: scale(1.2);
+        }
+        .calc-slider::-moz-range-thumb {
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+        }
+        .calc-slider-primary { background: linear-gradient(to right, #6063ee var(--pct,40%), rgba(255,255,255,0.12) var(--pct,40%)); }
+        .calc-slider-primary::-webkit-slider-thumb { background: #6063ee; }
+        .calc-slider-primary::-moz-range-thumb { background: #6063ee; }
+
+        .calc-slider-danger { background: linear-gradient(to right, #fd56a7 var(--pct,40%), rgba(255,255,255,0.12) var(--pct,40%)); }
+        .calc-slider-danger::-webkit-slider-thumb { background: #fd56a7; box-shadow: 0 0 0 4px rgba(253,86,167,0.15), 0 2px 8px rgba(0,0,0,0.4); }
+        .calc-slider-danger::-moz-range-thumb { background: #fd56a7; }
+
+        .calc-slider-teal { background: linear-gradient(to right, #008096 var(--pct,40%), rgba(255,255,255,0.12) var(--pct,40%)); }
+        .calc-slider-teal::-webkit-slider-thumb { background: #008096; box-shadow: 0 0 0 4px rgba(0,128,150,0.15), 0 2px 8px rgba(0,0,0,0.4); }
+        .calc-slider-teal::-moz-range-thumb { background: #008096; }
+
+        .calc-number-animate {
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
     </style>
 </head>
 
@@ -186,21 +232,22 @@
     <canvas id="shader-bg" class="fixed top-0 left-0 w-full h-full -z-10"></canvas>
 
     <!-- Navigation -->
-    <nav class="sticky top-0 z-50 flex items-center justify-between px-6 md:px-8 py-3 w-full glass-nav rounded-full mt-4 md:mt-6 mx-auto max-w-5xl shadow-[0_8px_32px_0_rgba(0,0,0,0.3)]">
-        <a href="#" class="flex items-center gap-2">
+    <nav class="sticky top-0 z-50 flex items-center gap-4 px-5 md:px-7 py-3 w-full glass-nav rounded-full mt-4 md:mt-6 mx-auto max-w-6xl shadow-[0_8px_32px_0_rgba(0,0,0,0.3)]">
+        <a href="#" class="flex items-center gap-2 shrink-0">
             <div class="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center overflow-hidden">
                 <img src="NTNS Logo.png" alt="NTNS" class="h-6 w-auto" />
             </div>
             <span class="text-xl font-bold tracking-tighter text-white font-['Archivo']">NTNS</span>
         </a>
-        <div class="hidden md:flex gap-8 items-center">
-            <a class="font-['Archivo'] text-white/60 hover:text-primary-container transition-all duration-300 tracking-tight font-medium text-sm" href="#solution" data-i18n="nav.solution">Solution</a>
-            <a class="font-['Archivo'] text-white/60 hover:text-primary-container transition-all duration-300 tracking-tight font-medium text-sm" href="#industries" data-i18n="nav.industries">Industries</a>
-            <a class="font-['Archivo'] text-white/60 hover:text-primary-container transition-all duration-300 tracking-tight font-medium text-sm" href="about.html" data-i18n="nav.about">About</a>
-            <a class="font-['Archivo'] text-white/60 hover:text-primary-container transition-all duration-300 tracking-tight font-medium text-sm" href="contact.html" data-i18n="nav.contact">Contact</a>
-            <a class="font-['Archivo'] text-white/60 hover:text-primary-container transition-all duration-300 tracking-tight font-medium text-sm" href="#demo" data-i18n="nav.demo">Live Demo</a>
+        <div class="hidden md:flex gap-4 lg:gap-6 items-center flex-1 justify-center">
+            <a class="font-['Archivo'] text-white/60 hover:text-primary-container transition-all duration-300 tracking-tight font-medium text-sm whitespace-nowrap" href="#solution" data-i18n="nav.solution">Solution</a>
+            <a class="font-['Archivo'] text-white/60 hover:text-primary-container transition-all duration-300 tracking-tight font-medium text-sm whitespace-nowrap" href="#industries" data-i18n="nav.industries">Industries</a>
+            <a class="font-['Archivo'] text-white/60 hover:text-primary-container transition-all duration-300 tracking-tight font-medium text-sm whitespace-nowrap" href="about.html" data-i18n="nav.about">About</a>
+            <a class="font-['Archivo'] text-white/60 hover:text-primary-container transition-all duration-300 tracking-tight font-medium text-sm whitespace-nowrap" href="contact.html" data-i18n="nav.contact">Contact</a>
+            <a class="font-['Archivo'] text-white/60 hover:text-primary-container transition-all duration-300 tracking-tight font-medium text-sm whitespace-nowrap" href="#calculator" data-i18n="nav.calculator">Calculator</a>
+            <a class="font-['Archivo'] text-white/60 hover:text-primary-container transition-all duration-300 tracking-tight font-medium text-sm whitespace-nowrap" href="#demo" data-i18n="nav.demo">Live Demo</a>
         </div>
-        <div class="flex gap-3 items-center">
+        <div class="flex gap-2 items-center shrink-0">
             <button id="lang-toggle" class="border border-white/20 bg-white/5 text-white px-3 py-2.5 rounded-full font-['Archivo'] font-bold text-sm transition-all duration-500 ease-out hover:bg-white/15 hover:border-white/40 hover:scale-105 cursor-pointer flex items-center gap-1.5" aria-label="Toggle language">
                 <span class="material-symbols-outlined text-sm">translate</span>
                 <span id="lang-label">EN</span>
@@ -209,9 +256,9 @@
                 <span class="material-symbols-outlined text-lg">login</span>
                 <span class="hidden sm:inline" data-i18n="nav.login">Login</span>
             </a>
-            <a href="tel:+15106347901" class="bg-primary-container text-on-primary-container px-5 py-2.5 rounded-full font-['Archivo'] font-bold text-sm transition-all duration-500 ease-out shadow-lg shadow-primary-container/20 hover:shadow-xl hover:shadow-primary-container/30 hover:scale-105 cursor-pointer flex items-center gap-2">
-                <span class="material-symbols-outlined text-lg">call</span>
-                <span class="hidden sm:inline" data-i18n="nav.callDemo">Call Demo</span>
+            <a href="book.html" class="bg-primary-container text-on-primary-container px-5 py-2.5 rounded-full font-['Archivo'] font-bold text-sm transition-all duration-500 ease-out shadow-lg shadow-primary-container/20 hover:shadow-xl hover:shadow-primary-container/30 hover:scale-105 cursor-pointer flex items-center gap-2">
+                <span class="material-symbols-outlined text-lg">calendar_month</span>
+                <span class="hidden sm:inline">Book a Call</span>
             </a>
             <button id="mobile-menu-btn" class="md:hidden p-2 text-white/60 hover:text-primary-container cursor-pointer" aria-label="Open menu">
                 <span class="material-symbols-outlined">menu</span>
@@ -226,14 +273,15 @@
             <a class="block font-['Archivo'] text-white/60 hover:text-primary-container py-2 font-medium" href="#industries" data-i18n="nav.industries">Industries</a>
             <a class="block font-['Archivo'] text-white/60 hover:text-primary-container py-2 font-medium" href="about.html" data-i18n="nav.about">About</a>
             <a class="block font-['Archivo'] text-white/60 hover:text-primary-container py-2 font-medium" href="contact.html" data-i18n="nav.contact">Contact</a>
+            <a class="block font-['Archivo'] text-white/60 hover:text-primary-container py-2 font-medium" href="#calculator" data-i18n="nav.calculator">Calculator</a>
             <a class="block font-['Archivo'] text-white/60 hover:text-primary-container py-2 font-medium" href="#demo" data-i18n="nav.demo">Live Demo</a>
             <a href="https://app.ntns.ai" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 border border-white/20 bg-white/5 text-white px-6 py-3 rounded-full font-['Archivo'] font-bold text-sm cursor-pointer mt-2 hover:bg-white/15 hover:border-white/40 transition-all duration-300">
                 <span class="material-symbols-outlined text-lg">login</span>
                 <span data-i18n="nav.loginDashboard">Login to Dashboard</span>
             </a>
-            <a href="tel:+15106347901" class="flex items-center justify-center gap-2 bg-primary-container text-on-primary-container px-6 py-3 rounded-full font-['Archivo'] font-bold text-sm cursor-pointer mt-2">
-                <span class="material-symbols-outlined text-lg">call</span>
-                <span data-i18n="nav.callDemoNow">Call Demo Now</span>
+            <a href="book.html" class="flex items-center justify-center gap-2 bg-primary-container text-on-primary-container px-6 py-3 rounded-full font-['Archivo'] font-bold text-sm cursor-pointer mt-2">
+                <span class="material-symbols-outlined text-lg">calendar_month</span>
+                <span>Book a Discovery Call</span>
             </a>
         </div>
     </div>
@@ -394,113 +442,15 @@
                 </p>
             </div>
 
-            <div class="max-w-5xl mx-auto glass-card rounded-[48px] p-8 md:p-14 shadow-[0_8px_60px_rgba(0,0,0,0.4)] relative">
-                <!-- AI Hub -->
-                <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                    <div class="w-28 h-28 rounded-full bg-[#1a1a3e] flex items-center justify-center p-2 shadow-2xl border border-white/10">
-                        <div class="w-full h-full rounded-full bg-gradient-to-br from-primary via-secondary to-primary-container p-1 flex items-center justify-center animate-spin-slow">
-                            <div class="w-full h-full rounded-full bg-[#1a1a3e] flex items-center justify-center">
-                                <span class="material-symbols-outlined text-primary-container text-3xl">hub</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Top Features Row -->
-                <div class="grid md:grid-cols-3 gap-6 mt-8 animate-in">
-                    <div class="glass-feature text-center space-y-5 p-6 rounded-3xl cursor-default">
-                        <div class="w-14 h-14 mx-auto rounded-2xl glass-icon flex items-center justify-center">
-                            <span class="material-symbols-outlined text-primary-container text-2xl">record_voice_over</span>
-                        </div>
-                        <h3 class="font-headline-lg text-body-lg font-bold text-white" data-i18n="solution.feat1.title">Answers Every Call 24/7</h3>
-                        <p class="text-body-md text-white/50" data-i18n="solution.feat1.desc">Your AI receptionist responds instantly, handles inquiries, and speaks naturally with customers.</p>
-                    </div>
-                    <div class="glass-feature text-center space-y-5 p-6 rounded-3xl cursor-default relative">
-                        <div class="hidden md:block absolute top-1/2 -left-3 w-6 h-px bg-gradient-to-r from-transparent to-white/10"></div>
-                        <div class="hidden md:block absolute top-1/2 -right-3 w-6 h-px bg-gradient-to-l from-transparent to-white/10"></div>
-                        <div class="w-14 h-14 mx-auto rounded-2xl glass-icon flex items-center justify-center relative z-10">
-                            <span class="material-symbols-outlined text-secondary-container text-2xl">verified_user</span>
-                        </div>
-                        <h3 class="font-headline-lg text-body-lg font-bold text-white" data-i18n="solution.feat2.title">Qualifies &amp; Captures</h3>
-                        <p class="text-body-md text-white/50" data-i18n="solution.feat2.desc">Asks smart questions, filters serious prospects, and stores everything in your CRM.</p>
-                    </div>
-                    <div class="glass-feature text-center space-y-5 p-6 rounded-3xl cursor-default">
-                        <div class="w-14 h-14 mx-auto rounded-2xl glass-icon flex items-center justify-center">
-                            <span class="material-symbols-outlined text-tertiary-container text-2xl">event_available</span>
-                        </div>
-                        <h3 class="font-headline-lg text-body-lg font-bold text-white" data-i18n="solution.feat3.title">Books Appointments</h3>
-                        <p class="text-body-md text-white/50" data-i18n="solution.feat3.desc">Syncs with your calendar and schedules jobs without any manual effort.</p>
-                    </div>
-                </div>
-
-                <!-- Dashboard Snippet -->
-                <div class="mt-16 rounded-3xl overflow-hidden bg-inverse-surface shadow-2xl border border-white/10 animate-in" style="transition-delay:150ms">
-                    <div class="bg-white/5 px-6 py-3 flex items-center gap-2">
-                        <div class="flex gap-1.5">
-                            <div class="w-2.5 h-2.5 rounded-full bg-error/40"></div>
-                            <div class="w-2.5 h-2.5 rounded-full bg-secondary/40"></div>
-                            <div class="w-2.5 h-2.5 rounded-full bg-primary/40"></div>
-                        </div>
-                        <span class="ml-4 text-[10px] text-white/40 font-mono tracking-widest">NTNS_AI_SYSTEM_V2.0</span>
-                    </div>
-                    <div class="p-6 md:p-8 grid md:grid-cols-2 gap-8">
-                        <div class="space-y-5">
-                            <div class="space-y-2">
-                                <p class="text-xs text-white/40 uppercase tracking-wider" data-i18n="solution.dash.liveConvo">Live Conversation</p>
-                                <div class="bg-white/5 border border-white/10 p-4 rounded-xl">
-                                    <p class="text-xs text-primary mb-1" data-i18n="solution.dash.aiLabel">AI Receptionist:</p>
-                                    <p class="text-sm text-white/80 italic" data-i18n="solution.dash.aiQuote">"I've found an opening for tomorrow at 2 PM. Would you like me to reserve that for your roof inspection?"</p>
-                                </div>
-                            </div>
-                            <div class="flex gap-3">
-                                <div class="flex-1 bg-white/5 border border-white/10 p-4 rounded-xl">
-                                    <p class="text-[10px] text-white/40 mb-1" data-i18n="solution.dash.confidence">Confidence</p>
-                                    <p class="text-lg text-white font-headline-lg" data-i18n="solution.dash.confidenceVal">99.2%</p>
-                                </div>
-                                <div class="flex-1 bg-white/5 border border-white/10 p-4 rounded-xl">
-                                    <p class="text-[10px] text-white/40 mb-1" data-i18n="solution.dash.bookingIntent">Booking Intent</p>
-                                    <p class="text-lg text-secondary font-headline-lg" data-i18n="solution.dash.bookingVal">Ultra-High</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="space-y-4">
-                            <p class="text-xs text-white/40 uppercase tracking-wider" data-i18n="solution.dash.pipeline">System Pipeline</p>
-                            <div class="space-y-3">
-                                <div class="flex items-center gap-3 bg-white/5 border border-white/10 p-3 rounded-xl">
-                                    <span class="material-symbols-outlined text-primary text-lg">call</span>
-                                    <div class="flex-1">
-                                        <p class="text-xs text-white/80" data-i18n="solution.dash.step1">Incoming Call Answered</p>
-                                        <p class="text-[10px] text-white/40" data-i18n="solution.dash.step1sub">0.3s response time</p>
-                                    </div>
-                                    <span class="material-symbols-outlined text-primary/60 text-sm">check_circle</span>
-                                </div>
-                                <div class="flex items-center gap-3 bg-white/5 border border-white/10 p-3 rounded-xl">
-                                    <span class="material-symbols-outlined text-secondary text-lg">sms</span>
-                                    <div class="flex-1">
-                                        <p class="text-xs text-white/80" data-i18n="solution.dash.step2">Follow-up SMS Sent</p>
-                                        <p class="text-[10px] text-white/40" data-i18n="solution.dash.step2sub">Automatic within 30s</p>
-                                    </div>
-                                    <span class="material-symbols-outlined text-secondary/60 text-sm">check_circle</span>
-                                </div>
-                                <div class="flex items-center gap-3 bg-white/5 border border-white/10 p-3 rounded-xl">
-                                    <span class="material-symbols-outlined text-tertiary text-lg">calendar_month</span>
-                                    <div class="flex-1">
-                                        <p class="text-xs text-white/80" data-i18n="solution.dash.step3">Appointment Booked</p>
-                                        <p class="text-[10px] text-white/40" data-i18n="solution.dash.step3sub">Synced to calendar</p>
-                                    </div>
-                                    <span class="material-symbols-outlined text-tertiary/60 text-sm">check_circle</span>
-                                </div>
-                                <div class="flex items-center gap-3 bg-white/5 border border-white/10 p-3 rounded-xl">
-                                    <span class="material-symbols-outlined text-primary text-lg">person_add</span>
-                                    <div class="flex-1">
-                                        <p class="text-xs text-white/80" data-i18n="solution.dash.step4">Lead Added to CRM</p>
-                                        <p class="text-[10px] text-white/40" data-i18n="solution.dash.step4sub">Full profile created</p>
-                                    </div>
-                                    <span class="material-symbols-outlined text-primary/60 text-sm">check_circle</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+            <!-- Voice Agent Animation -->
+            <div class="max-w-5xl mx-auto animate-in" style="transition-delay:100ms">
+                <div class="glass-card rounded-[48px] overflow-hidden shadow-[0_8px_60px_rgba(0,0,0,0.4)]" style="position:relative; padding-top:56.25%;">
+                    <iframe
+                        src="demo%20Animation%20/NTNS%20Voice%20Agent.html"
+                        style="position:absolute; top:0; left:0; width:100%; height:100%; border:none; display:block;"
+                        title="NTNS Voice Agent Animation"
+                        loading="lazy"
+                    ></iframe>
                 </div>
             </div>
 
@@ -525,6 +475,173 @@
                     <span class="material-symbols-outlined text-white/60 text-2xl mb-4 block">star</span>
                     <h4 class="font-bold text-sm mb-2 font-['Archivo'] text-white" data-i18n="solution.more4.title">Automated Reviews</h4>
                     <p class="text-xs text-white/50" data-i18n="solution.more4.desc">Turns happy customers into public testimonials automatically.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ROI Calculator Section -->
+        <section id="calculator" class="py-section-gap px-gutter relative">
+            <div class="max-w-container-max mx-auto">
+                <!-- Header -->
+                <div class="text-center mb-16 animate-in">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card mb-6">
+                        <span class="material-symbols-outlined text-secondary-container text-sm">calculate</span>
+                        <span class="text-label-bold font-label-bold text-secondary-container" data-i18n="calc.badge">REVENUE CALCULATOR</span>
+                    </div>
+                    <h2 class="font-headline-xl text-headline-xl text-white mb-4" data-i18n-html="calc.title">
+                        See Exactly What <span class="text-secondary-container">Missed Leads</span> Cost You
+                    </h2>
+                    <p class="font-body-lg text-body-lg text-white/60 max-w-2xl mx-auto" data-i18n="calc.subtitle">
+                        Enter your business numbers and see the real cost of missed leads — and what you get back with NTNS.
+                    </p>
+                </div>
+
+                <div class="max-w-5xl mx-auto grid lg:grid-cols-2 gap-8 items-start">
+
+                    <!-- Inputs Card -->
+                    <div class="glass-card rounded-[40px] p-8 md:p-10 animate-in">
+                        <div class="flex items-center gap-3 mb-8">
+                            <div class="w-10 h-10 rounded-xl bg-primary-container/15 flex items-center justify-center">
+                                <span class="material-symbols-outlined text-primary-container">tune</span>
+                            </div>
+                            <h3 class="font-['Archivo'] font-bold text-white text-lg" data-i18n="calc.inputs.title">Your Business Numbers</h3>
+                        </div>
+
+                        <!-- Slider: Monthly leads -->
+                        <div class="mb-8">
+                            <div class="flex justify-between items-center mb-3">
+                                <label class="text-sm text-white/60 font-['Archivo']" data-i18n="calc.inputs.leadsLabel">Monthly inbound calls / leads</label>
+                                <span id="leads-display" class="text-sm font-bold text-primary-container font-['Archivo'] bg-primary-container/10 px-3 py-1 rounded-full min-w-[56px] text-center">100</span>
+                            </div>
+                            <input type="range" id="slider-leads" class="calc-slider calc-slider-primary" min="10" max="500" value="100" step="5" />
+                            <div class="flex justify-between text-[11px] text-white/25 mt-1.5 font-['Archivo']">
+                                <span data-i18n="calc.inputs.leadsMin">10 calls</span><span data-i18n="calc.inputs.leadsMax">500 calls</span>
+                            </div>
+                        </div>
+
+                        <!-- Slider: Average job value -->
+                        <div class="mb-8">
+                            <div class="flex justify-between items-center mb-3">
+                                <label class="text-sm text-white/60 font-['Archivo']" data-i18n="calc.inputs.valueLabel">Average job / sale value</label>
+                                <span id="value-display" class="text-sm font-bold text-primary-container font-['Archivo'] bg-primary-container/10 px-3 py-1 rounded-full min-w-[80px] text-center">$500</span>
+                            </div>
+                            <input type="range" id="slider-value" class="calc-slider calc-slider-primary" min="100" max="10000" value="500" step="50" />
+                            <div class="flex justify-between text-[11px] text-white/25 mt-1.5 font-['Archivo']">
+                                <span>$100</span><span>$10,000</span>
+                            </div>
+                        </div>
+
+                        <!-- Slider: Miss rate -->
+                        <div class="mb-8">
+                            <div class="flex justify-between items-center mb-3">
+                                <label class="text-sm text-white/60 font-['Archivo']" data-i18n="calc.inputs.missLabel">Leads currently missed / unanswered</label>
+                                <span id="miss-display" class="text-sm font-bold text-secondary-container font-['Archivo'] bg-secondary-container/10 px-3 py-1 rounded-full min-w-[56px] text-center">40%</span>
+                            </div>
+                            <input type="range" id="slider-miss" class="calc-slider calc-slider-danger" min="5" max="80" value="40" step="1" />
+                            <div class="flex justify-between text-[11px] text-white/25 mt-1.5 font-['Archivo']">
+                                <span>5%</span><span>80%</span>
+                            </div>
+                        </div>
+
+                        <!-- Slider: Close rate -->
+                        <div>
+                            <div class="flex justify-between items-center mb-3">
+                                <label class="text-sm text-white/60 font-['Archivo']" data-i18n="calc.inputs.closeLabel">Lead close / conversion rate</label>
+                                <span id="close-display" class="text-sm font-bold text-tertiary-container font-['Archivo'] bg-tertiary-container/10 px-3 py-1 rounded-full min-w-[56px] text-center">25%</span>
+                            </div>
+                            <input type="range" id="slider-close" class="calc-slider calc-slider-teal" min="5" max="70" value="25" step="1" />
+                            <div class="flex justify-between text-[11px] text-white/25 mt-1.5 font-['Archivo']">
+                                <span>5%</span><span>70%</span>
+                            </div>
+                        </div>
+
+                        <!-- Disclaimer note -->
+                        <p class="text-[11px] text-white/25 mt-8 font-['Archivo'] leading-relaxed" data-i18n="calc.disclaimer">
+                            * Estimates based on 95% lead capture rate with NTNS. Actual results vary by industry and business.
+                        </p>
+                    </div>
+
+                    <!-- Results Column -->
+                    <div class="space-y-5 animate-in" style="transition-delay:120ms">
+
+                        <!-- Without NTNS -->
+                        <div class="glass-feature rounded-[32px] p-7 border border-secondary-container/15">
+                            <div class="flex items-center gap-3 mb-6">
+                                <div class="w-10 h-10 rounded-full bg-secondary-container/10 flex items-center justify-center shrink-0">
+                                    <span class="material-symbols-outlined text-secondary-container">trending_down</span>
+                                </div>
+                                <div>
+                                    <h3 class="font-['Archivo'] font-bold text-white text-sm" data-i18n="calc.without.title">Without NTNS</h3>
+                                    <p class="text-[11px] text-white/35 font-['Archivo']" data-i18n="calc.without.sub">What you're losing right now</p>
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-2 gap-3">
+                                <div class="bg-white/5 border border-white/5 rounded-2xl p-4">
+                                    <p class="text-[11px] text-white/40 font-['Archivo'] mb-1" data-i18n="calc.without.missedLeads">Missed leads/mo</p>
+                                    <p id="out-missed" class="text-2xl font-bold text-secondary-container font-['Archivo'] calc-number-animate">40</p>
+                                </div>
+                                <div class="bg-white/5 border border-white/5 rounded-2xl p-4">
+                                    <p class="text-[11px] text-white/40 font-['Archivo'] mb-1" data-i18n="calc.without.lostCustomers">Lost customers/mo</p>
+                                    <p id="out-lost-customers" class="text-2xl font-bold text-secondary-container font-['Archivo'] calc-number-animate">10</p>
+                                </div>
+                                <div class="col-span-2 bg-secondary-container/10 border border-secondary-container/20 rounded-2xl p-4">
+                                    <p class="text-[11px] text-secondary-container/60 font-['Archivo'] mb-1" data-i18n="calc.without.monthlyLoss">Revenue lost per month</p>
+                                    <p id="out-monthly-loss" class="text-3xl font-bold text-secondary-container font-['Archivo'] calc-number-animate">$5,000</p>
+                                    <p class="text-[11px] text-white/30 mt-1 font-['Archivo']">
+                                        <span id="out-annual-loss" class="calc-number-animate">$60,000</span>
+                                        <span data-i18n="calc.perYear"> per year</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- With NTNS -->
+                        <div class="glass-feature rounded-[32px] p-7 border border-primary-container/20 relative overflow-hidden">
+                            <div class="absolute top-0 right-0 w-56 h-56 bg-primary-container/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
+                            <div class="flex items-center gap-3 mb-6">
+                                <div class="w-10 h-10 rounded-full bg-primary-container/10 flex items-center justify-center shrink-0">
+                                    <span class="material-symbols-outlined text-primary-container">trending_up</span>
+                                </div>
+                                <div>
+                                    <h3 class="font-['Archivo'] font-bold text-white text-sm" data-i18n="calc.with.title">With NTNS</h3>
+                                    <p class="text-[11px] text-white/35 font-['Archivo']" data-i18n="calc.with.sub">Revenue you recover</p>
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-2 gap-3">
+                                <div class="bg-white/5 border border-white/5 rounded-2xl p-4">
+                                    <p class="text-[11px] text-white/40 font-['Archivo'] mb-1" data-i18n="calc.with.captured">Leads captured/mo</p>
+                                    <p id="out-captured" class="text-2xl font-bold text-primary-container font-['Archivo'] calc-number-animate">38</p>
+                                </div>
+                                <div class="bg-white/5 border border-white/5 rounded-2xl p-4">
+                                    <p class="text-[11px] text-white/40 font-['Archivo'] mb-1" data-i18n="calc.with.newCustomers">New customers/mo</p>
+                                    <p id="out-new-customers" class="text-2xl font-bold text-primary-container font-['Archivo'] calc-number-animate">9</p>
+                                </div>
+                                <div class="col-span-2 bg-primary-container/10 border border-primary-container/20 rounded-2xl p-4">
+                                    <p class="text-[11px] text-primary-container/60 font-['Archivo'] mb-1" data-i18n="calc.with.monthlyGain">Revenue recovered/month</p>
+                                    <p id="out-monthly-gain" class="text-3xl font-bold text-primary-container font-['Archivo'] calc-number-animate">$4,750</p>
+                                    <p class="text-[11px] text-white/30 mt-1 font-['Archivo']">
+                                        <span id="out-annual-gain" class="calc-number-animate">$57,000</span>
+                                        <span data-i18n="calc.perYear"> per year</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ROI Banner -->
+                        <div class="glass-card rounded-[28px] p-6 flex items-center justify-between gap-4">
+                            <div>
+                                <p class="text-[11px] text-white/40 font-['Archivo'] mb-1" data-i18n="calc.roi.label">Estimated Annual ROI</p>
+                                <div class="flex items-end gap-2">
+                                    <p id="out-roi" class="text-4xl font-bold text-white font-['Archivo'] calc-number-animate">19x</p>
+                                    <p class="text-xs text-white/30 font-['Archivo'] mb-1" data-i18n="calc.roi.sub">return on investment</p>
+                                </div>
+                            </div>
+                            <a href="book.html" class="shrink-0 bg-primary-container text-on-primary-container px-6 py-3 rounded-full font-['Archivo'] font-bold text-sm flex items-center gap-2 hover:scale-105 transition-transform shadow-lg shadow-primary-container/20 cursor-pointer">
+                                <span class="material-symbols-outlined text-lg">calendar_month</span>
+                                <span data-i18n="calc.roi.cta">Get Started</span>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -661,9 +778,9 @@
                 </div>
 
                 <div class="animate-in" style="transition-delay:320ms">
-                    <a href="tel:+15106347901" class="inline-flex items-center gap-3 bg-primary text-on-primary px-12 py-5 rounded-full font-headline-lg text-body-md hover:shadow-xl hover:shadow-primary/30 transition-all duration-500 cursor-pointer hover:scale-105 active:scale-95 shadow-lg shadow-primary/20">
-                        <span class="material-symbols-outlined">call</span>
-                        <span data-i18n="bottom.cta">Get Started, Call Now</span>
+                    <a href="book.html" class="inline-flex items-center gap-3 bg-primary text-on-primary px-12 py-5 rounded-full font-headline-lg text-body-md hover:shadow-xl hover:shadow-primary/30 transition-all duration-500 cursor-pointer hover:scale-105 active:scale-95 shadow-lg shadow-primary/20">
+                        <span class="material-symbols-outlined">calendar_month</span>
+                        <span>Book Your Discovery Call</span>
                     </a>
                 </div>
             </div>
@@ -842,6 +959,78 @@
             gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
             requestAnimationFrame(render);
         })();
+    })();
+    </script>
+
+    <!-- ROI Calculator Script -->
+    <script>
+    (function() {
+        function fmtDollars(n) {
+            if (n >= 1000000) return '$' + (n / 1000000).toFixed(1).replace(/\.0$/, '') + 'M';
+            if (n >= 1000) return '$' + (n / 1000).toFixed(1).replace(/\.0$/, '') + 'K';
+            return '$' + n.toLocaleString();
+        }
+        function fmtNum(n) {
+            return n.toLocaleString();
+        }
+        function setSliderPct(el) {
+            const min = parseFloat(el.min), max = parseFloat(el.max), val = parseFloat(el.value);
+            const pct = ((val - min) / (max - min) * 100).toFixed(1) + '%';
+            el.style.setProperty('--pct', pct);
+        }
+        function updateCalc() {
+            const leads    = parseInt(document.getElementById('slider-leads').value);
+            const jobValue = parseInt(document.getElementById('slider-value').value);
+            const missRate = parseInt(document.getElementById('slider-miss').value) / 100;
+            const closeRate= parseInt(document.getElementById('slider-close').value) / 100;
+
+            // Update slider fill percentages
+            ['slider-leads','slider-value','slider-miss','slider-close'].forEach(id => {
+                setSliderPct(document.getElementById(id));
+            });
+
+            // Update display labels
+            document.getElementById('leads-display').textContent = leads;
+            document.getElementById('value-display').textContent = '$' + jobValue.toLocaleString();
+            document.getElementById('miss-display').textContent  = Math.round(missRate  * 100) + '%';
+            document.getElementById('close-display').textContent = Math.round(closeRate * 100) + '%';
+
+            // --- Without NTNS ---
+            const missedLeads     = Math.round(leads * missRate);
+            const lostCustomers   = Math.round(missedLeads * closeRate);
+            const monthlyLoss     = lostCustomers * jobValue;
+            const annualLoss      = monthlyLoss * 12;
+
+            // --- With NTNS (95% capture of missed leads) ---
+            const captureRate  = 0.95;
+            const capturedLeads   = Math.round(missedLeads * captureRate);
+            const newCustomers    = Math.round(capturedLeads * closeRate);
+            const monthlyGain     = newCustomers * jobValue;
+            const annualGain      = monthlyGain * 12;
+
+            // --- ROI (NTNS ~$497/mo = ~$5,964/yr) ---
+            const ntnsCostYear = 5964;
+            const roiMultiple  = annualGain > 0 ? Math.round(annualGain / ntnsCostYear) : 0;
+
+            // --- Update DOM ---
+            document.getElementById('out-missed').textContent         = fmtNum(missedLeads);
+            document.getElementById('out-lost-customers').textContent  = fmtNum(lostCustomers);
+            document.getElementById('out-monthly-loss').textContent    = fmtDollars(monthlyLoss);
+            document.getElementById('out-annual-loss').textContent     = fmtDollars(annualLoss);
+
+            document.getElementById('out-captured').textContent       = fmtNum(capturedLeads);
+            document.getElementById('out-new-customers').textContent  = fmtNum(newCustomers);
+            document.getElementById('out-monthly-gain').textContent   = fmtDollars(monthlyGain);
+            document.getElementById('out-annual-gain').textContent    = fmtDollars(annualGain);
+
+            document.getElementById('out-roi').textContent = roiMultiple + 'x';
+        }
+
+        ['slider-leads','slider-value','slider-miss','slider-close'].forEach(id => {
+            const el = document.getElementById(id);
+            el.addEventListener('input', updateCalc);
+        });
+        updateCalc();
     })();
     </script>
 

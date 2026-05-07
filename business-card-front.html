@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NTNS Business Card — Front</title>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap" rel="stylesheet" />
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            background: #07061a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            font-family: 'Lexend', sans-serif;
+            overflow-x: hidden;
+        }
+
+        #shader-bg {
+            position: fixed;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        .page-wrapper {
+            position: relative;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 28px;
+            padding: 40px 20px;
+        }
+
+        .page-label {
+            font-family: 'Archivo', sans-serif;
+            color: rgba(255,255,255,0.35);
+            font-size: 11px;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        /* ─── Card Shell ─────────────────────────────── */
+        .card {
+            width: min(880px, 94vw);
+            aspect-ratio: 3.5 / 2;
+            position: relative;
+            border-radius: 22px;
+            overflow: hidden;
+            box-shadow:
+                0 50px 130px rgba(0,0,0,0.85),
+                0 0 0 1px rgba(255,255,255,0.06),
+                0 0 80px rgba(96,99,238,0.12);
+        }
+
+        .card-canvas {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* ─── Card Inner Layout ──────────────────────── */
+        .card-content {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            padding: clamp(20px, 3.5vw, 40px) clamp(24px, 4vw, 48px);
+            gap: clamp(10px, 1.8vw, 18px);
+        }
+
+        /* Header row */
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-box {
+            width: clamp(30px, 4.2vw, 40px);
+            aspect-ratio: 1;
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.14);
+            border-radius: 9px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .logo-box img {
+            width: 68%;
+            height: auto;
+            display: block;
+        }
+
+        .brand-name {
+            font-family: 'Archivo', sans-serif;
+            font-weight: 800;
+            color: #ffffff;
+            font-size: clamp(18px, 2.8vw, 28px);
+            letter-spacing: -0.03em;
+            line-height: 1;
+        }
+
+        /* Body: left + divider + right */
+        .card-body {
+            flex: 1;
+            display: flex;
+            gap: clamp(14px, 2.4vw, 28px);
+            align-items: stretch;
+            min-height: 0;
+        }
+
+        /* ─── Left Section ───────────────────────────── */
+        .left-section {
+            flex: 0 0 clamp(110px, 15vw, 155px);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-width: 0;
+        }
+
+        /* ─── Center Section ─────────────────────────── */
+        .center-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-width: 0;
+            padding: clamp(2px, 0.5vw, 6px) 0;
+        }
+
+        .offer-eyebrow {
+            font-family: 'Archivo', sans-serif;
+            font-size: clamp(7px, 0.9vw, 9px);
+            font-weight: 700;
+            color: rgba(255,255,255,0.35);
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            margin-bottom: 2px;
+        }
+
+        .offer-title {
+            font-family: 'Archivo', sans-serif;
+            font-weight: 800;
+            color: #ffffff;
+            font-size: clamp(14px, 2.2vw, 22px);
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+        }
+
+        .offer-title .offer-accent {
+            color: #fd56a7;
+        }
+
+        .offer-divider {
+            width: clamp(28px, 4.5vw, 44px);
+            height: 2px;
+            background: linear-gradient(90deg, #6063ee, #fd56a7);
+            border-radius: 2px;
+            margin: clamp(6px, 1vw, 10px) 0;
+        }
+
+        .offer-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: clamp(5px, 0.75vw, 8px);
+        }
+
+        .offer-item {
+            display: flex;
+            align-items: center;
+            gap: clamp(5px, 0.7vw, 7px);
+        }
+
+        .offer-item .material-symbols-outlined {
+            color: #fd56a7;
+            font-size: clamp(10px, 1.3vw, 13px);
+            flex-shrink: 0;
+        }
+
+        .offer-item span.offer-text {
+            font-family: 'Lexend', sans-serif;
+            color: rgba(255,255,255,0.78);
+            font-size: clamp(8px, 1.1vw, 11px);
+            font-weight: 400;
+            white-space: nowrap;
+        }
+
+        .tagline-sub {
+            font-family: 'Archivo', sans-serif;
+            color: rgba(255,255,255,0.82);
+            font-size: clamp(10px, 1.6vw, 16px);
+            font-weight: 500;
+            line-height: 1.35;
+        }
+
+        .tagline-main {
+            font-family: 'Archivo', sans-serif;
+            color: #fd56a7;
+            font-size: clamp(12px, 2vw, 20px);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-top: 1px;
+        }
+
+        .divider-h {
+            width: clamp(36px, 6vw, 58px);
+            height: 2px;
+            background: linear-gradient(90deg, #6063ee, #fd56a7);
+            border-radius: 2px;
+            margin: clamp(6px, 1vw, 10px) 0;
+        }
+
+        .contact-list {
+            display: flex;
+            flex-direction: column;
+            gap: clamp(5px, 0.9vw, 9px);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: clamp(6px, 1vw, 10px);
+        }
+
+        .contact-icon {
+            width: clamp(20px, 2.8vw, 28px);
+            aspect-ratio: 1;
+            background: rgba(96,99,238,0.18);
+            border: 1px solid rgba(96,99,238,0.32);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .contact-icon .material-symbols-outlined {
+            color: #fd56a7;
+            font-size: clamp(10px, 1.4vw, 14px);
+        }
+
+        .contact-text {
+            font-family: 'Lexend', sans-serif;
+            color: rgba(255,255,255,0.82);
+            font-size: clamp(8px, 1.2vw, 12px);
+            font-weight: 400;
+            white-space: nowrap;
+        }
+
+        /* Vertical separator */
+        .v-sep {
+            width: 1px;
+            background: rgba(255,255,255,0.08);
+            align-self: stretch;
+            flex-shrink: 0;
+        }
+
+        /* ─── Right Section ──────────────────────────── */
+        .right-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: clamp(8px, 1.2vw, 12px);
+            flex-shrink: 0;
+            width: clamp(110px, 18vw, 170px);
+        }
+
+        /* Glowing QR frame */
+        .qr-frame {
+            background: #ffffff;
+            border-radius: 14px;
+            padding: clamp(7px, 1vw, 11px);
+            position: relative;
+            box-shadow:
+                0 0 0 2px rgba(96,99,238,0.55),
+                0 0 0 4px rgba(253,86,167,0.25),
+                0 0 28px rgba(96,99,238,0.6),
+                0 0 56px rgba(253,86,167,0.25),
+                0 0 90px rgba(96,99,238,0.15);
+        }
+
+        .qr-frame::before {
+            content: '';
+            position: absolute;
+            inset: -3px;
+            border-radius: 16px;
+            background: linear-gradient(135deg, #6063ee, #fd56a7, #6063ee);
+            z-index: -1;
+            opacity: 0.6;
+            animation: qr-glow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes qr-glow {
+            0%   { opacity: 0.4; }
+            100% { opacity: 0.85; }
+        }
+
+        .qr-badge {
+            position: absolute;
+            bottom: -1px;
+            left: 50%;
+            transform: translate(-50%, 50%);
+            background: #0e0d2a;
+            border: 1px solid rgba(96,99,238,0.5);
+            border-radius: 5px;
+            padding: 2px 9px;
+            font-family: 'Archivo', sans-serif;
+            font-size: clamp(6px, 0.9vw, 9px);
+            font-weight: 800;
+            color: white;
+            letter-spacing: 0.12em;
+            white-space: nowrap;
+        }
+
+        #qr-front {
+            display: block;
+            width: clamp(72px, 11vw, 118px);
+            height: clamp(72px, 11vw, 118px);
+            line-height: 0;
+        }
+
+        #qr-front img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            border-radius: 4px;
+        }
+
+        .qr-caption {
+            text-align: center;
+        }
+
+        .qr-caption-line {
+            font-family: 'Lexend', sans-serif;
+            color: rgba(255,255,255,0.6);
+            font-size: clamp(7px, 1vw, 10px);
+            line-height: 1.5;
+        }
+
+        .qr-caption-line .accent {
+            color: #fd56a7;
+            font-weight: 500;
+        }
+
+        .scan-icon-wrap {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .scan-icon-wrap .material-symbols-outlined {
+            color: rgba(255,255,255,0.25);
+            font-size: clamp(12px, 1.6vw, 16px);
+        }
+
+        /* ─── Print Controls ─────────────────────────── */
+        .controls {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .btn {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            padding: 10px 22px;
+            border-radius: 50px;
+            font-family: 'Archivo', sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.25s;
+            text-decoration: none;
+            border: none;
+            outline: none;
+        }
+
+        .btn-primary {
+            background: rgba(96,99,238,0.18);
+            border: 1px solid rgba(96,99,238,0.45);
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            background: rgba(96,99,238,0.32);
+            box-shadow: 0 0 24px rgba(96,99,238,0.35);
+            transform: translateY(-1px);
+        }
+
+        .btn-ghost {
+            background: transparent;
+            border: 1px solid rgba(255,255,255,0.15);
+            color: rgba(255,255,255,0.55);
+        }
+
+        .btn-ghost:hover {
+            color: #fff;
+            border-color: rgba(255,255,255,0.3);
+        }
+
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24; }
+
+        /* ─── Print Styles ───────────────────────────── */
+        @media print {
+            body { background: #000; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            #shader-bg { display: none; }
+            .page-label, .controls { display: none !important; }
+            .page-wrapper { padding: 0; min-height: 0; background: none; }
+            .card {
+                width: 3.5in !important;
+                height: 2in !important;
+                border-radius: 0 !important;
+                box-shadow: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<canvas id="shader-bg"></canvas>
+
+<div class="page-wrapper">
+    <p class="page-label">NTNS Business Card &mdash; Front</p>
+
+    <!-- ══════════ CARD ══════════ -->
+    <div class="card">
+        <canvas class="card-canvas" id="card-canvas"></canvas>
+
+        <div class="card-content">
+            <!-- Header -->
+            <div class="card-header">
+                <div class="logo-box">
+                    <img src="NTNS Logo.png" alt="NTNS" />
+                </div>
+                <span class="brand-name">NTNS</span>
+            </div>
+
+            <!-- Body -->
+            <div class="card-body">
+                <!-- Left -->
+                <div class="left-section">
+                    <div>
+                        <div class="tagline-sub">AI Voice Systems Built for</div>
+                        <div class="tagline-main">Your Industry.</div>
+                        <div class="divider-h"></div>
+                    </div>
+
+                    <div class="contact-list">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <span class="material-symbols-outlined">call</span>
+                            </div>
+                            <span class="contact-text">+1 (510) 850-4966</span>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <span class="material-symbols-outlined">mail</span>
+                            </div>
+                            <span class="contact-text">admin@ntns.ai</span>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <span class="material-symbols-outlined">language</span>
+                            </div>
+                            <span class="contact-text">www.ntns.ai</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Vertical divider -->
+                <div class="v-sep"></div>
+
+                <!-- Center: Main offer copy -->
+                <div class="center-section">
+                    <div class="offer-eyebrow">Your</div>
+                    <div class="offer-title">24/7 AI<br><span class="offer-accent">Receptionist</span></div>
+                    <div class="offer-divider"></div>
+                    <ul class="offer-list">
+                        <li class="offer-item">
+                            <span class="material-symbols-outlined">call</span>
+                            <span class="offer-text">Never miss a call</span>
+                        </li>
+                        <li class="offer-item">
+                            <span class="material-symbols-outlined">person_search</span>
+                            <span class="offer-text">Never miss a lead</span>
+                        </li>
+                        <li class="offer-item">
+                            <span class="material-symbols-outlined">calendar_month</span>
+                            <span class="offer-text">Books appointments for you</span>
+                        </li>
+                        <li class="offer-item">
+                            <span class="material-symbols-outlined">event_available</span>
+                            <span class="offer-text">Never miss an appointment</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Vertical divider -->
+                <div class="v-sep"></div>
+
+                <!-- Right: QR -->
+                <div class="right-section">
+                    <div class="qr-frame">
+                        <div id="qr-front"></div>
+                        <div class="qr-badge">NTNS</div>
+                    </div>
+                    <div class="qr-caption">
+                        <div class="qr-caption-line">Scan to experience</div>
+                        <div class="qr-caption-line">the <span class="accent">live AI demo</span></div>
+                    </div>
+                    <div class="scan-icon-wrap">
+                        <span class="material-symbols-outlined">qr_code_scanner</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Controls -->
+    <div class="controls">
+        <a href="business-card-back.html" class="btn btn-ghost">
+            <span class="material-symbols-outlined" style="font-size:15px">flip</span>
+            View Back
+        </a>
+        <button class="btn btn-primary" onclick="window.print()">
+            <span class="material-symbols-outlined" style="font-size:15px">print</span>
+            Print Card
+        </button>
+    </div>
+</div>
+
+<!-- ── QR Code ── -->
+<script>
+(function() {
+    const el = document.getElementById('qr-front');
+    if (!el) return;
+    const img = new Image();
+    img.alt = 'NTNS QR Code';
+    img.src =  + qr + ;
+    img.style.cssText = 'width:100%;height:100%;display:block;border-radius:3px;';
+    el.appendChild(img);
+})();
+</script>
+
+<!-- ── WebGL Plasma Shader ── -->
+<script>
+(function() {
+    const vsSource = `attribute vec4 aPos; void main(){ gl_Position = aPos; }`;
+    const fsSource = `
+        precision highp float;
+        uniform vec2 iResolution;
+        uniform float iTime;
+        const float overallSpeed = 0.2;
+        const float gridSmoothWidth = 0.015;
+        const float lineSpeed = 1.0 * overallSpeed;
+        const float lineAmplitude = 1.0;
+        const float lineFrequency = 0.2;
+        const float warpSpeed = 0.2 * overallSpeed;
+        const float warpFrequency = 0.5;
+        const float warpAmplitude = 1.0;
+        const float offsetFrequency = 0.5;
+        const float offsetSpeed = 1.33 * overallSpeed;
+        const float minOffsetSpread = 0.6;
+        const float maxOffsetSpread = 2.0;
+        const float minLineWidth = 0.01;
+        const float maxLineWidth = 0.2;
+        const int linesPerGroup = 16;
+        const vec4 lineColor = vec4(0.4, 0.2, 0.8, 1.0);
+        #define drawSmoothLine(pos, halfWidth, t) smoothstep(halfWidth, 0.0, abs(pos - (t)))
+        #define drawCrispLine(pos, halfWidth, t) smoothstep(halfWidth + gridSmoothWidth, halfWidth, abs(pos - (t)))
+        #define drawCircle(pos, radius, coord) smoothstep(radius + gridSmoothWidth, radius, length(coord - (pos)))
+        float random(float t) {
+            return (cos(t) + cos(t * 1.3 + 1.3) + cos(t * 1.4 + 1.4)) / 3.0;
+        }
+        float getPlasmaY(float x, float hFade, float offset) {
+            return random(x * lineFrequency + iTime * lineSpeed) * hFade * lineAmplitude + offset;
+        }
+        void main() {
+            vec2 uv = gl_FragCoord.xy / iResolution.xy;
+            float scale = 5.0;
+            vec2 space = (gl_FragCoord.xy - iResolution.xy / 2.0) / iResolution.x * 2.0 * scale;
+            float hFade = 1.0 - (cos(uv.x * 6.28) * 0.5 + 0.5);
+            float vFade = 1.0 - (cos(uv.y * 6.28) * 0.5 + 0.5);
+            space.y += random(space.x * warpFrequency + iTime * warpSpeed) * warpAmplitude * (0.5 + hFade);
+            space.x += random(space.y * warpFrequency + iTime * warpSpeed + 2.0) * warpAmplitude * hFade;
+            vec4 lines = vec4(0.0);
+            for(int l = 0; l < linesPerGroup; l++) {
+                float nli = float(l) / float(linesPerGroup);
+                float ot = iTime * offsetSpeed;
+                float op = float(l) + space.x * offsetFrequency;
+                float rand = random(op + ot) * 0.5 + 0.5;
+                float halfWidth = mix(minLineWidth, maxLineWidth, rand * hFade) / 2.0;
+                float offset = random(op + ot * (1.0 + nli)) * mix(minOffsetSpread, maxOffsetSpread, hFade);
+                float lp = getPlasmaY(space.x, hFade, offset);
+                float line = drawSmoothLine(lp, halfWidth, space.y) / 2.0 + drawCrispLine(lp, halfWidth * 0.15, space.y);
+                float cx = mod(float(l) + iTime * lineSpeed, 25.0) - 12.0;
+                vec2 cp = vec2(cx, getPlasmaY(cx, hFade, offset));
+                float circle = drawCircle(cp, 0.01, space) * 4.0;
+                lines += (line + circle) * lineColor * rand;
+            }
+            vec4 bg = mix(vec4(0.08,0.06,0.22,1.0), vec4(0.22,0.08,0.38,1.0), uv.x);
+            bg *= vFade;
+            bg.a = 1.0;
+            gl_FragColor = bg + lines;
+        }
+    `;
+
+    function initGL(canvas) {
+        const gl = canvas.getContext('webgl');
+        if (!gl) return null;
+        function makeShader(type, src) {
+            const s = gl.createShader(type);
+            gl.shaderSource(s, src);
+            gl.compileShader(s);
+            return gl.getShaderParameter(s, gl.COMPILE_STATUS) ? s : null;
+        }
+        const prog = gl.createProgram();
+        gl.attachShader(prog, makeShader(gl.VERTEX_SHADER, vsSource));
+        gl.attachShader(prog, makeShader(gl.FRAGMENT_SHADER, fsSource));
+        gl.linkProgram(prog);
+        if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) return null;
+        const buf = gl.createBuffer();
+        gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+        gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1,1,-1,-1,1,1,1]), gl.STATIC_DRAW);
+        return { gl, prog,
+            aPos: gl.getAttribLocation(prog, 'aPos'),
+            uRes: gl.getUniformLocation(prog, 'iResolution'),
+            uTime: gl.getUniformLocation(prog, 'iTime')
+        };
+    }
+
+    function startRenderer(canvasEl, dynamic) {
+        const ctx = initGL(canvasEl);
+        if (!ctx) return;
+        const { gl, prog, aPos, uRes, uTime } = ctx;
+        const t0 = Date.now();
+        function resize() {
+            canvasEl.width  = canvasEl.offsetWidth;
+            canvasEl.height = canvasEl.offsetHeight;
+            gl.viewport(0, 0, canvasEl.width, canvasEl.height);
+        }
+        if (dynamic) window.addEventListener('resize', resize);
+        resize();
+        (function frame() {
+            gl.clear(gl.COLOR_BUFFER_BIT);
+            gl.useProgram(prog);
+            gl.uniform2f(uRes, canvasEl.width, canvasEl.height);
+            gl.uniform1f(uTime, (Date.now() - t0) / 1000);
+            gl.bindBuffer(gl.ARRAY_BUFFER, gl.getParameter(gl.ARRAY_BUFFER_BINDING) || (() => {
+                const b = gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER, b);
+                gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1,1,-1,-1,1,1,1]), gl.STATIC_DRAW);
+                return b;
+            })());
+            gl.vertexAttribPointer(aPos, 2, gl.FLOAT, false, 0, 0);
+            gl.enableVertexAttribArray(aPos);
+            gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+            requestAnimationFrame(frame);
+        })();
+    }
+
+    // Re-create with separate buffers for each canvas
+    function initGLFull(canvas) {
+        const gl = canvas.getContext('webgl');
+        if (!gl) return null;
+        function makeShader(type, src) {
+            const s = gl.createShader(type);
+            gl.shaderSource(s, src); gl.compileShader(s);
+            return gl.getShaderParameter(s, gl.COMPILE_STATUS) ? s : null;
+        }
+        const vs = makeShader(gl.VERTEX_SHADER, vsSource);
+        const fs = makeShader(gl.FRAGMENT_SHADER, fsSource);
+        if (!vs || !fs) return null;
+        const prog = gl.createProgram();
+        gl.attachShader(prog, vs); gl.attachShader(prog, fs);
+        gl.linkProgram(prog);
+        if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) return null;
+        const buf = gl.createBuffer();
+        gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+        gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1,1,-1,-1,1,1,1]), gl.STATIC_DRAW);
+        return { gl, prog, buf,
+            aPos: gl.getAttribLocation(prog, 'aPos'),
+            uRes: gl.getUniformLocation(prog, 'iResolution'),
+            uTime: gl.getUniformLocation(prog, 'iTime')
+        };
+    }
+
+    function run(canvas, isDynamic) {
+        const c = initGLFull(canvas);
+        if (!c) return;
+        const { gl, prog, buf, aPos, uRes, uTime } = c;
+        const t0 = Date.now();
+        function resize() {
+            canvas.width  = isDynamic ? window.innerWidth  : canvas.offsetWidth;
+            canvas.height = isDynamic ? window.innerHeight : canvas.offsetHeight;
+            gl.viewport(0, 0, canvas.width, canvas.height);
+        }
+        if (isDynamic) window.addEventListener('resize', resize);
+        resize();
+        (function frame() {
+            gl.clearColor(0,0,0,1); gl.clear(gl.COLOR_BUFFER_BIT);
+            gl.useProgram(prog);
+            gl.uniform2f(uRes, canvas.width, canvas.height);
+            gl.uniform1f(uTime, (Date.now() - t0) / 1000);
+            gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+            gl.vertexAttribPointer(aPos, 2, gl.FLOAT, false, 0, 0);
+            gl.enableVertexAttribArray(aPos);
+            gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+            requestAnimationFrame(frame);
+        })();
+    }
+
+    run(document.getElementById('shader-bg'), true);
+    run(document.getElementById('card-canvas'), false);
+})();
+</script>
+</body>
+</html>
