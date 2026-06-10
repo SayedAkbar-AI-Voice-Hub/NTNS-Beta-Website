@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html class="light scroll-smooth" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/png" href="ntns-icon.png" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Pricing | NTNS — One Monthly Fee, Everything Included</title>
+    <meta name="description" content="Simple, transparent pricing for NTNS AI Voice Receptionist. One flat monthly fee covers everything — no hidden costs, no per-seat licensing. Plans from $397/mo." />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-surface-variant": "#464554",
+                        "on-secondary": "#ffffff",
+                        "on-primary-container": "#fffbff",
+                        "primary-container": "#6063ee",
+                        "secondary-container": "#fd56a7",
+                        "error-container": "#ffdad6",
+                        "secondary": "#b4136d",
+                        "surface-variant": "#dae2fd",
+                        "background": "#faf8ff",
+                        "tertiary-container": "#008096",
+                        "surface-container": "#eaedff",
+                        "on-error-container": "#93000a",
+                        "inverse-on-surface": "#eef0ff",
+                        "primary": "#4648d4",
+                        "on-surface": "#131b2e",
+                        "on-tertiary-container": "#f9fdff",
+                        "inverse-surface": "#283044",
+                        "on-primary": "#ffffff",
+                        "outline": "#767586",
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.25rem",
+                        lg: "0.5rem",
+                        xl: "0.75rem",
+                        full: "9999px"
+                    },
+                    spacing: {
+                        gutter: "32px",
+                        "section-gap": "120px",
+                        unit: "8px",
+                        "container-max": "1280px",
+                        "margin-safe": "40px"
+                    },
+                    fontFamily: {
+                        "label-bold": ["Lexend"],
+                        "headline-2xl": ["Archivo"],
+                        "headline-lg": ["Archivo"],
+                        "body-md": ["Lexend"],
+                        "headline-xl": ["Archivo"],
+                        "body-lg": ["Lexend"]
+                    },
+                    fontSize: {
+                        "label-bold": ["14px", { lineHeight: "1", letterSpacing: "0.05em", fontWeight: "600" }],
+                        "headline-2xl": ["72px", { lineHeight: "1.1", letterSpacing: "-0.04em", fontWeight: "700" }],
+                        "headline-lg": ["32px", { lineHeight: "1.3", fontWeight: "600" }],
+                        "body-md": ["16px", { lineHeight: "1.5", fontWeight: "400" }],
+                        "headline-xl": ["48px", { lineHeight: "1.2", letterSpacing: "-0.02em", fontWeight: "600" }],
+                        "body-lg": ["20px", { lineHeight: "1.6", fontWeight: "400" }]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        .glass-card {
+            background: rgba(18, 16, 42, 0.55);
+            backdrop-filter: blur(24px) saturate(1.4);
+            -webkit-backdrop-filter: blur(24px) saturate(1.4);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .glass-feature {
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .glass-feature:hover {
+            background: rgba(255, 255, 255, 0.07);
+            border-color: rgba(96, 99, 238, 0.25);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25), 0 0 30px rgba(96, 99, 238, 0.08);
+        }
+        .glass-nav {
+            background: rgba(16, 14, 40, 0.55);
+            backdrop-filter: blur(24px) saturate(1.4);
+            -webkit-backdrop-filter: blur(24px) saturate(1.4);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .glass-mobile-menu {
+            background: rgba(16, 14, 40, 0.85);
+            backdrop-filter: blur(32px) saturate(1.4);
+            -webkit-backdrop-filter: blur(32px) saturate(1.4);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .animate-in {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .animate-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .animate-in { opacity: 1; transform: none; transition: none; }
+        }
+        @media (max-width: 768px) {
+            .text-headline-xl { font-size: 32px !important; }
+        }
+
+        /* Plan card popular highlight */
+        .plan-popular {
+            background: rgba(96, 99, 238, 0.08);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 2px solid rgba(96, 99, 238, 0.45);
+            box-shadow: 0 0 60px rgba(96, 99, 238, 0.18), 0 24px 48px rgba(0, 0, 0, 0.3);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .plan-popular:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 0 80px rgba(96, 99, 238, 0.25), 0 32px 60px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Comparison table highlight column */
+        .col-popular {
+            background: rgba(96, 99, 238, 0.06);
+            border-left: 1px solid rgba(96, 99, 238, 0.2);
+            border-right: 1px solid rgba(96, 99, 238, 0.2);
+        }
+
+        /* FAQ accordion */
+        .faq-item { border-bottom: 1px solid rgba(255,255,255,0.07); }
+        .faq-btn { width: 100%; text-align: left; cursor: pointer; }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+            opacity: 0;
+        }
+        .faq-answer.open {
+            max-height: 400px;
+            opacity: 1;
+        }
+        .faq-icon {
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .faq-btn.open .faq-icon {
+            transform: rotate(45deg);
+        }
+
+        /* Table */
+        .compare-table th, .compare-table td {
+            padding: 14px 18px;
+            text-align: center;
+            vertical-align: middle;
+        }
+        .compare-table th:first-child, .compare-table td:first-child {
+            text-align: left;
+            padding-left: 24px;
+        }
+        .compare-table tr:not(:last-child) td, .compare-table tr:not(:last-child) th {
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .compare-table tbody tr:hover td {
+            background: rgba(255,255,255,0.02);
+        }
+        .check-yes { color: #6063ee; }
+        .check-no { color: rgba(255,255,255,0.2); }
+    </style>
+</head>
+
+<body class="font-body-md text-on-background selection:bg-primary-container selection:text-on-primary-container bg-[#1a1a3e]">
+
+    <!-- WebGL Shader Background -->
+    <canvas id="shader-bg" class="fixed top-0 left-0 w-full h-full -z-10"></canvas>
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 flex items-center gap-4 px-5 md:px-7 py-3 w-full glass-nav rounded-full mt-4 md:mt-6 mx-auto max-w-6xl shadow-[0_8px_32px_0_rgba(0,0,0,0.3)]">
+        <a href="index.html" class="flex items-center gap-2 shrink-0">
+            <div class="w-9 h-9 rounded-xl overflow-hidden flex-shrink-0"><img src="ntns-icon.png" alt="NTNS" class="w-full h-full object-cover" /></div>
+            <span class="text-xl font-bold tracking-tighter text-white font-['Archivo']">NTNS</span>
+        </a>
+        <div class="hidden md:flex gap-4 lg:gap-6 items-center flex-1 justify-center">
+            <a class="font-['Archivo'] text-white/60 hover:text-primary-container transition-all duration-300 tracking-tight font-medium text-sm whitespace-nowrap" href="index.html#solution" data-i18n="nav.solution">Solution</a>
+            <a class="font-['Archivo'] text-white/60 hover:text-primary-container transition-all duration-300 tracking-tight font-medium text-sm whitespace-nowrap" href="index.html#industries" data-i18n="nav.industries">Industries</a>
+            <a class="font-['Archivo'] text-primary-container transition-all duration-300 tracking-tight font-semibold text-sm whitespace-nowrap" href="pricing.html" data-i18n="nav.pricing">Pricing</a>
+            <a class="font-['Archivo'] text-white/60 hover:text-primary-container transition-all duration-300 tracking-tight font-medium text-sm whitespace-nowrap" href="about.html" data-i18n="nav.about">About</a>
+            <a class="font-['Archivo'] text-white/60 hover:text-primary-container transition-all duration-300 tracking-tight font-medium text-sm whitespace-nowrap" href="contact.html" data-i18n="nav.contact">Contact</a>
+            <a class="font-['Archivo'] text-white/60 hover:text-primary-container transition-all duration-300 tracking-tight font-medium text-sm whitespace-nowrap" href="index.html#demo" data-i18n="nav.demo">Live Demo</a>
+        </div>
+        <div class="flex gap-2 items-center shrink-0">
+            <button id="lang-toggle" class="border border-white/20 bg-white/5 text-white px-3 py-2.5 rounded-full font-['Archivo'] font-bold text-sm transition-all duration-500 ease-out hover:bg-white/15 hover:border-white/40 hover:scale-105 cursor-pointer flex items-center gap-1.5" aria-label="Toggle language">
+                <span class="material-symbols-outlined text-sm">translate</span>
+                <span id="lang-label">EN</span>
+            </button>
+            <a href="https://app.ntns.ai" target="_blank" rel="noopener noreferrer" class="border border-white/20 bg-white/5 text-white px-5 py-2.5 rounded-full font-['Archivo'] font-bold text-sm transition-all duration-500 ease-out hover:bg-white/15 hover:border-white/40 hover:scale-105 cursor-pointer flex items-center gap-2">
+                <span class="material-symbols-outlined text-lg">login</span>
+                <span class="hidden sm:inline" data-i18n="nav.login">Login</span>
+            </a>
+            <a href="book.html" class="bg-primary-container text-on-primary-container px-5 py-2.5 rounded-full font-['Archivo'] font-bold text-sm transition-all duration-500 ease-out shadow-lg shadow-primary-container/20 hover:shadow-xl hover:shadow-primary-container/30 hover:scale-105 cursor-pointer flex items-center gap-2">
+                <span class="material-symbols-outlined text-lg">calendar_month</span>
+                <span class="hidden sm:inline">Book a Call</span>
+            </a>
+            <button id="mobile-menu-btn" class="md:hidden p-2 text-white/60 hover:text-primary-container cursor-pointer" aria-label="Open menu">
+                <span class="material-symbols-outlined">menu</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden fixed inset-x-0 top-[72px] z-40 mx-4">
+        <div class="glass-mobile-menu rounded-3xl p-6 shadow-2xl space-y-4">
+            <a class="block font-['Archivo'] text-white/60 hover:text-primary-container py-2 font-medium" href="index.html#solution" data-i18n="nav.solution">Solution</a>
+            <a class="block font-['Archivo'] text-white/60 hover:text-primary-container py-2 font-medium" href="index.html#industries" data-i18n="nav.industries">Industries</a>
+            <a class="block font-['Archivo'] text-primary-container py-2 font-semibold" href="pricing.html" data-i18n="nav.pricing">Pricing</a>
+            <a class="block font-['Archivo'] text-white/60 hover:text-primary-container py-2 font-medium" href="about.html" data-i18n="nav.about">About</a>
+            <a class="block font-['Archivo'] text-white/60 hover:text-primary-container py-2 font-medium" href="contact.html" data-i18n="nav.contact">Contact</a>
+            <a class="block font-['Archivo'] text-white/60 hover:text-primary-container py-2 font-medium" href="index.html#demo" data-i18n="nav.demo">Live Demo</a>
+            <a href="https://app.ntns.ai" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 border border-white/20 bg-white/5 text-white px-6 py-3 rounded-full font-['Archivo'] font-bold text-sm cursor-pointer mt-2 hover:bg-white/15 hover:border-white/40 transition-all duration-300">
+                <span class="material-symbols-outlined text-lg">login</span>
+                <span data-i18n="nav.loginDashboard">Login to Dashboard</span>
+            </a>
+            <a href="book.html" class="flex items-center justify-center gap-2 bg-primary-container text-on-primary-container px-6 py-3 rounded-full font-['Archivo'] font-bold text-sm cursor-pointer mt-2">
+                <span class="material-symbols-outlined text-lg">calendar_month</span>
+                <span>Book a Discovery Call</span>
+            </a>
+        </div>
+    </div>
+
+    <main>
+
+        <!-- Hero Section -->
+        <section class="pt-24 pb-16 px-gutter">
+            <div class="max-w-container-max mx-auto text-center">
+                <div class="animate-in">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card mb-6">
+                        <span class="material-symbols-outlined text-primary-container text-sm">payments</span>
+                        <span class="text-label-bold font-label-bold text-primary-container" data-i18n="pricing.badge">PRICING</span>
+                    </div>
+                    <h1 class="font-headline-xl text-headline-xl text-white mb-5" data-i18n-html="pricing.title">
+                        One Monthly Fee.<br>Everything Included.
+                    </h1>
+                    <p class="font-body-lg text-body-lg text-white/60 max-w-2xl mx-auto mb-10" data-i18n="pricing.subtitle">
+                        No hidden costs. No per-seat licensing. No surprise invoices. Just one flat monthly fee that covers your entire AI receptionist system.
+                    </p>
+                    <!-- Trust Indicators -->
+                    <div class="flex flex-wrap justify-center gap-x-8 gap-y-3 text-white/40">
+                        <span class="text-xs font-['Archivo'] flex items-center gap-1.5">
+                            <span class="material-symbols-outlined text-sm text-primary-container">check_circle</span>
+                            <span data-i18n="pricing.trust1">No long-term contracts</span>
+                        </span>
+                        <span class="text-xs font-['Archivo'] flex items-center gap-1.5">
+                            <span class="material-symbols-outlined text-sm text-primary-container">check_circle</span>
+                            <span data-i18n="pricing.trust2">Month-to-month billing</span>
+                        </span>
+                        <span class="text-xs font-['Archivo'] flex items-center gap-1.5">
+                            <span class="material-symbols-outlined text-sm text-primary-container">check_circle</span>
+                            <span data-i18n="pricing.trust3">No setup fees on core plans</span>
+                        </span>
+                        <span class="text-xs font-['Archivo'] flex items-center gap-1.5">
+                            <span class="material-symbols-outlined text-sm text-primary-container">check_circle</span>
+                            <span data-i18n="pricing.trust4">Cancel anytime</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Cards Section -->
+        <section id="plans" class="py-16 px-gutter">
+            <div class="max-w-[1400px] mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 items-start">
+
+                    <!-- Starter Plan -->
+                    <div class="glass-feature rounded-[40px] p-8 animate-in" style="transition-delay:0ms">
+                        <div class="mb-6">
+                            <div class="w-11 h-11 rounded-2xl bg-tertiary-container/15 flex items-center justify-center mb-4">
+                                <span class="material-symbols-outlined text-tertiary-container text-2xl">rocket_launch</span>
+                            </div>
+                            <h3 class="font-['Archivo'] font-bold text-white text-xl mb-1" data-i18n="pricing.starter.name">Starter</h3>
+                            <p class="text-sm text-white/45 font-['Archivo'] leading-snug" data-i18n="pricing.starter.desc">Smaller clinics with moderate call volume</p>
+                        </div>
+                        <div class="mb-7">
+                            <div class="flex items-end gap-1.5 mb-1">
+                                <span class="text-5xl font-bold text-white font-['Archivo']">$397</span>
+                                <span class="text-white/40 font-['Archivo'] text-sm mb-2" data-i18n="pricing.perMonth">/ month</span>
+                            </div>
+                            <p class="text-[11px] text-white/30 font-['Archivo']" data-i18n="pricing.billing.standard">Billed monthly · No setup fee</p>
+                        </div>
+                        <a href="book.html" class="w-full block text-center border border-white/20 bg-white/6 text-white px-6 py-3 rounded-full font-['Archivo'] font-bold text-sm mb-8 hover:bg-white/12 hover:border-white/35 transition-all duration-300 cursor-pointer" data-i18n="pricing.cta.start">
+                            Get Started
+                        </a>
+                        <div class="space-y-3.5">
+                            <div class="flex items-start gap-2.5"><span class="material-symbols-outlined text-tertiary-container text-[18px] shrink-0 mt-0.5">check_circle</span><span class="text-sm text-white/70 font-['Archivo']" data-i18n="pricing.starter.f1">500 inbound minutes / month</span></div>
+                            <div class="flex items-start gap-2.5"><span class="material-symbols-outlined text-tertiary-container text-[18px] shrink-0 mt-0.5">check_circle</span><span class="text-sm text-white/70 font-['Archivo']" data-i18n="pricing.starter.f2">1 AI receptionist agent</span></div>
+                            <div class="flex items-start gap-2.5"><span class="material-symbols-outlined text-tertiary-container text-[18px] shrink-0 mt-0.5">check_circle</span><span class="text-sm text-white/70 font-['Archivo']" data-i18n="pricing.starter.f3">Appointment booking & calendar sync</span></div>
+                            <div class="flex items-start gap-2.5"><span class="material-symbols-outlined text-tertiary-container text-[18px] shrink-0 mt-0.5">check_circle</span><span class="text-sm text-white/70 font-['Archivo']" data-i18n="pricing.starter.f4">250 SMS reminders / month</span></div>
+                            <div class="flex items-start gap-2.5"><span class="material-symbols-outlined text-tertiary-container text-[18px] shrink-0 mt-0.5">check_circle</span><span class="text-sm text-white/70 font-['Archivo']" data-i18n="pricing.starter.f5">English + 1 language (Farsi or Spanish)</span></div>
+                            <div class="flex items-start gap-2.5"><span class="material-symbols-outlined text-tertiary-container text-[18px] shrink-0 mt-0.5">check_circle</span><span class="text-sm text-white/70 font-['Archivo']" data-i18n="pricing.starter.f6">Email support (48hr response)</span></div>
+                        </div>
+                        <div class="mt-7 pt-6 border-t border-white/8">
+                            <p class="text-[11px] text-white/30 font-['Archivo']"><span data-i18n="pricing.overage.label">Overage:</span> <span class="text-white/50" data-i18n="pricing.starter.overage">$0.95/min · $0.08/SMS</span></p>
+                        </div>
+                    </div>
+
+                    <!-- Growth Plan (Popular) -->
+                    <div class="plan-popular rounded-[40px] p-8 animate-in relative" style="transition-delay:80ms">
+                        <div class="absolute -top-4 left-1/2 -translate-x-1/2 whitespace-nowrap">
+                            <span class="bg-primary-container text-on-primary-container px-5 py-1.5 rounded-full text-[11px] font-bold font-['Archivo'] uppercase tracking-wider shadow-lg shadow-primary-container/30" data-i18n="pricing.growth.badge">
+                                Most Popular
+                            </span>
+                        </div>
+                        <div class="mb-6 mt-2">
+                            <div class="w-11 h-11 rounded-2xl bg-primary-container/15 flex items-center justify-center mb-4">
+                                <span class="material-symbols-outlined text-primary-container text-2xl">trending_up</span>
+                            </div>
+                            <h3 class="font-['Archivo'] font-bold text-white text-xl mb-1" data-i18n="pricing.growth.name">Growth</h3>
+                            <p class="text-sm text-white/45 font-['Archivo'] leading-snug" data-i18n="pricing.growth.desc">Active clinics needing full automation</p>
+                        </div>
+                        <div class="mb-7">
+                            <div class="flex items-end gap-1.5 mb-1">
+                                <span class="text-5xl font-bold text-white font-['Archivo']">$797</span>
+                                <span class="text-white/40 font-['Archivo'] text-sm mb-2" data-i18n="pricing.perMonth">/ month</span>
+                            </div>
+                            <p class="text-[11px] text-white/30 font-['Archivo']" data-i18n="pricing.billing.standard">Billed monthly · No setup fee</p>
+                        </div>
+                        <a href="book.html" class="w-full block text-center bg-primary-container text-on-primary-container px-6 py-3 rounded-full font-['Archivo'] font-bold text-sm mb-8 hover:scale-[1.02] transition-all duration-300 shadow-lg shadow-primary-container/25 cursor-pointer" data-i18n="pricing.cta.start">
+                            Get Started
+                        </a>
+                        <div class="space-y-3.5">
+                            <div class="flex items-start gap-2.5"><span class="material-symbols-outlined text-primary-container text-[18px] shrink-0 mt-0.5">check_circle</span><span class="text-sm text-white/80 font-['Archivo']" data-i18n="pricing.growth.f1">1,000 minutes / month</span></div>
+                            <div class="flex items-start gap-2.5"><span class="material-symbols-outlined text-primary-container text-[18px] shrink-0 mt-0.5">check_circle</span><span class="text-sm text-white/80 font-['Archivo']" data-i18n="pricing.growth.f2">Inbound + outbound AI agent</span></div>
+                            <div class="flex items-start gap-2.5"><span class="material-symbols-outlined text-primary-container text-[18px] shrink-0 mt-0.5">check_circle</span><span class="text-sm text-white/80 font-['Archivo']" data-i18n="pricing.growth.f3">Book, reschedule & cancel workflows</span></div>
+                            <div class="flex items-start gap-2.5"><span class="material-symbols-outlined text-primary-container text-[18px] shrink-0 mt-0.5">check_circle</span><span class="text-sm text-white/80 font-['Archivo']" data-i18n="pricing.growth.f4">750 SMS + missed-call text-back</span></div>
+                            <div class="flex items-start gap-2.5"><span class="material-symbols-outlined text-primary-container text-[18px] shrink-0 mt-0.5">check_circle</span><span class="text-sm text-white/80 font-['Archivo']" data-i18n="pricing.growth.f5">English, Farsi (فارسی) &amp; Spanish</span></div>
+                            <div class="flex items-start gap-2.5"><span class="material-symbols-outlined text-primary-container text-[18px] shrink-0 mt-0.5">check_circle</span><span class="text-sm text-white/80 font-['Archivo']" data-i18n="pricing.growth.f6">Patient request routing & triage</span></div>
+                            <div class="flex items-start gap-2.5"><span class="material-symbols-outlined text-primary-container text-[18px] shrink-0 mt-0.5">check_circle</span><span class="text-sm text-white/80 font-['Archivo']" data-i18n="pricing.growth.f7">Custom voice & clinic persona</span></div>
+                            <div class="flex items-start gap-2.5"><span class="material-symbols-outlined text-primary-container text-[18px] shrink-0 mt-0.5">check_circle</span><span class="text-sm text-white/80 font-['Archivo']" data-i18n="pricing.growth.f8">Priority support (24hr response)</span></div>
+                        </div>
+                        <div class="mt-7 pt-6 border-t border-white/10">
+                            <p class="text-[11px] text-white/40 font-['Archivo']"><span data-i18n="pricing.overage.label">Overage:</span> <span class="text-white/60" data-i18n="pricing.growth.overage">$0.85/min · $0.07/SMS</span></p>
+                        </div>
+                    </div>
+
+                    <!-- Scale Plan -->
+                    <div class="glass-feature rounded-[40px] p-8 animate-in" style="transition-delay:160ms">
+                        <div class="mb-6">
+                            <div class="w-11 h-11 rounded-2xl bg-secondary-container/12 flex items-center justify-center mb-4">
+                                <span class="material-symbols-outlined text-secondary-container text-2xl">layers</span>
+                            </div>
+                            <h3 class="font-['Archivo'] font-bold text-white text-xl mb-1" data-i18n="pricing.scale.name">Scale</h3>
+                            <p class="text-sm text-white/45 font-['Archivo'] leading-snug" data-i18n="pricing.scale.desc">Multi-provider or multi-location clinics</p>
+                        </div>
+                        <div class="mb-7">
+                            <div class="flex items-end gap-1.5 mb-1">
+                                <span class="text-5xl font-bold text-white font-['Archivo']">$1,297</span>
+                                <span class="text-white/40 font-['Archivo'] text-sm mb-2" data-i18n="pricing.perMonth">/ month</span>
+                            </div>
+                            <p class="text-[11px] text-white/30 font-['Archivo']" data-i18n="pricing.billing.standard">Billed monthly · No setup fee</p>
+                        </div>
+                        <a href="book.html" class="w-full block text-center border border-white/20 bg-white/6 text-white px-6 py-3 rounded-full font-['Archivo'] font-bold text-sm mb-8 hover:bg-white/12 hover:border-white/35 transition-all duration-300 cursor-pointer" data-i18n="pricing.cta.start">
+                            Get Started
+                        </a>
+                        <div class="space-y-3.5">
+                            <div class="flex items-start gap-2.5"><span class="material-symbols-outlined text-secondary-container text-[18px] shrink-0 mt-0.5">check_circle</span><span class="text-sm text-white/70 font-['Archivo']" data-i18n="pricing.scale.f1">1,500 minutes / month</span></div>
+                            <div class="flex items-start gap-2.5"><span class="material-symbols-outlined text-secondary-container text-[18px] shrink-0 mt-0.5">check_circle</span><span class="text-sm text-white/70 font-['Archivo']" data-i18n="pricing.scale.f2">Up to 2 AI agents (front desk + follow-up)</span></div>
+                            <div class="flex items-start gap-2.5"><span class="material-symbols-outlined text-secondary-container text-[18px] shrink-0 mt-0.5">check_circle</span><span class="text-sm text-white/70 font-['Archivo']" data-i18n="pricing.scale.f3">1,500 SMS + voicemail drops</span></div>
+                            <div class="flex items-start gap-2.5"><span class="material-symbols-outlined text-secondary-container text-[18px] shrink-0 mt-0.5">check_circle</span><span class="text-sm text-white/70 font-['Archivo']" data-i18n="pricing.scale.f4">All 3 languages + smart detection</span></div>
+                            <div class="flex items-start gap-2.5"><span class="material-symbols-outlined text-secondary-container text-[18px] shrink-0 mt-0.5">check_circle</span><span class="text-sm text-white/70 font-['Archivo']" data-i18n="pricing.scale.f5">Multi-provider calendar routing</span></div>
+                            <div class="flex items-start gap-2.5"><span class="material-symbols-outlined text-secondary-container text-[18px] shrink-0 mt-0.5">check_circle</span><span class="text-sm text-white/70 font-['Archivo']" data-i18n="pricing.scale.f6">3 custom automation workflows</span></div>
+                            <div class="flex items-start gap-2.5"><span class="material-symbols-outlined text-secondary-container text-[18px] shrink-0 mt-0.5">check_circle</span><span class="text-sm text-white/70 font-['Archivo']" data-i18n="pricing.scale.f7">Same-day phone & Slack support</span></div>
+                        </div>
+                        <div class="mt-7 pt-6 border-t border-white/8">
+                            <p class="text-[11px] text-white/30 font-['Archivo']"><span data-i18n="pricing.overage.label">Overage:</span> <span class="text-white/50" data-i18n="pricing.scale.overage">$0.75/min · $0.06/SMS</span></p>
+                        </div>
+                    </div>
+
+                    <!-- Enterprise Plan -->
+                    <div class="glass-feature rounded-[40px] p-8 animate-in" style="transition-delay:240ms">
+                        <div class="mb-6">
+                            <div class="w-11 h-11 rounded-2xl bg-white/8 flex items-center justify-center mb-4">
+                                <span class="material-symbols-outlined text-white/70 text-2xl">corporate_fare</span>
+                            </div>
+                            <h3 class="font-['Archivo'] font-bold text-white text-xl mb-1" data-i18n="pricing.enterprise.name">Enterprise</h3>
+                            <p class="text-sm text-white/45 font-['Archivo'] leading-snug" data-i18n="pricing.enterprise.desc">Clinic groups, health networks, franchises</p>
+                        </div>
+                        <div class="mb-7">
+                            <div class="flex items-end gap-1.5 mb-1">
+                                <span class="text-3xl font-bold text-white font-['Archivo'] leading-tight">From $1,800</span>
+                                <span class="text-white/40 font-['Archivo'] text-sm mb-1" data-i18n="pricing.perMonth">/ month</span>
+                            </div>
+                            <p class="text-[11px] text-white/30 font-['Archivo']" data-i18n="pricing.billing.enterprise">Setup: $2,500 – $7,500 · Custom quote</p>
+                        </div>
+                        <a href="contact.html" class="w-full block text-center border border-white/25 bg-white/8 text-white px-6 py-3 rounded-full font-['Archivo'] font-bold text-sm mb-8 hover:bg-white/14 hover:border-white/40 transition-all duration-300 cursor-pointer" data-i18n="pricing.cta.contact">
+                            Contact Us
+                        </a>
+                        <div class="space-y-3.5">
+                            <div class="flex items-start gap-2.5"><span class="material-symbols-outlined text-white/60 text-[18px] shrink-0 mt-0.5">check_circle</span><span class="text-sm text-white/70 font-['Archivo']" data-i18n="pricing.enterprise.f1">Unlimited AI agents</span></div>
+                            <div class="flex items-start gap-2.5"><span class="material-symbols-outlined text-white/60 text-[18px] shrink-0 mt-0.5">check_circle</span><span class="text-sm text-white/70 font-['Archivo']" data-i18n="pricing.enterprise.f2">EHR / EMR custom integration</span></div>
+                            <div class="flex items-start gap-2.5"><span class="material-symbols-outlined text-white/60 text-[18px] shrink-0 mt-0.5">check_circle</span><span class="text-sm text-white/70 font-['Archivo']" data-i18n="pricing.enterprise.f3">Multi-language (EN / FA / ES +)</span></div>
+                            <div class="flex items-start gap-2.5"><span class="material-symbols-outlined text-white/60 text-[18px] shrink-0 mt-0.5">check_circle</span><span class="text-sm text-white/70 font-['Archivo']" data-i18n="pricing.enterprise.f4">White-label deployment</span></div>
+                            <div class="flex items-start gap-2.5"><span class="material-symbols-outlined text-white/60 text-[18px] shrink-0 mt-0.5">check_circle</span><span class="text-sm text-white/70 font-['Archivo']" data-i18n="pricing.enterprise.f5">SLA-backed uptime guarantee</span></div>
+                            <div class="flex items-start gap-2.5"><span class="material-symbols-outlined text-white/60 text-[18px] shrink-0 mt-0.5">check_circle</span><span class="text-sm text-white/70 font-['Archivo']" data-i18n="pricing.enterprise.f6">Dedicated account manager</span></div>
+                        </div>
+                        <div class="mt-7 pt-6 border-t border-white/8">
+                            <p class="text-[11px] text-white/30 font-['Archivo']"><span data-i18n="pricing.overage.pricing">Overage & pricing:</span> <span class="text-white/50" data-i18n="pricing.enterprise.overage">Custom</span></p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Feature Comparison Table -->
+        <section class="py-section-gap px-gutter">
+            <div class="max-w-[1200px] mx-auto">
+                <div class="text-center mb-14 animate-in">
+                    <h2 class="font-headline-xl text-headline-xl text-white mb-4" data-i18n="pricing.compare.title">Compare All Plans</h2>
+                    <p class="text-white/55 font-['Archivo'] max-w-xl mx-auto" data-i18n="pricing.compare.subtitle">A full breakdown of what's included in every plan so you can choose with confidence.</p>
+                </div>
+
+                <div class="glass-card rounded-[32px] overflow-hidden animate-in">
+                    <div class="overflow-x-auto">
+                        <table class="compare-table w-full" style="min-width: 720px;">
+                            <thead>
+                                <tr class="border-b border-white/10">
+                                    <th class="py-5 px-6 text-left">
+                                        <span class="text-sm text-white/40 font-['Archivo'] font-medium" data-i18n="pricing.compare.features">Features</span>
+                                    </th>
+                                    <th class="py-5 px-4 text-center">
+                                        <span class="text-sm font-bold text-tertiary-container font-['Archivo']" data-i18n="pricing.starter.name">Starter</span>
+                                        <p class="text-[11px] text-white/40 font-['Archivo'] mt-0.5">$397/mo</p>
+                                    </th>
+                                    <th class="col-popular py-5 px-4 text-center">
+                                        <div class="flex flex-col items-center gap-1">
+                                            <span class="text-xs bg-primary-container/20 text-primary-container px-3 py-0.5 rounded-full font-bold font-['Archivo'] uppercase tracking-wider" data-i18n="pricing.compare.popular">Popular</span>
+                                            <span class="text-sm font-bold text-primary-container font-['Archivo']" data-i18n="pricing.growth.name">Growth</span>
+                                            <p class="text-[11px] text-white/40 font-['Archivo']">$797/mo</p>
+                                        </div>
+                                    </th>
+                                    <th class="py-5 px-4 text-center">
+                                        <span class="text-sm font-bold text-secondary-container font-['Archivo']" data-i18n="pricing.scale.name">Scale</span>
+                                        <p class="text-[11px] text-white/40 font-['Archivo'] mt-0.5">$1,297/mo</p>
+                                    </th>
+                                    <th class="py-5 px-4 text-center">
+                                        <span class="text-sm font-bold text-white/70 font-['Archivo']" data-i18n="pricing.enterprise.name">Enterprise</span>
+                                        <p class="text-[11px] text-white/40 font-['Archivo'] mt-0.5">From $1,800/mo</p>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-white/5">
+                                <tr>
+                                    <td><span class="text-sm text-white/60 font-['Archivo']" data-i18n="pricing.compare.row.minutes">Inbound Minutes</span></td>
+                                    <td><span class="text-sm font-semibold text-white font-['Archivo']">500 / mo</span></td>
+                                    <td class="col-popular"><span class="text-sm font-semibold text-white font-['Archivo']">1,000 / mo</span></td>
+                                    <td><span class="text-sm font-semibold text-white font-['Archivo']">1,500 / mo</span></td>
+                                    <td><span class="text-sm font-semibold text-white font-['Archivo']" data-i18n="pricing.compare.val.unlimited">Unlimited</span></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="text-sm text-white/60 font-['Archivo']" data-i18n="pricing.compare.row.agents">AI Agents</span></td>
+                                    <td><span class="text-sm text-white/70 font-['Archivo']" data-i18n="pricing.compare.val.1receptionist">1 receptionist</span></td>
+                                    <td class="col-popular"><span class="text-sm text-white/70 font-['Archivo']" data-i18n="pricing.compare.val.inoutbound">Inbound + outbound</span></td>
+                                    <td><span class="text-sm text-white/70 font-['Archivo']" data-i18n="pricing.compare.val.upto2">Up to 2 agents</span></td>
+                                    <td><span class="text-sm text-white/70 font-['Archivo']" data-i18n="pricing.compare.val.unlimited">Unlimited</span></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="text-sm text-white/60 font-['Archivo']" data-i18n="pricing.compare.row.sms">SMS Reminders</span></td>
+                                    <td><span class="text-sm text-white/70 font-['Archivo']">250 / mo</span></td>
+                                    <td class="col-popular"><span class="text-sm text-white/70 font-['Archivo']">750 / mo</span></td>
+                                    <td><span class="text-sm text-white/70 font-['Archivo']">1,500 / mo</span></td>
+                                    <td><span class="text-sm text-white/70 font-['Archivo']" data-i18n="pricing.compare.val.custom">Custom</span></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="text-sm text-white/60 font-['Archivo']" data-i18n="pricing.compare.row.languages">Languages</span></td>
+                                    <td><span class="text-sm text-white/70 font-['Archivo']">EN + 1</span></td>
+                                    <td class="col-popular"><span class="text-sm text-white/70 font-['Archivo']">EN + FA + ES</span></td>
+                                    <td><span class="text-sm text-white/70 font-['Archivo']" data-i18n="pricing.compare.val.all3detect">All 3 + detect</span></td>
+                                    <td><span class="text-sm text-white/70 font-['Archivo']">EN / FA / ES +</span></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="text-sm text-white/60 font-['Archivo']" data-i18n="pricing.compare.row.booking">Booking & Calendar Sync</span></td>
+                                    <td><span class="material-symbols-outlined check-yes text-xl">check_circle</span></td>
+                                    <td class="col-popular"><span class="material-symbols-outlined check-yes text-xl">check_circle</span></td>
+                                    <td><span class="material-symbols-outlined check-yes text-xl">check_circle</span></td>
+                                    <td><span class="material-symbols-outlined check-yes text-xl">check_circle</span></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="text-sm text-white/60 font-['Archivo']" data-i18n="pricing.compare.row.textback">Missed-call Text-Back</span></td>
+                                    <td><span class="material-symbols-outlined check-no text-xl">remove</span></td>
+                                    <td class="col-popular"><span class="material-symbols-outlined check-yes text-xl">check_circle</span></td>
+                                    <td><span class="material-symbols-outlined check-yes text-xl">check_circle</span></td>
+                                    <td><span class="material-symbols-outlined check-yes text-xl">check_circle</span></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="text-sm text-white/60 font-['Archivo']" data-i18n="pricing.compare.row.voicemail">Voicemail Drops</span></td>
+                                    <td><span class="material-symbols-outlined check-no text-xl">remove</span></td>
+                                    <td class="col-popular"><span class="material-symbols-outlined check-no text-xl">remove</span></td>
+                                    <td><span class="material-symbols-outlined check-yes text-xl">check_circle</span></td>
+                                    <td><span class="material-symbols-outlined check-yes text-xl">check_circle</span></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="text-sm text-white/60 font-['Archivo']" data-i18n="pricing.compare.row.routing">Patient Routing & Triage</span></td>
+                                    <td><span class="material-symbols-outlined check-no text-xl">remove</span></td>
+                                    <td class="col-popular"><span class="material-symbols-outlined check-yes text-xl">check_circle</span></td>
+                                    <td><span class="material-symbols-outlined check-yes text-xl">check_circle</span></td>
+                                    <td><span class="material-symbols-outlined check-yes text-xl">check_circle</span></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="text-sm text-white/60 font-['Archivo']" data-i18n="pricing.compare.row.persona">Custom Voice & Clinic Persona</span></td>
+                                    <td><span class="material-symbols-outlined check-no text-xl">remove</span></td>
+                                    <td class="col-popular"><span class="material-symbols-outlined check-yes text-xl">check_circle</span></td>
+                                    <td><span class="material-symbols-outlined check-yes text-xl">check_circle</span></td>
+                                    <td><span class="material-symbols-outlined check-yes text-xl">check_circle</span></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="text-sm text-white/60 font-['Archivo']" data-i18n="pricing.compare.row.multiprovider">Multi-provider Calendar Routing</span></td>
+                                    <td><span class="material-symbols-outlined check-no text-xl">remove</span></td>
+                                    <td class="col-popular"><span class="material-symbols-outlined check-no text-xl">remove</span></td>
+                                    <td><span class="material-symbols-outlined check-yes text-xl">check_circle</span></td>
+                                    <td><span class="material-symbols-outlined check-yes text-xl">check_circle</span></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="text-sm text-white/60 font-['Archivo']" data-i18n="pricing.compare.row.workflows">Custom Automation Workflows</span></td>
+                                    <td><span class="material-symbols-outlined check-no text-xl">remove</span></td>
+                                    <td class="col-popular"><span class="material-symbols-outlined check-no text-xl">remove</span></td>
+                                    <td><span class="text-sm text-white/70 font-['Archivo']" data-i18n="pricing.compare.val.3included">3 included</span></td>
+                                    <td><span class="text-sm text-white/70 font-['Archivo']" data-i18n="pricing.compare.val.custom">Custom</span></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="text-sm text-white/60 font-['Archivo']" data-i18n="pricing.compare.row.ehr">EHR / EMR Integration</span></td>
+                                    <td><span class="material-symbols-outlined check-no text-xl">remove</span></td>
+                                    <td class="col-popular"><span class="material-symbols-outlined check-no text-xl">remove</span></td>
+                                    <td><span class="material-symbols-outlined check-no text-xl">remove</span></td>
+                                    <td><span class="material-symbols-outlined check-yes text-xl">check_circle</span></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="text-sm text-white/60 font-['Archivo']" data-i18n="pricing.compare.row.whitelabel">White-label Deployment</span></td>
+                                    <td><span class="material-symbols-outlined check-no text-xl">remove</span></td>
+                                    <td class="col-popular"><span class="material-symbols-outlined check-no text-xl">remove</span></td>
+                                    <td><span class="material-symbols-outlined check-no text-xl">remove</span></td>
+                                    <td><span class="material-symbols-outlined check-yes text-xl">check_circle</span></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="text-sm text-white/60 font-['Archivo']" data-i18n="pricing.compare.row.support">Support Channel</span></td>
+                                    <td><span class="text-sm text-white/70 font-['Archivo']" data-i18n="pricing.compare.val.email48">Email (48hr)</span></td>
+                                    <td class="col-popular"><span class="text-sm text-white/70 font-['Archivo']" data-i18n="pricing.compare.val.priority24">Priority (24hr)</span></td>
+                                    <td><span class="text-sm text-white/70 font-['Archivo']" data-i18n="pricing.compare.val.phoneSlack">Phone + Slack</span></td>
+                                    <td><span class="text-sm text-white/70 font-['Archivo']" data-i18n="pricing.compare.val.dedicatedAM">Dedicated AM</span></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="text-sm text-white/60 font-['Archivo']" data-i18n="pricing.compare.row.overage.min">Overage Rate (per minute)</span></td>
+                                    <td><span class="text-sm text-white/70 font-['Archivo']">$0.95</span></td>
+                                    <td class="col-popular"><span class="text-sm text-white/70 font-['Archivo']">$0.85</span></td>
+                                    <td><span class="text-sm text-white/70 font-['Archivo']">$0.75</span></td>
+                                    <td><span class="text-sm text-white/70 font-['Archivo']" data-i18n="pricing.compare.val.custom">Custom</span></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="text-sm text-white/60 font-['Archivo']" data-i18n="pricing.compare.row.overage.sms">Overage Rate (per SMS)</span></td>
+                                    <td><span class="text-sm text-white/70 font-['Archivo']">$0.08</span></td>
+                                    <td class="col-popular"><span class="text-sm text-white/70 font-['Archivo']">$0.07</span></td>
+                                    <td><span class="text-sm text-white/70 font-['Archivo']">$0.06</span></td>
+                                    <td><span class="text-sm text-white/70 font-['Archivo']" data-i18n="pricing.compare.val.custom">Custom</span></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="text-sm text-white/60 font-['Archivo']" data-i18n="pricing.compare.row.setup">Setup Fee</span></td>
+                                    <td><span class="text-sm text-white/70 font-['Archivo']" data-i18n="pricing.compare.val.none">None</span></td>
+                                    <td class="col-popular"><span class="text-sm text-white/70 font-['Archivo']" data-i18n="pricing.compare.val.none">None</span></td>
+                                    <td><span class="text-sm text-white/70 font-['Archivo']" data-i18n="pricing.compare.val.none">None</span></td>
+                                    <td><span class="text-sm text-white/70 font-['Archivo']">$2,500–$7,500</span></td>
+                                </tr>
+                                <tr class="border-t border-white/10">
+                                    <td></td>
+                                    <td class="py-5"><a href="book.html" class="inline-block border border-white/20 bg-white/6 text-white px-5 py-2 rounded-full font-['Archivo'] font-bold text-xs hover:bg-white/12 transition-all cursor-pointer" data-i18n="pricing.cta.start">Get Started</a></td>
+                                    <td class="col-popular py-5"><a href="book.html" class="inline-block bg-primary-container text-on-primary-container px-5 py-2 rounded-full font-['Archivo'] font-bold text-xs hover:scale-105 transition-all shadow-md shadow-primary-container/25 cursor-pointer" data-i18n="pricing.cta.start">Get Started</a></td>
+                                    <td class="py-5"><a href="book.html" class="inline-block border border-white/20 bg-white/6 text-white px-5 py-2 rounded-full font-['Archivo'] font-bold text-xs hover:bg-white/12 transition-all cursor-pointer" data-i18n="pricing.cta.start">Get Started</a></td>
+                                    <td class="py-5"><a href="contact.html" class="inline-block border border-white/20 bg-white/6 text-white px-5 py-2 rounded-full font-['Archivo'] font-bold text-xs hover:bg-white/12 transition-all cursor-pointer" data-i18n="pricing.cta.contact">Contact Us</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="py-section-gap px-gutter">
+            <div class="max-w-3xl mx-auto">
+                <div class="text-center mb-14 animate-in">
+                    <h2 class="font-headline-xl text-headline-xl text-white mb-4" data-i18n="pricing.faq.title">Frequently Asked Questions</h2>
+                    <p class="text-white/55 font-['Archivo']" data-i18n="pricing.faq.subtitle">Everything you need to know about NTNS pricing.</p>
+                </div>
+
+                <div class="space-y-0 animate-in">
+
+                    <div class="faq-item py-1">
+                        <button class="faq-btn flex items-center justify-between gap-4 py-5 w-full" onclick="toggleFaq(this)">
+                            <span class="font-['Archivo'] font-semibold text-white text-left" data-i18n="pricing.faq.q1">Are there any hidden fees or setup charges?</span>
+                            <span class="material-symbols-outlined faq-icon text-white/40 shrink-0">add</span>
+                        </button>
+                        <div class="faq-answer pb-5">
+                            <p class="text-sm text-white/55 font-['Archivo'] leading-relaxed" data-i18n="pricing.faq.a1">No. Starter, Growth, and Scale plans have zero setup fees. You pay the monthly flat fee and you're live. Enterprise plans require a one-time setup investment ($2,500–$7,500) due to custom EHR/EMR integrations and dedicated infrastructure. Overage charges only apply if you exceed your plan's included minutes or SMS.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item py-1">
+                        <button class="faq-btn flex items-center justify-between gap-4 py-5 w-full" onclick="toggleFaq(this)">
+                            <span class="font-['Archivo'] font-semibold text-white text-left" data-i18n="pricing.faq.q2">What happens if I go over my monthly minutes or SMS?</span>
+                            <span class="material-symbols-outlined faq-icon text-white/40 shrink-0">add</span>
+                        </button>
+                        <div class="faq-answer pb-5">
+                            <p class="text-sm text-white/55 font-['Archivo'] leading-relaxed" data-i18n="pricing.faq.a2">You'll be charged at your plan's overage rate for any usage beyond the included amount. Starter: $0.95/min and $0.08/SMS. Growth: $0.85/min and $0.07/SMS. Scale: $0.75/min and $0.06/SMS. Higher-tier plans have lower overage rates — so if you're regularly hitting your cap, upgrading often saves money overall.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item py-1">
+                        <button class="faq-btn flex items-center justify-between gap-4 py-5 w-full" onclick="toggleFaq(this)">
+                            <span class="font-['Archivo'] font-semibold text-white text-left" data-i18n="pricing.faq.q3">Can I switch plans or cancel at any time?</span>
+                            <span class="material-symbols-outlined faq-icon text-white/40 shrink-0">add</span>
+                        </button>
+                        <div class="faq-answer pb-5">
+                            <p class="text-sm text-white/55 font-['Archivo'] leading-relaxed" data-i18n="pricing.faq.a3">Yes. All core plans are month-to-month with no long-term contract. You can upgrade, downgrade, or cancel at the end of any billing cycle with no penalties. We don't lock you in — we earn your business every month by delivering results.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item py-1">
+                        <button class="faq-btn flex items-center justify-between gap-4 py-5 w-full" onclick="toggleFaq(this)">
+                            <span class="font-['Archivo'] font-semibold text-white text-left" data-i18n="pricing.faq.q4">Which languages does NTNS support?</span>
+                            <span class="material-symbols-outlined faq-icon text-white/40 shrink-0">add</span>
+                        </button>
+                        <div class="faq-answer pb-5">
+                            <p class="text-sm text-white/55 font-['Archivo'] leading-relaxed" data-i18n="pricing.faq.a4">Starter includes English plus one additional language (Farsi or Spanish). Growth includes all three — English, Farsi (فارسی), and Spanish — simultaneously. Scale adds smart language detection, automatically routing callers in their preferred language. Enterprise supports all three plus additional languages on request.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item py-1">
+                        <button class="faq-btn flex items-center justify-between gap-4 py-5 w-full" onclick="toggleFaq(this)">
+                            <span class="font-['Archivo'] font-semibold text-white text-left" data-i18n="pricing.faq.q5">What integrations are included?</span>
+                            <span class="material-symbols-outlined faq-icon text-white/40 shrink-0">add</span>
+                        </button>
+                        <div class="faq-answer pb-5">
+                            <p class="text-sm text-white/55 font-['Archivo'] leading-relaxed" data-i18n="pricing.faq.a5">All plans include calendar sync (Google Calendar, Outlook) and standard CRM integration so leads and appointments flow automatically into your system. Growth and above include custom voice configuration. Scale includes multi-provider routing. Enterprise adds full custom EHR/EMR integration — we build the connection to your specific practice management software as part of the setup.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item py-1" style="border-bottom: none;">
+                        <button class="faq-btn flex items-center justify-between gap-4 py-5 w-full" onclick="toggleFaq(this)">
+                            <span class="font-['Archivo'] font-semibold text-white text-left" data-i18n="pricing.faq.q6">How do I know which plan is right for me?</span>
+                            <span class="material-symbols-outlined faq-icon text-white/40 shrink-0">add</span>
+                        </button>
+                        <div class="faq-answer pb-5">
+                            <p class="text-sm text-white/55 font-['Archivo'] leading-relaxed" data-i18n="pricing.faq.a6">Book a 20-minute discovery call and we'll walk through your current call volume, languages, and workflows — then match you with the right plan. Most single-location clinics start on Growth. If you have multiple providers or locations, Scale is worth a look. Call the live demo first to see the AI in action for your exact industry before committing to anything.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Final CTA Section -->
+        <section class="py-section-gap px-gutter relative overflow-hidden">
+            <div class="max-w-4xl mx-auto glass-card rounded-[48px] p-10 md:p-20 text-center relative z-10 border-primary/20 shadow-[0_8px_60px_rgba(0,0,0,0.4)] animate-in">
+                <div class="bg-gradient-to-r from-primary/5 via-secondary/5 to-primary/5 absolute inset-0 rounded-[48px] -z-10"></div>
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card mb-6">
+                    <span class="material-symbols-outlined text-primary-container text-sm">calendar_month</span>
+                    <span class="text-label-bold font-label-bold text-primary-container" data-i18n="pricing.cta.badge">READY TO GET STARTED?</span>
+                </div>
+                <h2 class="font-headline-xl text-headline-xl text-white mb-5" data-i18n="pricing.cta.title">
+                    Book a 20-Min Discovery Call
+                </h2>
+                <p class="text-body-lg text-white/60 mb-10 max-w-xl mx-auto" data-i18n="pricing.cta.subtitle">
+                    We'll match you with the right plan for your clinic, set up your AI receptionist, and have you live — usually within a week.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <a href="book.html" class="inline-flex items-center gap-3 bg-primary-container text-on-primary-container px-10 py-4 rounded-full font-['Archivo'] font-bold text-sm hover:scale-105 transition-transform shadow-lg shadow-primary-container/25 cursor-pointer">
+                        <span class="material-symbols-outlined">calendar_month</span>
+                        <span data-i18n="pricing.cta.primary">Book a Discovery Call</span>
+                    </a>
+                    <a href="tel:+15106347901" class="inline-flex items-center gap-3 border border-white/20 bg-white/6 text-white px-10 py-4 rounded-full font-['Archivo'] font-bold text-sm hover:bg-white/12 hover:border-white/35 transition-all cursor-pointer">
+                        <span class="material-symbols-outlined">mic</span>
+                        <span data-i18n="pricing.cta.secondary">Try the Live Demo</span>
+                    </a>
+                </div>
+                <p class="text-xs text-white/30 font-['Archivo'] mt-8" data-i18n="pricing.cta.note">No contracts · No setup fees on core plans · Cancel anytime</p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-16 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-8">
+            <div class="grid md:grid-cols-4 gap-10 mb-12">
+                <div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-8 h-8 rounded-lg overflow-hidden flex-shrink-0"><img src="ntns-icon.png" alt="NTNS" class="w-full h-full object-cover" /></div>
+                        <span class="text-lg font-bold text-white font-['Archivo'] tracking-tight">NTNS</span>
+                    </div>
+                    <p class="text-sm text-white/40" data-i18n="footer.tagline">Never Miss a Lead Again.</p>
+                </div>
+                <div>
+                    <h4 class="font-['Archivo'] font-bold text-white text-sm mb-4" data-i18n="footer.pages">Pages</h4>
+                    <div class="space-y-2">
+                        <a href="index.html" class="block text-sm text-white/50 hover:text-white transition-colors" data-i18n="footer.home">Home</a>
+                        <a href="pricing.html" class="block text-sm text-white/50 hover:text-white transition-colors" data-i18n="footer.pricing">Pricing</a>
+                        <a href="about.html" class="block text-sm text-white/50 hover:text-white transition-colors" data-i18n="footer.aboutUs">About Us</a>
+                        <a href="contact.html" class="block text-sm text-white/50 hover:text-white transition-colors" data-i18n="footer.contact">Contact</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-['Archivo'] font-bold text-white text-sm mb-4" data-i18n="footer.legal">Legal</h4>
+                    <div class="space-y-2">
+                        <a href="privacy.html" class="block text-sm text-white/50 hover:text-white transition-colors" data-i18n="footer.privacy">Privacy Policy</a>
+                        <a href="terms.html" class="block text-sm text-white/50 hover:text-white transition-colors" data-i18n="footer.terms">Terms &amp; Conditions</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-['Archivo'] font-bold text-white text-sm mb-4" data-i18n="footer.contactTitle">Contact</h4>
+                    <div class="space-y-2">
+                        <a href="mailto:Admin@ntns.ai" class="block text-sm text-white/50 hover:text-white transition-colors">Admin@ntns.ai</a>
+                        <p class="text-sm text-white/50">+1 (510) 850-4966 <span class="text-white/30" data-i18n="footer.supportLabel">(Support)</span></p>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="font-['Archivo'] text-sm text-white/40" data-i18n="footer.copyright">&copy; 2026 NTNS. All rights reserved.</p>
+                <div class="flex gap-6">
+                    <a class="font-['Archivo'] text-sm text-white/50 hover:text-white transition-colors" href="privacy.html" data-i18n="footer.privacyShort">Privacy</a>
+                    <a class="font-['Archivo'] text-sm text-white/50 hover:text-white transition-colors" href="terms.html" data-i18n="footer.termsShort">Terms</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="i18n.js?v=2"></script>
+
+    <!-- WebGL Shader Script -->
+    <script>
+    (function() {
+        const canvas = document.getElementById('shader-bg');
+        if (!canvas) return;
+        const gl = canvas.getContext('webgl');
+        if (!gl) return;
+        const vsSource = `attribute vec4 aVertexPosition; void main() { gl_Position = aVertexPosition; }`;
+        const fsSource = `
+            precision highp float;
+            uniform vec2 iResolution;
+            uniform float iTime;
+            const float overallSpeed = 0.2;
+            const float gridSmoothWidth = 0.015;
+            const float axisWidth = 0.05;
+            const float majorLineWidth = 0.025;
+            const float minorLineWidth = 0.0125;
+            const float majorLineFrequency = 5.0;
+            const float minorLineFrequency = 1.0;
+            const float scale = 5.0;
+            const vec4 lineColor = vec4(0.4, 0.2, 0.8, 1.0);
+            const float minLineWidth = 0.01;
+            const float maxLineWidth = 0.2;
+            const float lineSpeed = 1.0 * overallSpeed;
+            const float lineAmplitude = 1.0;
+            const float lineFrequency = 0.2;
+            const float warpSpeed = 0.2 * overallSpeed;
+            const float warpFrequency = 0.5;
+            const float warpAmplitude = 1.0;
+            const float offsetFrequency = 0.5;
+            const float offsetSpeed = 1.33 * overallSpeed;
+            const float minOffsetSpread = 0.6;
+            const float maxOffsetSpread = 2.0;
+            const int linesPerGroup = 16;
+            #define drawSmoothLine(pos, halfWidth, t) smoothstep(halfWidth, 0.0, abs(pos - (t)))
+            #define drawCrispLine(pos, halfWidth, t) smoothstep(halfWidth + gridSmoothWidth, halfWidth, abs(pos - (t)))
+            #define drawCircle(pos, radius, coord) smoothstep(radius + gridSmoothWidth, radius, length(coord - (pos)))
+            float random(float t) { return (cos(t) + cos(t * 1.3 + 1.3) + cos(t * 1.4 + 1.4)) / 3.0; }
+            float getPlasmaY(float x, float horizontalFade, float offset) {
+                return random(x * lineFrequency + iTime * lineSpeed) * horizontalFade * lineAmplitude + offset;
+            }
+            void main() {
+                vec2 uv = gl_FragCoord.xy / iResolution.xy;
+                vec2 space = (gl_FragCoord.xy - iResolution.xy / 2.0) / iResolution.x * 2.0 * scale;
+                float horizontalFade = 1.0 - (cos(uv.x * 6.28) * 0.5 + 0.5);
+                float verticalFade = 1.0 - (cos(uv.y * 6.28) * 0.5 + 0.5);
+                space.y += random(space.x * warpFrequency + iTime * warpSpeed) * warpAmplitude * (0.5 + horizontalFade);
+                space.x += random(space.y * warpFrequency + iTime * warpSpeed + 2.0) * warpAmplitude * horizontalFade;
+                vec4 lines = vec4(0.0);
+                vec4 bgColor1 = vec4(0.08, 0.06, 0.22, 1.0);
+                vec4 bgColor2 = vec4(0.22, 0.08, 0.38, 1.0);
+                for(int l = 0; l < linesPerGroup; l++) {
+                    float normalizedLineIndex = float(l) / float(linesPerGroup);
+                    float offsetTime = iTime * offsetSpeed;
+                    float offsetPosition = float(l) + space.x * offsetFrequency;
+                    float rand = random(offsetPosition + offsetTime) * 0.5 + 0.5;
+                    float halfWidth = mix(minLineWidth, maxLineWidth, rand * horizontalFade) / 2.0;
+                    float offset = random(offsetPosition + offsetTime * (1.0 + normalizedLineIndex)) * mix(minOffsetSpread, maxOffsetSpread, horizontalFade);
+                    float linePosition = getPlasmaY(space.x, horizontalFade, offset);
+                    float line = drawSmoothLine(linePosition, halfWidth, space.y) / 2.0 + drawCrispLine(linePosition, halfWidth * 0.15, space.y);
+                    float circleX = mod(float(l) + iTime * lineSpeed, 25.0) - 12.0;
+                    vec2 circlePosition = vec2(circleX, getPlasmaY(circleX, horizontalFade, offset));
+                    float circle = drawCircle(circlePosition, 0.01, space) * 4.0;
+                    line = line + circle;
+                    lines += line * lineColor * rand;
+                }
+                vec4 fragColor = mix(bgColor1, bgColor2, uv.x);
+                fragColor *= verticalFade;
+                fragColor.a = 1.0;
+                fragColor += lines;
+                gl_FragColor = fragColor;
+            }
+        `;
+        function loadShader(gl, type, source) {
+            var s = gl.createShader(type);
+            gl.shaderSource(s, source);
+            gl.compileShader(s);
+            if (!gl.getShaderParameter(s, gl.COMPILE_STATUS)) { gl.deleteShader(s); return null; }
+            return s;
+        }
+        var vs = loadShader(gl, gl.VERTEX_SHADER, vsSource);
+        var fs = loadShader(gl, gl.FRAGMENT_SHADER, fsSource);
+        var prog = gl.createProgram();
+        gl.attachShader(prog, vs);
+        gl.attachShader(prog, fs);
+        gl.linkProgram(prog);
+        if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) return;
+        var buf = gl.createBuffer();
+        gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+        gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 1,-1, -1,1, 1,1]), gl.STATIC_DRAW);
+        var aPos = gl.getAttribLocation(prog, 'aVertexPosition');
+        var uRes = gl.getUniformLocation(prog, 'iResolution');
+        var uTime = gl.getUniformLocation(prog, 'iTime');
+        function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; gl.viewport(0, 0, canvas.width, canvas.height); }
+        window.addEventListener('resize', resize);
+        resize();
+        var t0 = Date.now();
+        (function render() {
+            gl.clearColor(0,0,0,1); gl.clear(gl.COLOR_BUFFER_BIT);
+            gl.useProgram(prog);
+            gl.uniform2f(uRes, canvas.width, canvas.height);
+            gl.uniform1f(uTime, (Date.now() - t0) / 1000);
+            gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+            gl.vertexAttribPointer(aPos, 2, gl.FLOAT, false, 0, 0);
+            gl.enableVertexAttribArray(aPos);
+            gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+            requestAnimationFrame(render);
+        })();
+    })();
+    </script>
+
+    <!-- Page scripts -->
+    <script>
+        // Animate-in on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+        document.querySelectorAll('.animate-in').forEach(el => observer.observe(el));
+
+        // Mobile menu
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+        mobileMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => mobileMenu.classList.add('hidden')));
+
+        // FAQ accordion
+        function toggleFaq(btn) {
+            const answer = btn.nextElementSibling;
+            const isOpen = answer.classList.contains('open');
+            // Close all
+            document.querySelectorAll('.faq-answer.open').forEach(a => a.classList.remove('open'));
+            document.querySelectorAll('.faq-btn.open').forEach(b => b.classList.remove('open'));
+            // Open this one if it was closed
+            if (!isOpen) {
+                answer.classList.add('open');
+                btn.classList.add('open');
+            }
+        }
+    </script>
+
+</body>
+</html>
