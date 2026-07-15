@@ -267,7 +267,7 @@ const translations = {
     "pricing.cta.subtitle": "We'll match you with the right plan for your clinic, set up your AI receptionist, and have you live — usually within a week.",
     "pricing.cta.primary": "Book a Discovery Call",
     "pricing.cta.secondary": "Try the Live Demo",
-    "pricing.cta.note": "No contracts · No setup fees on core plans · Cancel anytime",
+    "pricing.cta.note": "14-day free trial · No contracts · No setup fees on core plans · Cancel anytime",
     "footer.pricing": "Pricing",
 
     // Bottom Line
@@ -278,6 +278,10 @@ const translations = {
     "bottom.point3": "Every opportunity tracked",
     "bottom.point4": "Every customer becomes a review",
     "bottom.cta": "Book Your Discovery Call",
+
+    // ===== SHARED CTA =====
+    "cta.trial": "Start with a 14-day free trial",
+    "cta.trialShort": "Includes a 14-day free trial",
 
     // ===== ABOUT PAGE =====
     "about.badge": "ABOUT NTNS",
@@ -768,7 +772,7 @@ const translations = {
     "pricing.cta.subtitle": "Te asociaremos con el plan correcto para tu clínica, configuraremos tu recepcionista IA y te pondremos en marcha — generalmente en una semana.",
     "pricing.cta.primary": "Reservar una Llamada de Descubrimiento",
     "pricing.cta.secondary": "Prueba el Demo en Vivo",
-    "pricing.cta.note": "Sin contratos · Sin tarifas de instalación en planes básicos · Cancela cuando quieras",
+    "pricing.cta.note": "Prueba gratuita de 14 días · Sin contratos · Sin tarifas de instalación en planes básicos · Cancela cuando quieras",
 
     // System Cost Estimator
     "cost.title": "Estimador de Costo del Sistema NTNS",
@@ -793,6 +797,10 @@ const translations = {
     "bottom.point3": "Cada oportunidad rastreada",
     "bottom.point4": "Cada cliente se convierte en reseña",
     "bottom.cta": "Reserva tu Llamada de Descubrimiento",
+
+    // ===== SHARED CTA =====
+    "cta.trial": "Comienza con una prueba gratuita de 14 días",
+    "cta.trialShort": "Incluye una prueba gratuita de 14 días",
 
     // ===== ABOUT PAGE =====
     "about.badge": "SOBRE NTNS",
