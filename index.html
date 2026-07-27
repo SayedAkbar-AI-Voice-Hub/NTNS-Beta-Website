@@ -170,6 +170,12 @@
             .animate-spin-slow { animation: none; }
         }
 
+        /* Long-form offer headline: scales down so it clears the floating hero cards */
+        .hero-headline {
+            font-size: clamp(30px, 4.6vw, 58px) !important;
+            line-height: 1.08 !important;
+        }
+
         @media (max-width: 768px) {
             .text-headline-2xl {
                 font-size: 40px !important;
@@ -243,6 +249,8 @@
             color: #6063ee;
         }
     </style>
+    <!-- NTNS link tracking (clicks + lead attribution) -->
+    <script src="https://links.ntns.ai/js/external-tracking.js" data-tracking-id="tk_41ce78a303f84562a7754e999d307877"></script>
 </head>
 
 <body class="font-body-md text-on-background selection:bg-primary-container selection:text-on-primary-container bg-[#1a1a3e]">
@@ -275,7 +283,7 @@
             </a>
             <a href="book.html" class="bg-primary-container text-on-primary-container px-5 py-2.5 rounded-full font-['Archivo'] font-bold text-sm transition-all duration-500 ease-out shadow-lg shadow-primary-container/20 hover:shadow-xl hover:shadow-primary-container/30 hover:scale-105 cursor-pointer flex items-center gap-2">
                 <span class="material-symbols-outlined text-lg">calendar_month</span>
-                <span class="hidden sm:inline">Start Free Trial</span>
+                <span class="hidden sm:inline" data-i18n="cta.startFree">Start 100 Free Calls</span>
             </a>
             <button id="mobile-menu-btn" class="md:hidden p-2 text-white/60 hover:text-primary-container cursor-pointer" aria-label="Open menu">
                 <span class="material-symbols-outlined">menu</span>
@@ -297,10 +305,10 @@
                 <span data-i18n="nav.loginDashboard">Login to Dashboard</span>
             </a>
             <a href="book.html" class="flex items-center justify-center gap-2 bg-primary-container text-on-primary-container px-6 py-3 rounded-full font-['Archivo'] font-bold text-sm cursor-pointer mt-2">
-                <span class="material-symbols-outlined text-lg">calendar_month</span>
-                <span>Start Free Trial</span>
+                <span class="material-symbols-outlined text-lg">bolt</span>
+                <span data-i18n="cta.startFreeLong">Start My 100 Free Calls</span>
             </a>
-            <p class="text-center text-xs text-white/40 font-['Archivo'] !mt-2" data-i18n="cta.trial">Start with a 14-day free trial</p>
+            <p class="text-center text-xs text-white/40 font-['Archivo'] !mt-2" data-i18n="cta.trial">No credit card · 7-min setup · Cancel anytime</p>
         </div>
     </div>
 
@@ -310,27 +318,57 @@
             <div class="max-w-container-max mx-auto text-center relative z-10">
                 <div class="animate-in inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card mb-8">
                     <span class="flex h-2 w-2 rounded-full bg-primary-container animate-pulse"></span>
-                    <span class="text-label-bold font-label-bold text-primary-container" data-i18n="hero.badge">24/7 AI VOICE RECEPTIONIST</span>
+                    <span class="text-label-bold font-label-bold text-primary-container" data-i18n="hero.badge">LIVE IN BAY AREA — 47 CONTRACTORS ONBOARD</span>
                 </div>
-                <h1 class="animate-in font-headline-2xl text-headline-2xl text-white mb-8 max-w-4xl mx-auto" style="transition-delay:80ms" data-i18n-html="hero.title">
-                    Never Miss a <span class="text-primary-container">Lead Again</span>
+                <h1 class="animate-in font-headline-2xl text-headline-2xl hero-headline text-white mb-8 max-w-4xl mx-auto" style="transition-delay:80ms" data-i18n-html="hero.title">
+                    We'll Answer Your Next <span class="text-primary-container">100 Calls Free.</span> If We Don't Book 3 Jobs, <span class="text-secondary-container">We Delete Everything.</span>
                 </h1>
                 <p class="animate-in font-body-lg text-body-lg text-white/70 max-w-2xl mx-auto mb-12" style="transition-delay:160ms" data-i18n="hero.subtitle">
-                    Our AI receptionist captures every lead, follows up instantly, and turns more inquiries into paying customers. Nothing slips through the cracks.
+                    24/7 AI receptionist that answers in 2 seconds, books straight to your calendar, and follows up by text. Built for plumbers, roofers, HVAC — not generic bots.
                 </p>
                 <div class="animate-in flex flex-col sm:flex-row justify-center gap-4 sm:gap-6" style="transition-delay:240ms">
                     <a href="tel:+15106347901" class="bg-primary text-on-primary px-10 py-5 rounded-full font-headline-lg text-body-md hover:shadow-xl hover:shadow-primary/30 transition-all duration-500 cursor-pointer inline-flex items-center justify-center gap-3 hover:scale-105 active:scale-95">
                         <span class="material-symbols-outlined">call</span>
-                        <span data-i18n="hero.cta1">Try the AI Live</span>
+                        <span data-i18n="hero.cta1">Call (510) 634-7901 to Demo</span>
                     </a>
-                    <a href="#solution" class="border border-white/30 bg-white/10 px-10 py-5 rounded-full font-headline-lg text-body-md text-white hover:bg-white/20 transition-all duration-500 flex items-center justify-center gap-2 cursor-pointer">
-                        <span class="material-symbols-outlined">play_circle</span>
-                        <span data-i18n="hero.cta2">See How It Works</span>
+                    <a href="book.html" class="border border-white/30 bg-white/10 px-10 py-5 rounded-full font-headline-lg text-body-md text-white hover:bg-white/20 transition-all duration-500 flex items-center justify-center gap-2 cursor-pointer">
+                        <span class="material-symbols-outlined">bolt</span>
+                        <span data-i18n="hero.cta2">Start My 100 Free Calls</span>
                     </a>
                 </div>
-                <p class="animate-in text-sm text-white/40 mt-6 font-['Archivo']" style="transition-delay:320ms" data-i18n-html="hero.callText">
-                    Call <span class="text-white/80 font-semibold">+1 (510) 634-7901</span> to experience it yourself
-                </p>
+                <div class="animate-in flex flex-wrap justify-center items-center gap-x-3 gap-y-2 mt-8 font-['Archivo']" style="transition-delay:320ms">
+                    <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs text-white/60">
+                        <span class="material-symbols-outlined text-sm text-primary-container">credit_card_off</span>
+                        <span data-i18n="hero.trust1">No credit card</span>
+                    </span>
+                    <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs text-white/60">
+                        <span class="material-symbols-outlined text-sm text-primary-container">timer</span>
+                        <span data-i18n="hero.trust2">7-min setup</span>
+                    </span>
+                    <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs text-white/60">
+                        <span class="material-symbols-outlined text-sm text-primary-container">payments</span>
+                        <span data-i18n-html="hero.trust3">Flat <span class="text-white/85 font-semibold">$397/mo</span> after trial</span>
+                    </span>
+                    <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs text-white/60">
+                        <span class="material-symbols-outlined text-sm text-primary-container">cancel</span>
+                        <span data-i18n="hero.trust4">Cancel anytime</span>
+                    </span>
+                </div>
+
+                <div class="animate-in grid grid-cols-3 divide-x divide-white/10 mt-14 max-w-xl mx-auto glass-card rounded-3xl py-6" style="transition-delay:400ms">
+                    <div class="px-3 sm:px-6">
+                        <p class="text-headline-xl font-headline-xl text-primary-container mb-1" data-i18n="hero.proof1.value">47+</p>
+                        <p class="text-label-bold uppercase text-white/50 text-[11px]" data-i18n="hero.proof1.label">Contractors Onboard</p>
+                    </div>
+                    <div class="px-3 sm:px-6">
+                        <p class="text-headline-xl font-headline-xl text-white mb-1" data-i18n="hero.proof2.value">100</p>
+                        <p class="text-label-bold uppercase text-white/50 text-[11px]" data-i18n="hero.proof2.label">Calls Answered Free</p>
+                    </div>
+                    <div class="px-3 sm:px-6">
+                        <p class="text-headline-xl font-headline-xl text-secondary-container mb-1" data-i18n="hero.proof3.value">2 sec</p>
+                        <p class="text-label-bold uppercase text-white/50 text-[11px]" data-i18n="hero.proof3.label">Average Pickup</p>
+                    </div>
+                </div>
             </div>
 
             <!-- Floating Glass Elements -->
@@ -847,10 +885,10 @@
 
                 <div class="animate-in" style="transition-delay:320ms">
                     <a href="book.html" class="inline-flex items-center gap-3 bg-primary text-on-primary px-12 py-5 rounded-full font-headline-lg text-body-md hover:shadow-xl hover:shadow-primary/30 transition-all duration-500 cursor-pointer hover:scale-105 active:scale-95 shadow-lg shadow-primary/20">
-                        <span class="material-symbols-outlined">calendar_month</span>
-                        <span>Start Free Trial</span>
+                        <span class="material-symbols-outlined">bolt</span>
+                        <span data-i18n="cta.startFreeLong">Start My 100 Free Calls</span>
                     </a>
-                    <p class="text-sm text-white/70 font-['Archivo'] font-medium mt-5" data-i18n="cta.trial">Start with a 14-day free trial</p>
+                    <p class="text-sm text-white/70 font-['Archivo'] font-medium mt-5" data-i18n="cta.trial">No credit card · 7-min setup · Cancel anytime</p>
                 </div>
             </div>
         </section>
