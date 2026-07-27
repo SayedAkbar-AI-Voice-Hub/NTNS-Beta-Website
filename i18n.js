@@ -29,12 +29,21 @@ const translations = {
     "footer.termsShort": "Terms",
 
     // ===== INDEX PAGE =====
-    "hero.badge": "24/7 AI VOICE RECEPTIONIST",
-    "hero.title": 'Never Miss a <span class="text-primary-container">Lead Again</span>',
-    "hero.subtitle": "Our AI receptionist captures every lead, follows up instantly, and turns more inquiries into paying customers. Nothing slips through the cracks.",
-    "hero.cta1": "Try the AI Live",
-    "hero.cta2": "See How It Works",
-    "hero.callText": 'Call <span class="text-white/80 font-semibold">+1 (510) 634-7901</span> to experience it yourself',
+    "hero.badge": "LIVE IN BAY AREA — 47 CONTRACTORS ONBOARD",
+    "hero.title": 'We\'ll Answer Your Next <span class="text-primary-container">100 Calls Free.</span> If We Don\'t Book 3 Jobs, <span class="text-secondary-container">We Delete Everything.</span>',
+    "hero.subtitle": "24/7 AI receptionist that answers in 2 seconds, books straight to your calendar, and follows up by text. Built for plumbers, roofers, HVAC — not generic bots.",
+    "hero.cta1": "Call (510) 634-7901 to Demo",
+    "hero.cta2": "Start My 100 Free Calls",
+    "hero.trust1": "No credit card",
+    "hero.trust2": "7-min setup",
+    "hero.trust3": 'Flat <span class="text-white/85 font-semibold">$397/mo</span> after trial',
+    "hero.trust4": "Cancel anytime",
+    "hero.proof1.value": "47+",
+    "hero.proof1.label": "Contractors Onboard",
+    "hero.proof2.value": "100",
+    "hero.proof2.label": "Calls Answered Free",
+    "hero.proof3.value": "2 sec",
+    "hero.proof3.label": "Average Pickup",
 
     // Floating cards
     "hero.card.activeNow": "Active Now",
@@ -171,7 +180,7 @@ const translations = {
     "pricing.perMonth": "/ month",
     "pricing.billing.standard": "Billed monthly · No setup fee",
     "pricing.billing.enterprise": "Setup: $2,500 – $7,500 · Custom quote",
-    "pricing.cta.start": "Start Free Trial",
+    "pricing.cta.start": "Start 100 Free Calls",
     "pricing.cta.contact": "Contact Us",
     "pricing.overage.label": "Overage:",
     "pricing.overage.pricing": "Overage & pricing:",
@@ -265,9 +274,9 @@ const translations = {
     "pricing.cta.badge": "READY TO GET STARTED?",
     "pricing.cta.title": "Book a 20-Min Discovery Call",
     "pricing.cta.subtitle": "We'll match you with the right plan for your clinic, set up your AI receptionist, and have you live — usually within a week.",
-    "pricing.cta.primary": "Start Free Trial",
+    "pricing.cta.primary": "Start My 100 Free Calls",
     "pricing.cta.secondary": "Try the Live Demo",
-    "pricing.cta.note": "14-day free trial · No contracts · No setup fees on core plans · Cancel anytime",
+    "pricing.cta.note": "100 free calls · No credit card · No contracts · Cancel anytime",
     "footer.pricing": "Pricing",
 
     // Bottom Line
@@ -280,8 +289,10 @@ const translations = {
     "bottom.cta": "Book Your Discovery Call",
 
     // ===== SHARED CTA =====
-    "cta.trial": "Start with a 14-day free trial",
-    "cta.trialShort": "Includes a 14-day free trial",
+    "cta.trial": "No credit card · 7-min setup · Cancel anytime",
+    "cta.trialShort": "Starts with 100 free calls",
+    "cta.startFree": "Start 100 Free Calls",
+    "cta.startFreeLong": "Start My 100 Free Calls",
 
     // ===== ABOUT PAGE =====
     "about.badge": "ABOUT NTNS",
@@ -534,12 +545,21 @@ const translations = {
     "footer.termsShort": "Términos",
 
     // ===== INDEX PAGE =====
-    "hero.badge": "RECEPCIONISTA DE VOZ IA 24/7",
-    "hero.title": 'Nunca Pierdas un <span class="text-primary-container">Cliente Otra Vez</span>',
-    "hero.subtitle": "Nuestra recepcionista IA captura cada cliente potencial, da seguimiento al instante y convierte más consultas en clientes que pagan. Nada se escapa.",
-    "hero.cta1": "Prueba la IA en Vivo",
-    "hero.cta2": "Mira Cómo Funciona",
-    "hero.callText": 'Llama al <span class="text-white/80 font-semibold">+1 (510) 634-7901</span> para experimentarlo tú mismo',
+    "hero.badge": "EN VIVO EN EL ÁREA DE LA BAHÍA — 47 CONTRATISTAS A BORDO",
+    "hero.title": 'Contestamos Tus Próximas <span class="text-primary-container">100 Llamadas Gratis.</span> Si No Agendamos 3 Trabajos, <span class="text-secondary-container">Lo Borramos Todo.</span>',
+    "hero.subtitle": "Recepcionista IA 24/7 que contesta en 2 segundos, agenda directo en tu calendario y da seguimiento por mensaje. Hecha para plomeros, techadores y HVAC — no bots genéricos.",
+    "hero.cta1": "Llama al (510) 634-7901 para Demo",
+    "hero.cta2": "Quiero Mis 100 Llamadas Gratis",
+    "hero.trust1": "Sin tarjeta de crédito",
+    "hero.trust2": "Listo en 7 minutos",
+    "hero.trust3": 'Tarifa fija de <span class="text-white/85 font-semibold">$397/mes</span> después de la prueba',
+    "hero.trust4": "Cancela cuando quieras",
+    "hero.proof1.value": "47+",
+    "hero.proof1.label": "Contratistas a Bordo",
+    "hero.proof2.value": "100",
+    "hero.proof2.label": "Llamadas Gratis",
+    "hero.proof3.value": "2 seg",
+    "hero.proof3.label": "Tiempo de Respuesta",
 
     // Floating cards
     "hero.card.activeNow": "Activo Ahora",
@@ -676,7 +696,7 @@ const translations = {
     "pricing.perMonth": "/ mes",
     "pricing.billing.standard": "Facturación mensual · Sin cargo de instalación",
     "pricing.billing.enterprise": "Instalación: $2,500 – $7,500 · Precio personalizado",
-    "pricing.cta.start": "Comenzar Prueba Gratis",
+    "pricing.cta.start": "100 Llamadas Gratis",
     "pricing.cta.contact": "Contáctanos",
     "pricing.overage.label": "Excedente:",
     "pricing.overage.pricing": "Excedente y precios:",
@@ -770,9 +790,9 @@ const translations = {
     "pricing.cta.badge": "¿LISTO PARA COMENZAR?",
     "pricing.cta.title": "Reserva una Llamada de Descubrimiento de 20 Min",
     "pricing.cta.subtitle": "Te asociaremos con el plan correcto para tu clínica, configuraremos tu recepcionista IA y te pondremos en marcha — generalmente en una semana.",
-    "pricing.cta.primary": "Comenzar Prueba Gratis",
+    "pricing.cta.primary": "Quiero Mis 100 Llamadas Gratis",
     "pricing.cta.secondary": "Prueba el Demo en Vivo",
-    "pricing.cta.note": "Prueba gratuita de 14 días · Sin contratos · Sin tarifas de instalación en planes básicos · Cancela cuando quieras",
+    "pricing.cta.note": "100 llamadas gratis · Sin tarjeta de crédito · Sin contratos · Cancela cuando quieras",
 
     // System Cost Estimator
     "cost.title": "Estimador de Costo del Sistema NTNS",
@@ -799,8 +819,10 @@ const translations = {
     "bottom.cta": "Reserva tu Llamada de Descubrimiento",
 
     // ===== SHARED CTA =====
-    "cta.trial": "Comienza con una prueba gratuita de 14 días",
-    "cta.trialShort": "Incluye una prueba gratuita de 14 días",
+    "cta.trial": "Sin tarjeta de crédito · Listo en 7 minutos · Cancela cuando quieras",
+    "cta.trialShort": "Comienza con 100 llamadas gratis",
+    "cta.startFree": "100 Llamadas Gratis",
+    "cta.startFreeLong": "Quiero Mis 100 Llamadas Gratis",
 
     // ===== ABOUT PAGE =====
     "about.badge": "SOBRE NTNS",
